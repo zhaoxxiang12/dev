@@ -143,6 +143,11 @@ ul li:last-child {
     color: white;
 }
 
+.navigation ul li a {
+    color: white;
+    text-decoration: none;
+}
+
 .navigation ul li:hover {
     background-color: blue;
 }
