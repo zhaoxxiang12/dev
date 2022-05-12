@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <!-- 普通文本框属性
+        1.name:数据类型
+        2.value:默认值
+        3.required:必填
+        4.disable:禁用框,不能提交给服务器
+        5.readonly:只读属性,可以提交给服务器
+        6.autofocus:自动获取鼠标光标
+        
+        -->
+
+        <h1>登录</h1>
+        <!-- 设置提交数据标签 -->
+        <form action="../练习/12306铁路.html">
+            <label for="user">账号</label><input type="text" id="user" placeholder="请输入账号" maxlength="12">
+            <p>
+                <label for="pwd">密码</label><input type="password" id="pwd" maxlength="16" placeholder="请输入密码">
+            </p>
+            <!-- 普通按键 -->
+            <input type="button" value="登录">
+            <!-- 提交数据按键 -->
+            <input type="submit" value="提交">
+            <button type="submit">button提交按键</button>
+            <!-- reset必须和form一起使用 -->
+            <input type="reset">
+        </form>
+    </center>
+</body>
+
+</html>
