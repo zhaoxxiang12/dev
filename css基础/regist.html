@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <table border="1" align="center" cellspacing="0" width="100%" height="300px" bordercolor="red">
+            <tr>
+                <td colspan="2"></td>
+                <!-- <td></td> -->
+                <center>
+                    <h1>注册</h1>
+                </center>
+            </tr>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" placeholder="请输入用户名" required maxlength="12"></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input type="password" placeholder="请输入密码" required maxlength="16"></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td>
+                    <input type="radio" name="sex">男
+                    <input type="radio" name="sex">女
+                    <!-- 设置默认选中 -->
+                    <input type="radio" name="sex" checked="true">保密
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣</td>
+                <td>
+                    <input type="checkbox">篮球
+                    <input type="checkbox">足球
+                    <input type="checkbox">排球
+                    <input type="checkbox">乒乓球
+                </td>
+            </tr>
+            <tr>
+                <td>户籍</td>
+                <td>
+                    <select name="" id="">
+                        <option>选择户籍</option>
+                        <option>四川</option>
+                        <option selected="true">北京</option>
+                        <option>重庆</option>
+                        <option>上海</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>个人介绍</td>
+                <td>
+                    <!-- 设置文本域 -->
+                    <textarea name="" id="" cols="80" rows="10" placeholder="请输入内容"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>网站协议</td>
+                <td>
+                    <textarea name="" id="" cols="80" rows="10" readonly>信息只读</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>请选择文件</td>
+                <td>
+                    <!-- 默认只能上传一个  multiple属性可以上传多个 -->
+                    <input type="file" multiple>
+                </td>
+            </tr>
+            <tr>
+                <td>时间</td>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+            <tr>
+                <td>验证码</td>
+                <td>
+                    <input type="text">1234
+                </td>
+            </tr>
+            <tr>
+                <td>提交</td>
+                <td >
+                    <!-- <input type="submit" value="点击注册" style="background-color:pink; "> -->
+                    <button style="background-color:pink; ">133</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
