@@ -1,0 +1,276 @@
+
+
+
+
+
+#head {
+    width: 1200px;
+    border: 1px solid yellow;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 500px; */
+}
+
+.top-left {
+    width: 600px;
+    height: 20px;
+    /* border: 1px solid blue */
+}
+
+.top-left nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.top-left nav ul li {
+    text-align: center; 
+   border-right: 1px solid black;
+   padding-left: 20px;
+}
+
+.top-left nav ul li:last-child {
+    border-right: 0;  
+}
+
+.top-left nav ul li:first-child {
+    padding: 0;
+}
+
+.top-right {
+    width: 500px;
+    height: 20px;
+    /* border: 1px solid blue;  */
+    flex-grow: 1;
+}
+
+.top-right nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.top-right nav ul li {
+    text-align: center; 
+    padding-left: 5px;
+}
+
+.content {
+    width:1200px;
+    border: 1px solid red;  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 300px;
+    border: 1px solid green;
+}
+
+.content .middle {
+    border: 1px solid green;
+    flex-grow: 1;
+    width: 500px;
+}
+
+.content .content-right {
+    width: 200px;
+    border: 1px solid green;
+    /* flex-grow: 1; */
+}
+
+.content-right img {
+    padding-top: 20px;
+}
+
+.middle .area {
+    border: 1px solid blue;
+    width: 170px;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+#searchInput {
+    width: 240px;
+    height:25px;
+}
+
+.middle .searchArea {
+    border: 1px solid blue;
+    width: 515px;
+    height: 50px;
+    text-align: left;
+    line-height: 50px;
+    float: right;
+}
+
+.middle .searchArea button {
+    padding-left: 0;
+}
+
+.wheather span {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.wheather .wheather-text {
+    width: 110px;
+    height: 40px;
+    /* border: 1px solid red; */
+    margin-left: 38px;
+    margin-top: -37px;
+    font-size: 15px;
+    line-height: 40px;
+}
+
+.wheather .wheather-logo {
+   /* border: 1px solid red; */
+   width: 30px;
+   height: 30px;
+   margin-top: 10px;
+   margin-left: -130px;
+}
+
+.wheather-logo img {
+    padding-top: 5px;
+}
+
+.middle .wheather {
+    border: 1px solid blue;
+    width: 170px;
+    height: 50px;
+    float: left;
+}
+
+.middle .menu {
+    border: 1px solid blue;
+    width: 515px;
+    height: 50px;
+    float: right;
+}
+
+.middle .menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-left: 0;
+}
+
+.middle .menu ul li{
+    padding-left: 5px;
+}
+
+.bottom {
+    border: 1px solid blue;
+    width: 1200px;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bottom .goods {
+    border: 1px solid yellowgreen;
+    width: 140px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.bottom .navigation {
+    border: 1px solid yellowgreen;
+    height: 30px;
+    flex-grow: 1;
+    background-color: #ff7e00;
+}
+
+.bottom .navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 5px;
+    justify-content: space-evenly;
+}
+
+.bottom .navigation ul li {
+    font-weight: bold;
+    padding-left: 10px;
+    border: 1px solid red;
+}
+
+.body {
+    border: 1px solid red;
+    width: 1200px;
+    height: 520px;
+    float: left;
+    margin-top: 57px;
+    margin-left: 66px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.body .left-type {
+    border: 1px solid orchid;
+    width: 140px;
+    height: 300px;
+    background: #f0f0f0;
+}
+
+.body .right-type {
+    border: 1px solid orchid;
+    width: 200px;
+    height: 50px;
+    background: #f0f0f0;
+}
+
+.body .main {
+    border: 1px solid orchid;
+    flex-grow: 1;
+}
+
+.body .left-type .select {
+    width: 110px;
+    margin-top: 10px;
+}
+
+.body .left-type .select.prize {
+    width: 100px;
+    height: 25px;
+    padding-left: 10px;
+}
+
+.body .right-type .image {
+    margin-top: 10px;
+    width: 195px;
+    border: none;
+}
+.body .right-type .image img{
+    width: 185px;
+}
+
+.body .right-type .image-png {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+}
+
+.body .right-type .recharge {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+}
+
+.body .right-type .recharge .input {
+    width: 125px;
+}
+
+.right-type .recharge span {
+    color: red;
+}

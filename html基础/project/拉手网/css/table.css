@@ -1,0 +1,185 @@
+.table-3 tr td {
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-3 tr td:first-child {
+    background-color: white;
+}
+
+.table-3 tr td {
+    background-color: #ff7e00;
+}
+
+.table-4 {
+    width: 180px;
+    margin-left: 67px;
+    height:500px;
+    background-color: #f0f0f0;
+}
+
+.table-4 select {
+    display: inline-block;
+    width: 145px;
+}
+
+.right {
+    width: 215px;
+    height: 500px;
+    background-color: #f0f0f0;
+    float: right;
+    margin-top: -500px;
+    margin-right: 66px;
+}
+
+.right input {
+    display: inline-block;
+    width: 130px;
+}
+
+.right select {
+    display: inline-block;
+    width: 85px;
+}
+
+.right span {
+    color: red;
+}
+
+.main {
+    width: 775px;
+    height: 500px;
+    float: left;
+    margin-top: -500px;
+    margin-left: 255px;
+    background-color: #f0f0f0;
+    border-collapse: collapse
+}
+
+.main .text-center {
+    width: 125px;
+    /* height: 30px; */
+    text-align: center;
+}
+
+.main .text-font {
+    font-size: 15px;
+}
+
+.main span {
+    font-weight: bold;
+    color: #0000ee;
+}
+
+.main .price {
+    color: red;
+    font-size: 20px;
+}
+
+.main .count {
+    font-weight: normal;
+    color: red;
+}
+
+.main img {
+    width: 295px;
+}
+
+.main .img-table {
+    width: 775px;
+    margin: 0;
+    height: 390px;
+    /* border-collapse: collapse */
+}
+
+.main .img-table img {
+    height: 300px;
+    width: 380px;
+}
+
+.main .img-table .count {
+    padding-left: 0px;
+}
+
+.main .delete {
+    font-weight: normal;
+    color: black;
+}
+
+.main .right-count {
+    font-size: 15px;
+    padding-left: 210px;
+}
+
+.main .right2-count {
+    font-size: 15px;
+    padding-left: 230px;
+}
+
+.list {
+    width: 1200px;
+    height: 100px;
+    margin-left: 67px;
+    background-color: #f0f0f0;
+}
+
+.list .introduce {
+    color: #0000ee;
+}
+
+.list .price {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list .delete {
+    padding-left: 110px;
+}
+
+.tail {
+    width: 1200px;
+    height:100px;
+    margin-left: 67px;
+    background-color: #f0f0f0;
+}
+
+.tail .text-font {
+    font-size: 15px;
+}
+
+.tail .font-width {
+    width: 75px;
+}
+
+.tail .bold-text {
+    font-weight: bold;
+    color: #0000ee;
+}
+
+.tail-finish {
+    width: 478px;
+    height:120px;
+    margin-left: 200px;
+}
+
+.tail-finish-right {
+    width: 478px;
+    height:260px;
+    float: right;
+    margin-right: 125px;
+    margin-top: -240px;
+}
+
+.tail-finish-right img {
+    height: 255px;
+    width: 365px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.regist-logo {
+    font-size: 10px;
+}
