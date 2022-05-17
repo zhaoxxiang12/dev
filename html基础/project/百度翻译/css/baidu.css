@@ -1,0 +1,199 @@
+.header {
+    width: 100%;
+    height: 50px;
+}
+
+.logo {
+    width: 177px;
+    height: 100%;
+    margin-left: 120px;
+    float: left;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.header-right {
+    float: right;
+    height: 100%;
+    width: 500px;
+}
+
+.header-right ul{
+    list-style: none;
+}
+
+.header-right ul li {
+    float: left;
+    line-height: 100%;
+    margin-right: 30px;
+    width: 100px;
+    height: 33px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.header-right ul li:hover {
+    border-bottom: 2px solid blue;
+}
+
+.header-right ul li a {
+    text-decoration: none;
+}
+
+.main {
+    width: 100%;
+    height: 450px;
+    background-image: url(../image/app-banner.jpg);
+    background-size: cover;
+}
+
+.main .main-left {
+    width: 50%;
+    height: 100%;
+}
+
+.main-left .version {
+    width: 420px;
+    height: 60px;
+    margin-top: 120px;
+    margin-left: 235px;
+    font-size: 50px;
+    color: white;
+    line-height: 60px;
+    float: right;
+}
+
+.main-left .introduce {
+    width: 420px;
+    float: right;
+    margin-top: 20px;
+}
+
+.main-left .introduce span {
+    font-size: 20px;
+    color: white;
+}
+
+.main-left .download {
+    width: 420px;
+    height: 50px;
+    float: right;
+    margin-top: 20px;
+}
+
+.main-left .download button {
+    background-color: #4395ff;
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    border-radius: 30px;
+    line-height: 50px;
+    width: 175px;
+    text-align: center;
+    border: 0;
+}
+
+.footer {
+    width: 100%;
+    height: 300px;
+}
+
+.footer .item {
+    width: 20%;
+    height: 83%;
+    margin-top: 50px;
+    margin-left: 10%;
+    float: left;
+}
+
+.footer .item img {
+    width: 50px;
+}
+
+.footer .item .item-content {
+    width: 100%;
+    height: 50%;
+}
+
+.footer .item .image {
+    width: 50px;
+    height: 50%;
+    float: left;
+}
+
+.footer .item img {
+    float: left;
+}
+
+.footer .item .text-bottom {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #999999;
+}
+
+.footer .item .item-content .text {
+    height: 100%;
+    width: 214px;
+    float: left;
+}
+
+.footer .item-content .text .text-header {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.bottom {
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    background-color: #404040;
+}
+
+.bottom .bottom-left {
+    height: 100%;
+    width: 50%;
+    float: left;
+    margin-left: 10%;
+}
+
+.bottom .bottom-left ul {
+    list-style: none;
+}
+
+.bottom .bottom-left ul li{
+    float: left;
+    padding-left: 10px;
+    color: white;
+}
+
+.bottom .bottom-left ul li{
+    float: left;
+    padding-left: 10px;
+    color: white;
+    font-family: 楷体;
+}
+
+.bottom .bottom-left ul li:first-child {
+    margin-left: -50px;
+}
+
+.bottom .bottom-left ul li a{
+    float: left;
+    padding-left: 10px;
+    color: white;
+}
+
+.bottom-right {
+    width: 30%;
+    height: 100%; 
+    float: right;
+    text-align: center;
+    line-height: 50px;
+}
+
+.bottom-right a  {
+    color: white; 
+    font-family: 楷体; 
+}
