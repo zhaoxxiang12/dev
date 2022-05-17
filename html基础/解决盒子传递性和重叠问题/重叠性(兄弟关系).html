@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .children {
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+            background-color: purple;
+            /* 设置上外边距为50px(距离container这个盒子) */
+            margin-top: 30px;
+        }
+
+        .main {
+            /* 设置BFC容器 */
+            overflow: hidden;
+        }
+        .box {
+            width: 500px;
+            height: 400px;
+            border: 1px solid red;
+            margin-bottom: 40px;
+        }
+
+        /* box 上边距为40px, children下边距为40px,如果不将main设置为BFC,那么两个盒子之间的距离就为40px,理想状态
+        下两个盒子之间的距离应该为70px
+        */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="main">
+        <div class="children"></div>
+    </div>
+</body>
+
+</html>
