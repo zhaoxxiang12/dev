@@ -93,6 +93,11 @@
     height: 50px;
 }
 
+
+button .fa {
+    margin-top: 5px;
+}
+
 .center .search button {
     width: 175px;
     height: 56px;
