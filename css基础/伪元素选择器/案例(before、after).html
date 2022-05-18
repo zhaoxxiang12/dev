@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .box::before {
+            content: "web前端开发";
+            border: 1px solid blue;
+        }
+
+        .box::after {
+            content: "Java开发";
+            border: 1px solid purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        指可以在HTML标签的内容的开始或者结尾通过css添加一块区域，该区域里面可以单独设置样式或者添加文本   
+    </div>
+</body>
+</html>
