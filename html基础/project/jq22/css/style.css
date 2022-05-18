@@ -5,6 +5,11 @@
     overflow: hidden;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .logo {
     width: 150px;
     height: 100%;
@@ -21,24 +26,33 @@
     height: 100%;
     float: right;
     margin: 0;
+    overflow: hidden;
 }
 
 .header .right-menu ul {
     list-style: none;
+    display: block;
+    height: 100%;
+    text-align: center; 
 }
 
 .header .right-menu ul li{
     float: left;
     font-size: 15px;
-    margin-top: -13px;
     display: block;
-    height: 50px;
+    height: 100%;
+    line-height: 100%; 
+    margin-left: 20px; 
+}
+
+.header .right-menu ul li:hover a{
+    color: white;
 }
 
 .header .right-menu ul li a {
     color: gray;
-    padding-left: 20px;
 }
+
 
 .main {
     width: 100%;
