@@ -25,7 +25,6 @@
     width: 100%;
     height: 240px;
     border: 1px solid green;
-    position: relative;
 }
 
 .item ul {
@@ -34,7 +33,8 @@
 
 .item ul li {
     height: 30px;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
+    position: relative;
 }
 
 .list-name {
@@ -44,11 +44,12 @@
 .concert,.arrow {
     width: 30px;
     height: 30px;
-    border: 1px solid green;
 }
 
 .arrow {
     float: right;
+    width: 30px;
+    height: 30px;
 }
 
 .item-name {
@@ -69,7 +70,7 @@
 
 .arrow {
     background-image: url(../image/bg-index-sort-v211.png);
-    background-position: 5px -85px;
+    background-position: 4px -84px;
 }
 
 .concert {
@@ -83,20 +84,41 @@
     position: absolute;
     left: 165px;
     top: 0px;
+    display: none;
 }
 
-
-.hiddenList ul li {
-    height: 30px;
-}
-
-.hiddenList .arrow {
-    height: 30px;
-    width: 30px;
+.hidden-item {
     float: left;
 }
 
-.hiddenList .arrow:hover {
-    background-position: 5px -122px;
+.hiddenList ul li {
+    height: 30px;
+    border-bottom: 1px solid purple;
+}
+
+.hiddenList .arrow-icon {
+    height: 30px;
+    width: 30px; 
+    background-image: url(../image/bg-index-sort-v211.png);
+    background-position: 8px -85px;
+}
+
+.hiddenList .arrow-icon:hover {
+    background-position: 7px -122px;
     background-repeat: no-repeat;
+}
+
+.listName {
+    width: 64px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.item ul li:first-child:hover .hiddenList {
+    display: block;
+}
+
+.item ul li:nth-child(2):hover .hiddenList {
+    display: block;
 }
