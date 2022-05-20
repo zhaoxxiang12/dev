@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 200px;
+    height: 300px;
+    border: 1px solid red;
+    margin-left: 100px;
+    margin-top: 50px;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.hidden-list {
+    width: 100px;
+    height: 159.375px;
+    border: 1px solid red;
+    position: relative;
+    bottom: 1px; 
+    display: none;
+    z-index: 1;
+    background-color: transparent;
+    
+}
+/* hover出现二级菜单 */
+.item-list .arrow:hover .hidden-list {
+    display: block;
+}
+
+.goodsType {
+    width: 100%;
+    height: 15%;
+    /* border: 1px solid blue; */
+    line-height: 44px;
+}
+
+.goodsType {
+    background-image: url(../image/bg-index-sort-v211.png);
+    background-size: cover;
+    background-position: 0px 0px;
+}
+
+.goodsType span {
+    margin-left: 15px;
+    color: white;
+}
+
+.item {
+    width: 100%;
+    height: 85%;
+    position: absolute;
+}
+
+.item-list {
+    width: 100%;
+    height: 31.875px;
+}
+
+.item-list:hover {
+    background: url(../image/bg-index-sort-v211.png) no-repeat 0px 0px/cover;
+}
+
+.icon,
+.item-name,
+.arrow {
+    float: left;
+    box-sizing: border-box;
+    width: 20%;
+    height: 100%;
+    border: 1px solid transparent
+}
+
+.item-name {
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    line-height: 31.875px;
+}
+
+.item-list .arrow {
+    width: 20%;
+    height: 100%;
+    background: url(../image/bg-index-sort-v211.png) no-repeat 0px -175px/cover;
+}
+
+.hidden-list .arrow {
+    width: 40%;
+    height: 27px;
+    float: left;
+    box-sizing: border-box;
+}
+
+
+.hidden-list .arrow {
+    background-image: url(../image/bg-index-sort-v211.png);
+    background-position: 0px -175px;
+    background-size: cover;
+    float: left;
+}
+
+.hidden-list .arrow:hover {
+    background-image: url(../image/bg-index-sort-v211.png);
+    background-size: cover;
+    background-position: 0px -248px;
+}
+
+.list-name {
+    width: 60%;
+    height: 31.875px;;
+    float: left;
+    line-height: 31.875px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.concert {
+    width: 20%;
+    height: 100%;
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -5px;
+}
+
+.concert:hover {
+    background: url(../image/ico-index-sort.png) no-repeat 0px -70px/cover;
+}
+
+.music {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -135px;
+}
+
+.music:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -200px;
+}
+
+.drama {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -260px; 
+}
+
+.drama:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -325px;
+}
+
+.dance {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -390px; 
+}
+
+.dance:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -455px;  
+}
+
+.opera {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -515px;    
+}
+
+.opera:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -580px; 
+}
+
+.sport {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -645px;   
+}
+
+.sport:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -710px;
+}
+
+.vacation {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -776px 
+}
+
+.vacation:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -841px 
+}
+
+.parent-child {
+    background-image: url(../image/ico-index-sort.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -900px 
+}
+
+.parent-child:hover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -965px 
+}
+
+.listGoods {
+    height: 31.875px;
+    width: 100%;
+    border-bottom: 1px solid;
+}
+
+.listGoods:last-child {
+    border-bottom: none;
+}
