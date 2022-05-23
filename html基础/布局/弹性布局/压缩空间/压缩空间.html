@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 200px;
+            border: 1px solid blue;
+            display: flex;
+        }
+        [class*=box ]{
+            width: 300px;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+
+        .box2 {
+            background-color: pink;
+            flex-shrink: 2;
+            /* 1200-1000 = 200 压缩空间
+            3+2 = 5 压缩份数
+            200 / 5 = 40 
+            压缩两份 40 / 2 = 20 最终宽度 220
+            */
+        }
+
+        .box3 {
+            background-color: aqua;
+            flex-shrink: 6;
+            /* 
+            1200 - 1000 = 200
+            压缩份数：6+2+2 = 10
+            每一份的压缩：200 / 10 = 20
+            最终宽度：300 - 20* 6 = 180
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+    </div>
+</body>
+</html>
