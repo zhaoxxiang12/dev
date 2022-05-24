@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box,.box2 {
+            width: 600px;
+            height: 600px;
+            border: 1px solid red;
+            background-image: repeating-linear-gradient(45deg,blue 0px, blue 40px, purple 40px ,purple 80px,
+            transparent 80px, transparent 120px);
+        }
+        .box2 {
+            background-image: repeating-linear-gradient(-45deg,blue 0px, blue 40px , purple 40px ,purple 80px ,
+            transparent 80px, transparent 120px);        
+            margin-top: -602px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>
