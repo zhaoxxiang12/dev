@@ -402,7 +402,7 @@ i,
     margin-bottom: 10px;
 }
 
-/* @keyframes moveLeft {
+@keyframes moveLeft {
     0% {
 		transform:translatex(0);
 	}
@@ -430,7 +430,7 @@ i,
 	100% {
 		transform:translatex(-100%);
 	}
-} */
+}
 
 .teacherList {
     animation: moveLeft 3s linear infinite;
