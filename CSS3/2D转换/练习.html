@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box1 {
+            transform-origin: left top;
+        }
+
+        .box2 {
+            transform-origin: right bottom;
+        }
+
+        .container {
+            width: 800px;
+            height: 400px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: greenyellow;
+            float: left;
+            margin-top: 300px;
+            transition: 3s;
+        }
+
+        .container:hover .box1 {
+            transform: rotateZ(-45deg);
+        }
+
+        .container:hover .box2 {
+            transform: rotateZ(-45deg);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+    </div>
+</body>
+
+</html>

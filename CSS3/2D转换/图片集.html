@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 600px;
+            border: 1px solid red;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item1 {
+            top: 10px;
+            left: 150px;
+            transform-origin: right bottom;
+            transform: rotate(-45deg);
+        }
+
+        .item2 {
+            top: 250px;
+            left: 20px;
+            transform-origin: left bottom;
+            transform: rotate(45deg);
+        }
+
+        .item3 {
+           top: 250px;
+           right: 20px; 
+           transform-origin: left top;
+           transform: rotate(30deg);
+        }
+
+        .container div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            position: absolute;
+            transition: all 2s;
+        }
+
+        .item1:hover {
+            transform: rotate(0deg);
+            width: 500px;
+            height: 600px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .item2:hover {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">
+            <img src="../../image/1.jpg" alt="">
+        </div>
+        <div class="item2">
+            <img src="../../image/天使彦7.jpg" alt="">
+        </div>
+        <div class="item3">
+            <img src="../../image/天使彦8.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
