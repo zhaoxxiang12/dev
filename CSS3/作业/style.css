@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-shadow: 1px 1px 10px 10px cyan inset;
+    position: relative;
+    height: 800px;
+    overflow: hidden;
+    border: 1px solid cyan;
+}
+/* 太阳 */
+.sun {
+    width: 100px;
+    height: 100px;
+    margin-left: 100px;
+    background-color: orange;
+    border-radius: 100px;
+    margin-top: 50px;
+}
+
+/* 太阳hover效果 */
+.sun:hover {
+    box-shadow: 0px 0px 20px 20px orange;
+}
+
+/* 熊猫头部 */
+
+.bar-head {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    margin-right: 50px;
+    border-radius: 200px 200px 200px 200px/200px 200px 100px 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+}
+
+/* 身体 */
+.bar-body {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 30px 30px 50px 50px/150px 150px 30px 30px;
+    margin-right: 50px;
+    position: absolute;
+    right: 125px;
+    top: 300px;
+    background-color: white;
+}
+
+
+.leftEye {
+    width: 100px;
+    height: 120px;
+    border: 1px solid black;
+    position: absolute;
+    background-color: black;
+    top: 50px;
+    right: 290px;
+    border-radius: 70px 35px 70px 35px/80px 40px 80px 40px;
+    z-index: 3;
+}
+
+.bar-leftEye {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  position: absolute;
+  margin-top: 50px;
+  top: 20px;
+  right: 315px;
+  border-radius: 50%;
+  z-index: 4;
+  background-color: white;
+}
+
+/* 右眼 */
+.rightEye {
+    width: 100px;
+    height: 120px;
+    border: 1px solid black;
+    position: absolute;
+    background-color: black;
+    top: 50px;
+    right: 110px;
+    border-radius: 35px 70px 35px 70px / 40px 80px 40px 80px;
+    z-index: 3; 
+}
+
+.bar-rightEye {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    position: absolute;
+    margin-top: 50px;
+    top: 20px;
+    right: 155px;
+    border-radius: 50%;
+    z-index: 4;
+    background-color: white;
+}
+
+/* 鼻子 */
+
+.bar-nose {
+    width: 30px;
+    height: 20px;
+    border: 1px solid black;
+    position: absolute;
+    right: 185px;
+    top: 200px;
+    background-color: black;
+    margin-right: 50px;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+/* 嘴 */
+.bar-mouse {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: transparent;
+    box-shadow: 0 15px 0 0;
+    position: absolute;
+    right: 210px;
+    top: 175px;
+    z-index: 4;
+}
+
+/* 左手 */
+
+.bar-leftHand {
+    width: 40px;
+    height: 110px;
+    border: 1px solid black;
+    position: absolute;
+    right: 265px;
+    top: 296px;
+    margin-right: 50px;
+    background-color: black;
+    border-radius: 10px 10px 20px 20px/10px 20px 20px 30px;
+    transform: skewX(-30deg);
+}
+
+/* 右手 */
+
+.bar-rightHand {
+    width: 40px;
+    height: 110px;
+    border: 1px solid black;
+    position: absolute;
+    right: 90px;
+    top: 296px;
+    margin-right: 50px;
+    background-color: black;
+    border-radius: 10px 10px 20px 20px/10px 20px 20px 30px;
+    transform: skewX(30deg);
+}
+
+
+.bar-leftEar {
+    width: 30px;
+    height: 30px;
+    border: 30px solid black;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    margin-right: 50px;
+    border-radius: 45px;
+    z-index: 0;
+}
+
+.bar-rightEar {
+    width: 30px;
+    height: 30px;
+    border: 30px solid black;
+    position: absolute;
+    right: 285px;
+    top: 0;
+    margin-right: 50px;
+    border-radius: 45px;
+    z-index: 0;
+}
+
+/* 左脚 */
+.bar-leftFoot {
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    right: 280px;
+    top: 415px;
+    border: 1px solid black;
+    border-radius: 20px 10px 20px 10px/40px 20px 40px 20px;
+    background-color: black;
+    z-index: -1;
+}
+
+/* 右脚 */
+.bar-rightFoot {
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    right: 185px;
+    top: 415px;
+    border: 1px solid black;
+    border-radius: 20px 10px 20px 10px/40px 20px 40px 20px;
+    background-color: black;
+    z-index: -1;
+}
+
+.bar {
+    margin-top: 50px;
+    position: relative;
+}
