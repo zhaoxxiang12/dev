@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /* transition: 3s; */
+            /* 控制属性名称 */
+            transition-property: width, margin-top;
+            /* 控制过度时长 */
+            transition-duration:3s, 5s;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 800px;
+            border: 1px solid blue;
+        }
+
+        .box1:hover .box{
+            margin-top: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box"></div>
+    </div>
+   
+</body>
+</html>
