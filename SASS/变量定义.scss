@@ -1,0 +1,12 @@
+$boder:1px solid red;
+
+div {
+    border:$boder;
+}
+
+$font:20px;
+
+font {
+    font-size: $font;
+    font-weight: normal;
+}
