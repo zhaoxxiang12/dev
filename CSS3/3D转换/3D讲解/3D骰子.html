@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            perspective: 5500px;
+            margin: 150px auto;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: all 5s;
+            animation: circle 5s linear infinite;
+            transform-origin: 100px 100px -100px;
+        }
+
+        [class*=item] {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(17, 78, 128, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            font-size: 20px;
+            line-height: 200px;
+            border-radius: 10px;
+        }
+
+        .item2 {
+            transform-origin: left center;
+            transform: rotateY(90deg);
+        }
+
+        .item3 {
+            transform-origin: right center;
+            transform: rotateY(-90deg);
+        }
+
+        .item4 {
+            transform-origin: top center;
+            transform: rotateX(-90deg);
+        }
+
+        .item5 {
+            transform-origin: bottom center;
+            transform: rotateX(90deg);
+        }
+
+        .item6 {
+            transform: translateZ(-200px);
+        }
+
+        @keyframes circle {
+            0% {
+                transform: rotate3d(0,0,0,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+
+        #box:hover .box {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置3D舞台 -->
+    <div id="box">
+        <!-- 存放六面的盒子 -->
+        <div class="box">
+            <div class="item1">●</div>
+            <div class="item2">●●</div>
+            <div class="item3">●●●</div>
+            <div class="item4">●●●●</div>
+            <div class="item5">●●●●●</div>
+            <div class="item6">●●●●●●</div>
+        </div>
+    </div>
+</body>
+</html>
