@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.photoList {
+    width: 1500px;
+    height: 800px;
+    border: 1px solid red;
+}
