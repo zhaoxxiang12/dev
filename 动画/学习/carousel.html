@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .imgs {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 500%;
+            height: 400px;
+            animation: carousel 10s linear infinite;
+        }
+
+     .container .imgs  .item {
+            width: 20%;
+            height: 400px;
+        }
+
+        img {
+            width: 100%;
+            height: 400px;
+        }
+
+        @keyframes carousel {
+            0% {
+                transform: translateX(0%);
+            }
+
+            20% {
+                transform: translateX(0%);
+            }
+
+            25% {
+                transform: translateX(-20%);
+            }
+            45% {
+                transform: translateX(-20%);
+            }
+
+            50% {
+                transform: translateX(-40%);
+            }
+
+            70% {
+                transform: translateX(-40%);
+            }
+
+            75% {
+                transform: translateX(-60%);
+            }
+
+            95% {
+                transform: translateX(-60%);
+            }
+
+            100% {
+                transform: translateX(-80%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="imgs">
+                <div class="item">
+                    <img src="../image/PBET7_train.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="../image/class_time_train.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="../image/xian_Web_train.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="../image/double_train.png" alt="">
+                </div>
+                <div class="item">
+                    <img src="../image/PBET7_train.png" alt="">
+                </div>
+            </div>
+    </div>
+</body>
+</html>
