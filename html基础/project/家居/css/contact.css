@@ -51,6 +51,16 @@
   height: 250px;
 }
 
+.content .main .item button {
+  width: 100px;
+  margin-left: 200px;
+  margin-top: 20px;
+  background-color: #c7A884;
+  border-radius: 20px;
+  outline: 0px;
+  border: none;
+}
+
 h3 {
   line-height: 50px;
 }
