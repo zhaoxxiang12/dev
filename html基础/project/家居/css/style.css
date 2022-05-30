@@ -75,35 +75,6 @@ nav .item:hover {
     transform: rotateX(90deg);
 }
 
-.banner {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: url(../image/ban1.jpg) no-repeat center/cover;
-}
-
-.banner .introduce {
-    width: 500px;
-    height: 300px;
-    margin: 50px;
-    padding: 50px 30px;
-    background-color: rgba(138, 97, 58, 0.5);
-    color: white;
-}
-
-.banner .footer {
-    width: 100%;
-    height: 50px;
-    margin-top: -50px;
-    background-color: #C7AB84;
-    text-align: center;
-    line-height: 50px;
-    font-size: 15px;
-    color: white;
-}
-
 .content,.newest {
     width: 95%;
     height: 500px;
@@ -333,4 +304,94 @@ footer p {
     line-height: 30px;
     font-size: 10px;
     background-color: #FCDEC8;
+}
+
+/* 轮播图 */
+.container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.main {
+    width: 400%;
+    height: 500px;
+    display: flex;
+    animation: move 10s linear infinite;
+}
+
+.banner-1,.banner-4 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: url(../image/ban1.jpg) no-repeat center/cover;
+}
+
+[class*=banner] {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+[class*=banner] .introduce {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    margin: 50px;
+    padding: 50px 30px;
+    background-color: rgba(138, 97, 58, 0.5);
+    color: white;
+}
+
+[class*=banner] .footer {
+    width: 100%;
+    height: 50px;
+    margin-top: -50px;
+    background-color: #C7AB84;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+.banner-2 .introduce, .banner-3 .introduce{
+    left: 375px;
+}
+
+.banner-2 {
+    background: url(../image/ban.jpg) no-repeat center/cover;
+}
+
+.banner-3 {
+    background: url(../image/ban2.jpg) no-repeat center/cover;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    30% {
+        transform: translateX(-25%);
+    }
+
+    55% {
+        transform: translateX(-50%);
+    }
+    60% {
+        transform: translateX(-50%);
+    }
+    85% {
+        transform: translateX(-75%);
+    }
+    100% {
+        transform: translateX(-75%);
+    }
 }
