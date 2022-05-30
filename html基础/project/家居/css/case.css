@@ -1,0 +1,47 @@
+.content {
+  height: 1225px;
+}
+
+.content .gallery-text {
+  width: 100%;
+  height: 55px;
+  text-align: center;
+  color: #7b7b7b;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.content .gallery-text p {
+  margin-top: 20px;
+}
+
+.content .photoList {
+  width: 100%;
+  height: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content .photoList .picture {
+  width: 350px;
+  height: 350px;
+}
+
+.content .photoList .picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.footInfo {
+  height: 160px;
+  margin-top: 30px;
+}
+
+.footInfo .info-bottom {
+  margin-top: 130px;
+}
+
+.footInfo .icon {
+  top: 40px;
+}
