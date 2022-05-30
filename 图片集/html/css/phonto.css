@@ -18,7 +18,7 @@ body {
 
 .photoList {
     width: 1300px;
-    height: 800px;
+    height: 900px;
     border: 1px solid red;
 }
 
@@ -115,3 +115,70 @@ body {
     z-index: 3;
 }
 
+.picture-20 {
+    z-index: 5;
+}
+
+.picture-20,.picture-21,.picture-22,.picture-23 {
+    transform-origin: 0px 300px;
+}
+.item:hover .picture-20{
+    transform:  rotate(-15deg) scale(1.2);
+}
+
+.item:hover .picture-21 {
+    transform: translate(-300px,-150px) rotate(-20deg) scale(0.8);
+    z-index: 8;
+}
+
+.item:hover .picture-22 {
+    transform: translate(-30px,-250px) rotate(-20deg) scale(0.8);
+    z-index: 4;
+}
+
+.item:hover .picture-23 {
+    transform: translate(240px,-350px) rotate(-20deg) scale(0.8);
+    z-index: 4;
+}
+
+.item:hover .picture-24 {
+    transform: translate(-320px,50px) rotate(-20deg) scale(0.8);
+    z-index: 7;
+}
+
+.item:hover .picture-25 {
+    transform: translate(200px,-140px) rotate(-20deg) scale(0.8);
+    z-index: 4;
+}
+
+.item:hover .picture-28 {
+    transform: translate(200px,90px) rotate(-20deg) scale(0.8);
+    z-index: 4;
+}
+
+.item:hover .picture-27 {
+    transform: translate(-249px,250px) rotate(-20deg) scale(0.8);
+    z-index: 4;
+}
+
+.picture-30 {
+    z-index: 7;
+}
+
+.item:hover .picture-30 {
+    transform: rotate(-25deg) scale(1.2);
+}
+
+.item:hover .picture-31 {
+    transform: translate(-200px) rotate(-25deg);
+    z-index: 4;
+}
+
+.item:hover .picture-32 {
+    transform: translate(-100px,-150px) rotate(-25deg);
+    z-index: 3;
+}
+.item:hover .picture-33 {
+    transform: translate(180px) rotate(20deg);
+    z-index: 6;
+}
