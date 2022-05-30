@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.ball-box {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0;
+    perspective-origin: 50% 50%;
+    /* 设置3d动态 */
+    perspective: 3000px;
+}
+
+.ball {
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate3D 10s linear infinite;
+}
+
+/* 设置圆 */
+.ball > div {
+    border: 1px solid #ffffff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* 旋转面并组合成球体 */
+
+.ball .line1 {
+    transform: rotateY(0deg);
+}
+.ball .line2 {
+    transform: rotateY(36deg);
+}
+.ball .line3 {
+    transform: rotateY(72deg);
+}
+.ball .line4 {
+    transform: rotateY(108deg);
+}
+.ball .line5 {
+    transform: rotateY(144deg);
+}
+
+/* 设置动画 */
+
+@keyframes rotate3D {
+    0% {
+        transform:  rotateY(0deg);
+    }
+    100% {
+        transform:  rotateY(360deg);
+    }
+}

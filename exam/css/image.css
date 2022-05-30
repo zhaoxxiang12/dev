@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置弹性容器子元素均分 */
+.container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+body {
+    background-color: black;
+}
+
+.container .item {
+    width: 30%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.container .wrap-1 {
+    background: url(../image/img-1.jpg) no-repeat center/cover;
+}
+
+.container .item .top {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    transition: all 2s;
+    border-top: 0px;
+    border-bottom: 120px solid transparent;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    top: -125px;
+    left: -25px;
+    border-top: 120px solid rgba(216, 212, 227,0.8);
+}
+
+.container .item .right {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: -350px;
+    top: -242px;
+    border-style: solid;
+    border-left: 350px solid transparent;
+    border-bottom: 350px solid transparent;
+    border-top: 350px solid transparent;
+    transition: all 2s;
+    border-right: 350px solid white;
+}
+
+.container .item .right h3,p,.icon {
+    margin-left: 200px;
+}
+
+.container .wrap-2 {
+    background: url(../image/img-2.jpg) no-repeat center/cover;
+}
+.container .wrap-3 {
+    background: url(../image/img-3.jpg) no-repeat center/cover;
+}
+
+/* hover效果 */
+.container .item:hover .top{
+   transform: translateY(125px); 
+}
+
+.container .item:hover .right {
+    transform: translateX(-350px);
+}
+/* 图标 */
+[class*=icon] {
+    background-color: black;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    float: left;
+}
+/* 图标容器 */
+.main {
+    width: 80px;
+    height: 80px;
+    margin-left: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
