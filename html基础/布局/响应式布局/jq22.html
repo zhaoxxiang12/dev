@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../font-awesome/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+        }
+
+        .logo {
+            width: 13%;
+            height: 100%;
+            border: 1px solid red;
+            box-sizing: border-box;
+
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (min-width:750px) {
+            .userInfo {
+                width: 60%;
+                height: 100%;
+                border: 1px solid blue;
+                box-sizing: border-box;
+            }
+            .userInfo ul {
+                height: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                list-style: none;
+                color: white;
+                line-height: 50px;
+
+            }
+
+            .userInfo ul li:last-child {
+                background-color: #2F2F2F;
+                height: 100%;
+            }
+            .menu {
+                display: none;
+            }
+            .button {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:750px) {
+            .userInfo {
+                display: none;
+            }
+            .button {
+                display: block;
+                height: 100%;
+                width: 100px;
+                border: 1px solid red;
+                position: relative;
+            }
+            .btn {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 50px;
+            }
+            .menu {
+                display: block;
+                width: 100%;
+                border: 1px solid blue;
+                background-color: black;
+            }
+            .menu ul {
+                list-style: none;
+                color: white;
+            }
+            .menu ul li {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../project/jq22/image/logo.png" alt="">
+        </div>
+        <div class="userInfo">
+            <ul>
+                <li><i class="fa fa-edit">在线编辑</i></li>
+                <li><i class="fa fa-code">在线代码</i></li>
+                <li><i class="fa fa-balance-scale">文本比较</i></li>
+                <li><i class="fa fa-download">jQuery下载</i></li>
+                <li><i class="fa fa-ship">前端库</i></li>
+                <li><i class="fa fa-book">在线手册</i></li>
+                <li><i class="fa fa-user">登录/注册</i></li>
+            </ul>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="clickMe('menu')">
+                点击
+            </button>
+        </div>
+    </header>
+    <div class="menu" id="menu" style="display: none;">
+        <ul>
+            <li><i class="fa fa-edit">在线编辑</i></li>
+            <li><i class="fa fa-code">在线代码</i></li>
+            <li><i class="fa fa-balance-scale">文本比较</i></li>
+            <li><i class="fa fa-download">jQuery下载</i></li>
+            <li><i class="fa fa-ship">前端库</i></li>
+            <li><i class="fa fa-book">在线手册</i></li>
+            <li><i class="fa fa-user">登录/注册</i></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<script>
+    function clickMe(id) {
+       let none = document.getElementById(id);
+       if (none.style.display=="block") {
+           none.style.display = "none"
+       } else {
+           none.style.display='block'
+       }
+    }
+</script>
