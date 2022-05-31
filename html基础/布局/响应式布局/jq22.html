@@ -23,7 +23,6 @@
         .logo {
             width: 13%;
             height: 100%;
-            border: 1px solid red;
             box-sizing: border-box;
 
         }
@@ -37,7 +36,6 @@
             .userInfo {
                 width: 60%;
                 height: 100%;
-                border: 1px solid blue;
                 box-sizing: border-box;
             }
             .userInfo ul {
@@ -60,6 +58,9 @@
             .button {
                 display: none;
             }
+            .menu ul {
+                display: none;
+            }
         }
 
         @media screen and (max-width:750px) {
@@ -70,7 +71,6 @@
                 display: block;
                 height: 100%;
                 width: 100px;
-                border: 1px solid red;
                 position: relative;
             }
             .btn {
@@ -83,7 +83,6 @@
             .menu {
                 display: block;
                 width: 100%;
-                border: 1px solid blue;
                 background-color: black;
             }
             .menu ul {
@@ -92,6 +91,10 @@
             }
             .menu ul li {
                 margin-top: 10px;
+            }
+
+            .menu ul li:first-child {
+                margin: 0;
             }
         }
     </style>
@@ -134,8 +137,8 @@
 </html>
 
 <script>
-    function clickMe(id) {
-       let none = document.getElementById(id);
+    function clickMe(prop) {
+       let none = document.getElementById(prop);
        if (none.style.display=="block") {
            none.style.display = "none"
        } else {
