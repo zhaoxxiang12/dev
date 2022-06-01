@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../../../../font-awesome/font-awesome-4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../image/logo.png" alt="">
+        </div>
+        <div class="userInfo">
+            <ul>
+                <li><i class="fa fa-edit">在线编辑</i></li>
+                <li><i class="fa fa-code">在线代码</i></li>
+                <li><i class="fa fa-balance-scale">文本比较</i></li>
+                <li><i class="fa fa-download">jQuery下载</i></li>
+                <li><i class="fa fa-ship">前端库</i></li>
+                <li><i class="fa fa-book">在线手册</i></li>
+                <li><i class="fa fa-user">登录/注册</i></li>
+            </ul>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="clickMe('menu')">
+                点击
+            </button>
+        </div>
+    </header>
+    <!-- 小屏幕二级菜单 -->
+    <div class="menu" id="menu" style="display: none;">
+        <ul>
+            <li><i class="fa fa-edit">在线编辑</i></li>
+            <li><i class="fa fa-code">在线代码</i></li>
+            <li><i class="fa fa-balance-scale">文本比较</i></li>
+            <li><i class="fa fa-download">jQuery下载</i></li>
+            <li><i class="fa fa-ship">前端库</i></li>
+            <li><i class="fa fa-book">在线手册</i></li>
+            <li><i class="fa fa-user">登录/注册</i></li>
+        </ul>
+    </div>
+
+    <!-- 中间部分 -->
+    <div class="main">
+        <!-- 中间搜索框已经文字 -->
+        <div class="center">
+            <!-- 第一行大文本 -->
+            <div class="image">
+                <img src="../image/ggc.png" alt="">
+            </div>
+            <!--  搜索框-->
+            <div class="search">
+                <div class="searchArea input">
+                    <input type="text" placeholder="输入插件关键字">
+                </div>
+                <div class="searchArea button">
+                    <button>
+                        <i class="fa fa-chevron-circle-right">找到你梦想</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导航部分 -->
+    <nav>
+        <ul>
+            <li>
+                <a href="">
+                    <i class="fa fa-paint-brush">
+                        UI
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-keyboard-o">
+                        输入
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-film">
+                        媒体
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-paper-plane-o">
+                       导航
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-dropbox">
+                        其他
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-th-large">
+                        网页模板
+                    </i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-tablet">
+                        APP模板
+                    </i>
+                    
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-file-code-o">
+                       常用代码
+                    </i>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-code">
+                       在线代码
+                    </i>
+                    
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- 内容 -->
+    <div class="container">
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="../image/2022-05-27-01-01-39.jpeg" alt="">
+            </div>
+            <div class="info">
+                <a href="">
+                    <h4>jQuery粘性侧边栏与右侧标题联动</h4>
+                </a>
+                <small>jQuery粘性侧边栏与右侧标题联动</small>
+            </div>
+            <div class="fields">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;垂直导航,其他导航
+            </div>
+            <div class="status">
+                <i class="fa fa-eye"></i>
+                &nbsp;758
+                <i class="fa fa-heart"></i>
+                &nbsp;300
+                <div class="count">
+                    <i class="fa fa-user-secret"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function clickMe(prop) {
+        let none = document.getElementById(prop);
+        if (none.style.display == "block") {
+            none.style.display = "none"
+        } else {
+            none.style.display = 'block'
+        }
+    }
+</script>
