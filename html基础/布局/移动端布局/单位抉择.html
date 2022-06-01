@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* rem适用于全局控制,em适用于局部控制 */
+        .box {
+            width: 30em;
+            height: 200px;
+            background-color: pink;
+        }
+        @media screen and (min-width:375px) {
+            .box {
+                font-size: 10px;
+                width: 20em;
+                height: 200px;
+                background-color: aquamarine;
+            }
+        }
+        @media screen and (min-width:414px) {
+            .box {
+                font-size: 10px;
+                width: 30em;
+                height: 200px;
+                background-color: aquamarine;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="box"></div>
+    </nav>
+</body>
+</html>
