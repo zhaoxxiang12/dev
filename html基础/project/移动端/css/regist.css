@@ -70,6 +70,7 @@ main input {
   width: 100%;
   height: .8rem;
   border-radius: .1rem;
+  font-size: .4rem;
 }
 
 main .forget a {
@@ -86,7 +87,7 @@ main button {
   border-radius: .1rem;
   text-align: center;
   background-color: #4073FF;
-  font-size: .25rem;
+  font-size: .3rem;
   color: white;
 }
 
