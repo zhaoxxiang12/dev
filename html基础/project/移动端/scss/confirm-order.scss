@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 100vw;
+    height: 3rem;
+
+    .main {
+        width: 85%;
+        height: 85%;
+        margin: 0 auto;
+        margin-top: 0.2em;
+        display: flex;
+
+        .image {
+            width: 2rem;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 0.2em;
+            }
+        }
+
+        .synopsis {
+            flex-grow: 1;
+            height: 100%;
+            font-size: 0.25rem;
+            line-height: 0.4rem;
+
+            p {
+                &:first-child {
+                    font-size: 0.2rem;
+                    margin-left: 0.2rem;
+                    margin-top: 0.5rem;
+                    color: #4173fe;
+                }
+
+                &:last-child {
+                    font-size: 0.2rem;
+                    margin-left: 0.2rem;
+                    color: #9ea4b3;
+                }
+            }
+
+            h6 {
+                font-size: 0.3rem;
+                margin-left: 0.2rem;
+            }
+        }
+    }
+}
+
+.details {
+    width: 100vw;
+    height: 5rem;
+
+    .container {
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+
+        .item {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+
+            &:first-child .children {
+
+                &:last-child h6 {
+                    color: red;
+                }
+            }
+
+            &:last-child {
+                p {
+                    margin-left: 1.5rem;
+                }
+               
+                h6 {
+                    margin-left: 1.5rem;
+                }
+            }
+
+            .children {
+                width: 100%;
+                height: 1rem;
+                line-height: 0.5rem;
+
+                p {
+                    font-size: 0.25rem;
+                }
+
+                h6 {
+                    font-size: 0.3rem;
+                }
+
+                .seat {
+                    width: 100%;
+                    height: 0.5rem;
+                    box-sizing: border-box;
+                    display: flex;
+
+                    .code {
+                        width: 0.5rem;
+                        height: 0.5rem;
+                        box-sizing: border-box;
+                        margin-right: 0.1rem;
+                        text-align: center;
+                        line-height: 0.5rem;
+                        background-color: #4173fe;
+                        color: white;
+                        font-size: 0.25rem;
+                        border-radius: 0.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100vw;
+    height: 3rem;
+    margin-top: 0.2rem;
+
+    .content {
+        width: 85%;
+        margin: 0 auto;
+        height: 100%;
+        position: relative;
+
+        .item {
+            position: absolute;
+            width: 100%;
+            height: 1rem;
+            margin: 0 auto;
+            top: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+
+            .price {
+                font-size: 0.25rem;
+                line-height: 1rem;
+                font-weight: bold;
+            }
+            
+        }
+
+            button {
+                display: block;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                height: 0.5rem;
+                border-radius: 0.1rem;
+                background-color: #4173fe;
+                color: white;
+                font-size: 0.25rem;
+                border: none;
+            }
+     
+    }
+}
+
+body {
+    position: relative;
+}
+
+.pay {
+    position: absolute;
+    width: 100vw;
+    height: 4rem;
+    border-radius: 0.2rem;
+    bottom: 2.25rem;
+    background-color: white;
+
+    .content {
+        width: 85%;
+        margin: 0 auto;
+        height: 100%;
+
+        .header {
+            width: 100%;
+            height: 0.5rem;
+            margin-top: 0.2rem;
+
+            .left {
+                width: 1rem;
+                height: 100%;
+                float: left;
+                box-sizing: border-box;
+                background-image: url(../image/雪碧图.png);
+                background-repeat: no-repeat;
+                background-size: 8rem 2.3rem;
+                background-position: -4.5rem -0.9rem;
+            }
+
+            .right {
+                width: 2rem;
+                height: 100%;
+                float: right;
+                box-sizing: border-box;
+                text-align: left;
+                line-height: 0.5rem;
+                font-size: 0.25rem;
+                text-align: right;
+            }
+
+            .center {
+                overflow: hidden;
+                height: 100%;
+                box-sizing: border-box;
+                text-align: left;
+                line-height: 0.5rem;
+                font-size: 0.25rem;
+                font-weight: 900;
+            }
+
+            .bank {
+                width: 100%;
+                height: 2rem;
+                box-sizing: border-box;
+                border-radius: 0.2rem;
+                background-color: #3ab3bc;
+                overflow: hidden;
+
+                .card {
+                    width: 76%;
+                    height: 100%;
+                    margin: 0 auto;
+
+                    .card-head {
+                        margin-top: 0.2rem;
+                        width: 100%;
+                        height: 0.37rem;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .type {                         
+                            font-size: 0.25rem;
+                            color: white;
+                        }
+    
+                        .bankName {
+                            width: 1.54rem;
+                            height: 0.37rem;
+                            background-image: url(../image/招商银行.png);
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+                    }
+
+                    p {
+                        font-size: 0.25rem;
+                        color: white;
+                        margin-top: 0.5rem;
+                    }
+
+                    h6 {
+                        margin-top: 0.1rem;
+                        color: white;
+                        font-size: 0.25rem;
+                    }
+                }
+            }
+        }
+    }
+}

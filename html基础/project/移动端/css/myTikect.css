@@ -1,0 +1,112 @@
+@charset "UTF-8";
+header {
+  height: 3.2rem;
+}
+
+header .ribbon {
+  margin-top: 0.2rem;
+}
+
+header .ribbon .item:first-child {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  width: 100vw;
+  height: 10rem;
+}
+
+.container .content {
+  width: 6.2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.3rem;
+}
+
+.container .content .ticketList {
+  width: 100%;
+  height: 3.2rem;
+  margin-top: 0.3rem;
+  background: url(../image/矩形.png) no-repeat center/cover;
+  display: flex;
+  position: relative;
+}
+
+.container .content .ticketList:first-child {
+  margin: 0;
+}
+
+.container .content .ticketList .info {
+  width: 65%;
+  height: 1rem;
+  margin-top: 0.5rem;
+}
+
+.container .content .ticketList .info h6, .container .content .ticketList .info p {
+  margin-left: 0.2rem;
+  font-size: 0.2rem;
+}
+
+.container .content .ticketList .info h6 {
+  color: white;
+}
+
+.container .content .ticketList .info p {
+  margin-top: 0.2rem;
+  color: #8a8d9b;
+}
+
+.container .content .ticketList .QRCode {
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-left: 1.3rem;
+  margin-top: 0.5rem;
+  line-height: 0;
+  background-color: white;
+  padding: 0.05rem;
+  border-radius: 0.1rem;
+}
+
+.container .content .ticketList .QRCode img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .content .ticketList .line {
+  width: 85%;
+  position: absolute;
+  top: 0.7rem;
+}
+
+.container .content .ticketList .ticketInfo {
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  top: 1.96rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .content .ticketList .ticketInfo .item {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 1rem;
+  font-size: 0.25rem;
+  padding-left: 0.2rem;
+}
+
+.container .content .ticketList .ticketInfo .item:last-child {
+  text-align: right;
+  padding-right: 0.2rem;
+}
+
+.container .content .ticketList .ticketInfo .item span {
+  color: #f3b438;
+}
+
+.container .content .ticketList .ticketInfo .item a {
+  color: white;
+}

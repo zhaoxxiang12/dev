@@ -1,0 +1,226 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.filmDetail {
+  width: 100vw;
+  height: 2.5rem;
+}
+
+.filmDetail .content {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.filmDetail .content .radius {
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  background-color: #0b193e;
+  bottom: 0rem;
+  z-index: 1;
+}
+
+.filmDetail .content .cro-left-bottom {
+  border-radius: 0 0.2rem 0 0;
+  left: 0rem;
+}
+
+.filmDetail .content .cro-right-bottom {
+  border-radius: 0.2rem 0 0 0;
+  right: 0rem;
+}
+
+.filmDetail .content .filmInfo {
+  width: 85%;
+  margin: 0 auto;
+  height: 1.8rem;
+  margin-top: 0.2rem;
+  display: flex;
+  line-height: 0.45rem;
+}
+
+.filmDetail .content .filmInfo .image {
+  width: 1rem;
+  height: 100%;
+}
+
+.filmDetail .content .filmInfo .image img {
+  border-radius: 0.1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.filmDetail .content .filmInfo p {
+  margin-left: 0.2rem;
+  font-size: 0.25rem;
+}
+
+.filmDetail .content .filmInfo p:first-child {
+  margin-top: 0.2rem;
+  color: #4b7afe;
+}
+
+.filmDetail .content .filmInfo p:last-child {
+  color: #969cae;
+}
+
+.filmDetail .content .filmInfo h6 {
+  margin-left: 0.2rem;
+  font-size: 0.3rem;
+}
+
+.userInfo {
+  width: 100vw;
+  height: 3rem;
+  box-sizing: border-box;
+}
+
+.userInfo .content {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  border-bottom: 0.01rem dashed gray;
+}
+
+.userInfo .content .radius {
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  background-color: #0b193e;
+  top: 0rem;
+  z-index: 1;
+  box-sizing: border-box;
+  border-radius: 0 0 0.2rem 0;
+}
+
+.userInfo .content .radius.cro-right-top {
+  right: 0;
+  border-radius: 0 0 0 0.2rem;
+}
+
+.userInfo .content .detail {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.userInfo .content .detail .item {
+  width: 100%;
+  height: 1rem;
+  line-height: 0.4rem;
+  margin-left: 0.5rem;
+}
+
+.userInfo .content .detail .item p {
+  font-size: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+.userInfo .content .detail .item h6 {
+  font-size: 0.25rem;
+}
+
+.userInfo .content .detail .item .seat-code {
+  display: flex;
+}
+
+.userInfo .content .detail .item .seat-code .icon {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: 0.05rem;
+  background-color: #4b7afe;
+  font-size: 0.2rem;
+  text-align: center;
+  line-height: 0.3rem;
+  color: white;
+  border-radius: 0.06rem;
+}
+
+.userInfo .content .detail:last-child p {
+  margin-left: 1.2rem;
+}
+
+.userInfo .content .detail:last-child h6 {
+  margin-left: 1.2rem;
+}
+
+.ticket {
+  width: 100vw;
+  height: 2rem;
+}
+
+.ticket .content {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0 0 0.2rem 0.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket .content .item {
+  width: 50%;
+  height: 100%;
+}
+
+.ticket .content .item h6 {
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  font-size: 0.25rem;
+  font-weight: normal;
+}
+
+.ticket .content .item p {
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 0.3rem;
+}
+
+.ticket .content .item .QRCode {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+  margin-left: 1.7rem;
+  background: url(../image/二维码.png) no-repeat center/cover;
+}
+
+.ticket .content .item:last-child h6 {
+  margin-left: 1.7rem;
+}
+
+.button {
+  margin-top: 0.5rem;
+  width: 100vw;
+  height: 0.75rem;
+}
+
+.button button {
+  display: block;
+  width: 85%;
+  height: 100%;
+  border: none;
+  font-weight: bold;
+  font-size: 0.25rem;
+  border-radius: 0.1rem;
+  background-color: #4b7afe;
+  margin: 0 auto;
+}
+
+.button button a {
+  color: white;
+}

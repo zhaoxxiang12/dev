@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header {
+    width: 100vw;
+    height: 2.5rem;
+    background-color: #0b193e;
+    position: relative;
+
+    .image {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        right: 0;
+
+        img {
+           width: 100%; 
+           height: 100%;
+        }
+    }
+
+    .welcome {
+        width: 100vw;
+        height: 0.5rem;
+        position: absolute;
+        top: 1.5rem;
+        display: flex;
+
+        .icon {
+            box-sizing: border-box;
+            width: 0.5rem;
+            height: 100%;
+            margin-left: 0.5rem;
+            background-image: url(../image/雪碧图.png);
+            background-size: 8rem 2.3rem;
+            background-position: -2.13rem -1.62rem;
+        }
+
+        .greet {
+            height: 100%;
+            color: white;
+            font-size: 0.25rem;
+            font-weight: bold;
+            line-height: 0.5rem;
+        }
+    }
+}
+
+nav {
+    width: 100vw;
+    height: 0.5rem;
+    background-color: #233052;
+
+    .icon {
+        margin-left: 0.4rem;
+        width: 0.5rem;
+        height: 100%;
+        float: left;
+        background-image: url(../image/雪碧图.png);
+        background-size: 8rem 2.3rem;
+    }
+
+    .position-icon {
+        background-position: -3.88rem -0.25rem;
+    }
+
+    .position {
+        overflow: hidden;
+        height: 100%;
+        text-align: left;
+        color: white;
+        font-size: 0.25rem;
+        line-height: 0.5rem;
+        padding-left: 0.2rem;
+    }
+
+    .drop {
+        float: right;
+        margin-right: 0.5rem;
+        background-position: -6.28rem -0.35rem;
+    }
+}
+
+// 标题
+.title {
+    width: 100vw;
+    height: 1rem;
+
+    .item {
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        .min-item {
+            width: 50%;
+            height: 100%;
+            line-height: 1rem;
+            font-size: 0.5rem;
+
+            &:last-child {
+                text-align: right;
+                font-size: 0.2rem;
+            }
+
+            a {
+                color: black;
+            }
+        }
+    }
+}
+
+// 电影列表
+
+.container {
+    overflow: auto;
+
+    .movieList {
+        width: 10rem;
+        height: 4rem;
+        margin: 0 auto;
+        margin-left: 0.5rem;
+        display: flex;
+
+        .list {
+            width: 2.5rem;
+            margin-right: 0.2rem;
+            box-sizing: border-box;
+            height: 100%;
+
+            .picture {
+                width: 100%;
+                height: 80%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .movieName {
+                text-align: center;
+                line-height: 0.8rem;
+                font-size: 0.25rem;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// 底部菜单
+footer {
+    width: 100vw;
+    height: 1rem;
+    margin-top: 0.2rem;
+
+    .menu {
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+
+        .item {
+            width: 1rem;
+            height: 100%;
+
+            .icon {
+                width: 0.5rem;
+                height: 0.5rem;
+                margin: 0 auto;
+                background-image: url(../image/雪碧图.png);
+                background-size: 8rem 2.3rem;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+            }
+
+            .front-page {
+                background-position: -0.2rem -0.25rem;
+            }
+
+            .cinema {
+                background-position: -1.15rem -0.25rem;
+            }
+
+            .film {
+                background-position: -2.12rem -0.25rem;
+            }
+
+            .mine {
+                background-position: -3.04rem -0.25rem;
+            }
+
+            .menuName {
+                width: 100%;
+                height: 0.5rem;
+                box-sizing: border-box;
+                font-size: 0.2rem;
+                text-align: center;
+                line-height: 0.5rem;
+
+                a {
+                    color: #b6bac5;
+                }
+            }
+
+            &:hover .front-page {
+                color: black;
+                background-position: -0.2rem -0.94rem;
+            }
+
+            &:hover .menuName-frontPage a {
+                color: black;
+               
+            }
+    
+            &:hover .cinema {
+                background-position: -1.15rem -.94rem;
+            }
+
+            &:hover .menuName-cinema a {
+                color: black;
+            }
+
+            &:hover .film {
+                background-position: -2.12rem -0.94rem;
+            }
+
+            &:hover .menuName-film a {
+                color: black;
+            }
+
+            &:hover .mine {
+                background-position: -3.04rem -0.94rem;
+            }
+
+            &:hover .menuName-mine a {
+                color: black;
+            }
+        }
+      
+    }
+}
