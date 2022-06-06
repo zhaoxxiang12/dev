@@ -13,13 +13,13 @@
   width: 85%;
   height: 85%;
   margin: 0 auto;
-  margin-top: 0.2em;
   display: flex;
 }
 
 .content .main .image {
   width: 2rem;
   height: 100%;
+  padding-top: 0.2rem;
 }
 
 .content .main .image img {
@@ -56,6 +56,7 @@
 .details {
   width: 100vw;
   height: 5rem;
+  margin-top: 0.2rem;
 }
 
 .details .container {
@@ -123,6 +124,7 @@ footer {
   width: 100vw;
   height: 3rem;
   margin-top: 0.2rem;
+  background-color: white;
 }
 
 footer .content {
@@ -195,6 +197,7 @@ body {
   background-repeat: no-repeat;
   background-size: 8rem 2.3rem;
   background-position: -4.5rem -0.9rem;
+  margin-left: -3.5rem;
 }
 
 .pay .content .header .right {
@@ -225,6 +228,7 @@ body {
   border-radius: 0.2rem;
   background-color: #3ab3bc;
   overflow: hidden;
+  margin-top: 0.2rem;
 }
 
 .pay .content .header .bank .card {

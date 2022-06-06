@@ -12,8 +12,8 @@
 
 </head>
 
-<body id="bodyId" style="background-color: white;">
-    <header>
+<body style="background-color: #c7cad3" id="bodyId">
+    <header id="headerId" style="background-color: #0A193F;">
         <div class="image">
             <img src="../image/2.png" alt="">
         </div>
@@ -23,7 +23,7 @@
         </div>
     </header>
 
-    <div class="content">
+    <div class="content" id="contentId" style="background-color: white;">
         <div class="main">
             <div class="image">
                 <img src="../image/图层 10.png" alt="">
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="details">
+    <div class="details" id="detailsId" style="background-color: white;">
         <div class="container">
             <div class="item">
                 <div class="children">
@@ -88,7 +88,7 @@
                     <span>￥123.00</span>
                 </div>
             </div>
-            <button onclick="clickMe('menu','bodyId')" >立即支付</button>
+            <button onclick="clickMe('menu','contentId','detailsId')" >立即支付</button>
         </div>
     </footer>
     <div class="pay" id="menu" style="display: none;" >
@@ -120,15 +120,21 @@
 </html>
 
     <script>
-       function clickMe(id,bodyId) {
+       function clickMe(id,contentId,detailsId) {
         let none = document.getElementById(id);
-        let bodyBgColor = document.getElementById(bodyId);
+        // let headerColor= document.getElementById(headerId);
+        let contentColor = document.getElementById(contentId);
+        let detailsColor = document.getElementById(detailsId)
         if (none.style.display == "block") {
             none.style.display = "none"
-            bodyBgColor.style.backgroundColor = 'white'
+            // headerColor.style.backgroundColor = '#0A193F'
+            contentColor.style.backgroundColor = 'white'
+            detailsColor.style.backgroundColor = 'white'
         } else {
             none.style.display = 'block' 
-            bodyBgColor.style.backgroundColor = '#c7cad3'
+            // headerColor.style.backgroundColor = '#c7cad3'
+            contentColor.style.backgroundColor = '#c7cad3'
+            detailsColor.style.backgroundColor = '#c7cad3'
         }
     }
     </script>
