@@ -88,7 +88,7 @@
                     <span>￥123.00</span>
                 </div>
             </div>
-            <button onclick="clickMe('menu','contentId','detailsId')" >立即支付</button>
+            <button onclick="clickMe('menu','contentId','detailsId','bodyId')" >立即支付</button>
         </div>
     </footer>
     <div class="pay" id="menu" style="display: none;" >
@@ -120,19 +120,19 @@
 </html>
 
     <script>
-       function clickMe(id,contentId,detailsId) {
+       function clickMe(id,contentId,detailsId,bodyId) {
         let none = document.getElementById(id);
-        // let headerColor= document.getElementById(headerId);
+        let bodyColor= document.getElementById(bodyId);
         let contentColor = document.getElementById(contentId);
         let detailsColor = document.getElementById(detailsId)
         if (none.style.display == "block") {
             none.style.display = "none"
-            // headerColor.style.backgroundColor = '#0A193F'
+            bodyColor.style.backgroundColor = '#0A193F'
             contentColor.style.backgroundColor = 'white'
             detailsColor.style.backgroundColor = 'white'
         } else {
             none.style.display = 'block' 
-            // headerColor.style.backgroundColor = '#c7cad3'
+            bodyColor.style.backgroundColor = '#B8BECD'
             contentColor.style.backgroundColor = '#c7cad3'
             detailsColor.style.backgroundColor = '#c7cad3'
         }
