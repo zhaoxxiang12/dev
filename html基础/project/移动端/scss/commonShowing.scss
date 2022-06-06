@@ -61,11 +61,10 @@ header {
             font-size: 0.25rem;
             line-height: 0.5rem;
             text-align: center;
-            color: white;
-
-            &:hover {
-                background-color: white;
-                color: black;
+            
+            a {
+                color: white;
+                text-decoration: none;
             }
         }
     }

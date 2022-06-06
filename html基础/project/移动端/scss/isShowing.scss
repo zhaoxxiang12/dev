@@ -74,7 +74,9 @@ header {
         .item {
             &:first-child {
                 background-color: white;
-                color: black;
+                a {
+                    color: black;
+                }
             }
         }
     }

@@ -70,5 +70,8 @@
 
 header .ribbon .item:first-child {
   background-color: white;
+}
+
+header .ribbon .item:first-child a {
   color: black;
 }

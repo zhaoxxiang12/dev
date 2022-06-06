@@ -8,7 +8,14 @@ header {
         .item {
             &:last-child {
                 background-color: white;
-                color: black;
+                
+                a {
+                    color: black;
+                }
+            }
+
+            &:first-child {
+                background-color: #233052;
             }
         }
     }

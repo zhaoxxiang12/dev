@@ -5,5 +5,12 @@
 
 header .ribbon .item:last-child {
   background-color: white;
+}
+
+header .ribbon .item:last-child a {
   color: black;
+}
+
+header .ribbon .item:first-child {
+  background-color: #233052;
 }
