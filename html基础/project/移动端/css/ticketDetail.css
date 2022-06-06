@@ -1,0 +1,146 @@
+@charset "UTF-8";
+body {
+  background-color: #0A193E;
+}
+
+.content {
+  width: 100vw;
+}
+
+.content .ticketInfo {
+  width: 85%;
+  margin: 0 auto;
+  height: 2.55rem;
+  background-color: white;
+  border-radius: 0.2rem 0.2rem 0 0;
+  position: relative;
+  display: flex;
+}
+
+.content .ticketInfo .radius {
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  bottom: 0;
+  background-color: #0A193E;
+  z-index: 1;
+}
+
+.content .ticketInfo .cro-left-bottom {
+  left: 0;
+  border-radius: 0 0.2rem 0 0;
+}
+
+.content .ticketInfo .cro-right-bottom {
+  right: 0;
+  border-radius: 0.2rem 0 0 0;
+}
+
+.content .ticketInfo .picture {
+  width: 1rem;
+  height: 2rem;
+  padding: 0.2rem;
+}
+
+.content .ticketInfo .picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.content .ticketInfo .details {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.content .ticketInfo .details h6 {
+  font-size: 0.3rem;
+  margin-top: 0.28rem;
+}
+
+.content .ticketInfo .details p {
+  font-size: 0.2rem;
+  margin-top: 0.1rem;
+}
+
+.content .ticketInfo .details .seatInfo {
+  display: flex;
+  margin-top: 0.2rem;
+}
+
+.content .ticketInfo .details .seatInfo .seat {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.2rem;
+  border-radius: 0.1rem;
+  background-color: #4073FF;
+  color: white;
+  line-height: 0.4rem;
+  text-align: center;
+  font-size: 0.2rem;
+}
+
+.content .QRCode {
+  width: 85%;
+  height: 7rem;
+  overflow: hidden;
+  background-color: white;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content .QRCode .radius.cro-left-top {
+  width: 0.2rem;
+  height: 0.2rem;
+  background-color: #0A193E;
+  position: absolute;
+  top: 0;
+  border-radius: 0 0 0.2rem 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.content .QRCode .radius.cro-right-top {
+  position: absolute;
+  top: 0;
+  border-radius: 0 0 0 0.2rem;
+  right: 0;
+  width: 0.2rem;
+  height: 0.2rem;
+  background-color: #0A193E;
+}
+
+.content .QRCode h6 {
+  font-size: 0.2rem;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 0.6rem;
+}
+
+.content .QRCode .QRCode-picture {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  background: url(../image/黑边框.png) no-repeat center/cover;
+  padding: 0.2rem;
+}
+
+.content .QRCode .QRCode-picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.content .QRCode p {
+  margin-top: 0.5rem;
+  font-size: 0.2rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.content .QRCode h5 {
+  margin-top: 0.2rem;
+  font-size: 0.4rem;
+  text-align: center;
+  font-weight: bold;
+}

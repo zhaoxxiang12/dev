@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100vw;
+    height: 3rem;
+    background: url(../image/图层8.png) no-repeat center/cover;
+    position: relative;
+
+    .arrow {
+        width: 0.5rem;
+        height: 0.5rem;
+        position: absolute;
+        left: 0.5rem;
+        top: 1rem;
+        background-image: url(../image/雪碧图.png);
+        background-size: 8rem 2.3rem;
+        background-position: -4.75rem -0.25rem;
+    }
+}
+
+.detail {
+    width: 100vw;
+    margin-top: 0.2rem;
+
+    .content {
+        width: 85%;
+        margin: 0 auto;
+
+        h6 {
+            font-size: 0.25rem;
+        }
+
+        p {
+            font-size: 0.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .introduce {
+            width: 100%;
+            height: 1rem;
+            display: flex;
+            margin-top: 0.5rem;
+
+            .item {
+                width: 30%;
+                margin-right: 0.3rem;
+
+                &:last-child .min-item h6{
+                    line-height: 0.6rem;
+                }
+
+                .min-item {
+                    display: flex;
+                    width: 100%;
+                    height: 0.5rem;
+                    box-sizing: border-box;
+
+                    .icon {
+                        width: 0.5rem;
+                        height: 0.5rem;
+                        background-image: url(../image/雪碧图.png);
+                        background-size: 8rem 2.3rem;
+                    }
+
+                    .position {
+                        background-position: -3.9rem -1rem;
+                    }
+
+                    .money-blue {
+                        background-color: #396DFF;
+                    }
+
+                    .money {
+                        width: .3rem;
+                        height: .3rem;
+                        margin-right: 0.1rem;
+                        background-image: none;
+                        border-radius: 50%;
+                        font-size: 0.25rem;
+                        text-align: center;
+                        line-height: 0.3rem;
+                        color: white;
+                        margin-top: 0.1rem;
+                    }
+
+                    .money-gray {
+                        background-color: #B0B4BF;
+                    }
+
+                    h6 {
+                        font-size: 0.25rem;
+                        line-height: 0.5rem;
+                    }
+
+                    .collect {
+                        background-position: -7.09rem -0.9rem;
+                    }
+                }
+
+                p {
+                    font-size: 0.2rem;
+                    color: #979DAC;
+                }
+
+            }
+        }
+    }
+}
+
+.title {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+
+    h6 {
+        font-size: 0.25rem;
+    }
+}
+
+
+.container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+
+    .movieList {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        margin-top: 0.5rem;
+
+        &:first-child {
+            margin-top: 0.2rem;
+        }
+
+        .picture {
+            width: 2rem;
+            height: 3rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .filmInfo {
+            flex-grow: 1;
+
+            h5 {
+                font-size: 0.3rem;
+                margin-top: 0.3rem;
+            }
+
+            p {
+                font-size: 0.2rem;
+                color: #0031FF;
+                margin-top: 0.2rem;
+            }
+
+            h6 {
+                font-size: 0.2rem;
+                color: #858C9F;
+                margin-top: 0.4rem;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+
+            h5,h6,p {
+                margin-left: 0.2rem;
+            }
+
+            .showTime {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 0.2rem;
+                width: 3rem;
+
+                .timeList {
+                    width: 0.9rem;
+                    box-sizing: border-box;
+                    height: 0.4rem;
+                    margin-right: 0.1rem;
+                    margin-top: 0.1rem;
+                    border: 1px solid #C7D8FE;
+                    border-radius: 0.1rem;
+                    text-align: center;
+                    line-height: 0.4rem;
+                    font-size: 0.2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
