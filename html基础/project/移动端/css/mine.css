@@ -179,3 +179,8 @@ footer .icon .film {
 footer .icon .mine {
   background-position: -10.8rem -0.65rem;
 }
+
+footer .text a {
+  color: #BABBC6;
+  text-decoration: none;
+}

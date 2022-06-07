@@ -5,10 +5,31 @@
   text-decoration: none;
 }
 
+nav {
+  height: 0.6rem;
+}
+
+nav .position {
+  line-height: 0.6rem;
+}
+
 .title {
   width: 88%;
   margin: 0 auto;
+  height: auto;
   margin-top: 0.2rem;
+}
+
+.title:nth-child(n+2) {
+  width: 100%;
+}
+
+.title:nth-child(n+2) .item {
+  width: 100%;
+}
+
+.title:nth-child(n+2) .min-item:first-child {
+  margin-left: 0.5rem;
 }
 
 .title h4 {

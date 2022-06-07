@@ -195,11 +195,15 @@
 .details .content button {
   display: block;
   width: 100%;
-  color: white;
   height: 0.6rem;
   border: none;
   border-radius: 0.1rem;
   background-color: #4073ff;
   margin-top: 0.2rem;
   font-size: 0.3rem;
+}
+
+.details .content button a {
+  text-decoration: none;
+  color: white;
 }

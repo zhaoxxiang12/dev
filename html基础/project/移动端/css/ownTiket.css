@@ -6,8 +6,11 @@ header .ribbon {
   margin-top: 0.2rem;
 }
 
-header .ribbon .item:first-child {
+header .ribbon .item:last-child {
   background-color: white;
+}
+
+header .ribbon .item:last-child a {
   color: black;
 }
 
@@ -41,7 +44,6 @@ header .ribbon .item:first-child {
 .container .orderList .list .picture {
   width: 1.5rem;
   height: 100%;
-  border: 1px solid blue;
 }
 
 .container .orderList .list .picture img {

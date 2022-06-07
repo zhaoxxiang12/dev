@@ -59,6 +59,11 @@ header {
         font-size: 0.25em;
         text-align: center;
 
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
         &:hover {
             font-weight: bold;
             border-bottom: 0.2em solid #005AFE; 

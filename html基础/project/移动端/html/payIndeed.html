@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>确认订单</title>
+    <title>立即支付</title>
     <link rel="stylesheet" href="../css/onlyBg.css">
     <link rel="stylesheet" href="../css/confirm-order.css">
+    <link rel="stylesheet" href="../css/payIndeed.css">
     <script src="../../../../config/config.js"></script>
 
 </head>
@@ -17,7 +18,7 @@
         <div class="image">
             <img src="../image/2.png" alt="">
         </div>
-        <a href="../html/seat-selection.html" class="arrow"></a>
+        <div class="arrow"></div>
         <div class="login">
             <span>确认订单</span>
         </div>
@@ -77,66 +78,49 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="content">
-            <div class="item">
-                <div class="price">
-                    <span>总价</span>
-                </div>
-                <div class="price">
-                    <span>￥123.00</span>
-                </div>
-            </div>
-            <button>
-            <a href="../html/payIndeed.html">去支付</a>
-            </button>
-        </div>
-    </footer>
-    <div class="pay" id="menu" style="display: none;" >
-        <div class="content">
-            <div class="header">
-                <div class="left"></div>
-                <div class="right">
-                    <span>退出支付</span>
-                </div>
-                <div class="center">
-                    <span>支付</span>
-                </div>
-                <div class="bank">
-                     <div class="card">
-                        <div class="card-head">
-                            <div class="type">
-                                <span>信用卡</span>
+    <div class="payPage">
+        <div class="pay" id="menu" style="display: block;" >
+            <div class="content">
+                <div class="header">
+                    <div class="left"></div>
+                    <div class="right">
+                        <span>退出支付</span>
+                    </div>
+                    <div class="center">
+                        <span>支付</span>
+                    </div>
+                    <div class="bank">
+                         <div class="card">
+                            <div class="card-head">
+                                <div class="type">
+                                    <span>信用卡</span>
+                                </div>
+                                <div class="bankName"></div>
                             </div>
-                            <div class="bankName"></div>
-                        </div>
-                         <p>····&nbsp;···· &nbsp;···· &nbsp;····&nbsp; 1234</p>
-                         <h6>李**</h6>
-                     </div>
+                             <p>····&nbsp;···· &nbsp;···· &nbsp;····&nbsp; 1234</p>
+                             <h6>李**</h6>
+                         </div>
+                    </div>
                 </div>
             </div>
+            <footer>
+                <div class="content">
+                    <div class="item">
+                        <div class="price">
+                            <span>总价</span>
+                        </div>
+                        <div class="price">
+                            <span>￥123.00</span>
+                        </div>
+                    </div>
+                    <button>
+                        <a href="../html/paySuccess.html">立即支付</a>
+                    </button>
+                </div>
+            </footer>
         </div>
+ 
     </div>
+    <div class="linear"></div>
 </body>
 </html>
-
-    <!-- <script>
-       function clickMe(id,contentId,detailsId,bodyId) {
-        let none = document.getElementById(id);
-        let bodyColor= document.getElementById(bodyId);
-        let contentColor = document.getElementById(contentId);
-        let detailsColor = document.getElementById(detailsId)
-        if (none.style.display == "block") {
-            none.style.display = "none"
-            bodyColor.style.backgroundColor = '#0A193F'
-            contentColor.style.backgroundColor = 'white'
-            detailsColor.style.backgroundColor = 'white'
-        } else {
-            none.style.display = 'block' 
-            bodyColor.style.backgroundColor = '#B8BECD'
-            contentColor.style.backgroundColor = '#c7cad3'
-            detailsColor.style.backgroundColor = '#c7cad3'
-        }
-    }
-    </script> -->

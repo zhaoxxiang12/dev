@@ -6,8 +6,11 @@ header {
         margin-top: 0.2rem;
 
         .item {
-            &:first-child {
+            &:last-child {
                 background-color: white;
+            }
+
+            &:last-child a {
                 color: black;
             }
         }
@@ -49,7 +52,6 @@ header {
             .picture {
                 width: 1.5rem;
                 height: 100%;
-                border: 1px solid blue;
 
                 img {
                     width: 100%;

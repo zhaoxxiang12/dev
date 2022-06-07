@@ -4,12 +4,33 @@
     text-decoration: none;
 }
 
+nav {
+    height: 0.6rem;
 
+    .position {
+        line-height: 0.6rem;
+    }
+}
 
 .title {
     width: 88%;
     margin: 0 auto;
+    height: auto;
     margin-top: 0.2rem;
+
+    &:nth-child(n+2) {
+        width: 100%;
+
+        .item {
+            width: 100%;
+        }
+
+        .min-item {
+            &:first-child {
+                margin-left: 0.5rem;
+            }
+        }
+    }
 
     h4 {
         font-size: 0.25rem;

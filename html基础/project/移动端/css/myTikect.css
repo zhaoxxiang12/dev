@@ -7,9 +7,13 @@ header .ribbon {
   margin-top: 0.2rem;
 }
 
+header .ribbon .item a {
+  text-decoration: none;
+  color: black;
+}
+
 header .ribbon .item:first-child {
   background-color: white;
-  color: black;
 }
 
 .container {

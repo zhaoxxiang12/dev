@@ -1,0 +1,76 @@
+.payPage {
+  width: 100vw;
+  height: 6.4rem;
+  background-color: white;
+  z-index: 4;
+  position: absolute;
+  top: 7rem;
+  border-radius: 0.2rem;
+}
+
+.pay {
+  z-index: 3;
+}
+
+.pay .content .header .bank {
+  height: 3rem;
+}
+
+.pay .content .header .bank .card p {
+  margin-top: 1rem;
+}
+
+.pay footer {
+  width: 100vw;
+  height: 3rem;
+  margin: 0;
+  background-color: white;
+}
+
+.pay footer .content {
+  width: 85%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.pay footer .content .item {
+  position: absolute;
+  width: 100%;
+  height: 1rem;
+  margin: 0 auto;
+  top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pay footer .content .item .price {
+  font-size: 0.25rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+
+.pay footer .content button {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 0.5rem;
+  border-radius: 0.1rem;
+  background-color: #4173fe;
+  font-size: 0.25rem;
+  border: none;
+}
+
+.pay footer .content button a {
+  color: white;
+  text-decoration: none;
+}
+
+.linear {
+  width: 100%;
+  height: 13.4rem;
+  background-color: rgba(198, 202, 211, 0.5);
+  position: absolute;
+  top: 0;
+}
