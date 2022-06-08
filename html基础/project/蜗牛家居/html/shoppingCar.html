@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车/title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/shoppingCar.css">
+    <script src="../js/clickEvent.js"></script>
+</head>
+<body>
+    <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="">首页</a></li>
+                    <li>
+                        <a href="">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href=""><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href=""><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href=""><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href=""><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href=""><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="">干花花艺</a>
+                            <a href="">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="桌布罩件"></a>
+                            <a href="">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="">墙饰壁挂</a></li>
+                    <li><a href="">蜡艺香薰</a></li>
+                    <li><a href="">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="">登录</a><a href="">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="item shop">
+            <span>购物车</span>
+        </div>
+        <div class="item continueShop">
+            <a href="">继续购物&gt;</a>
+        </div>
+        <div class="center">
+            <div class="min-item">
+                <div class="title">
+                    <input type="radio" checked> 购物车
+                    <span>——————</span>
+                </div>
+                <div class="title">
+                    <input type="radio" > 订单确认
+                    <span>——————</span>
+                </div>
+                <div class="title">
+                    <input type="radio" > 完成订单
+                    <span>——————</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <ul>
+            <li>商品</li>
+            <li>单价</li>
+            <li>数量</li>
+            <li>小计</li>
+            <li>操作</li>
+        </ul>
+    </nav>
+
+    <div class="goods">
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/sec102.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount1')">-</button>
+                </div>
+                <div class="summary" id="amount1">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount1')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/vase01.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount2')">-</button>
+                </div>
+                <div class="summary" id="amount2">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount2')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/vase03.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount3')">-</button>
+                </div>
+                <div class="summary" id="amount3">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount3')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/xx103.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount4')">-</button>
+                </div>
+                <div class="summary" id="amount4">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount4')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/xx104.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount5')">-</button>
+                </div>
+                <div class="summary" id="amount5">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount5')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="goodsList">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <img src="../image/temp/xx105.jpg" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span>¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button onclick="reduceNumber('amount6')">-</button>
+                </div>
+                <div class="summary" id="amount6">1</div>
+                <div class="add">
+                    <button onclick="addNumber('amount6')">+</button>
+                </div>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <a href="">删除</a>
+            </div>
+        </div>
+        <div class="settle">
+            <div class="item">
+                <div class="min-item">
+                    <input type="checkbox">    全选
+                </div>
+                <div class="min-item">
+                    删除
+                </div>
+            </div>
+            <div class="item">
+                <div class="min-item">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>共<font color="red">0</font>件商品       </span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                    <span>合计： <font color="red">¥0:00</font></span>
+                </div>
+                <div class="min-item">
+                    <span>结算</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- 底部第一排 -->
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <!-- 底部声明 -->
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>    
+        </div>
+    </footer>
+</body>
+</html>
