@@ -1,0 +1,201 @@
+.content {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 50px;
+
+    .item {
+        width: 100px;
+        height: 50px;
+    }
+
+    .shop {
+        float: left;
+        text-align: left;
+    }
+
+    .continueShop {
+        float: right;
+        text-align: right;
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+    .center {
+        overflow: hidden;
+        height: 50px;
+       
+        .min-item {
+            width: 60%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-evenly;
+
+            .title {
+                &:first-child {
+                    color: red;
+                    input {
+                        color: red;
+                    }
+                }
+                span {
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+
+.navigation {
+    background-color: #E9E9E9;
+    width: 80%;
+    margin: 0 auto;
+    // margin-top: 20px;
+    ul {
+        display: flex;
+        height: 50px;
+        line-height: 50px;
+        font-size: 15px;
+
+        li {
+            margin-right: 180px;
+            &:first-child {
+                margin-left: 188px;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.goods {
+    width: 100%;
+
+    .goodsList {
+        width: 80%;
+        // height: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dashed gray;
+
+        &:last-child {
+            border: none;
+        }
+
+        .item {
+            width: 180px;
+            height: 100%;
+            align-items: center;
+            // padding: 10px;
+
+            &:first-child {
+                display: flex;
+            }
+
+           .check {
+               margin-left: 10px;
+           }
+
+           .picture {
+            padding: 10px;
+               img {
+                   width: 100%;
+               }
+           }
+
+           h6 {
+               font-size: 12px;
+               margin-top: 20px;
+           }
+
+           p {
+               color: gray;
+               font-size: 10px;
+               margin-top: 20px;
+
+               &:last-child {
+                   margin: 0;
+               }
+           }
+
+           span,a {
+               line-height: 150px;
+           }
+
+           a {
+               color: black;
+               text-decoration: solid;
+               margin-left: 70px;
+           }
+
+           &:nth-child(4) {
+               display: flex;
+
+               .reduce,.add,.summary {
+                   margin-top: 65px;
+                   width: 25px;
+                   height: 25px;
+                   text-align: center;
+
+                   button {
+                       display: inline-block;
+                       width: 100%;
+                       height: 100%;
+                       box-sizing: border-box;
+                       background-color: white;
+                       border: 1px solid gray;
+                   }
+               }
+
+               .summary {
+                   border: none;
+               }
+           }
+        }
+    }
+
+    .settle {
+        width: 80%;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 10px;
+        background-color: #E9E9E9;
+        display: flex;
+
+        .item {
+            width: 50%;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+
+            .min-item {
+                width: 50%;
+                height: 100%;
+                line-height: 50px;
+            }
+
+            &:last-child {
+                .min-item {
+                    &:first-child {
+                        width: 95%;
+                    }
+                    &:last-child {
+                        background-color: #8E8E8E;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content,.navigation,.goods,footer {
+    position: relative;
+    top: 100px;
+}

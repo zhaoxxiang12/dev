@@ -1,0 +1,333 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+/* 头部 */
+header {
+  width: 100%;
+  font-size: 15px;
+  position: fixed;
+  background-color: rgba(255, 255,255, 0.8);
+  z-index: 3;
+}
+
+header .head {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+
+header .head .logo {
+  width: 15%;
+  height: 100px;
+  background: url(../image/logo.png) no-repeat;
+  background-position: left 30px;
+  background-size: 95%;
+}
+
+header .head .tab {
+  width: 50%;
+}
+
+header .head .tab ul {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .head .tab ul li {
+  width: 12%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+header .head .tab ul li:hover [class*=box] {
+  display: block;
+}
+
+header .head .tab ul li > a {
+  display: block;
+  width: 100%;
+  height: 93%;
+  color: black;
+}
+
+header .head .tab ul li > a:hover {
+  color: red;
+  border-bottom: 3px solid red;
+}
+
+header .head .tab ul li [class*=box] {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  display: none;
+  background-color: white;
+  top: 100px;
+  left: 0px;
+  overflow: hidden;
+}
+
+header .head .tab ul li [class*=box] a {
+  color: black;
+}
+
+header .head .tab ul li [class*=box] a:hover {
+  border: 0;
+}
+
+header .head .tab ul li .box1 {
+  width: 100%;
+  height: 260px;
+  top: 100px;
+  left: 0px;
+  overflow: hidden;
+}
+
+header .head .tab ul li .box1 div {
+  width: 20%;
+  height: 260px;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+  padding-top: 20px;
+  border-right: 1px solid #a2a2a2;
+}
+
+header .head .tab ul li .box1 div:last-child {
+  border: 0;
+}
+
+header .head .tab ul li .box1 div a {
+  display: block;
+  width: 50%;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+header .head .tab ul li .box1 div a:hover {
+  border: 0;
+}
+
+header .head .tab ul li .box1 div img {
+  width: 100%;
+}
+
+header .head .tab ul li .box2 {
+  height: 50px;
+}
+
+header .head .tab ul li .box2 a {
+  position: absolute;
+}
+
+header .head .tab ul li .box2 a:hover {
+  color: red;
+}
+
+header .head .tab ul li .box2 a:first-child {
+  left: 530px;
+}
+
+header .head .tab ul li .box2 a:nth-child(2) {
+  left: 630px;
+}
+
+header .head .tab ul li .box3 {
+  height: 50px;
+}
+
+header .head .tab ul li .box3 a {
+  position: absolute;
+  left: 620px;
+}
+
+header .head .tab ul li .box3 a:hover {
+  color: red;
+}
+
+header .head .link {
+  width: 32%;
+  height: 100px;
+  box-sizing: border-box;
+  padding-top: 65px;
+  display: flex;
+  margin-left: 3%;
+}
+
+header .head .link p {
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+}
+
+header .head .link p a {
+  display: inline-block;
+  width: 48%;
+  text-align: center;
+  color: black;
+}
+
+header .head .link p a:first-child {
+  border-right: 2px solid #e3e3e3;
+}
+
+header .head .link p a:hover {
+  color: red;
+}
+
+header .head .link .search {
+  width: 42%;
+  position: relative;
+}
+
+header .head .link .search::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  background-image: url(../image/雪碧图.png);
+  background-size: 260px;
+  background-position: -118px 1px;
+}
+
+header .head .link .search input {
+  width: 100%;
+  height: 30px;
+  border: 0;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+}
+
+header .head .link .search input:focus {
+  outline: none;
+}
+
+header .head .link .icon {
+  width: 28%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .head .link .icon a {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url(../image/雪碧图.png);
+  background-size: 260px;
+}
+
+header .head .link .icon a:nth-child(1) {
+  background-position: -85px 3px;
+}
+
+header .head .link .icon a:nth-child(2) {
+  background-position: -55px 3px;
+}
+
+header .head .link .icon a:nth-child(3) {
+  background-position: -147px 3px;
+}
+/* 底部 */
+footer {
+  width: 100%;
+  height: 150px;
+  border-top: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+footer .nav {
+  width: 60%;
+  height: 50px;
+  left: 20%;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px auto;
+}
+
+footer .nav [class*=box] {
+  width: 170px;
+  height: 50px;
+  line-height: 50px;
+  text-indent: 10px;
+}
+
+footer .nav .box:first-child {
+  border-right: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+footer .nav .box:first-child::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: url(../image/foot1.png) no-repeat;
+  background-size: 50px;
+  float: left;
+}
+
+footer .nav .box:nth-child(2) {
+  border-right: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+footer .nav .box:nth-child(2)::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: url(../image/foot2.png) no-repeat;
+  background-size: 50px;
+  float: left;
+}
+
+footer .nav .box:nth-child(3) {
+  border-right: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+footer .nav .box:nth-child(3)::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: url(../image/foot3.png) no-repeat;
+  background-size: 50px;
+  float: left;
+}
+
+footer .nav .box:nth-child(4)::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: url(../image/foot4.png) no-repeat;
+  background-size: 50px;
+  float: left;
+}
+
+footer .declare {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  overflow: hidden;
+}
+
+footer .declare .box {
+  width: 100%;
+  height: 20px;
+  margin-top: 20px;
+}
+
+footer .declare .box p {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+}
