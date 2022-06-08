@@ -160,29 +160,3 @@ nav {
 footer {
     margin-top: 30px;
 }
-
-.fix {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    right: 0;
-    top:300px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-    a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border: 1px solid gray;
-        text-align: center;
-        line-height: 40px;
-        margin-bottom: 10px;
-        background-color: white;
-        
-        img {
-            width: 30px;
-        }
-    }
-}

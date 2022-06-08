@@ -195,7 +195,7 @@ header .head .link .search::after {
   height: 25px;
   position: absolute;
   top: 1px;
-  right: 10px;
+  right: -3px;
   background-image: url(../image/雪碧图.png);
   background-size: 260px;
   background-position: -118px 1px;
@@ -330,4 +330,104 @@ footer .declare .box p {
   font-size: 10px;
   color: white;
   text-align: center;
+}
+
+/* 固定样式 */
+aside {
+  width: 40px;
+  height: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: fixed;
+  right: 30px;
+  top: 400px;
+}
+
+aside::before {
+  content: "1";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #c20001;
+  display: block;
+  font-size: 4px;
+  text-align: center;
+  line-height: 15px;
+  color: white;
+  position: absolute;
+  right: -6px;
+  top: -2px;
+}
+
+aside [class*=aside]{
+  width: 40px;
+  height: 40px;
+  border: 1px solid #cecece;
+  background-color: white;
+  display: block;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+aside [class*=aside]:hover p {
+  display: block;
+}
+
+aside [class*=aside] p {
+  width: 40px;
+  height: 40px;
+  background-color: #c20001;
+  margin: 0;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  display: none;
+  box-sizing: border-box;
+  padding: 4px;
+}
+
+aside .aside1 {
+  background-image: url(../image/gt1.png);
+}
+
+aside .aside2 {
+  background-image: url(../image/gt2.png);
+  position: relative;
+}
+
+aside .aside2:hover div {
+  display: block;
+}
+
+aside .aside2 div {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #c20001;
+  background-color: #f2f2f2;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  line-height: 30px;
+  position: absolute;
+  left: -140px;
+  top: 5px;
+  display: none;
+}
+
+aside .aside2 div::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-left: 5px solid #c20001;
+  display: block;
+  position: absolute;
+  right: -11px;
+  top: 11px;
+}
+
+aside .aside3 {
+  background-image: url(../image/gt3.png);
 }
