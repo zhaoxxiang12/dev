@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+
+    .info {
+        height: 350px;
+        .head {
+            height: 50px;
+        }
+        .address {
+            width: 750px;
+            height: 170px;
+            margin: 0 auto;
+            margin-top: 20px;
+            display: flex;
+            .container {
+                width: 200px;
+                height: 100%;
+                border: 1px solid #D3D3D3;
+                margin: 0;
+
+                .btn.btn-primary {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                    margin-top: 45px;
+                    font-weight: bold;
+                    background-color: #E0E0E0;
+                    color: #FFFFFF;
+                    font-size: 25px;
+                    border: none;
+                }
+
+                #myModal {
+                    .modal-dialog {
+                        .modal-content {
+                            .modal-body {
+                                p {
+                                    input {
+                                        display: inline-block;
+                                        width: 300px;
+                                        &::placeholder {
+                                            color: #3E7EC7;
+                                        }
+                                    }
+                                }
+
+                                .area {
+                                    width: 300px;
+                                    height: 100px;
+                                    margin: 0 auto;
+                                    display: flex;
+                                    flex-wrap: wrap;
+
+                                    .item {
+                                        width: 50%;
+                                        select {
+                                            display: inline-block;
+                                            background-color: #F1F1F1;
+                                            color: #3E7EC7;
+                                            width: 145px;
+                                            height: 40px;
+                                            border-radius: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .modal-footer {
+                            margin: 0;
+                            padding: 0;
+                            display: flex;
+                            justify-content: flex-start;
+                            height: 100px;
+
+                            .btn {
+                                display: block;
+                                margin: 0;
+                                padding: 0;
+                                width: 100px;
+                                height: 40px;
+                                border-radius: 0.25rem;
+                                font-size: 10px;
+                                font-weight: 400;
+                            }
+                            .btn.btn-primary {
+                                // margin-right: 270px;
+                                background-color: #DA0001;
+                                color: white;       
+                                margin-left: 125px;
+                                border: none;
+                            }
+
+                            .btn-secondary {
+                                background-color: white;
+                                color: #262626;
+                                margin-left: 50px;
+                                border: 1px solid #D3D3D3;
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            .address-info {
+                width: 200px;
+                height: 100%;
+                border: 1px solid #D3D3D3;
+                margin-left: 200px;
+
+                p {
+                    text-align: left;
+                    padding-left: 20px;
+                    color: #6D6D6D;
+
+                    &:first-child {
+                        color: black;
+                        margin-top: 20px;
+                    }
+
+                    &:nth-child(n+2) {
+                        margin: 0;
+                        font-size: 10px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}

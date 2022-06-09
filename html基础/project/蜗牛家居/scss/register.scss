@@ -67,9 +67,13 @@ body {
 
             button {
                 background-color: red;
-                font-size: 20px;
-                color: white;
                 border: none;
+
+                a {
+                    font-size: 20px;
+                    color: white;
+                    text-decoration: none;
+                }
             }
 
             &:nth-child(n+7) {
