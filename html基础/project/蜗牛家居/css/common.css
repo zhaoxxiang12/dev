@@ -146,7 +146,13 @@ header .head .tab ul li .box3 {
 
 header .head .tab ul li .box3 a {
   position: absolute;
-  left: 620px;
+}
+
+header .head .tab ul li .box3 a:first-child{
+  left: 610px;
+}
+header .head .tab ul li .box3 a:nth-child(2){
+  left: 700px;
 }
 
 header .head .tab ul li .box3 a:hover {
