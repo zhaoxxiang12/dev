@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width: 100%;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+nav .breadcrumb {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+nav .breadcrumb .breadcrumb-item {
+  color: #797979;
+  margin-right: 10px;
+}
+
+nav .breadcrumb .breadcrumb-item::before {
+  content: none;
+}
+
+nav .breadcrumb:hover a {
+  text-decoration: none;
+}
+
+nav .breadcrumb a {
+  color: #797979;
+}
+
+.div {
+  width: 100%;
+  height: 116px;
+}
+
+main {
+  width: 100%;
+  background-color: #F5F5F6;
+  display: flex;
+  text-align: center;
+  height: 625px;
+}
+
+main .personal {
+  margin-top: 20px;
+  width: 200px;
+  margin-left: 150px;
+  border: 1px solid #D3D3D3;
+  background-color: white;
+  height: 571px;
+}
+
+main .personal .avatar {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid red;
+  margin-top: 10px;
+}
+
+main .personal .avatar .photo {
+  width: 50%;
+  margin: 0 auto;
+}
+
+main .personal .avatar .photo img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+main .personal .avatar p {
+  font-size: 10px;
+  color: #797979;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+main .personal .avatar p a {
+  color: #797979;
+}
+
+main .personal h6 {
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+main .personal ul {
+  margin: 0;
+}
+
+main .personal ul li {
+  margin-top: 15px;
+}
+
+main .personal ul li:hover a {
+  text-decoration: none;
+  color: #DD0E0F;
+}
+
+main .personal ul li a {
+  color: #646464;
+  font-size: 15px;
+}
+
+main .personal ul li:nth-child(4) a {
+  font-size: 20px;
+  color: black;
+}
+
+main .personal ul li:nth-child(7) a {
+  color: black;
+}
+
+main .info {
+  margin-top: 20px;
+  border: 1px solid #D3D3D3;
+  width: 970px;
+  height: 440px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+main .info .head {
+  width: 930px;
+  height: 100px;
+  margin-top: 20px;
+  border-bottom: 1px solid #D3D3D3;
+  display: flex;
+  justify-content: space-between;
+}
+
+main .info .head .userInfo {
+  display: flex;
+}
+
+main .info .head .userInfo .photo {
+  width: 80px;
+}
+
+main .info .head .userInfo .photo img {
+  display: inline;
+  width: 100%;
+  border-radius: 50%;
+}
+
+main .info .head .userInfo .photo span {
+  font-weight: 900;
+}
+
+main .info .head .userInfo .nickName {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-weight: 500;
+}
+
+main .info .head .email {
+  color: #464646;
+  font-size: 13px;
+  line-height: 100px;
+  padding-right: 10px;
+}
+
+main .info .orderInfo {
+  width: 930px;
+  height: 300px;
+  display: flex;
+}
+
+main .info .orderInfo .item {
+  width: 50%;
+}
+
+main .info .orderInfo .item .mini-item {
+  display: flex;
+  margin-top: 30px;
+}
+
+main .info .orderInfo .item .mini-item .icon {
+  width: 90px;
+}
+
+main .info .orderInfo .item .mini-item .icon img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+main .info .orderInfo .item .mini-item .text p {
+  font-size: 10px;
+  margin: 0;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+main .info .orderInfo .item .mini-item .text p span font {
+  color: #D33D3B;
+}
+
+main .info .orderInfo .item .mini-item .text p a {
+  color: #757575;
+}
+
+main .info .orderInfo .item .mini-item .text p a:hover {
+  text-decoration: none;
+}
+
+main .info .orderInfo .left .mini-item:last-child {
+  margin-top: 50px;
+}
+
+main .info .orderInfo .right .mini-item:last-child {
+  margin-top: 50px;
+}
+
+a:hover {
+  text-decoration: none;
+}

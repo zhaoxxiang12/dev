@@ -104,9 +104,13 @@
 
            .picture {
             padding: 10px;
-               img {
-                   width: 100%;
-               }
+            a {
+                margin: 0;
+                line-height: 0;
+                img {
+                    width: 100%;
+                }
+            }
            }
 
            h6 {

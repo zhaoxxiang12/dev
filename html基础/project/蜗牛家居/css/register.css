@@ -70,9 +70,15 @@ body {
 
 .regist .content p button {
   background-color: red;
+  border: none;
+}
+
+.regist .content p button a {
+  display: inline-block;
+  width: 100%;
   font-size: 20px;
   color: white;
-  border: none;
+  text-decoration: none;
 }
 
 .regist .content p:nth-child(n+7) {

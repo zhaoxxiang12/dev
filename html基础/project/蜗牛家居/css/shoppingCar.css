@@ -110,7 +110,12 @@
   padding: 10px;
 }
 
-.goods .goodsList .item .picture img {
+.goods .goodsList .item .picture a {
+  margin: 0;
+  line-height: 0;
+}
+
+.goods .goodsList .item .picture a img {
   width: 100%;
 }
 

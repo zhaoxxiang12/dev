@@ -86,6 +86,8 @@ header .content .logo img {
 }
 
 .form p button a {
+  display: inline-block;
+  width: 100%;
   color: white;
   text-decoration: none;
 }

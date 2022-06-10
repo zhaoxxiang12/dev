@@ -31,6 +31,8 @@
 }
 
 .message p:last-child button a {
+  display: inline-block;
+  width: 100%;
   text-decoration: none;
   color: white;
 }
