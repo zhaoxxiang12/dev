@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let x = 10
+        let y=x*=2 * (x+=2) + --x + (x-=10) - x--
+        //先计算*=后面的,即后面看做一个整体等于2*12+11+1-1
+        //最后10*35
+        console.log(x,y);
+
+        let firstNum = prompt('输入一个数');
+        let secondNum = prompt('输入二个数');
+
+        function changeNum () {
+            console.log(`变换前第一个数:${firstNum}`,`变换前第二个数:${secondNum}`);
+            let temp = secondNum
+            secondNum = firstNum
+            firstNum = temp
+
+            console.log(`变换后第一个数:${firstNum}`,`变换后第二个数:${secondNum}`);
+
+        }
+
+        changeNum()
+    </script>
+</body>
+</html>

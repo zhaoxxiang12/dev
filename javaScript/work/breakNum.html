@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.输入一个四位数,输出个十百千
+        let number = prompt('请输入四位整数');
+
+        function breakNumber(num) {
+            if (num <= 9999 && num >= 1000) {
+                let thousands = parseInt(number / 1000);
+                let hundreds = (parseInt(number % 1000 / 100))
+                let ten = parseInt(number % 1000 % 100 / 10)
+                let singleDigit = parseInt(number % 1000 % 100 % 10 % 10)
+
+                console.log(`千位数:${thousands}`,`百位数:${hundreds}`,`十位数:${ten}`,`个位数:${singleDigit}`);
+            } else {
+                alert('请输入四位整数')
+            }
+        }
+
+        breakNumber(number)
+
+        
+    </script>
+</body>
+
+</html>
