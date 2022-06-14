@@ -144,12 +144,15 @@
         }
     }
 
-    // 判断是否是闰年的函数 是返回true 不是返回false
+    /**
+     * 判断是否是闰年的函数
+     * @param year {number} 字符串切换的年份
+     * @returns {boolean} true为闰年 false为平年
+     */
     function isNormalyear(year) {
         return parseInt(year) % 4 === 0 || parseInt(year) % 400 === 0 && parseInt(year) % 100 !== 0;
     }
-
-    // whatTime();
+    whatTime();
 </script>
 </body>
 </html>
