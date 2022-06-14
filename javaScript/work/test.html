@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let x = 5;
+        let y = x *= 5 + (++x) + (--x) + (x += 2) + --x
+        console.log(x, y);
+
+        let a = 5
+        let b = a++ + (--a) + (a *= 2) + (--a) + (a -= 2)
+        console.log(a, b);
+
+        let number = 2009
+        function isPrime(number) {
+            for (let i = 2; i <= number; i++) {
+                if (number === i && number !== 1) {
+                    console.log(number + '是质数')
+                    break
+                } else if (number % i === 0 || number === 1) {
+                    console.log(number + '不是质数');
+                    break
+                }
+            }
+        }
+        // isPrime(number)
+
+        function isPrimeMethod(number) {
+            let flag = true
+            if (number < 1) {
+                alert('输入的数字有误')
+            } else if (number == 1) {
+                alert(1 + '不是质数')
+            } else {
+                for (let i = 2; i <= number; i++) {
+                    if (number % i == 0) {
+                        flag = false
+                        document.write(number + '不是质数')
+                        break
+                    } else {
+                        document.write(number + '是质数')
+                        break
+                    }
+                }
+            }
+        }
+        // isPrimeMethod(number)
+
+        let m = 8
+        let n = 4
+        let o = 5
+        console.log(((m>n?m:n)>o)?(m>n?m:n):o);
+     
+        let money = prompt('输入金额')
+
+        if (money < 10000) {
+            console.log('奥迪');
+        } else if (money>10000&&money <=50000) {
+            console.log('五菱');
+        } else if (money>50000 && monry <= 100000) {
+            console.log('长安');
+        } else if (money>100000 && money <=300000) {
+            console.log('特斯拉');
+        } else {
+            console.log('benz');
+        }
+    </script>
+</body>
+
+</html>
