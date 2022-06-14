@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    1.A公园的规定是身高不足120的或者年龄小于12岁或退休人员可以免票，
+    // 其余人员需要购票，输入性别、年龄、身高三项数据，输出是否需要购票。 
+    function buyTicket() {
+        let sex = prompt('输入性别')
+        let age = prompt('输入年龄')
+        let height = prompt('输入身高')
+        if (height < 120 || age < 12) {
+            document.write('不需要购票')
+        } else {
+            document.write('需要购票')
+        }
+    }
+
+    // buyTicket()
+
+    // XX体育大学的招生标准是，语数外的平均分大于120，
+    // 且体育成绩在80分以上的或者语数外平均分大于90
+    // 且体育成绩在90分以上的予以录取，输入语文、英语、数学、体育四项成绩数据，
+    // 输出是否满足录取条件
+    function isAdmited () {
+        let chinese = parseInt(prompt('语文')) 
+        let math = parseInt(prompt('数学'))
+        let english = parseInt(prompt('外语'))
+        let sport = parseInt(prompt('体育'))
+        //语数外平均成绩
+        let average = parseInt((chinese+math+english)/3)
+        console.log(average);
+
+        if (average>120 && sport>80 || (average>90 && sport > 90)) {
+            document.write('录取')
+        } else {
+            document.write('不录取')
+        }
+    }
+
+    // isAdmited()
+
+    // 1、工资范围在1-5000元之间的，包括5000元，适用个人所得税税率为0%；
+    // 2、工资范围在5000-8000元之间的，包括8000元，适用个人所得税税率为3%；
+    // 3、工资范围在8000-17000元之间的，包括17000元，适用个人所得税税率为10%；
+    // 4、工资范围在17000-30000元之间的，包括30000元，适用个人所得税税率为20%；
+    // 5、工资范围在30000-40000元之间的，包括40000元，适用个人所得税税率为25%；
+
+    function tax () {
+        let salary = prompt('工资');
+        if (1<salary && salary <= 5000) {
+            document.write('税率0');
+        } else if (salary > 5000 && salary <=8000) {
+           document.write((salary-5000)*0.03);
+        } else if (salary>8000 && salary <= 17000) {
+            document.write(3000*0.03+(salary-8000)*0.1);
+        } else if (salary>17000 && salary <= 30000) {
+            document.write(3000*0.03+(salary-8000)*0.1+(salary-17000)*0.2)
+        } else if (salary>30000 && salary < 40000) {
+           document.write((3000*0.03)+(salary-8000)*0.1+(salary-17000)*0.2+(salary-30000)*0.25);
+        } else {
+            console.log('输入的薪资有误')
+        }
+    }
+
+    // 肥胖指数BMI计算公式：体重除以身高的平方：
+    // 低于18，则属于体重不足
+    // 在18.5-23.9之间，属于正常体重；
+    // 而达到了24.0-27.9属于超重；
+    // 高于28，属于肥胖.
+
+    function bmi () {
+        let sex = prompt('输入性别')
+        let height = Number(prompt('输入身高(单位:m)'))
+        let weight = Number(prompt('输入体重(体重:kg)'))
+        let result = weight/height
+
+        if (sex === '男') {
+            if (result < 18) {
+                document.write('体重不足');
+                document.write('弱鸡');
+            } else if (result >= 18.5 && result < 23.9) {
+                document.write('正常');
+                document.write('战五渣');
+            } else if (result >=24.0) {
+                document.write('超重');
+                document.write('肥肥');
+            } else {
+                document.write('肥胖');
+                document.write('肥肥王');
+            }
+        } else {
+            if (result < 18) {
+                document.write('体重不足');
+                document.write('西施');
+            } else if (result >= 18.5 && result < 23.9) {
+                document.write('正常');
+                document.write('貂蝉');
+            } else if (result >=24.0) {
+                document.write('超重');
+                document.write('杨贵妃');
+            } else {
+                document.write('肥胖');
+                document.write('贾玲');
+            }  
+        }
+    }
+    bmi();
+
+    // 平年的每个月份天数的数组
+    let normalDay = [31,28,31,30,31,30,31,31,30,31,30,31];
+    // 闰年的每个月份天数的数组
+    let leapDay = [31,29,31,30,31,30,31,31,30,31,30,31];
+    let currentTime = '2022/1/22';
+    let count = 0;
+    // 字符串切割的年份
+    let year = parseInt(currentTime.split('/')[0]);
+    // 字符串切割的月份
+    let month = parseInt(currentTime.split('/')[1]);
+    // 字符串切割的日期
+    let day = parseInt(currentTime.split('/')[2]);
+
+    function whatTime () {
+        let result =  isNormalyear(year);
+            if (result) { //判断是否是闰年 闰年就使用leapDay的数组
+                for (let i = 0; i < month -1; i++) {
+                    count = count + leapDay[i];
+                }
+                count = count + day;
+                document.write(`今天是今年的第${count }天`);
+        
+            } else { // 平年就使用normalDay的数组
+                for (let i = 0; i < month -1; i++) {
+                    count = count + normalDay[i];
+                }
+                count = count + day;
+                document.write(`今天是今年的第${count}天`);
+            }
+    }
+
+    // 判断是否是闰年的函数 是返回true 不是返回false
+    function isNormalyear (year) {
+        return parseInt(year) % 4 === 0 || parseInt(year) % 400 === 0 && parseInt(year) % 100 !== 0;
+    }
+
+    // whatTime();
+    </script>
+</body>
+</html>
