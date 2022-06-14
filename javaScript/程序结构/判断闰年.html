@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let month = parseInt(prompt('输入月份'))
+        let month = 2
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                console.log(31+'天');    
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                console.log(30+'天');
+                break;
+            case 2:
+                console.log('闰年'+29+'天');
+                console.log('平年'+28+'天');
+                break;
+            default:
+                console.log('月份有误');
+                break;
+        }
+
+        let year = 2000
+
+        if (year%4===0||year%400===0) {
+            document.write('闰年')
+        } else {
+            document.write('平年')
+        }
+    </script>
+</body>
+</html>
