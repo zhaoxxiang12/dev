@@ -11,13 +11,13 @@
     //    1.A公园的规定是身高不足120的或者年龄小于12岁或退休人员可以免票，
     // 其余人员需要购票，输入性别、年龄、身高三项数据，输出是否需要购票。 
     function buyTicket() {
-        let sex = prompt('输入性别')
-        let age = prompt('输入年龄')
-        let height = prompt('输入身高')
+        let sex = prompt('输入性别');
+        let age = prompt('输入年龄');
+        let height = prompt('输入身高');
         if (height < 120 || age < 12) {
-            document.write('不需要购票')
+            document.write('不需要购票');
         } else {
-            document.write('需要购票')
+            document.write('需要购票');
         }
     }
 
@@ -28,18 +28,18 @@
     // 且体育成绩在90分以上的予以录取，输入语文、英语、数学、体育四项成绩数据，
     // 输出是否满足录取条件
     function isAdmited() {
-        let chinese = parseInt(prompt('语文'))
-        let math = parseInt(prompt('数学'))
-        let english = parseInt(prompt('外语'))
-        let sport = parseInt(prompt('体育'))
+        let chinese = parseInt(prompt('语文'));
+        let math = parseInt(prompt('数学'));
+        let english = parseInt(prompt('外语'));
+        let sport = parseInt(prompt('体育'));
         //语数外平均成绩
-        let average = parseInt((chinese + math + english) / 3)
+        let average = parseInt((chinese + math + english) / 3);
         console.log(average);
 
         if (average > 120 && sport > 80 || (average > 90 && sport > 90)) {
-            document.write('录取')
+            document.write('录取');
         } else {
-            document.write('不录取')
+            document.write('不录取');
         }
     }
 
@@ -75,9 +75,9 @@
     // 高于28，属于肥胖.
 
     function bmi() {
-        let sex = prompt('输入性别')
-        let height = Number(prompt('输入身高(单位:m)'))
-        let weight = Number(prompt('输入体重(体重:kg)'))
+        let sex = prompt('输入性别');
+        let height = Number(prompt('输入身高(单位:m)'));
+        let weight = Number(prompt('输入体重(体重:kg)'));
         let result = weight / height
 
         if (sex === '男') {
