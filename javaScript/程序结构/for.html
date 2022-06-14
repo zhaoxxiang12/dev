@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //换饮料
+        let drink = 30;
+        let total = 30;
+        // for (;drink>=3;) {
+        //     //兑换的新饮料
+        //     let newDrink = parseInt(drink/3)
+        //     // 兑换后的总数
+        //     total = total + newDrink
+        //     // 剩下的空瓶子
+        //     let remain = drink % 3
+
+        //     drink = remain + newDrink
+        // }
+
+        for (;drink>=3;) {
+            drink -=3
+            //3个空瓶子兑换后饮料总数应该加1
+            total+=1
+            //3个空瓶子兑换后饮料应该加1
+            drink+=1
+        }
+
+        console.log(total,drink);
+
+        //斐波拉契数列
+        //上一个月的数量
+        let lastOneMonth = 1
+        //上两个月的数量
+        let lastTwoMonth = 1
+        let current
+        for (let i = 3; i <=12; i++) {
+            current = lastOneMonth + lastTwoMonth
+            lastOneMonth = lastTwoMonth
+            lastTwoMonth = current
+        }
+        console.log(current);
+    </script>
+</body>
+</html>
