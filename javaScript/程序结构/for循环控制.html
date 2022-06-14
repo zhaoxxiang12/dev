@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script >
+    //买30瓶水,3个空瓶子能换1瓶汽水,喝了多少瓶,剩多少空瓶子
+    let drink = 30
+    let total = 30
+    // for (;drink>=3;) {
+    //     //兑换汽水
+    //     let newDrink = parseInt(drink/3);
+    //     total+=newDrink
+    //     //没有换完的空瓶数量
+    //     let s = drink%3;
+
+    //     //经过兑换空瓶子应该是多少
+    //     drink = s + newDrink;
+    // }
+    console.log(drink,total);
+
+    for (;drink>=3;) {
+        drink-=3;
+        drink+=1
+        total+=1
+    }
+
+    if (drink==2) {
+        let result = prompt('您可以接一个瓶子');
+        if (result==1) {
+            total++
+            drink=0
+        }
+    }
+
+    console.log(drink,total);
+
+    //猴子每天吃所有的一半加一根,12天吃完,猴子最开始有多少香蕉
+    let x = 0;//第十二天的香蕉数量
+    for (let i = 0;i < 11;i++) {
+        x = (x+1)*2
+    }
+    console.log(x);
+
+    //  加入兔子都不死,生小兔子的雌雄比例都为1:1，有一对兔子,到第三个月以后开始生兔子,一年后有多少兔子
+    let lastTwoMonth = 1
+    let lastOneMonth = 1
+    let current
+    for (let i = 3; i <=12; i++) {
+         current = lastOneMonth + lastTwoMonth
+        //把上月赋值给上上月
+        lastOneMonth = lastTwoMonth
+        //把当月赋值给上月
+        lastTwoMonth = current
+    }
+    console.log(current);
+</script>
+</body>
+</html>
