@@ -14,7 +14,7 @@
         let sex = prompt('输入性别');
         let age = prompt('输入年龄');
         let height = prompt('输入身高');
-        if (height < 120 || age < 12) {
+        if (height < 120 || age < 12 || age >=60 && sex=='男' || age >= 55 && sex == '女') {
             document.write('不需要购票');
         } else {
             document.write('需要购票');
@@ -52,7 +52,7 @@
     // 5、工资范围在30000-40000元之间的，包括40000元，适用个人所得税税率为25%；
 
     function tax() {
-        let salary = prompt('工资');
+        let salary =Number(prompt('工资'));
         if (1 < salary && salary <= 5000) {
             document.write('税率0');
         } else if (salary > 5000 && salary <= 8000) {
