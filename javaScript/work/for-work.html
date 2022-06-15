@@ -104,7 +104,7 @@
    function isPrime (number) {
        let flag = true;//判断是否质数,默认是
        for (let i = 2; i < number; i++) {
-           if (number % i === 0) {
+           if (number % i === 0) {// 判断在该数范围内是否还有能被某个数整除,能整除赋值false
                flag = false
                break
            }
