@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script >
+    //  黑球：10  红球：20 篮球：15  总共抓取20个 有多少种方法
+    let count = 0
+    for (let black = 0; black <=10; black++) {
+        for (let blue = 0; blue <= 15; blue++) {
+            for (let red = 0; red <=20; red++) {
+                if (black + blue + red === 20) {
+                    count+=1;
+                }
+            }
+        }
+    }
+    console.log(count);
+
+    // 100换零钱 1 5 10 20
+    let total = 0
+    for (let one = 0; one <=100; one++) {
+        for (let five = 0; five <= 20; five++) {
+            for (let ten = 0; ten <= 10; ten++) {
+                for (let twenty = 0; twenty <= 5; twenty++) {
+                    if (one + five*5 + ten*10 + twenty*20 === 100) {
+                        total+=1
+                    }
+                }
+            }
+        }
+    }
+    console.log(total)
+</script>
+</body>
+</html>

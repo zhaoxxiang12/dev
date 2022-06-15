@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //打印正方形
+    // let length = parseInt(prompt('输入长度'))
+
+    // for (let i = 1; i <= length; i++) {
+    //   for (let j = 1; j <= length; j++) {
+    //     document.write('*')
+    //   }
+    //  document.write('<br/>')
+    // }
+
+    //打印直角三角形
+    for (let i = 5; i >= 0; i--) {
+        let star = "";
+        for (let j = 1; j <= i; j++) {
+            star += "*";
+        }
+        // console.log(star)
+    }
+
+    let length = 8;
+    for (let i = 0; i < length; i++) {
+        let star = "";
+        for (let j = 0; j < length; j++) {
+            star += "*"
+        }
+        // document.write('<br/>')
+        // document.write(star)
+        // console.log(star)
+    }
+
+
+    // 打印等腰三角形
+    let n = 9;
+    for (let i = 0; i < n; i++) {
+        //打印空格
+        let content = "";
+        for (let j = 0; j < n - i - 1; j++) {
+            content += " ";
+        }
+
+        //拼接星星
+        for (let k = 0; k < 2 * i + 1; k++) {
+            content += "*";
+        }
+        // console.log(content)
+    }
+
+    // 打印菱形
+    let m = 7
+    console.log(123)
+    for (o = 0; o < 2; o++) {
+        //上等腰三角形
+        if (o == 0) {
+            for (let i = 1; i <= m; i++) {
+                //打印空格
+                let content = "";
+                for (let j = m - i; j > 0; j--) {
+                    content += " ";
+                }
+
+                //拼接星星
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    content += "*";
+                }
+                console.log(content)
+            }
+        }
+        // 下等腰三角形
+        if (o == 1) {
+            for (let i = m - 1; i > 0; i--) {
+                let content = "";
+                for (let j = m - i; j > 0; j--) {
+                    content += " ";
+                }
+
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    content += "*"
+                }
+                console.log(content);
+            }
+        }
+
+    }
+    console.log(456)
+
+    // 菱形方式一
+    let height = 13
+    let up = parseInt(height / 2) + 1
+    let down = height - up;
+
+    for (let i = 0; i < up; i++) {
+        let content = "";
+        for (let j = 0; j < up - i - 1; j++) {
+            content += " ";
+        }
+        for (let k = 0; k < 2 * i + 1; k++) {
+            content += '*';
+        }
+        console.log(content)
+    }
+
+    for (let i = 0; i < down; i++) {
+        let content = "";
+        for (let j = 0; j < i + 1; j++) {
+            content += " ";
+        }
+        for (let k = 0; k < 2*(down-i)-1; k++) {
+            content+="*"
+        }
+        console.log(content)
+    }
+
+    // 方式二
+    for (let i = 0; i < up; i++) {
+        let content = "";
+        for (let j = 0; j < up - i - 1; j++) {
+            content += " ";
+        }
+        for (let k = 0; k < 2 * i + 1; k++) {
+            content += '*';
+        }
+        console.log(content)
+    }
+
+    for (let i = down; i > 0; i--) {
+        let content = ""
+        for (let l = 0; l < down + 1 - i; l++) {
+            content += "";
+        }
+        for (let l = 0; l < 2 * i - 1; l++) {
+            content += "*"
+        }
+        console.log(content)
+    }
+
+</script>
+</body>
+</html>
