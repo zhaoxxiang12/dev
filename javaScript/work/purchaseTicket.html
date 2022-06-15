@@ -12,8 +12,8 @@
     // 其余人员需要购票，输入性别、年龄、身高三项数据，输出是否需要购票。 
     function buyTicket() {
         let sex = prompt('输入性别');
-        let age = prompt('输入年龄');
-        let height = prompt('输入身高');
+        let age = parseInt(prompt('输入年龄'));
+        let height =parseInt(prompt('输入身高')) ;
         if (height < 120 || age < 12 || age >=60 && sex=='男' || age >= 55 && sex == '女') {
             document.write('不需要购票');
         } else {
