@@ -11,6 +11,15 @@
   console.log(a)
   console.log(a[0])
   console.log(a[3])
+  let arr = [1,23,1,1,1,3,23,5,6,7,9,9,8,5,5,5];
+
+  for (let i = 0; i < arr.length; i++) {
+      if (arr.indexOf(arr[i]) != i) {
+          arr.splice(i,1);
+          i--
+      }
+  }
+  console.log(arr)
 </script>
 </body>
 </html>
