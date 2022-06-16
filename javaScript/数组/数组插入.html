@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let array = [18, 20, 22, 29, 35];
+    let age = 2;
+    let index = -1;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > age) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index === -1) {
+        array.push(age)
+    } else if (index === 0) {
+        array.unshift(age)
+    } else {
+        if (index < array.length / 2) {
+            array.unshift(0)
+            //数据前移
+            for (let i = 0; i < index; i++) {
+                array[i] = array[i + 1];
+            }
+            array[index] = age;
+        } else {
+            //扩展数组长度 数据后移
+            array.push(0)
+            //从数组最后一个开始覆盖
+            for (let i = array.length - 1; i > index; i--) {
+                array[i] = array[i - 1]
+            }
+            array[index] = age
+        }
+    }
+
+    console.log(array)
+
+
+</script>
+</body>
+</html>

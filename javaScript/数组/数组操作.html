@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let array = [1,2,3,78,9]
+    // push 在数组末尾添加一个或者多个数据
+    // unshift 在数组头部添加一个或者多个数据
+    // pop 在数组末尾取出一个数据并删除
+    // shift 在数组头部取出一个数据并删除
+
+    let index = -1
+    let search = 95
+    for (let i=0; i < array.length; i++) {
+        if (array[i] == search) {
+            index = i
+        }
+    }
+
+
+    if (index == -1) {
+        console.log('不存在')
+    } else {
+        console.log(index)
+    }
+
+</script>
+</body>
+</html>

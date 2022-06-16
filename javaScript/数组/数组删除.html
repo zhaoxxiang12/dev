@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let array = [101, 1, 2, 3, 78, 9, 1]
+    let index = array.indexOf(1)
+    array.splice(2, 0, 5, 4)
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] > array[j]) {
+                let temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
+            }
+        }
+    }
+
+    console.log(array)
+
+    if (index < array.length / 2) {
+        //数据后移
+        for (let i = index; i > 0; i--) {
+            array[i] = array[i - 1]
+        }
+        array.shift()
+    } else {
+        //数据前移
+        for (let i = index; i < array.length - 1; i++) {
+            array[i] = array[i + 1]
+        }
+        array.pop()
+    }
+</script>
+</body>
+</html>

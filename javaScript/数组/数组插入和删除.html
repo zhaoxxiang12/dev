@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let array = [20, 22, 34, 43, 46, 47]
+
+    // 插入数据
+    let age = 20;
+
+         function addArray() {
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > age) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            array.push(age)
+        } else if (index == 0) {
+            array.unshift(age)
+        } else {
+            if (index < array.length / 2) {
+                array.unshift(0)
+                for (let i = 0; i < index; i++) {
+                    array[i] = array[i + 1]
+                }
+                array[index] = age
+            } else {
+                array.push(0)
+                for (let i = array.length - 1; i > index; i--) {
+                    array[i] = array[i - 1]
+                }
+                array[index] = age
+            }
+        }
+    }
+
+    function delData() {
+        let index = -1
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == age) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index !== -1) {
+            if (index < array.length / 2) {
+                for (let i = index; i > 0; i--) {
+                    array[i] = array[i - 1]
+                }
+                array.shift()
+            } else {
+                for (let i = index; i < array.length - 1; i++) {
+                    array[i] = array[i + 1]
+                }
+                array.pop()
+            }
+        }
+    }
+
+    // delData()
+
+    console.log(array)
+</script>
+</body>
+</html>
