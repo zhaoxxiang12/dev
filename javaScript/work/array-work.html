@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    // 1.逢7过，输出1-100中的整数，逢7或者7的倍数则跳过。
+
+    function meetSevenPass() {
+        for (let i = 1; i <= 100; i++) {
+            if (i % 7 == 0) {
+                continue
+            } else if (i >= 10 && i % 10 == 7 || i >= 70 && i <= 79) {
+                continue
+            }
+            console.log(i)
+        }
+    }
+
+    // 2.判断两个数组是否相等。
+    let array1 = [1, 2, 3, 4, 6, 7, 9]
+    let array2 = [1, 2, 3, 4, 6, 7, 9]
+
+    function compareArray() {
+        let flag = true //默认数据不等
+        if (array1.length == array2.length) {
+            for (let i = 0; i < array1.length; i++) {
+                if (array1[i] !== array2[i]) {
+                    flag = false
+                    break;
+                }
+            }
+            if (flag) {
+                console.log('数组相等')
+            } else {
+                console.log('数组不等')
+            }
+        } else {
+            console.log('数组不等')
+        }
+    }
+
+    // compareArray()
+    // 3.一张纸的厚度是0.01cm,问折叠多少次以后厚度超过珠峰的高度？
+    function intergration() {
+        let count = 0
+        let height = 0.0001
+        let total
+        while (true) {
+            height = height * 2
+            count++
+            if (height > 8848.86) {
+                break
+            }
+        }
+        console.log(count)
+    }
+
+    // 4.求两个数组的交集（需去重）
+    function getIntersection() {
+        let array1 = [1, 3, 5, 6, 7, 8, 10, 11, 34]
+        let array2 = [2, 3, 5, 4, 2, 7, 8, 12]
+        let newArray = []
+        if (array1.length > array2.length) {//
+            for (let i = 0; i < array1.length; i++) {
+                if (array2.indexOf(array1[i]) !== -1) {
+                    newArray.push(array1[i])
+                }
+            }
+        } else {
+            for (let i = 0; i < array2.length; i++) {
+                if (array1.indexOf(array2[i]) !== -1) {
+                    newArray.push(array2[i])
+                }
+            }
+        }
+        // 数据去重
+        filterData(newArray)
+        console.log(newArray)
+    }
+
+    // getIntersection()
+    // 5.求两个数组的并集（需去重）
+    function getUnion() {
+        let array1 = [1, 3, 5, 6, 7, 8, 10, 11, 34]
+        let array2 = [2, 3, 5, 4, 2, 7, 8, 12]
+
+
+        //将重复的数据删除后新数组2添加到数组1
+        for (let i = 0; i < array2.length; i++) {
+            array1.push(array2[i])
+        }
+        console.log(array1)
+        // 数组去重并删除重复的数据
+        filterData(array1)
+        console.log(array1.sort())
+    }
+
+    getUnion()
+
+    /**
+     *
+     * @param index {number} 元素下标
+     * @param array {array} 数组
+     */
+    function delData(index, array) {
+        if (index !== -1) {
+            if (index < array.length / 2) {
+                for (let i = index; i > 0; i--) {
+                    array[i] = array[i - 1]
+                }
+                array.shift()
+            } else {
+                for (let i = index; i < array.length - 1; i++) {
+                    array[i] = array[i + 1]
+                }
+                array.pop()
+            }
+        }
+    }
+
+    /**
+     * 去重过滤数据
+     * @param array {array}数组
+     */
+    function filterData(array) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] === array[j]) {
+                    array.splice(i, 1)
+                    i-- //重复的数据删除后数组长度减一
+                }
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
