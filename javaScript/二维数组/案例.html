@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    //五名同学循环录入姓名、性别、年龄、身高
+    // let outerArray = []
+    // for (let i = 0; i < 5; i++) {
+    //     let studentName = prompt('')
+    //     let sex = prompt('')
+    //     let age = prompt('')
+    //     let height = prompt('')
+    //     let student = [studentName, sex, age, height]
+    //     outerArray.push(student)
+    // }
+
+    //表格展示学员信息
+    let studentList = [['张三', 15, '男', 165], ['张飞', 25, '男', 123], ['赵云', 20, '男', 180], ['吕布', 35, '男', 193]]
+    for (let i = 0; i < studentList.length; i++) {
+        console.log(studentList[i][0], studentList[i][1] + "\t", studentList[i][2] + "\t", studentList[3][0] + "\t")
+    }
+
+    //排序,根据身高从小到大排序
+    for (let i = 0; i < studentList.length - 1; i++) {
+        for (let j = 0; j < studentList.length - i - 1; j++) {
+            if (studentList[j][3] > studentList[j + 1][3]) {
+                let temp = studentList[j]
+                studentList[j] = studentList[j + 1]
+                studentList[j + 1] = temp
+            }
+        }
+    }
+    console.log(studentList)
+</script>
+</body>
+</html>
