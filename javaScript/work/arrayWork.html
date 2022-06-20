@@ -1,12 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    //  1.循环录入5名员工的信息（姓名、性别、年龄、底薪、提成）保存在数组中，将五个数组保存在一个大数组之中。
+
+    function addEmployees() {
+        let employee = [];
+        for (let i = 0; i < 5; i++) {
+            let info = []
+            let employeeName = prompt('输入员工姓名');
+            let gender = prompt('输入性别');
+            let salary = parseInt(prompt('输入底薪'));
+            let commission = parseInt(prompt('输入提成'))
+            info = [employeeName, gender, salary, commission]
+            employee.push(info);
+        }
+        console.log(employee)
+    }
+
+    // addEmployees();
+
+
+    //  2.输出5名员工中收入最高的员工信息
+
+    let employee = [['张飞', '男', 6500, 200], ['赵云', '男', 7500, 800],
+        ['大乔', '女', 6550, 1000], ['吕布', '男', 10500, 1200], ['貂蝉', '女', 9500, 1500]]
+
+    function heightestSalary() {
+        for (let i = 0; i < employee.length - 1; i++) {
+            for (let j = 0; j < employee.length - i - 1; j++) {
+                if (employee[j][2] < employee[j + 1][2]) {
+                    let temp = employee[j];
+                    employee[j] = employee[j + 1];
+                    employee[j + 1] = temp;
+                }
+            }
+        }
+        console.log(employee[0])
+    }
+
+    // heightestSalary()
+
+    //  3.输入员工姓名，如果未找到该员工则输出查无此人，如果有该员工则将该员工的底薪+500
+    function isExisted() {
+        // let employeeName = prompt('请输入员工姓名');
+        let employeeName = '张飞'
+        let index = -1;
+        for (let i = 0; i < employee.length; i++) {
+            if (employee[i][0] === employeeName) {
+                index = i
+                break
+            }
+        }
+        if (index !== -1) {
+            console.log(employee);
+            employee[index][2] = employee[index][2] + 500;
+            console.log(employee);
+        } else {
+            console.log('查无此人');
+        }
+    }
+
+    // isExisted()
+    //  4.为总收入最低的两名员工增加1000提成
+    function addCommission() {
+        let newArray = [];
+        for (let i = 0; i < employee.length; i++) {
+            let info = [];
+            let totalRevenue = employee[i][2] + employee[i][3]
+            info = [employee[i][0], totalRevenue];
+            newArray.push(info);
+        }
+        let result = arraySort(newArray, 1);
+        let lowestName = [result[result.length - 1][0], result[result.length - 2][0]]
+        for (let i = 0; i < lowestName.length; i++) {
+            for (let j = 0; j < employee.length; j++) {
+                if (lowestName[i] === employee[j][0]) {
+                    employee[j][3] += 1000
+                }
+            }
+        }
+        console.log(employee)
+    }
+
+    // addCommission()
+    //  5.按照总收入进行降序排列
+    function totalDescending() {
+        for (let i = 0; i < employee.length - 1; i++) {
+            for (let j = 0; j < employee.length - 1 - i; j++) {
+                if ((employee[j][2] + employee[j][3]) < (employee[j + 1][2] + employee[j + 1][3])) {
+                    let temp = employee[j];
+                    employee[j] = employee[j + 1];
+                    employee[j + 1] = temp;
+                }
+            }
+        }
+        console.log(employee+'\t')
+    }
+
+    totalDescending()
+    //  6.输入一个员工姓名，如果存在该员工则删除员工信息
+    function isDelete() {
+        let employeeName = prompt('输入员工信息');
+        let index = -1;
+        for (let i = 0; i < employee.length; i++) {
+            if (employeeName === employee[i][0]) {
+                index = i;
+                break;
+            }
+        }
+        if (index !== -1) {
+            employee.splice(index, 1);
+            console.log('员工已删除');
+        } else {
+            console.log('员工不存在');
+        }
+    }
+
+    // isDelete();
+    //  7.输入一个新员工的信息，根据收入总和插入到对应的位置。
+
+    function addPerson() {
+        // let employeeInfo = prompt('输入员工信息');
+        let employeeInfo = ['悟空','男',70,2222]
+        let total = employeeInfo[2] + employeeInfo[3]
+        let index = -1;
+        let flag = true //判断新员工是否大于
+        for (let i = 0; i < employee.length; i++) {
+            if (total > (employee[i][2]+employee[i][3])) {
+                flag = false
+                index = i;
+                break;
+            }
+        }
+
+        if (flag) {
+            employee.push(employeeInfo)
+        } else {
+            if (index === 0) {
+                employee.unshift(employeeInfo)
+            } else {
+                employee.splice(index, 0, employeeInfo)
+            }
+        }
+        console.log(employee)
+    }
+
+    addPerson()
+    /**
+     *
+     * @param array {array} 二维数组
+     * @param index {number} 二维数组下标
+     * @returns {array} 返回的二维数组
+     */
+
+    function arraySort(array, index) {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = 0; j < array.length - 1 - i; j++) {
+                if (array[j][index] < array[j + 1][index]) {
+                    let temp = array[j]
+                    array[j] = array[j + 1]
+                    array[j + 1] = temp
+                }
+            }
+        }
+        return array
+    }
+</script>
 </body>
 </html>
