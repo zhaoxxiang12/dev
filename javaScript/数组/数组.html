@@ -27,6 +27,27 @@
     let arr2 = [4, 5, 6]
     arr1 = [...arr1, ...arr2]
     console.log(arr1)
+
+    let a = [1,2,3,4]
+        b = [2,3,5]
+        
+        let c = []
+        let d = []
+        for (let i = 0; i < a.length; i++) {
+            c.push(a[i])
+        }
+
+        for (let i = 0; i < b.length; i++) {
+            c.push(b[i])
+        }
+
+        for (let i = 0; i < c.length; i++) {
+            if (a.indexOf(c[i]) !== -1 && b.indexOf(c[i])===-1) {
+                d.push(c[i])
+            }
+        }
+
+        console.log(d);
 </script>
 </body>
 </html>
