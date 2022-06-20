@@ -33,6 +33,7 @@
         
         let c = []
         let d = []
+        let e = []
         for (let i = 0; i < a.length; i++) {
             c.push(a[i])
         }
@@ -48,6 +49,12 @@
         }
 
         console.log(d);
+
+        for (let i = 0; i < a.length; i++) {
+            if (b.indexOf(a[i]) === -1 && e.indexOf(a[i]) === -1) {
+                e.push(a[i])
+            }
+        }
 </script>
 </body>
 </html>
