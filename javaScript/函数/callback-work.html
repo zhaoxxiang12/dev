@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 一.定义函数some，根据用户定义的条件判断一个数组中是否有任意一个数据满足该条件，如果有则函数返回true，否则返回false
+    /**
+     *
+     * @param array {array} 数组
+     * @param callback {function} 回调函数
+     * @returns {boolean} 返回布尔值
+     */
+    function some(array, callback) {
+        let flag = false
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i]) === true) {
+                flag = true;
+                break
+            }
+        }
+        return flag;
+    }
+
+    let arr = [4, 10, 3, 5, 6, 9]
+    // let result = some(arr,(x) => {
+    //      return x === 3
+    //  })
+    //  console.log(result)
+    // 二.定义函数every，根据用户定义的条件判断一个数组中是否所有的数据都满足该条件，如果是则函数返回true，否则返回false
+
+    /**]
+     *
+     * @param array {Array} 数组
+     * @param callback {function} 回调函数
+     * @returns {boolean} 返回布尔值
+     */
+    function every(array, callback) {
+        let flag = true
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i]) === false) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    // 三.
+    // 1.在窗口输入一个员工的5项数据（姓名、年龄、工龄、薪资、性别），将这5项数据保存在一个对象中，在对象中定义一个show函数输出该对象的5项信息
+    const employee = {
+        name: '子龙',
+        age: 28,
+        workAge: 7,
+        salary: 9000,
+        gender: '男',
+        show: function () {
+            console.log(this.name);
+            console.log(this.age);
+            console.log(this.workAge);
+            console.log(this.salary);
+            console.log(this.gender);
+        }
+    }
+    // employee.show()
+    // 2.在对象中定义函数查询员工年假数量，年假数量算法为，基础年假3天，没多一年工龄则年假多一天，上限为10天，最后返回年假天数。
+    employee.queryAnnualLeave = () => {
+        let annualLeave = 3;
+        if (employee.workAge <= 1) {
+            console.log(`${employee.name}的年假为${annualLeave}天`)
+        } else if (employee.workAge >= 8) {
+            console.log(`${employee.name}的年假为10天`);
+        } else {
+            annualLeave += employee.workAge - 1;
+            console.log(`${employee.name}的年假为${annualLeave}天`)
+        }
+    }
+    employee.queryAnnualLeave()
+    // 3.在对象中定义退休查询函数，判断该员工是否满足退休条件，输出结果
+    employee.retire = () => {
+        return employee.age >= 60 && employee.gender === '男' || employee.age >= 55 && employee.gender === '女' ?
+            console.log('退休') : console.log('继续搬砖');
+    }
+    employee.retire()
+    // 4.在对象中定义函数为员工加薪,并返回最新薪资。
+    employee.addSalary = () => employee.salary + 1000;
+    let salary = employee.addSalary()
+    console.log(salary)
+</script>
+</body>
+</html>
