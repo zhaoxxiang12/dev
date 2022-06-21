@@ -12,7 +12,7 @@
     /**
      *
      * @param radius {number} 圆的半径
-     * @returns {number}
+     * @returns {number} y圆的面积
      */
     function circleArea(radius) {
         let area
@@ -49,7 +49,12 @@
     // encryption('abcdwxyzWXYZABCD')
 
 
-    // 3.定义一个函数对一个单词进行解密，解密的方式是每一个字母向前移动4位，最后返回这个解密后的单词。
+    // 3.定义一个函数对一个单词进行解密，解密的方式是每一个字母向前移动4位，最后返回这个解密后的单词
+    /**
+     *
+     * @param keyword {String} 单词字符串
+     * @returns {string} 新的字符串
+     */
     function decrypt(keyword) {
         let lowerWord = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'
             , 'x', 'y', 'z']
@@ -73,6 +78,11 @@
     decrypt('abcdABCD')
 
     // 4.定义一个函数求数组的最大值
+    /**
+     *
+     * @param array {Array} 数组
+     * @returns {number} 最大值
+     */
     function arrayMax(array) {
         let max = array[0]
         for (let i = 0; i < array.length; i++) {
