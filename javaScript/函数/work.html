@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.定义一个函数根据半径求圆的面积
+    /**
+     *
+     * @param radius {number} 圆的半径
+     * @returns {number}
+     */
+    function circleArea(radius) {
+        let area
+        area = Math.PI * radius * radius
+        return area
+    }
+
+    // 2.定义一个函数对一个单词进行加密，加密的方式是每一个字母向后移动4位，最后返回这个加密后的单词。
+    /**
+     *
+     * @param word {string} 单词的字符串
+     * @returns {string} 返回加密字符串
+     */
+    function encryption(word) {
+        let lowerWord = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'
+            , 'x', 'y', 'z']
+        let uPWord = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W'
+            , 'X', 'Y', 'Z']
+        let newWord = ''
+        for (let i = 0; i < word.length; i++) {
+            let str = word[i]
+            let lowerIndex = lowerWord.indexOf(str)
+            let upperIndex = uPWord.indexOf(str)
+            if (lowerIndex !== -1) {
+                newWord = isLastString(lowerIndex, newWord, lowerWord)
+            } else {
+                newWord = isLastString(upperIndex, newWord, uPWord)
+            }
+        }
+        console.log(newWord)
+        return newWord
+    }
+
+    // encryption('abcdwxyzWXYZABCD')
+
+
+    // 3.定义一个函数对一个单词进行解密，解密的方式是每一个字母向前移动4位，最后返回这个解密后的单词。
+    function decrypt(keyword) {
+        let lowerWord = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w'
+            , 'x', 'y', 'z']
+        let uPWord = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W'
+            , 'X', 'Y', 'Z']
+        let newWord = ''
+        for (let i = 0; i < keyword.length; i++) {
+            let str = keyword[i]
+            let lowerIndex = lowerWord.indexOf(str)
+            let upperIndex = uPWord.indexOf(str)
+            if (lowerIndex !== -1) {
+                newWord = isEncryption(lowerIndex, newWord, lowerWord)
+            } else {
+                newWord = isEncryption(upperIndex, newWord, uPWord)
+            }
+        }
+        console.log(newWord)
+        return newWord
+    }
+
+    decrypt('abcdABCD')
+
+    // 4.定义一个函数求数组的最大值
+    function arrayMax(array) {
+        let max = array[0]
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i]
+            }
+        }
+        return max
+    }
+
+
+    /**
+     *
+     * @param index {number} 字符串下标
+     * @param newWord {String} 单词
+     * @param array {Array} 字母数组
+     * @returns {String} 返回加密或者解密字符串
+     */
+    function isLastString(index, newWord, array) {
+        if (index >= 22) {
+            index = index + 4 - 26
+            newWord += array[index]
+        } else {
+            index += 4
+            newWord += array[index]
+        }
+        return newWord
+    }
+
+    function isEncryption(index, newWord, array) {
+        if (index <= 3) {
+            index = index - 4 + 26
+            newWord += array[index]
+        } else {
+            index -= 4
+            newWord += array[index]
+        }
+        return newWord
+    }
+
+
+
+</script>
+</body>
+</html>
