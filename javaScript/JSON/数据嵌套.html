@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //  表达学员数据
+    const indrustry = {
+        name: "成都蜗牛创想有限公司",
+        manager: "强",
+        address: "高新区",
+        school: [
+            {
+                name: '重庆',
+                class: {
+                    teacher: '张三',
+                    people: 50,
+                    major: 'web前端',
+                    studentName:[
+                        {
+                            name: '张三'
+                        },
+                        {
+                            name: '张飞'
+                        },
+                        {
+                            name: '李四'
+                        },
+                        {
+                            name: '子龙'
+                        },
+                    ]
+                }
+            },
+            {
+                name: '成都',
+                class: {
+                    teacher: '李四',
+                    people: 60,
+                    major: 'Java开发',
+                    studentName:[
+                        {
+                            name: '刘备'
+                        },
+                        {
+                            name: '张飞'
+                        },
+                        {
+                            name: '李四'
+                        },
+                        {
+                            name: '张三'
+                        }
+                    ]
+                }
+            },
+            {
+                name: '西安',
+                class: {
+                    teacher: '王五',
+                    people: 45,
+                    major: '测试开发',
+                    studentName: [
+                        {
+                            name: '刘备'
+                        },
+                        {
+                            name: '张三'
+                        },
+                        {
+                            name: '李四'
+                        },
+                        {
+                            name: '貂蝉'
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    // 输出分校名称
+    let area = indrustry.school
+    area.forEach(v => {
+        console.log(v.name)
+    })
+
+    // 统计学生人数
+    let total = 0
+    area.forEach(v => {
+        total += v.class.people
+    })
+    console.log(total)
+    // 删除所有张三的学生
+    area.forEach(v => {
+        for (let i = 0; i < v.class.studentName.length; i++) {
+            if (v.class.studentName[i].name === '张三') {
+                v.class.studentName.splice(i,1)
+                i--
+            }
+        }
+    })
+    console.log(area)
+</script>
+</body>
+</html>
