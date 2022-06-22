@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let arr = {
+    //     0: "张三",
+    //     1: "李四",
+    //     2: "王五",
+    //     3: "老六",
+    //     4: "子龙",
+    //     length: 5
+    // }
+    let arr = {
+        0: 99,
+        1: 2101,
+        2: 10,
+        3: 12,
+        4: 56,
+        length: 5
+    }
+
+    arr.forEach = function (callback) {
+        let value;
+        let index;
+        for (let i = 0; i < arr.length; i++) {
+            value = arr[i]
+            index = i
+            callback(value, index, arr)
+        }
+    }
+    // arr.forEach((v, i,a) => {
+    //     console.log(v,i,a)
+    // })
+    arr.lastIndexOf = function (data) {
+        let index = -1;
+        for (let i = arr.length; i >= 0; i--) {
+            if (arr[i] === data) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+    // let index = arr.lastIndexOf("李四2")
+    // console.log(index)
+
+    /**
+     * 此方法原数组会受影响
+     * @param firstIndex
+     * @param lastIndex
+     */
+    arr.slice = function (firstIndex, lastIndex) {
+        for (let i = lastIndex - 1; i >= firstIndex; i--) {
+            for (let j = firstIndex; j < this.length; j++) {
+                arr[j] = arr[j + 1];
+            }
+            delete this[this.length - 1];
+            this.length--;
+        }
+        console.log(arr)
+    }
+    // arr.slice(1, 2)
+
+    /**
+     * 此方法原数组不受影响
+     * @param startIndex 开始下标
+     * @param endIndex 结束下标
+     * @returns {*[]} 返回数组
+     */
+    arr.slice2 = function (startIndex, endIndex) {
+        let newArray = []
+        for (let i = startIndex; i < endIndex; i++) {
+            newArray.push(this[i])
+        }
+        return newArray
+    }
+
+    arr.join = function (string) {
+        let newString = ''
+        for (let i = 0; i < this.length; i++) {
+            if (i === this.length - 1) {
+                newString += this[i];
+            } else {
+                newString += this[i] + string;
+            }
+        }
+        console.log(newString)
+        console.log(arr)
+        return newString
+    }
+    // arr.join("-")
+
+    arr.sort = function (callback) {
+        for (let i = 0; i < arr.length - 1; i++) {
+            for (let j = 0; j < arr.length - 1 - i; j++) {
+                if (callback(arr[j], arr[j + 1]) > 0) {
+                    let temp = arr[j]
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = temp
+                }
+            }
+        }
+    }
+
+    // arr.sort((x, y) => {
+    //     return y - x
+    // })
+
+    arr.some = function (callback) {
+        let flag = false
+        for (let i = 0; i < this.length; i++) {
+            if (callback(this[i])) {
+                flag = true
+            }
+        }
+        return flag
+    }
+
+    arr.some((x) => {
+        return x > 100000
+    })
+
+    arr.every = function (callback) {
+        let flag = true;
+        for (let i = 0; i < this.length; i++) {
+            if (!callback(this[i])) {
+                flag = false;
+                break;
+            }
+        }
+        return flag
+    }
+
+</script>
+</body>
+</html>
