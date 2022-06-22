@@ -18,7 +18,7 @@
     function some(array, callback) {
         let flag = false
         for (let i = 0; i < array.length; i++) {
-            if (callback(array[i]) === true) {
+            if (callback(array[i]))  {
                 flag = true;
                 break
             }
@@ -42,7 +42,7 @@
     function every(array, callback) {
         let flag = true
         for (let i = 0; i < array.length; i++) {
-            if (callback(array[i]) === false) {
+            if (!callback(array[i])) {
                 flag = false;
                 break;
             }
@@ -78,6 +78,7 @@
             annualLeave += employee.workAge - 1;
             console.log(`${employee.name}的年假为${annualLeave}天`)
         }
+        return annualLeave
     }
     employee.queryAnnualLeave()
     // 3.在对象中定义退休查询函数，判断该员工是否满足退休条件，输出结果
@@ -86,8 +87,9 @@
             console.log('退休') : console.log('继续搬砖');
     }
     employee.retire()
-    // 4.在对象中定义函数为员工加薪,并返回最新薪资。
-    employee.addSalary = () => employee.salary + 1000;
+    // 4.在对象中定义函数为员工加薪,并返回最新薪资
+    let newSalary = prompt('输入薪资')
+    employee.addSalary = () => employee.salary + newSalary;
     let salary = employee.addSalary()
     console.log(salary)
 </script>
