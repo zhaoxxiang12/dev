@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //获取当前系统时间
+  let now = new Date()
+  console.log(now)
+    //指定日期
+    let t1 = new Date(2021,5,30)//月份从0开始 到 11
+    console.log(t1)
+    //指定日期和时间
+    let t2 = new Date(2020,4,22,12,50,55)
+    console.log(t2)
+
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let seconds = now.getSeconds();
+    console.log(year, month, date, hour, minute, seconds)
+    let day = now.getDay();
+    console.log(day)
+
+    let time = now.getTime();
+    console.log(time)
+    console.log(new Date(time))
+    // 时区偏移量
+    // let offset = now.getTimezoneOffset();
+    // console.log(offset)
+    // let minute0 = minute + offset
+    // let time0 = new Date(year, month - 1, date, hour, minute0, seconds)
+    // console.log(time0)
+</script>
+</body>
+</html>
