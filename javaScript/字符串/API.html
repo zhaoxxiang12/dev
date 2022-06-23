@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let str = '赵云'
+    // console.log(str.charCodeAt(1))
+
+    // 字符串反转
+    let str = "chinese"
+
+    function reversion(string) {
+        let newString = ''
+        for (let i = string.length - 1; i >= 0; i--) {
+            newString += string[i]
+        }
+        return newString
+    }
+
+    // 判断是否是js文件
+    let jsFile = '1.js.js'
+
+    function isJsFile(fileName) {
+        let startIndex = fileName.length - 3
+        let newString = ''
+        for (let i = startIndex; i < fileName.length; i++) {
+            newString += fileName.charAt(i)
+        }
+        return newString === '.js' && fileName.length > 3;
+    }
+
+    // console.log( isJsFile(jsFile))
+
+    //判断是否是纯数字
+    let numberString = "12339122110"
+
+    function isNumberString(string) {
+        // let numberArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+        let flag = true
+        for (let i = 0; i < string.length; i++) {
+            if (string.charCodeAt(i) < 48 || string.charCodeAt(i) > 57) {
+                flag = false
+                break;
+            }
+            // if (numberArr.indexOf(string.charAt(i)) === -1) {
+            //     flag = false
+            //     break;
+            // }
+        }
+        return flag
+    }
+
+    console.log(isNumberString(numberString))
+
+    //和谐化语言
+    let s = 'niSBshiTMD1SB尼玛死了'
+
+    function harmonizeStatement(statement) {
+        let bad = ['SB', 'TMD', '尼玛死了']
+        let harmonize = ['小可爱', '真棒', '身体健康']
+        for (let i = 0; i < bad.length; i++) {
+            if (statement.indexOf(bad[i]) !== -1) {
+                statement = statement.replaceAll(bad[i], harmonize[i])
+            }
+        }
+        console.log(statement)
+    }
+
+    harmonizeStatement(s)
+</script>
+</body>
+</html>

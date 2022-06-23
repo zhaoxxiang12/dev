@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function mathRandom(max, min) {
+        return Math.floor(Math.random() * (max - min)) + min
+    }
+
+    let total = 0
+    for (let i = 0; i < 1000; i++) {
+        let num = mathRandom(101, 0)
+        if (num === 100) {
+            total += 1
+        }
+    }
+    // console.log(total)
+    const takeOut = ["青椒肉丝", "鱼香肉丝", "肯德基", "麦当劳", "德克士", "满汉全席", "水煮肉片", "水煮鱼", "🍕", "酸菜鱼"]
+    let menu = []
+    while (true) {
+        let index = mathRandom(0, 10)
+        if (menu.indexOf(takeOut[index]) === -1) {
+            menu.push(takeOut[index])
+        }
+        if (menu.length === 3) {
+            break;
+        }
+    }
+    console.log(menu);
+</script>
+</body>
+</html>
