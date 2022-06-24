@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 今天开始往后7天的时间
+    function addDay() {
+        let now = new Date();
+        let time = now.getTime();
+        const week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        for (let i = 1; i <= 7; i++) {
+            time = time + 24 * 60 * 60 * 1000;
+            let futureTime = new Date(time);
+            let year = futureTime.getFullYear();
+            let month = futureTime.getMonth() + 1;
+            let day = futureTime.getDate();
+            let hour = futureTime.getHours();
+            let minute = futureTime.getMinutes();
+            let second = futureTime.getSeconds();
+            let date = week[futureTime.getDay()];
+            let newTime = `${year}/${month}/${day}  ${hour}/${minute}/${second}  ${date}`;
+            console.log(newTime);
+        }
+    }
+
+    // addDay()
+</script>
+</body>
+</html>
