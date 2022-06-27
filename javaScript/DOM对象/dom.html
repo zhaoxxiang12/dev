@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 0 auto;
+            height: 500px;
+        }
+
+        div img {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="../../image/1.jpg" alt="" id="img">
+    </div>
+</body>
+
+</html>
+<script>
+    const imgs = ['1.jpg', '天使彦7.jpg', '天使彦8.jpg']
+    let img = document.getElementById('img')
+    let index = 0
+    let t
+     t = setInterval(tab =() => {
+        if (index === imgs.length - 1) {
+            index = 0
+        } else {
+            index++
+        }
+        let path = `../../image/${imgs[index]}`
+        img.src = path
+        console.log(index);
+    }, 2000)
+
+    img.onmouseover = function () {
+        clearInterval(t)
+    }
+
+    img.onmouseout = function () {
+    //     t = setInterval(() => {
+    //     if (index === imgs.length - 1) {
+    //         index = 0
+    //     } else {
+    //         index++
+    //     }
+    //     let path = `../../image/${imgs[index]}`
+    //     img.src = path
+    //     console.log(index);
+    // }, 2000)
+        t = setInterval(tab, 2000)
+    }
+</script>
