@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址管理</title>
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/userIndex.css">
+    <link rel="stylesheet" href="../CSS/common.css">
+    <script src="../bootstrap-4.6.1/js/jquery-3.5.1.js"></script>
+    <script src="../bootstrap-4.6.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../bootstrap-4.6.1/css/bootstrap.css">
+    <link rel="stylesheet" href="../CSS/adrress.css">
+</head>
+
+<body>
+     <!-- 头部 -->
+     <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="../page/05-index.html">首页</a></li>
+                    <li>
+                        <a href="../page/06-allProducts.html">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/07-decorate.html">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="../page/07-decorate.html">干花花艺</a>
+                            <a href="../page/08-vase.html">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/09-fabric.html">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="../page/10-tableCloth.html">桌布罩件</a>
+                            <a href="../page/09-fabric.html">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                    <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                    <li><a href="../page/13-furniture.html">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href="../page/16-userIndex.html"></a>
+                    <a href=""></a>
+                    <a href="../page/17-shoppingCar.html"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="div"></div>
+    <!-- 面包屑导航 -->
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../page/05-index.html">首页</a></li>
+            <li class="breadcrumb-item">/</li>
+            <li class="breadcrumb-item"><a href="../page/23-userInfo.html">个人中心</a></li>
+            <li class="breadcrumb-item">/</li>
+            <li class="breadcrumb-item"><a href="../page/18-orderList">我的订单</a></li>
+        </ol>
+    </nav>
+    <!-- 主体部分 -->
+    <main>
+        <div class="personal">
+            <div class="avatar">
+                <div class="photo">
+                    <img src="../image/duck.jpg" alt="">
+                </div>
+                <p>
+                    <span>[ss***k]</span>&nbsp;
+                    <a href="../page/01-login.html">[退出登录]</a>
+                </p>
+            </div>
+            <h6 style="font-weight: bold;">我的交易</h6>
+            <ul>
+                <li>
+                    <a href="../page/17-shoppingCar.html">我的购物车</a>
+                </li>
+                <li>
+                    <a href="../page/18-orderList.html">我的订单</a>
+                </li>
+                <li>
+                    <a href="../page/20-perEstimate.html">评价晒单</a>
+                </li>
+                <li>
+                    <a href="../page/16-userIndex.html" style="font-weight: bold;font-size: 15px;">个人中心</a>
+                </li>
+                <li>
+                    <a href="../page/16-userIndex.html">我的中心</a>
+                </li>
+                <li>
+                    <a href="../page/21-address.html">地址管理</a>
+                </li>
+                <li>
+                    <a href="" style="font-weight: bold;">账户管理</a>
+                </li>
+                <li>
+                    <a href="../page/23-userInfo.html">个人信息</a>
+                </li>
+                <li>
+                    <a href="../page/25-modiPassword.html">修改密码</a>
+                </li>
+            </ul>
+        </div>
+        <div class="info">
+            <div class="head">
+                <span>收货地址</span>
+            </div>
+            <div class="address">
+                <div class="container">
+                      <!-- 按钮：用于打开模态框 -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        +
+                      </button>
+                      <p>添加新地址</p>
+                      <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                       
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">添加地址</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                       
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                <p> <input type="text" placeholder="姓名"></p>
+                                <p> <input type="text" placeholder="手机号"></p>
+                                <div class="area">
+                                    <div class="item">
+                                        <select name="" id="">
+                                            <option value="">省份/自治州</option>
+                                            <option value="">四川</option>
+                                            <option value="">重庆</option>
+                                        </select>
+                                    </div>
+                                    <div class="item">
+                                        <select name="" id="">
+                                            <option value="">城市/地区</option>
+                                            <option value="">成都市</option>
+                                            <option value="">江北区</option>
+                                        </select>
+                                    </div>
+                                    <div class="item">
+                                        <select name="" id="">
+                                            <option value="">区/县</option>
+                                        </select>
+                                    </div>
+                                    <div class="item">
+                                        <select name="" id="">
+                                            <option value="">配送区域</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p>
+                                    <input type="text">
+                                </p>
+                                <p>
+                                    <input type="text" placeholder="邮政编码">
+                                </p>
+                            </div>
+                       
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal">确定</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            </div>
+                       
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="address-info">
+                    <p>
+                        ss***k
+                    </p>
+                    <p>1573*****666</p>
+                    <p>河北省&nbsp;唐山市&nbsp;路北区</p>
+                    <p>唐山市大学公寓村&nbsp;&nbsp;(063000)</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>    
+        </div>
+    </footer>
+
+    <aside>
+        <a href="../page/17-shoppingCar.html" class="aside1">
+            <p>去购物车</p>
+        </a>
+        <a href="" class="aside2">
+            <p>联系客服</p>
+            <div>400-800-8200</div>
+        </a>
+        <a href="../page/16-userIndex.html" class="aside3">
+            <p>个人中心</p>
+        </a>
+    </aside>
+</body>
+
+</html>

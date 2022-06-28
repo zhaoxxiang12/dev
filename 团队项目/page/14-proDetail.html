@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/14-prodetail.css">
+    <script src="../JS/14-proDetail.js"></script>
+</head>
+<body>
+    <!-- 顶部 -->
+    <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="../page/05-index.html">首页</a></li>
+                    <li>
+                        <a href="../page/06-allProducts.html">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/07-decorate.html">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="../page/07-decorate.html">干花花艺</a>
+                            <a href="../page/08-vase.html">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/09-fabric.html">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="../page/10-tableCloth.html">桌布罩件</a>
+                            <a href="../page/09-fabric.html">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                    <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                    <li><a href="../page/13-furniture.html">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href="../page/16-userIndex.html"></a>
+                    <a href=""></a>
+                    <a href="../page/17-shoppingCar.html"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 主体部分 -->
+    <main>
+        <!-- 主体内容上边部分 -->
+        <div class="main_top">
+            <div>
+                <p><a href="./05-index.html">首页</a>/<a href="./07-decorate.html">装饰摆件</a>/<a href="./07-decorate.html">干花花艺</a>/<span>【最家】非洲菊仿真花干花</span></p>
+            </div>
+        </div>
+        <!-- 主体内容下边部分 -->
+        <div class="main_bottom">
+            <!-- 内容大盒子 -->
+            <div class="big">
+                <!-- 上边商品详情 -->
+                <div class="big_top">
+                    <!-- 细节展示图片 -->
+                    <div class="detail_img">
+                        <!-- 大图片盒子 -->
+                        <div class="xl_img">
+                            <img src="../image/temp/proDet01_big.jpg" alt="" id="image">
+                        </div>
+                        <!-- 小图片盒子 -->
+                        <div class="small_img">
+                            <ul>
+                                <li onclick="one()"><img src="../image/temp/proDet01.jpg" alt=""></li>
+                                <li onclick="two()"><img src="../image/temp/proDet02.jpg" alt=""></li>
+                                <li onclick="three()"><img src="../image/temp/proDet03.jpg" alt=""></li>
+                                <li onclick="four()"><img src="../image/temp/proDet04.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 商品信息 -->
+                    <div class="product_info">
+                        <h3>【最家】非洲菊仿真花干花</h3>
+                        <p>【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方】【无理由退换货】【包邮】【白色现代简约花瓶】</p>
+                        <h2>￥59.90</h2>
+                        <h6>颜色分类</h6>
+                        <ul>
+                            <li>
+                                <img src="../image/temp/prosmall01.jpg" alt=""></li>
+                            <li>
+                                <img src="../image/temp/prosmall02.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/temp/prosmall03.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="../image/temp/prosmall04.jpg" alt="">
+                            </li>
+                        </ul>
+                        <h6>数量 库存<span>2096</span>件</h6>
+                        <div>
+                            <!-- 加减数量 -->
+                            <div class="jiajian">
+                                <div class="btn_l" onclick="sub()"></div>
+                                <input type="text" value="1" id="number">
+                                <div class="btn_r" onclick="add()"></div>
+                            </div>
+                        </div>
+                        <div class="shop">
+                            <a href="./26-pay.html">立即购买</a>
+                            <a href="./17-shoppingCar.html">加入购物车</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 中间商品图片 -->
+                <div class="big_center">
+                    <div class="allpic">
+                        <ul>
+                            <li><a href="">商品详情</a></li>
+                            <li><a href="./15-allEstimate.html">所有评价</a></li>
+                        </ul>
+                        <img src="../image/temp/det01.jpg" alt="">
+                        <img src="../image/temp/det02.jpg" alt="">
+                        <img src="../image/temp/det03.jpg" alt="">
+                        <img src="../image/temp/det04.jpg" alt="">
+                        <img src="../image/temp/det05.jpg" alt="">
+                        <img src="../image/temp/det06.jpg" alt="">
+                        <img src="../image/temp/det07.jpg" alt="">
+                    </div>
+                    <div class="tuijian">
+                        <h3>为你推荐</h3>
+                        <a href="./14-proDetail.html">
+                            <img src="../image/temp/see01.jpg" alt="">
+                            <h5>
+                                【最家】复古文艺风玻璃花瓶
+                            </h5>
+                            <p>￥193.20</p>
+                        </a>
+                        <a href="./14-proDetail.html">
+                            <img src="../image/temp/see02.jpg" alt="">
+                            <h5>
+                                【最家】复古文艺风玻璃花瓶
+                            </h5>
+                            <p>￥193.20</p>
+                        </a>
+                        <a href="./14-proDetail.html">
+                            <img src="../image/temp/see03.jpg" alt="">
+                            <h5>
+                                【最家】复古文艺风玻璃花瓶
+                            </h5>
+                            <p>￥193.20</p>
+                        </a>
+                        <a href="./14-proDetail.html">
+                            <img src="../image/temp/see04.jpg" alt="">
+                            <h5>
+                                【最家】复古文艺风玻璃花瓶
+                            </h5>
+                            <p>￥193.20</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- 下边商品轮播图 -->
+                <div class="big_bottom">
+                    <h3>猜你喜欢</h3>
+                    <!-- <div class="jiantou_l"></div>
+                    <div class="jiantou_r"></div> -->
+                    <div class="box">
+                        <div class="big">
+                            <div class="box1">
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like01.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like02.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like03.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like04.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like05.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                            </div>
+                            <div class="box1">
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like01.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like02.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like03.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like04.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like05.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                            </div>
+                            <div class="box1">
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like01.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like02.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like03.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like04.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                                <a href="./14-proDetail.html">
+                                    <img src="../image/temp/like05.jpg" alt="">
+                                    <h4>【最家】复古文艺风玻璃花瓶</h4>
+                                    <p>￥688.00</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 侧边导航 -->
+    <aside>
+        <a href="./17-shoppingCar.html" class="aside1">
+            <p>去购物车</p>
+        </a>
+        <a href="" class="aside2">
+            <p>联系客服</p>
+            <div>400-800-8200</div>
+        </a>
+        <a href="./16-userIndex.html" class="aside3">
+            <p>个人中心</p>
+        </a>
+    </aside>
+    <!-- 底部 -->
+    <footer>
+        <!-- 底部第一排 -->
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <!-- 底部声明 -->
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>    
+        </div>
+    </footer>
+</body>
+</html>

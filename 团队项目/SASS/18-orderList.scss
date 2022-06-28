@@ -1,0 +1,293 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    main{
+        width: 100%;
+        position: relative;
+        top: 100px;
+        padding-bottom: 100px;
+        // 主体内容上边部分
+        .main_top{
+            width: 100%;
+            div{
+                width:100%;
+                // height: 50px;
+                border-bottom: 1px solid #e0e0e0;
+                p{
+                    width: 80%;
+                    margin: 0 auto;
+                    height: 40px;
+                    line-height: 40px;
+                    color: gray;
+                    a{
+                        margin-right: 20px;
+                        color: gray;
+                        &:nth-child(2){
+                            margin-left: 20px;
+                        }
+                    }
+                    span{
+                            color: black;
+                            margin-left: 20px;
+                    }
+                }
+            }
+        }
+        // 主体内容下边部分
+        .main_bottom{
+            width: 100%;
+            background-color: #f6f4f5;
+            overflow: hidden;
+            // 内容大盒子
+            .big{
+                width: 80%;
+                margin: 30px auto;
+                display: flex;
+                justify-content: space-between;
+                // 左边导航栏
+                .big_left{
+                    width: 20%;
+                    height: 750px;
+                    background-color: white;
+                    border: 2px solid #d6d6d6;
+                    // 头像部分
+                    .head{
+                        width: 100%;
+                        border-bottom: 2px solid #c30000;
+                        div{
+                            width: 120px;
+                            height: 120px;
+                            // border: 1px solid red;
+                            margin: 20px auto;
+                            border-radius: 60px;
+                            background: url(../image/duck.jpg) no-repeat center/cover;
+                            
+                        }
+                        p{
+                            text-align: center;
+                            margin: 20px 0;
+                            color: #28557e;
+                            a{
+                                color: #28557e;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                    // 导航部分
+                    .tab{
+                        width: 100%;
+                        ul{
+                            width: 100%;
+                            li{
+                                width: 100%;
+                                height: 50px;
+                                text-align: center;
+                                line-height: 50px;
+                                &:hover{
+                                    a{
+                                        color: red;
+                                    }
+                                }
+                                a{
+                                    width: 100%;
+                                    color: #595959;
+                                }
+                                &:nth-child(3){
+                                    a{
+                                        color: red;
+                                    }
+                                }
+                            }
+                            p{
+                                width: 100%;
+                                height: 60px;
+                                line-height: 60px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+                // 右边内容栏
+                .big_right{
+                    width: 75%;
+                    background-color: white;
+                    border: 2px solid #d6d6d6;
+                    // 内容盒子
+                    .box{
+                        width: 90%;
+                        margin: 0 auto;
+                        padding-top: 50px;
+                        h3{
+                            // font-size: 18px;
+                            a{
+                                color: #6b6b6b;
+                                font-size: 14px;
+                                font-weight: 400;
+                                margin-left: 20px;
+                            }
+                        }
+                        // 订单分类
+                        .fenlei{
+                            width: 100%;
+                            display: flex;
+                            margin: 20px 0;
+                            p{
+                                width: 50%;
+                                font-size: 17px;
+                                height: 50px;
+                                line-height: 50px;
+                                color: #808080;
+                                &:nth-child(2){
+                                    text-align: right;
+                                    position: relative;
+                                    &::after{
+                                        content: "";
+                                        display: block;
+                                        width: 25px;
+                                        height: 25px;
+                                        border-left: 2px solid #d5d5d5;
+                                        position: absolute;
+                                        top: 14.5px;
+                                        right: 2px;
+                                        background: url(../image/ds.png) no-repeat center;
+                                        background-size: 80%;
+                                    }
+                                }
+                                span{
+                                    color: red;
+                                    margin: 0 10px;
+                                }
+                                a{
+                                    color: #808080;
+                                    margin: 0 20px;
+                                    &:hover{
+                                        color: red;
+                                    }
+                                }
+                                input{
+                                    width: 260px;
+                                    height: 25px;
+                                    border: 2px solid #d5d5d5;
+                                }
+                            }
+                        }
+                        // 每个订单
+                        .order1,.order2,.order3,.order4{
+                            width: 100%;
+                            margin: 30px 0 20px 0;
+                            border: 1px solid #d5d5d5;
+                            // 订单上边部分
+                            .order_top{
+                                width: 100%;
+                                color: #8c8c8c;
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: space-between;
+                                border-bottom: 1px solid #8c8c8c;
+                                overflow: hidden;
+                                h4{
+                                    width: 98%;
+                                    font-size: 18px;
+                                    font-weight: 400;
+                                    margin-top: 20px;
+                                    padding-left: 20px;
+                                }
+                                p{
+                                    font-size: 14px;
+                                    margin: 20px 0;
+                                    &:nth-child(2){
+                                        width: 68%;
+                                        padding-left: 20px;
+                                    }
+                                    &:nth-child(3){
+                                        width: 27%;
+                                        text-align: right;
+                                        padding-right: 20px;
+                                        span{
+                                            font-size: 16px;
+                                            color: red;
+                                        }
+                                    }
+                                }
+                            }
+                            // 订单下边部分
+                            .order_bottom{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                // 商品图片
+                                .proimg{
+                                    width: 80px;
+                                    height: 80px;
+                                    margin: 20px 0 20px 20px;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                                // 商品说明
+                                .shuoming{
+                                    width: 60%;
+                                    height: 80px;
+                                    margin-top: 20px;
+                                    // background-color: pink;
+                                    p{
+                                        font-size: 14px;
+                                        margin: 10px 0;
+                                    }
+                                }
+                                // 商品评价
+                                .pingjia{
+                                    width: 20%;
+                                    // background-color: red;
+                                    height: 80px;
+                                    margin: 20px 20px 20px 0;
+                                    a{
+                                        display: block;
+                                        width: 90%;
+                                        height: 30px;
+                                        line-height: 30px;
+                                        text-align: center;
+                                        border: 1px solid #d5d5d5;
+                                        margin: 0 auto 15px auto;
+                                        color: black;
+                                        &:hover{
+                                            background-color: gray;
+                                            color: white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .order2,.order3{
+                            .order_top{
+                                h4{
+                                    color: red;
+                                }
+                            }
+                            .order_bottom{
+                                .pingjia{
+                                    a{
+                                        &:first-child{
+                                            background-color: #d40000;
+                                            color: white;
+                                            &:hover{
+                                                background-color: gray;
+                                                color: black;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

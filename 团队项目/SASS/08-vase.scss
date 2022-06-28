@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    // 主体部分
+    main{
+        width: 100%;
+        position: relative;
+        top: 100px;
+        padding-bottom: 200px;
+        // 主体内容上边部分
+        .main_top{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+            div{
+                width:100%;
+                // height: 50px;
+                border-bottom: 1px solid #e0e0e0;
+                p{
+                    width: 80%;
+                    margin: 0 auto;
+                    height: 40px;
+                    line-height: 40px;
+                    color: gray;
+                    a{
+                        margin-right: 20px;
+                        color: gray;
+                        &:nth-child(2){
+                            margin-left: 20px;
+                        }
+                    }
+                    span{
+                            color: black;
+                            margin-left: 20px;
+                    }
+                }
+                &:nth-child(3){
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        width: 20%;
+                        height: 60px;
+                        color: black;
+                        line-height: 60px;
+                        // background-color: yellow;;
+                        margin-left: 10%;
+                        font-weight: bold;
+                    }
+                    // 主体内容上边部分下拉菜单
+                    .xiala{
+                        width: 15%;
+                        height: 50px;
+                        margin-top: 5px;
+                        // background-color: pink;
+                        margin-right: 10%;
+                        position: relative;
+                        &:hover .second{
+                            display: block;
+                        }
+                        &:hover .sort::after{
+                                top: 10px;
+                                right: 10px;
+                                border-bottom: 10px solid black;
+                                border-top: 10px solid transparent;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                        }
+                        // 二级菜单标题
+                        .sort{
+                            width: 100%;
+                            height: 100%;
+                            line-height: 50px;
+                            box-sizing: border-box;
+                            padding-left: 10px;
+                            border: 1px solid #d5d5d5;
+                            position: relative;
+                            &::after{
+                                content: "";
+                                display: block;
+                                width: 0px;
+                                height: 0px;
+                                // background-color: pink;
+                                position: absolute;
+                                top: 20px;
+                                right: 10px;
+                                border-top: 10px solid black;
+                                border-bottom: 10px solid transparent;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                            }
+                        }
+                        // 二级菜单列表
+                        .second{
+                            display: none;
+                            width: 100%;
+                            ul{
+                                width: 100%;
+                                li{
+                                    width: 100%;
+                                    height: 50px;
+                                    background-color: white;
+                                    border-bottom: 1px solid #d5d5d5;
+                                    padding-left: 10px;
+                                    line-height: 50px;
+                                    box-sizing: border-box;
+                                    &:hover{
+                                        background-color: #af2727;
+                                        a{
+                                            color: white;
+                                        }
+                                    }
+                                    a{
+                                        color: black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .main_bottom{
+            width: 100%;
+            .big{
+                width: 80%;
+                // height: 600px;
+                // background-color: pink;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                // justify-content: space-between;
+                a{
+                    display: block;
+                    width: 25%;
+                    height: 330px;
+                    color: black;
+                    margin-top: 30px;
+                    // 商品的价格
+                    &::after{
+                        content: "￥17.90";
+                        display: block;
+                        font-size: 18px;
+                        color: red;
+                        padding-left: 20px;
+                    }
+                    &:hover{
+                        box-shadow: 0 0 1px 1px black;
+                    }
+                    // hover让隐藏的盒子呈现
+                    &:hover div{
+                        visibility: visible;
+                    }
+                    &:first-child{
+                        background: url(../image/temp/temp/vase01.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(2){
+                        background: url(../image/temp/temp/vase02.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(3){
+                        background: url(../image/temp/temp/vase03.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(4){
+                        background: url(../image/temp/temp/vase04.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(4){
+                        background: url(../image/temp/temp/vase04.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(5){
+                        background: url(../image/temp/temp/vase05.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(6){
+                        background: url(../image/temp/temp/vase06.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(7){
+                        background: url(../image/temp/temp/vase07.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(8){
+                        background: url(../image/temp/temp/vase08.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(9){
+                        background: url(../image/temp/temp/vase01.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(10){
+                        background: url(../image/temp/temp/vase02.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(11){
+                        background: url(../image/temp/temp/vase03.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(12){
+                        background: url(../image/temp/temp/vase04.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(13){
+                        background: url(../image/temp/temp/vase05.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(14){
+                        background: url(../image/temp/temp/vase06.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(15){
+                        background: url(../image/temp/temp/vase07.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    &:nth-child(16){
+                        background: url(../image/temp/temp/vase08.jpg) no-repeat;
+                        background-position: center 10px;
+                        background-size: 250px;
+                    }
+                    
+                    // 隐藏的快速浏览
+                    div{
+                        width: 150px;
+                        height: 40px;
+                        border: 1px solid black;
+                        background-color: rgba(white,0.5);
+                        margin: 120px auto 0 auto;
+                        text-align: center;
+                        line-height: 40px;
+                        visibility: hidden;
+                    }
+                    // 商品说明
+                    p{
+                        margin: 110px 0 15px 0;
+                        font-size: 14px;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

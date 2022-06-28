@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    header{
+        border-bottom: 1px solid #e0e0e0 ;
+    }
+    main{
+        width: 100%;
+        position: relative;
+        top: 100px;
+        padding-bottom: 200px;
+        // 主体内容上边部分
+        .main_top{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+            div{
+                width:100%;
+                // height: 50px;
+                border-bottom: 1px solid #e0e0e0;
+                p{
+                    width: 80%;
+                    margin: 0 auto;
+                    height: 40px;
+                    line-height: 40px;
+                    color: gray;
+                    a{
+                        margin-right: 20px;
+                        color: gray;
+                        &:nth-child(2){
+                            margin-left: 20px;
+                        }
+                        &:nth-child(3){
+                            margin-left: 20px;
+                        }
+                    }
+                    span{
+                            color: black;
+                            margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .main_bottom{
+            width: 100%;
+            .big{
+                width: 80%;
+                // height: 800px;
+                // background-color: pink;
+                margin: 30px auto;
+                // 上边商品详情
+                .big_top{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-bottom: 50px;
+                    //细节展示图片
+                    .detail_img{
+                        width: 40%;
+                        // background-color: aquamarine;
+                        .xl_img{
+                            width: 460px;
+                            height: 460px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .small_img{
+                            width: 100%;
+                            margin-top: 20px;
+                            ul{
+                                display: flex;
+                                li{
+                                    width: 100px;
+                                    height: 100px;
+                                    margin-right: 20px;
+                                    &:hover{
+                                        box-shadow: 0 0 1px 1px red;
+                                    }
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // 商品信息
+                    .product_info{
+                        width: 55%;
+                        // height: 600px;
+                        // background-color: bisque;
+                        >h3{
+                            width: 100%;
+                            font-weight: 400;
+                            margin-top: 10px;
+                        }
+                        >p{
+                            width: 100%;
+                            font-size: 14px;
+                            color: #848484;
+                            margin: 20px 0;
+                        }
+                        h2{
+                            width: 100%;
+                            height: 60px;
+                            font-weight: 400;
+                            color: #c20000;
+                            border-bottom: 1px solid #e0e0e0 ;
+                        }
+                        >ul{
+                            width: 100%;
+                            display: flex;
+                            li{
+                                width: 60px;
+                                height: 60px;
+                                margin-right: 20px;
+                                &:hover{
+                                    box-shadow: 0 0 1px 1px red;
+                                }
+                                &:first-child{
+                                    background: url(../image/temp/prosmall01.jpg) no-repeat center/cover;
+                                }
+                                &:nth-child(2){
+                                    background: url(../image/temp/prosmall02.jpg) no-repeat center/cover;
+                                }
+                                &:nth-child(3){
+                                    background: url(../image/temp/prosmall03.jpg) no-repeat center/cover;
+                                }
+                                &:nth-child(4){
+                                    background: url(../image/temp/prosmall04.jpg) no-repeat center/cover;
+                                }
+                            }
+                        }
+                        >h6{
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            margin: 20px 0;
+                            span{
+                                color: #c20000;
+                            }
+                        }
+                        >div{
+                            width: 100%;
+                            height: 70px;
+                            border-bottom:1px solid #e0e0e0 ;
+                            .jiajian{
+                                width: 150px;
+                                height: 40px;
+                                margin-top: 20px;
+                                display: flex;
+                                justify-content: space-between;
+                                text-align: center;
+                                line-height: 40px;
+                                .btn_l{
+                                    width: 40px;
+                                    height: 40px;
+                                    background: url(../image/temp/sub.jpg) no-repeat center/cover;
+                                }
+                                .btn_r{
+                                    width: 40px;
+                                    height: 40px;
+                                    background: url(../image/temp/add.jpg) no-repeat center/cover;
+                                }
+                                input{
+                                    display: block;
+                                    width: 70px;
+                                    height: 40px;
+                                    border: 0;
+                                    line-height: 40px;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                        .shop{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            border: 0;
+                            a{
+                                display: block;
+                                width: 150px;
+                                height: 40px;
+                                line-height: 40px;
+                                text-align: center;
+                                margin: 20px 0;
+                                &:hover{
+                                    font-size: 18px;
+                                }
+                                &:first-child{
+                                    float: left;
+                                    background-color: #c10000;
+                                    color: white;
+                                }
+                                &:nth-child(2){
+                                    float: right;
+                                    border: 2px solid black;
+                                    color: black;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                // 中间商品图片
+                .big_center{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .allpic{
+                        width: 70%;
+                        ul{
+                            width: 100%;
+                            height: 50px;
+                            border-top: 1px solid #e6e6e6;
+                            border-bottom: 1px solid #e6e6e6;
+                            display: flex;
+                            margin-bottom: 30px;
+                            li{
+                                width: 130px;
+                                height: 46px;
+                                line-height: 46px;
+                                text-align: center;
+                                &:hover{
+                                    border-bottom: 3px solid #c20000;
+                                }
+                                &:first-child{
+                                    color: #c20000;
+                                    border-bottom: 3px solid #c20000;
+                                }
+                                a{
+                                    color: black;
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .tuijian{
+                        width: 20%;
+                        h3{
+                            width: 100%;
+                            height: 40px;
+                            line-height: 40px;
+                            text-align: center;
+                            background-color: #d5d5d5;
+                            margin-bottom: 30px;
+                            font-weight: 400;
+                        }
+                        a{
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 30px;
+                            img{
+                                width: 100%;
+                            }
+                            h5{
+                                font-weight: 400;
+                                margin: 20px 0;
+                                color: black;
+                            }
+                            p{
+                                color: #7c7d7b;
+                            }
+
+                        }
+                    }
+                }
+                // 下边商品轮播图
+                .big_bottom{
+                    width: 100%;
+                    position: relative;
+                    h3{
+                        width: 100%;
+                        height: 60px;
+                        line-height: 60px;
+                        text-align: center;
+                        font-weight: 400;
+                    }
+                    .jiantou_l{
+                        width: 60px;
+                        height: 100px;
+                        position: absolute;
+                        top: 190px;
+                        left: -70px;
+                        background: url(../image/temp/prev.png) no-repeat center/cover;
+                    }
+                    .jiantou_r{
+                        width: 60px;
+                        height: 100px;
+                        position: absolute;
+                        top: 190px;
+                        right: -70px;
+                        background: url(../image/temp/next.png) no-repeat center/cover;
+                    }
+                    .box{
+                        width: 100%;
+                        overflow: hidden;
+                        .big{
+                            width: 300%;
+                            // border: 1px solid red;
+                            display: flex;
+                            justify-content: space-between;
+                            animation: move 8s 2s infinite linear;
+                            // hover动画停止
+                            &:hover{
+                                animation-play-state: paused;
+                            }
+                            .box1{
+                                width: 33.33%;
+                                display: flex;
+                                justify-content: center;
+                                a{
+                                    display: block;
+                                    width: 19%;
+                                    margin-right: 10px;
+                                    img{
+                                        width: 100%;
+                                    }
+                                    h4{
+                                        font-weight: 400;
+                                        font-size: 16px;
+                                        margin: 15px 0;
+                                        color: black;
+                                    }
+                                    p{
+                                        font-size: 18px;
+                                        color: #c20000;
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                            @keyframes move{
+                                30%{
+                                    transform: translate(-33.33%);
+                                }
+                                50%{
+                                    transform: translate(-33.33%);
+                                }
+                                80%{
+                                    transform: translate(-66.66%);
+                                }
+                                100%{
+                                    transform: translate(-66.66%);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

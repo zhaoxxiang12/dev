@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心-个人信息</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/23-userInfo.css">
+    <link rel="stylesheet" href="../bootstrap-4.6.1/css/bootstrap.css">
+    <script src="../bootstrap-4.6.1/js/jquery-3.5.1.js"></script>
+    <script src="../bootstrap-4.6.1/js/bootstrap.js"></script>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="../page/05-index.html">首页</a></li>
+                    <li>
+                        <a href="../page/06-allProducts.html">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/07-decorate.html">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="../page/07-decorate.html">干花花艺</a>
+                            <a href="../page/08-vase.html">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/09-fabric.html">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="../page/10-tableCloth.html">桌布罩件</a>
+                            <a href="../page/09-fabric.html">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                    <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                    <li><a href="../page/13-furniture.html">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href="../page/16-userIndex.html"></a>
+                    <a href=""></a>
+                    <a href="../page/17-shoppingCar.html"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 主体部分 -->
+    <main>
+        <!-- 主体内容上边部分 -->
+        <div class="main_top">
+            <div>
+                <p><a href="./05-index.html">首页</a>/<a href="./16-userIndex.html">个人中心</a>/<span>我的订单</span></p>
+            </div>
+        </div>
+        <!-- 主体内容下边部分 -->
+        <div class="main_bottom">
+            <!-- 内容大盒子 -->
+            <div class="big">
+                <!-- 左边导航栏 -->
+                <div class="big_left">
+                    <!-- 头像部分 -->
+                    <div class="head">
+                        <div></div>
+                        <p><span>[ss****k]</span><a href="./01-login.html">[退出登录]</a></p>
+                    </div>
+                    <!-- 导航部分 -->
+                    <div class="tab">
+                        <ul>
+                            <p>我的交易</p>
+                            <li><a href="./17-shoppingCar.html">我的购物车</a></li>
+                            <li><a href="./18-orderList.html">我的订单</a></li>
+                            <li><a href="./20-perEstimate.html">评价晒单</a></li>
+                            <p>个人中心</p>
+                            <li><a href="./16-userIndex.html">我的中心</a></li>
+                            <li><a href="./21-address.html">地址管理</a></li>
+                            <p>账户管理</p>
+                            <li><a href="./23-userInfo.html">个人信息</a></li>
+                            <li><a href="./25-modiPassword.html">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 右边内容栏 -->
+                <div class="big_right">
+                    <!-- 内容盒子 -->
+                    <div class="box">
+                        <h3>个人信息</h3>
+                        <!-- 用户信息部分 -->
+                        <div class="info">
+                            <!-- 左边头像部分 -->
+                            <div class="info_left"></div>
+                            <!-- 右边基本信息部分 -->
+                            <div class="info_right">
+                                <div class="container">
+                                    <p>基础信息
+                                        <!-- 按钮：用于打开模态框 -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                        修改信息
+                                        </button>
+                                    </p>
+                                    <p>姓名：六六六</p>
+                                    <p>生日：1995-06-06</p>
+                                    <p>性别：女</p>
+                                    <p>高级设置</p>
+                                    <p>账号地区<a href="">修改</a></p>
+                                    <!-- 模态框 -->
+                                    <div class="modal fade" id="myModal">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                     
+                                          <!-- 模态框头部 -->
+                                          <div class="modal-header">
+                                            <h4 class="modal-title">编辑基础资料</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          </div>
+                                     
+                                          <!-- 模态框主体 -->
+                                          <div class="modal-body">
+                                            <form action="">
+                                                <p>
+                                                    姓名：<input type="text">
+                                                </p>
+                                                <p>
+                                                    生日：<input type="text">
+                                                </p>
+                                                <p>
+                                                    性别：<input type="radio" name="sex">男<input type="radio" name="sex">女
+                                                </p>
+                                            </form>
+                                          </div>
+                                     
+                                          <!-- 模态框底部 -->
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">保存</button>
+                                            <button type="button" class="candle" data-dismiss="modal">取消</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 侧边导航 -->
+    <aside>
+        <a href="./17-shoppingCar.html" class="aside1">
+            <p>去购物车</p>
+        </a>
+        <a href="" class="aside2">
+            <p>联系客服</p>
+            <div>400-800-8200</div>
+        </a>
+        <a href="./16-userIndex.html" class="aside3">
+            <p>个人中心</p>
+        </a>
+    </aside>
+    <!-- 底部 -->
+    <footer>
+        <!-- 底部第一排 -->
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <!-- 底部声明 -->
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>    
+        </div>
+    </footer>
+</body>
+</html>

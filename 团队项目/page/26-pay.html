@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车结算页面</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/26-pay.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="../page/05-index.html">首页</a></li>
+                    <li>
+                        <a href="../page/06-allProducts.html">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/07-decorate.html">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="../page/07-decorate.html">干花花艺</a>
+                            <a href="../page/08-vase.html">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/09-fabric.html">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="../page/10-tableCloth.html">桌布罩件</a>
+                            <a href="../page/09-fabric.html">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                    <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                    <li><a href="../page/13-furniture.html">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href="../page/16-userIndex.html"></a>
+                    <a href=""></a>
+                    <a href="../page/17-shoppingCar.html"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 主体部分 -->
+    <main>
+        <!-- 主体内容上边部分 -->
+        <div class="main_top">
+            <h3>订单确认</h3>
+        </div>
+        <!-- 主体内容下边部分 -->
+        <div class="main_bottom">
+            <!-- 内容大盒子 -->
+            <div class="big">
+                <!-- 左边收件信息 -->
+                <div class="big_left">
+                    <h3>收件信息<a href="./21-address.html">新增地址</a></h3>
+                    <!-- 收件地址 -->
+                    <div class="dizhi">
+                        <div class="address">
+                            <h5>
+                                张三1&nbsp;[默认地址]
+                                <span><a href="">删除</a>&nbsp;|&nbsp;<a href="">编辑</a></span>
+                            </h5>
+                            <p>河北省 唐山市 路北区 大学生公寓村</p>
+                            <p>15732570937</p>
+                        </div>
+                        <div class="address">
+                            <h5>
+                                张三2&nbsp;[默认地址]
+                                <span><a href="">删除</a>&nbsp;|&nbsp;<a href="">编辑</a></span>
+                            </h5>
+                            <p>河北省 唐山市 路北区 大学生公寓村</p>
+                            <p>15732570937</p>
+                        </div>
+                        <div class="address">
+                            <h5>
+                                张三3&nbsp;[默认地址]
+                                <span><a href="">删除</a>&nbsp;|&nbsp;<a href="">编辑</a></span>
+                            </h5>
+                            <p>河北省 唐山市 路北区 大学生公寓村</p>
+                            <p>15732570937</p>
+                        </div>
+                    </div>
+                    <h3>支付方式</h3>
+                    <!-- 支付方式 -->
+                    <div class="zhifu">
+                        <div class="pay"></div>
+                        <div class="pay"></div>
+                        <div class="pay"></div>
+                        <div class="pay"></div>
+                    </div>
+                    <h3>选择快递</h3>
+                    <div class="kuaidi">
+                        <div class="package">顺丰快递</div>
+                        <div class="package">百世汇通</div>
+                        <div class="package">圆通快递</div>
+                        <div class="package">中通快递</div>
+                    </div>
+                </div>
+                <!-- 右边订单内容 -->
+                <div class="big_right">
+                    <div class="order">
+                        <h3>订单内容<a href="./17-shoppingCar.html">返回购物车</a></h3>
+                        <!-- 订单商品 -->
+                        <a href="./14-proDetail.html" class="product">
+                            <div>
+                                <p>创意现代简约干花花瓶摆件</p>
+                                <p>颜色分类：烟灰色玻璃瓶</p>
+                                <p>数量：1</p>
+                            </div>
+                            <p>￥69.90</p>
+                        </a>
+                        <a href="./14-proDetail.html" class="product">
+                            <div>
+                                <p>创意现代简约干花花瓶摆件</p>
+                                <p>颜色分类：烟灰色玻璃瓶</p>
+                                <p>数量：1</p>
+                            </div>
+                            <p>￥69.90</p>
+                        </a>
+                    </div>
+                    <p>商品金额：<span>￥139.80</span></p>
+                    <p>优惠金额：<span>￥0.00</span></p>
+                    <p>运费：<span>免运费</span></p>
+                    <h3>合计：<span>￥139.80</span></h3>
+                    <a href="./27-successPaye.html">去支付</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 侧边导航 -->
+    <aside>
+        <a href="./17-shoppingCar.html" class="aside1">
+            <p>去购物车</p>
+        </a>
+        <a href="" class="aside2">
+            <p>联系客服</p>
+            <div>400-800-8200</div>
+        </a>
+        <a href="./16-userIndex.html" class="aside3">
+            <p>个人中心</p>
+        </a>
+    </aside>
+    <!-- 底部 -->
+    <footer>
+        <!-- 底部第一排 -->
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <!-- 底部声明 -->
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>    
+        </div>
+    </footer>
+</body>
+</html>

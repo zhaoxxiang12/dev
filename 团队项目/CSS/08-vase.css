@@ -1,0 +1,294 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body main {
+  width: 100%;
+  position: relative;
+  top: 100px;
+  padding-bottom: 200px;
+}
+
+body main .main_top {
+  width: 100%;
+}
+
+body main .main_top img {
+  width: 100%;
+}
+
+body main .main_top div {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body main .main_top div p {
+  width: 80%;
+  margin: 0 auto;
+  height: 40px;
+  line-height: 40px;
+  color: gray;
+}
+
+body main .main_top div p a {
+  margin-right: 20px;
+  color: gray;
+}
+
+body main .main_top div p a:nth-child(2) {
+  margin-left: 20px;
+}
+
+body main .main_top div p span {
+  color: black;
+  margin-left: 20px;
+}
+
+body main .main_top div:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+}
+
+body main .main_top div:nth-child(3) p {
+  width: 20%;
+  height: 60px;
+  color: black;
+  line-height: 60px;
+  margin-left: 10%;
+  font-weight: bold;
+}
+
+body main .main_top div:nth-child(3) .xiala {
+  width: 15%;
+  height: 50px;
+  margin-top: 5px;
+  margin-right: 10%;
+  position: relative;
+}
+
+body main .main_top div:nth-child(3) .xiala:hover .second {
+  display: block;
+}
+
+body main .main_top div:nth-child(3) .xiala:hover .sort::after {
+  top: 10px;
+  right: 10px;
+  border-bottom: 10px solid black;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+body main .main_top div:nth-child(3) .xiala .sort {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  border: 1px solid #d5d5d5;
+  position: relative;
+}
+
+body main .main_top div:nth-child(3) .xiala .sort::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+body main .main_top div:nth-child(3) .xiala .second {
+  display: none;
+  width: 100%;
+}
+
+body main .main_top div:nth-child(3) .xiala .second ul {
+  width: 100%;
+}
+
+body main .main_top div:nth-child(3) .xiala .second ul li {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  border-bottom: 1px solid #d5d5d5;
+  padding-left: 10px;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+
+body main .main_top div:nth-child(3) .xiala .second ul li:hover {
+  background-color: #af2727;
+}
+
+body main .main_top div:nth-child(3) .xiala .second ul li:hover a {
+  color: white;
+}
+
+body main .main_top div:nth-child(3) .xiala .second ul li a {
+  color: black;
+}
+
+body main .main_bottom {
+  width: 100%;
+}
+
+body main .main_bottom .big {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body main .main_bottom .big a {
+  display: block;
+  width: 25%;
+  height: 330px;
+  color: black;
+  margin-top: 30px;
+}
+
+body main .main_bottom .big a::after {
+  content: "￥17.90";
+  display: block;
+  font-size: 18px;
+  color: red;
+  padding-left: 20px;
+}
+
+body main .main_bottom .big a:hover {
+  box-shadow: 0 0 1px 1px black;
+}
+
+body main .main_bottom .big a:hover div {
+  visibility: visible;
+}
+
+body main .main_bottom .big a:first-child {
+  background: url(../image/temp/temp/vase01.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(2) {
+  background: url(../image/temp/temp/vase02.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(3) {
+  background: url(../image/temp/temp/vase03.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(4) {
+  background: url(../image/temp/temp/vase04.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(4) {
+  background: url(../image/temp/temp/vase04.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(5) {
+  background: url(../image/temp/temp/vase05.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(6) {
+  background: url(../image/temp/temp/vase06.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(7) {
+  background: url(../image/temp/temp/vase07.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(8) {
+  background: url(../image/temp/temp/vase08.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(9) {
+  background: url(../image/temp/temp/vase01.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(10) {
+  background: url(../image/temp/temp/vase02.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(11) {
+  background: url(../image/temp/temp/vase03.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(12) {
+  background: url(../image/temp/temp/vase04.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(13) {
+  background: url(../image/temp/temp/vase05.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(14) {
+  background: url(../image/temp/temp/vase06.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(15) {
+  background: url(../image/temp/temp/vase07.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a:nth-child(16) {
+  background: url(../image/temp/temp/vase08.jpg) no-repeat;
+  background-position: center 10px;
+  background-size: 250px;
+}
+
+body main .main_bottom .big a div {
+  width: 150px;
+  height: 40px;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 120px auto 0 auto;
+  text-align: center;
+  line-height: 40px;
+  visibility: hidden;
+}
+
+body main .main_bottom .big a p {
+  margin: 110px 0 15px 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-left: 20px;
+}

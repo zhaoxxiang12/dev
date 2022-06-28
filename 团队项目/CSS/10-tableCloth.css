@@ -1,0 +1,283 @@
+main {
+  position: relative;
+  top: 100px;
+  padding-bottom: 100px;
+}
+
+main nav {
+  width: 100%;
+  border-bottom: 1px solid rgba(129, 129, 129, 0.5);
+}
+
+main nav .img {
+  width: 100%;
+  height: 400px;
+  background: url(../image/temp/zbBanner.jpg) no-repeat;
+  background-size: 100%;
+}
+
+main nav .fontdonw {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+}
+
+main nav .fontdonw p {
+  font-size: 13px;
+  line-height: 50px;
+  color: black;
+  width: 70px;
+  height: 50px;
+}
+
+main nav .fontdonw p:nth-child(2) {
+  width: 20px;
+}
+
+main nav .fontdonw p:nth-child(3) {
+  width: 100px;
+}
+
+main nav .fontdonw p:nth-child(4) {
+  width: 20px;
+  text-indent: 10px;
+}
+
+main nav .fontdonw :last-child {
+  text-indent: 10px;
+}
+
+main .container {
+  border-bottom: 1px solid rgba(124, 124, 124, 0.5);
+}
+
+main .container .font {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(124, 124, 124, 0.5);
+}
+
+main .container .font p {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+  margin-left: 100px;
+}
+
+main .container .select {
+  margin-right: 100px;
+  width: 150px;
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 30px;
+  margin-top: 10px;
+  border: 1px solid rgba(124, 124, 124, 0.5);
+  z-index: 1;
+}
+
+main .container .select:hover .nav {
+  display: block;
+}
+
+main .container .select:hover span::after {
+  content: "";
+  display: block;
+  border: 10px solid transparent;
+  border-bottom: 10px solid black;
+  width: 0px;
+  position: relative;
+  bottom: 10px;
+  margin-right: 5px;
+}
+
+main .container .select span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  width: 150px;
+}
+
+main .container .select span::after {
+  content: "";
+  display: block;
+  border: 10px solid transparent;
+  border-top: 10px solid black;
+  width: 0px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+main .container .select .nav {
+  display: none;
+  background-color: white;
+}
+
+main .container .select .nav [class*=box] {
+  width: 150px;
+  height: 40px;
+  border: 1px solid rgba(169, 169, 169, 0.5);
+}
+
+main .container .select .nav .box:first-child:hover {
+  background-color: #b90000;
+  color: white;
+}
+
+main .container .select .nav .box:nth-child(2):hover {
+  background-color: #b90000;
+  color: white;
+}
+
+main .container .select .nav .box:nth-child(3):hover {
+  background-color: #b90000;
+  color: white;
+}
+
+main .container .select .nav .box:nth-child(4):hover {
+  background-color: #b90000;
+  color: white;
+}
+
+main .container .select .nav .box:last-child:hover {
+  background-color: #b90000;
+  color: white;
+}
+
+main .container .bottom {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-left: 10%;
+}
+
+main .container .bottom p {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+main .container .bottom span {
+  display: block;
+  font-size: 10px;
+  margin-top: 10px;
+  color: #d70000;
+  font-weight: bold;
+}
+
+main .container .bottom .content {
+  width: 23%;
+  height: 350px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+main .container .bottom .content:hover {
+  box-shadow: 0px 0px 1px 1px black;
+}
+
+main .container .bottom .content .box1 {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  position: absolute;
+  left: 30px;
+  bottom: 50px;
+  background-color: rgba(190, 190, 190, 0.7);
+  text-align: center;
+  line-height: 50px;
+  display: none;
+}
+
+main .container .bottom [class*=box] {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+main .container .bottom [class*=box]:hover .box1 {
+  display: block;
+}
+
+main .container .bottom .content:first-child .box {
+  background: url(../image/temp/zb04.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(2) .box {
+  background: url(../image/temp/zb03.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(3) .box {
+  background: url(../image/temp/zb02.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(4) .box {
+  background: url(../image/temp/zb01.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(5) .box {
+  background: url(../image/temp/zb08.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(6) .box {
+  background: url(../image/temp/zb07.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(7) .box {
+  background: url(../image/temp/zb06.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(8) .box {
+  background: url(../image/temp/zb05.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(9) .box {
+  background: url(../image/temp/zb04.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(10) .box {
+  background: url(../image/temp/zb03.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(11) .box {
+  background: url(../image/temp/zb02.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(12) .box {
+  background: url(../image/temp/zb01.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(13) .box {
+  background: url(../image/temp/zb08.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(14) .box {
+  background: url(../image/temp/zb07.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:nth-child(15) .box {
+  background: url(../image/temp/zb06.jpg) no-repeat;
+  background-size: 260px;
+}
+
+main .container .bottom .content:last-child .box {
+  background: url(../image/temp/zb05.jpg) no-repeat;
+  background-size: 260px;
+}

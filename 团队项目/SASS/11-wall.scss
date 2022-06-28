@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    main{
+        width: 100%;
+        position: relative;
+        top: 100px;
+        padding-bottom: 200px;
+        // 主体内容上边部分
+        .main_top{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+            div{
+                width:100%;
+                // height: 50px;
+                border-bottom: 1px solid #e0e0e0;
+                p{
+                    width: 80%;
+                    margin: 0 auto;
+                    height: 40px;
+                    line-height: 40px;
+                    color: gray;
+                    a{
+                        margin-right: 20px;
+                        color: gray;
+                    }
+                    span{
+                            color: black;
+                            margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .main_bottom{
+            width: 100%;
+            font-size: 14px;
+            .big{
+                width: 80%;
+                margin: 0 auto;
+                // background-color: pink;
+                [class*=box]{
+                    width: 100%;
+                    .box_title{
+                        width: 80%;
+                        height: 120px;
+                        margin: 0 auto;
+                        // border: 1px solid red;
+                        // background: url(../image/temp/tit01.jpg)no-repeat center;
+                        // background-size: 80%;
+                        line-height: 180px;
+                        img{
+                            width: 100%;
+
+                        }
+                    }
+                    .product{
+                        // width: 31%;
+                        // height: 300px;
+                        // border: 1px solid red;
+                        display: block;
+                        margin-top: 30px;
+                        color: black;
+                        // 图片缩放
+                        &:hover .img img{
+                            transform: scale(1.2);
+                        }
+                        // 边框呈现
+                        &:hover .img::before{
+                            transform: scale(1);
+                        }
+                        // 边框呈现
+                        &:hover .img::after{
+                            top: 10px;
+                            left: 20px;
+                            transform: scale(1);
+                        }
+                        .img{
+                            width: 100%;
+                            height: 350px;
+                            overflow: hidden;
+                            position: relative;
+                            // 边框
+                            &::before{
+                                content: "";
+                                display: block;
+                                width: 300px;
+                                height: 300px;
+                                border-left: 2px solid #28afea;
+                                border-top: 2px solid #28afea;
+                                position: absolute;
+                                top: 30px;
+                                left: 40px;
+                                transition: .7s;
+                                z-index: 1;
+                                transform: scale(0);
+                                transform-origin: top left;
+                            }
+                            // 边框
+                            &::after{
+                                content: "";
+                                display: block;
+                                width: 300px;
+                                height: 300px;
+                                border-right: 2px solid #28afea;
+                                border-bottom: 2px solid #28afea;
+                                position: absolute;
+                                top: 10px;
+                                left: 20px;
+                                transition: .7s;
+                                z-index: 1;
+                                transform: scale(0);
+                                transform-origin: bottom right;
+                            }
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                transition: .7s;
+                            }
+                        }
+                        p{
+                            height: 30px;
+                            line-height: 30px;
+                            span{
+                                font-size:18px;
+                                color: red;
+                            }
+                        }
+                    }
+                }
+                .box1,.box2{
+                    width: 100%;
+                    // height: 300px;
+                    // 盒子上边题目
+                    .box_title{
+                        width: 80%;
+                        height: 120px;
+                        margin: 0 auto;
+                        // border: 1px solid red;
+                        // background: url(../image/temp/tit01.jpg)no-repeat center;
+                        // background-size: 80%;
+                        line-height: 180px;
+                        img{
+                            width: 100%;
+
+                        }
+                    }
+                    .pic{
+                        width: 100%;
+                        .pic_top{
+                            width: 100%;
+                            height: 550px;
+                            background: url(../image/temp/paint01.jpg) no-repeat center/cover;
+                        }
+                        .pic_bottom{
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                            // 每一个商品
+                            .product{
+                                width: 31%;
+                                
+                            }
+                        }
+                    }
+                }
+                .box3{
+                    width: 100%;
+                    .box_title{
+                        width: 80%;
+                        height: 120px;
+                        margin: 0 auto;
+                        // border: 1px solid red;
+                        // background: url(../image/temp/tit01.jpg)no-repeat center;
+                        // background-size: 80%;
+                        line-height: 180px;
+                        img{
+                            width: 100%;
+
+                        }
+                    }
+                    .pic{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        // border: 1px solid red;
+                        .pic_left{
+                            width: 30%;
+                            height: 845px;
+                            background-image: url(../image/temp/sec301.jpg);
+                        }
+                        .pic_right{
+                            width: 65.5%;
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            .product{
+                                width: 45%;
+                                margin-top: 0;
+                                margin-bottom: 30px;
+                            }
+                        }
+                    }
+                }
+                .box4{
+                    width: 100%;
+                    .pic{
+                        width: 100%;
+                        .pic_top{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            .one{
+                                width: 65.5%;
+                                height: 350px;
+                                background: url(../image/temp/sec401.jpg) no-repeat center/cover;
+                            }
+                            .two{
+                                width: 31%;
+                                height: 350px;
+                                background: url(../image/temp/sec402.jpg) no-repeat center/cover;
+                            }
+                        }
+                        .pic_bottom{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            .product{
+                                width: 31%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

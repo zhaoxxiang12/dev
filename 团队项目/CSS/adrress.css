@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+}
+
+main .info {
+  height: 350px;
+}
+
+main .info .head {
+  height: 50px;
+}
+
+main .info .address {
+  width: 750px;
+  height: 170px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+}
+
+main .info .address .container {
+  width: 200px;
+  height: 100%;
+  border: 1px solid #D3D3D3;
+  margin: 0;
+}
+
+main .info .address .container .btn.btn-primary {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 45px;
+  font-weight: bold;
+  background-color: #E0E0E0;
+  color: #FFFFFF;
+  font-size: 25px;
+  border: none;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-content .modal-body p input {
+  display: inline-block;
+  width: 300px;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-content .modal-body p input::placeholder {
+  color: #3E7EC7;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-content .modal-body .area {
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-content .modal-body .area .item {
+  width: 50%;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-content .modal-body .area .item select {
+  display: inline-block;
+  background-color: #F1F1F1;
+  color: #3E7EC7;
+  width: 145px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-footer {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  height: 100px;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-footer .btn {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 40px;
+  border-radius: 0.25rem;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-footer .btn.btn-primary {
+  background-color: #DA0001;
+  color: white;
+  margin-left: 125px;
+  border: none;
+}
+
+main .info .address .container #myModal .modal-dialog .modal-footer .btn-secondary {
+  background-color: white;
+  color: #262626;
+  margin-left: 50px;
+  border: 1px solid #D3D3D3;
+}
+
+main .info .address .address-info {
+  width: 200px;
+  height: 100%;
+  border: 1px solid #D3D3D3;
+  margin-left: 200px;
+}
+
+main .info .address .address-info p {
+  text-align: left;
+  padding-left: 20px;
+  color: #6D6D6D;
+}
+
+main .info .address .address-info p:first-child {
+  color: black;
+  margin-top: 20px;
+}
+
+main .info .address .address-info p:nth-child(n+2) {
+  margin: 0;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+a:hover {
+  text-decoration: none;
+}

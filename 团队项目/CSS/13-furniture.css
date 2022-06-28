@@ -1,0 +1,328 @@
+main {
+  position: relative;
+  top: 100px;
+  padding-bottom: 100px;
+}
+
+main .img {
+  width: 95%;
+  height: 600px;
+  background: url(../image/idea1.jpg);
+  background-size: 100%;
+  margin-left: 2.5%;
+}
+
+main .container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 40px;
+}
+
+main .container p {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+main .container span {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #d70000;
+}
+
+main .container [class*=box] {
+  display: block;
+  height: 450px;
+  width: 450px;
+  transition: .5s;
+}
+
+main .container .content {
+  width: 450px;
+  height: 550px;
+}
+
+main .container .content:first-child .box {
+  background: url(../image/idea2.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:first-child:hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(2) .box {
+  background: url(../image/idea3.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(2):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(3) .box {
+  background: url(../image/idea4.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(3):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(4) .box {
+  background: url(../image/idea5.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(4):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(5) .box {
+  background: url(../image/idea6.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(5):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(6) .box {
+  background: url(../image/idea7.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(6):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(7) .box {
+  background: url(../image/idea8.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(7):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(8) .box {
+  background: url(../image/idea9.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(8):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .container .content:nth-child(9) .box {
+  background: url(../image/idea10.jpg) no-repeat;
+  background-size: 450px;
+}
+
+main .container .content:nth-child(9):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .center {
+  width: 80%;
+  height: 50px;
+  background: url(../image/ih5.jpg) no-repeat;
+  background-size: 100%;
+  margin-left: 10%;
+}
+
+main .image {
+  width: 95%;
+  height: 600px;
+  background: url(../image/idea22.jpg);
+  background-size: 100%;
+  margin-left: 2.5%;
+  margin-top: 40px;
+}
+
+main .icontainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+main .icontainer p {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+main .icontainer span {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #d70000;
+}
+
+main .icontainer [class*=box] {
+  display: block;
+  height: 330px;
+  width: 330px;
+  transition: .5s;
+}
+
+main .icontainer .content {
+  width: 330px;
+  height: 420px;
+}
+
+main .icontainer .content:first-child .box {
+  background: url(../image/id1.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:first-child:hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(2) .box {
+  background: url(../image/id2.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(2):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(3) .box {
+  background: url(../image/id3.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(3):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(4) .box {
+  background: url(../image/id4.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(4):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(5) .box {
+  background: url(../image/id5.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(5):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(6) .box {
+  background: url(../image/id6.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(6):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(7) .box {
+  background: url(../image/id7.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(7):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(8) .box {
+  background: url(../image/id8.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(8):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .icenter {
+  width: 80%;
+  height: 70px;
+  background: url(../image/ih6.jpg) no-repeat;
+  background-size: 100%;
+}
+
+main .icontainer .content:nth-child(10) .box {
+  background: url(../image/id9.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(10):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(11) .box {
+  background: url(../image/id10.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(11):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(12) .box {
+  background: url(../image/id11.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(12):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(13) .box {
+  background: url(../image/id12.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(13):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(14) .box {
+  background: url(../image/id13.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(14):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(15) .box {
+  background: url(../image/id14.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(15):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(16) .box {
+  background: url(../image/id15.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(16):hover .box {
+  transform: rotateY(180deg);
+}
+
+main .icontainer .content:nth-child(17) .box {
+  background: url(../image/id16.jpg) no-repeat;
+  background-size: 330px;
+}
+
+main .icontainer .content:nth-child(17):hover .box {
+  transform: rotateY(180deg);
+}
