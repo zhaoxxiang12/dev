@@ -211,7 +211,7 @@
             <!--    图片部分 -->
             <div class="picture">
                 <img src="../image/temp/proDet.jpg" alt="" id="image">
-                <div class="min-picture">
+                <!-- <div class="min-picture">
                     <img src="../image/temp/proDet.jpg" alt="" class="image">
                 </div>
                 <div class="min-picture">
@@ -222,7 +222,7 @@
                 </div>
                 <div class="min-picture">
                     <img src="../image/temp/proDet04_big.jpg" class="image" alt="">
-                </div>
+                </div> -->
             </div>
             <div class="goodsInfo">
                 <h6>【最家】非洲菊芳真话干花</h6>
@@ -702,39 +702,78 @@
         autoplay: true
     });
 
-    document.getElementById('destroy-carousel-default').onclick = function () {
-        carouselDefault.destroy();
-        var newSlide = document.createElement('div');
-        newSlide.className = 'slide';
-        newSlide.innerHTML = 'Slide 19';
-        document.getElementById('carousel-default').appendChild(newSlide);
-    };
+    // document.getElementById('destroy-carousel-default').onclick = function () {
+    //     carouselDefault.destroy();
+    //     var newSlide = document.createElement('div');
+    //     newSlide.className = 'slide';
+    //     newSlide.innerHTML = 'Slide 19';
+    //     document.getElementById('carousel-default').appendChild(newSlide);
+    // };
 
-    document.getElementById('go-to-carousel-default').onclick = function () {
-        carouselDefault.goTo(2);
-    };
+    // document.getElementById('go-to-carousel-default').onclick = function () {
+    //     carouselDefault.goTo(2);
+    // };
 
-    document.getElementById('go-to-prev-carousel-default').onclick = function () {
-        carouselDefault.goToPrev();
-    };
+    // document.getElementById('go-to-prev-carousel-default').onclick = function () {
+    //     carouselDefault.goToPrev();
+    // };
 
-    document.getElementById('go-to-next-carousel-default').onclick = function () {
-        carouselDefault.goToNext();
-    };
+    // document.getElementById('go-to-next-carousel-default').onclick = function () {
+    //     carouselDefault.goToNext();
+    // };
 
-    document.getElementById('disable-control-carousel-default').onclick = function () {
-        carouselDefault.disableControl();
-    };
+    // document.getElementById('disable-control-carousel-default').onclick = function () {
+    //     carouselDefault.disableControl();
+    // };
 
-    document.getElementById('enable-control-carousel-default').onclick = function () {
-        carouselDefault.enableControl();
-    };
+    // document.getElementById('enable-control-carousel-default').onclick = function () {
+    //     carouselDefault.enableControl();
+    // };
 
-    document.getElementById('start-autoplay-carousel-default').onclick = function () {
-        carouselDefault.startAutoplay('next');
-    };
+    // document.getElementById('start-autoplay-carousel-default').onclick = function () {
+    //     carouselDefault.startAutoplay('next');
+    // };
 
-    document.getElementById('stop-autoplay-carousel-default').onclick = function () {
-        carouselDefault.stopAutoplay();
-    };
+    // document.getElementById('stop-autoplay-carousel-default').onclick = function () {
+    //     carouselDefault.stopAutoplay();
+    // };
+
+
+    let data = [{
+        id: 1,
+        info:'【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方 】【无理由退换货】【包邮】【白色现代简约花瓶】',
+        minImgs:['../image/temp/proDet.jpg','../image/temp/det03.jpg','../image/temp/proDet03_big.jpg','../image/temp/proDet04_big.jpg'],
+        name: '【最家】非洲菊芳真话干花',
+        price: 99.90
+    }, {
+        id: 2,
+        info:'【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方 】【无理由退换货】【包邮】',
+        name: '【最家】 不锈钢壁饰墙饰软装',
+        minImgs: [
+        '../image/flo1.jpg','../image/flo2.jpg','../image/flo3.jpg','../image/flo4.jpg'
+        ],
+        price: '999.99'
+    }]
+    let picture = document.querySelector('.content .container .picture')
+    const id = parseInt(location.search.split('=')[1])
+    const product = data.filter(value => value.id == id)[0]
+    product.minImgs.forEach((image) => {
+        //创建外层装img的div
+        let minPicture = document.createElement('div')
+        minPicture.className = 'min-picture'
+        let img = document.createElement('img')
+        img.className = 'image'
+        picture.appendChild(minPicture)
+        minPicture.appendChild(img)
+        img.src = image
+        img.setAttribute("onclick", "changge('image')")
+    })
+
+    let goodsName = document.querySelector('.content .container .goodsInfo h6')
+    goodsName.innerHTML = product.name
+    let info = document.querySelector('.content .container .goodsInfo p')
+    info.innerHTML = product.info
+
+    let price = document.querySelector('.content .container .goodsInfo p font')
+    price.innerHTML = "¥" + product.price
 </script>
