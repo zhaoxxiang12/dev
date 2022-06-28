@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        let data = [{
+            img:'/Users/zhao/Desktop/Web前端/dev/html基础/project/蜗牛家居/image/gxin1.jpg',
+            name:'大话西游'
+        },
+        {
+            img:'/Users/zhao/Desktop/Web前端/dev/html基础/project/蜗牛家居/image/gxin2.jpg',
+            name:"双城之战"
+        }
+    ]
+    let box = document.querySelector(".box")
+    //便利数据
+    data.forEach((movie) => {
+        // 创建最外层
+        const div1 = document.createElement('div')
+        //创建两个子div  //电影图片div
+        const div2 = document.createElement("div")
+        //电影名称div
+        const div3 = document.createElement("div")
+        //img
+        const img = document.createElement("img")
+        img.src = movie.img
+        //追加
+        box.appendChild(div1)
+        //电影图片div
+        div1.appendChild(div2)
+        //电影名称div
+        div1.appendChild(div3)
+        //追加图片
+        div2.appendChild(img)
+
+       div3.innerHTML = movie.name
+       div3.style.textAlign = "center"
+       div3.className = "movieName"
+    })
+    </script>
+</body>
+</html>
