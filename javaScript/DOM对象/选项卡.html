@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: inline-block;
+            height: 50px;
+            width: 120px;
+            border: 1px solid red;
+            background-color: #eee;
+            color: #333;
+            text-decoration: none;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .box {
+            width: 242px;
+            height: 240px;
+            border: 1px solid purple;
+            border-top: none;
+        }
+
+        .tab1 {
+            width: 242px;
+            height: 240px;
+            background-color: pink;
+        }
+
+        .tab2 {
+            width: 242px;
+            height: 240px;
+            background-color: red; 
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:" style="background-color: white;" id="a1">1234</a><a href="javascript:" id="a2">456</a>
+    <div class="box">
+        <div class="tab1">san</div>
+        <div class="tab2" style="display: none;">si</div>
+    </div>
+</body>
+</html>
+<script>
+    let a1 = document.querySelector('#a1');
+    let a2 = document.querySelector('#a2')
+    let tab1 = document.querySelector('.tab1')
+    let tab2 = document.querySelector('.tab2')
+
+    a1.onclick = () => {
+        a1.style.backgroundColor = 'white'
+        a2.style.backgroundColor = '#eee'
+        tab1.style.display = 'block'
+        tab2.style.display = 'none'
+    }
+
+    a2.onclick = () => {
+        a1.style.backgroundColor = '#eee'
+        a2.style.backgroundColor = 'white'
+        tab1.style.display = 'none'
+        tab2.style.display = 'block'
+    }
+</script>
