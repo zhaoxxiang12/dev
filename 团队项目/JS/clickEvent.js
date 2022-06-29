@@ -4,9 +4,12 @@ function reduceNumber() {
         obj[i].onclick = function () {
             let parentElement = this.parentElement.parentElement;
             let value = parseInt(parentElement.querySelector('.summary').innerHTML)
-            value-=1
-            if (value >= 0) {
+            value -= 1
+            if (value >= 1) {
                 parentElement.querySelector('.summary').innerHTML = value
+            } else {
+                let delElement = parentElement.closest('.goodsList')
+                parentElement.closest('.goods').removeChild(delElement)
             }
         }
     }
@@ -18,7 +21,7 @@ function addNumber() {
         obj[i].onclick = function () {
             let parentElement = this.parentElement.parentElement;
             let value = parseInt(parentElement.querySelector('.summary').innerHTML)
-            value+=1
+            value += 1
             parentElement.querySelector('.summary').innerHTML = value
         }
     }
