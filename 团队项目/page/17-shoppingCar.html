@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,10 @@
     <link rel="stylesheet" href="../CSS/common.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/shoppingCar.css">
+    <link rel="stylesheet" href="../CSS/12-candle.css">
     <script src="../JS/clickEvent.js"></script>
 </head>
+
 <body>
     <!-- 头部 -->
     <header>
@@ -80,7 +83,7 @@
             </div>
         </div>
     </header>
-  
+
     <div class="content">
         <div class="item shop">
             <span>购物车</span>
@@ -95,11 +98,11 @@
                     <span>——————</span>
                 </div>
                 <div class="title">
-                    <input type="radio" > 订单确认
+                    <input type="radio"> 订单确认
                     <span>——————</span>
                 </div>
                 <div class="title">
-                    <input type="radio" > 完成订单
+                    <input type="radio"> 完成订单
                     <span>——————</span>
                 </div>
             </div>
@@ -123,9 +126,9 @@
                     <input type="checkbox">
                 </div>
                 <div class="picture">
-                   <a href="">
-                    <img src="../image/temp/sec102.jpg" alt="">
-                   </a>
+                    <a href="">
+                        <img src="../image/temp/sec102.jpg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="item">
@@ -134,191 +137,28 @@
                 <p>白色瓷瓶+白色串枚</p>
             </div>
             <div class="item">
-                <span>¥20:00</span>
+                <span class="price">¥20:00</span>
             </div>
             <div class="item">
                 <div class="reduce">
-                    <button onclick="reduceNumber('amount1')">-</button>
+                    <button onclick="reduceNumber(this)" class="reduceBtn">-</button>
                 </div>
                 <div class="summary" id="amount1">1</div>
                 <div class="add">
-                    <button onclick="addNumber('amount1')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
-            </div>
-        </div>
-        <div class="goodsList">
-            <div class="item">
-                <div class="check">
-                    <input type="checkbox">
-                </div>
-                <div class="picture">
-                    <a href="..//page/14-proDetail.html">
-                        <img src="../image/temp/vase01.jpg" alt="">
-                    </a>       
+                    <button onclick="addNumber(this)" class="addBtn">+</button>
                 </div>
             </div>
             <div class="item">
-                <h6>创意现代简约干花花瓶摆件</h6>
-                <p>颜色分类:</p>
-                <p>白色瓷瓶+白色串枚</p>
+                <span class="total">¥20:00</span>
             </div>
             <div class="item">
-                <span>¥20:00</span>
-            </div>
-            <div class="item">
-                <div class="reduce">
-                    <button onclick="reduceNumber('amount2')">-</button>
-                </div>
-                <div class="summary" id="amount2">1</div>
-                <div class="add">
-                    <button onclick="addNumber('amount2')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
-            </div>
-        </div>
-        <div class="goodsList">
-            <div class="item">
-                <div class="check">
-                    <input type="checkbox">
-                </div>
-                <div class="picture">
-                    <a href="..//page/14-proDetail.html">
-                        <img src="../image/temp/vase03.jpg" alt="">
-                    </a>              
-                </div>
-            </div>
-            <div class="item">
-                <h6>创意现代简约干花花瓶摆件</h6>
-                <p>颜色分类:</p>
-                <p>白色瓷瓶+白色串枚</p>
-            </div>
-            <div class="item">
-                <span>¥20:00</span>
-            </div>
-            <div class="item">
-                <div class="reduce">
-                    <button onclick="reduceNumber('amount3')">-</button>
-                </div>
-                <div class="summary" id="amount3">1</div>
-                <div class="add">
-                    <button onclick="addNumber('amount3')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
-            </div>
-        </div>
-        <div class="goodsList">
-            <div class="item">
-                <div class="check">
-                    <input type="checkbox">
-                </div>
-                <div class="picture">
-                    <a href="..//page/14-proDetail.html">
-                        <img src="../image/temp/xx103.jpg" alt="">
-                    </a>        
-                </div>
-            </div>
-            <div class="item">
-                <h6>创意现代简约干花花瓶摆件</h6>
-                <p>颜色分类:</p>
-                <p>白色瓷瓶+白色串枚</p>
-            </div>
-            <div class="item">
-                <span>¥20:00</span>
-            </div>
-            <div class="item">
-                <div class="reduce">
-                    <button onclick="reduceNumber('amount4')">-</button>
-                </div>
-                <div class="summary" id="amount4">1</div>
-                <div class="add">
-                    <button onclick="addNumber('amount4')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
-            </div>
-        </div>
-        <div class="goodsList">
-            <div class="item">
-                <div class="check">
-                    <input type="checkbox">
-                </div>
-                <div class="picture">
-                    <a href="..//page/14-proDetail.html">
-                        <img src="../image/temp/xx104.jpg" alt="">
-                    </a>            
-                </div>
-            </div>
-            <div class="item">
-                <h6>创意现代简约干花花瓶摆件</h6>
-                <p>颜色分类:</p>
-                <p>白色瓷瓶+白色串枚</p>
-            </div>
-            <div class="item">
-                <span>¥20:00</span>
-            </div>
-            <div class="item">
-                <div class="reduce">
-                    <button onclick="reduceNumber('amount5')">-</button>
-                </div>
-                <div class="summary" id="amount5">1</div>
-                <div class="add">
-                    <button onclick="addNumber('amount5')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
-            </div>
-        </div>
-        <div class="goodsList">
-            <div class="item">
-                <div class="check">
-                    <input type="checkbox">
-                </div>
-                <div class="picture">
-                    <a href="../page/">
-                        <img src="../image/temp/xx105.jpg" alt="">
-                    </a>          
-                </div>
-            </div>
-            <div class="item">
-                <h6>创意现代简约干花花瓶摆件</h6>
-                <p>颜色分类:</p>
-                <p>白色瓷瓶+白色串枚</p>
-            </div>
-            <div class="item">
-                <span>¥20:00</span>
-            </div>
-            <div class="item">
-                <div class="reduce">
-                    <button onclick="reduceNumber('amount6')">-</button>
-                </div>
-                <div class="summary" id="amount6">1</div>
-                <div class="add">
-                    <button onclick="addNumber('amount6')">+</button>
-                </div>
-            </div>
-            <div class="item"></div>
-            <div class="item">
-                <a href="">删除</a>
+                <a href="javascript:">删除</a>
             </div>
         </div>
         <div class="settle">
             <div class="item">
                 <div class="min-item">
-                    <input type="checkbox">    全选
+                    <input type="checkbox"> 全选
                 </div>
                 <div class="min-item">
                     删除
@@ -326,11 +166,11 @@
             </div>
             <div class="item">
                 <div class="min-item">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>共<font color="red">0</font>件商品       </span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>共<font color="red">0</font>件商品 </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <span>合计： <font color="red">¥0:00</font></span>
                 </div>
                 <div class="min-item">
@@ -339,6 +179,61 @@
             </div>
         </div>
     </div>
+
+    <main>
+        <!-- 主体内容上边部分 -->
+        <div class="main_top">
+            <!-- <img src="../image/temp/perfume_Banner.jpg" alt=""> -->
+            <div>
+                <!-- <p><a href="./05-index.html">首页</a>/<span>蜡艺香薰</span></p> -->
+            </div>
+        </div>
+        <!-- 主体内容下边部分 -->
+        <div class="main_bottom">
+            <div class="big">
+                <div class="box1">
+                    <!-- 盒子上边题目 -->
+                    <!-- <div class="box_title">
+                        <img src="../image/temp/perfumeTit01.jpg" alt="">
+                    </div> -->
+                    <!-- 盒子图片容器 -->
+                    <div class="pic">
+                        <!-- <div class="pic_top1"></div> -->
+
+                    </div>
+                </div>
+                <div class="box2">
+                    <!-- 盒子上边题目 -->
+                    <div class="box_title">
+                        <!-- <img src="../image/temp/perfumeTit02.jpg" alt=""> -->
+                    </div>
+                    <!-- 盒子图片容器 -->
+                    <div class="pic">
+                        <!-- <div class="pic_top2"></div> -->
+                        <div class="pic_bottom">
+                            <!-- 每一个商品  -->
+                            <a href="javascript:" class="product" dataId='1'>
+                                <div class="img"><img src="../image/temp/xx201.jpg" alt=""></div>
+                                <p>新中式客厅山水装饰画墙壁挂画</p>
+                                <p><span>299.90</span></p>
+                            </a>
+                            <a href="javascript:" class="product" dataId='2'>
+                                <div class="img"><img src="../image/temp/xx202.jpg" alt=""></div>
+                                <p>新中式客厅山水装饰画墙壁挂画</p>
+                                <p><span>299.90</span></p>
+                            </a>
+                            <a href="javascript:" class="product" dataId='3'>
+                                <div class="img"><img src="../image/temp/xx203.jpg" alt=""></div>
+                                <p>新中式客厅山水装饰画墙壁挂画</p>
+                                <p><span>299.90</span></p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="nav">
@@ -350,9 +245,137 @@
         <div class="declare">
             <div class="box">
                 <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
-            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
-            </div>    
+                <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>
         </div>
     </footer>
 </body>
+
 </html>
+<script>
+    function addShopping(imgUrl, proName, price, dataId) {
+        let settle = document.querySelector('.settle')
+        let goods = document.querySelector('.goods')
+        let goodsList = document.createElement('div')
+        let existId = document.querySelector(`div[dataId='${dataId}']`)
+        if (existId === null) {
+            goodsList.className = 'goodsList'
+            goodsList.setAttribute('dataId', dataId)
+            let item = document.createElement('div')
+            item.className = 'item'
+            goodsList.appendChild(item)
+            let checkItem = document.createElement('div')
+            checkItem.className = 'check'
+            item.appendChild(checkItem)
+            // 多选框
+            let checkMany = document.createElement('input')
+            checkMany.type = 'checkbox'
+            checkItem.appendChild(checkMany)
+            // 图片
+            let picDiv = document.createElement('div')
+            picDiv.className = 'picture'
+            item.appendChild(picDiv)
+            let picA = document.createElement('a')
+            picDiv.appendChild(picA)
+            let img = document.createElement('img')
+            picA.appendChild(img)
+            img.src = imgUrl
+            //
+            let item2 = document.createElement('div')
+            item2.className = 'item'
+            goodsList.appendChild(item2)
+            let h6 = document.createElement('h6')
+            item2.appendChild(h6)
+            h6.innerHTML = proName
+            let colorP = document.createElement('p')
+            colorP.innerHTML = '颜色分类'
+            let p = document.createElement('p')
+            p.innerHTML = '白色瓷瓶+白色串枚'
+            item2.appendChild(colorP)
+            item2.appendChild(p)
+            //价格
+            let priceItem = document.createElement('div')
+            priceItem.className = 'item'
+            let priceSpan = document.createElement('span')
+            priceSpan.innerHTML = "¥" + price
+            priceSpan.className = 'price'
+            priceItem.appendChild(priceSpan)
+            goodsList.appendChild(priceItem)
+
+            //添加商品
+            let addPro = document.createElement('div')
+            addPro.className = 'item'
+            goodsList.appendChild(addPro)
+
+            let reduce = document.createElement('div')
+            reduce.className = 'reduce'
+            addPro.appendChild(reduce)
+            let reduceBtn = document.createElement('button')
+            reduceBtn.className = 'reduceBtn'
+            reduceBtn.innerHTML = '-'
+            reduceBtn.setAttribute('onclick', 'reduceNumber(this)')
+            reduce.appendChild(reduceBtn)
+
+            let sum = document.createElement('div')
+            sum.className = 'summary'
+            sum.id = 'amount1'
+            sum.innerHTML = '1'
+            addPro.appendChild(sum)
+
+            let add = document.createElement('div')
+            add.className = 'add'
+            addPro.appendChild(add)
+            let addBtn = document.createElement('button')
+            addBtn.innerHTML = '+'
+            addBtn.className = 'addBtn'
+            addBtn.setAttribute('onclick', 'addNumber(this)')
+            add.appendChild(addBtn)
+
+            // 总价
+            let count = document.createElement('div')
+            count.className = 'item'
+            let countSpan = document.createElement('span')
+            countSpan.className = 'total'
+            countSpan.innerHTML = '¥' + parseFloat(parseFloat(price) * 1)
+            count.appendChild(countSpan)
+            goodsList.appendChild(count)
+
+            //删除
+            let del = document.createElement('div')
+            del.className = 'item'
+            goodsList.appendChild(del)
+
+            let delA = document.createElement('a')
+            delA.innerHTML = '删除'
+            delA.href = 'javascript:'
+            del.appendChild(delA)
+            delA.onclick = function () {
+                let delList = this.closest('.goodsList')
+                delList.closest('.goods').removeChild(delList)
+            }
+
+            // goods.appendChild(goodsList)
+            goods.insertBefore(goodsList, settle)
+        } else {
+            existId.querySelector('.summary').innerHTML++
+            subTotal(existId)
+        }
+    }
+
+    let clickA = document.querySelectorAll('.product')
+    for (let i = 0; i < clickA.length; i++) {
+        clickA[i].onclick = function (params) {
+            let imgUrl = this.querySelector('img').src;
+            let proName = this.querySelector('p').innerHTML
+            let price = this.querySelector('p span').innerHTML
+            let dataId = this.getAttribute('dataId')
+            addShopping(imgUrl, proName, price, dataId)
+        }
+    }
+
+    function subTotal(parentElement) {
+        let price = parseFloat(parentElement.querySelector('.price').innerHTML.split('¥')[1])
+        let number = parseInt(parentElement.querySelector('.summary').innerHTML)
+        parentElement.closest('.goodsList').querySelector('.total').innerHTML = '¥' + (price * number)
+    }
+</script>
