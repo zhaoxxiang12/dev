@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/shoppingCar.css">
+    <link rel="stylesheet" href="../CSS/12-candle.css">
+    <link rel="stylesheet" href="../CSS/copy.css">
+    <!--    <script src="../JS/clickEvent.js"></script>-->
+</head>
+
+<body>
+<!-- 头部 -->
+<header>
+    <!-- 头部盒子 -->
+    <div class="head">
+        <!-- 左边logo -->
+        <div class="logo"></div>
+        <!-- 中间导航 -->
+        <div class="tab">
+            <ul>
+                <li><a href="../page/05-index.html">首页</a></li>
+                <li>
+                    <a href="../page/06-allProducts.html">所有商品</a>
+                    <!-- 二级列表 -->
+                    <div class="box1">
+                        <div>
+                            <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                            <p>浓情欧式</p>
+                        </div>
+                        <div>
+                            <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                            <p>浪漫美式</p>
+                        </div>
+                        <div>
+                            <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                            <p>精致中式</p>
+                        </div>
+                        <div>
+                            <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                            <p>简约现代</p>
+                        </div>
+                        <div>
+                            <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                            <p>创意装饰</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="../page/07-decorate.html">装饰摆件</a>
+                    <!-- 二级列表 -->
+                    <div class="box2">
+                        <a href="../page/07-decorate.html">干花花艺</a>
+                        <a href="../page/08-vase.html">花瓶花器</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="../page/09-fabric.html">布艺软饰</a>
+                    <!-- 二级列表 -->
+                    <div class="box3">
+                        <a href="../page/10-tableCloth.html">桌布罩件</a>
+                        <a href="../page/09-fabric.html">抱枕靠垫</a>
+                    </div>
+                </li>
+                <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                <li><a href="../page/13-furniture.html">创意家居</a></li>
+            </ul>
+        </div>
+        <!-- 右边链接 -->
+        <div class="link">
+            <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+            <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+            <div class="icon">
+                <a href="../page/16-userIndex.html"></a>
+                <a href=""></a>
+                <a href="../page/17-shoppingCar.html"></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+    <div class="item shop">
+        <span>购物车</span>
+    </div>
+    <div class="item continueShop">
+        <a href="../page/05-index.html">继续购物&gt;</a>
+    </div>
+    <div class="center">
+        <div class="min-item">
+            <div class="title">
+                <input type="radio" checked> 购物车
+                <span>——————</span>
+            </div>
+            <div class="title">
+                <input type="radio"> 订单确认
+                <span>——————</span>
+            </div>
+            <div class="title">
+                <input type="radio"> 完成订单
+                <span>——————</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navigation">
+    <ul>
+        <li>商品</li>
+        <li>单价</li>
+        <li>数量</li>
+        <li>小计</li>
+        <li>操作</li>
+    </ul>
+</nav>
+
+<div class="goods">
+    <div class="goodsList" dataId="6">
+        <div class="item">
+            <div class="check">
+                <input type="checkbox">
+            </div>
+            <div class="picture">
+                <a href="">
+                    <img src="../image/temp/sec102.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="item">
+            <h6>创意现代简约干花花瓶摆件</h6>
+            <p>颜色分类:</p>
+            <p>白色瓷瓶+白色串枚</p>
+        </div>
+        <div class="item">
+            <span class="price">¥20:00</span>
+        </div>
+        <div class="item">
+            <div class="reduce">
+                <button onclick="reduceNumber(this)" class="reduceBtn">-</button>
+            </div>
+            <div class="summary" id="amount1">1</div>
+            <div class="add">
+                <button onclick="addNumber(this)" class="addBtn">+</button>
+            </div>
+        </div>
+        <div class="item">
+            <span class="total">¥20:00</span>
+        </div>
+        <div class="item">
+            <a href="javascript:">删除</a>
+        </div>
+    </div>
+</div>
+<div class="settle">
+    <div class="item">
+        <div class="min-item">
+            <input type="checkbox"> 全选
+        </div>
+        <div class="min-item">
+            删除
+        </div>
+    </div>
+    <div class="item">
+        <div class="min-item">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>共<font color="red">0</font>件商品 </span>
+
+            <span style="padding-left: 50px;">合计： <font color="red">¥0:00</font></span>
+        </div>
+        <div class="min-item">
+            <a href="./26-pay.html"><span id="jiesuan">结算</span></a>
+        </div>
+    </div>
+</div>
+<main>
+    <!-- 主体内容上边部分 -->
+    <div class="main_top">
+        <!-- <img src="../image/temp/perfume_Banner.jpg" alt=""> -->
+        <div>
+            <!-- <p><a href="./05-index.html">首页</a>/<span>蜡艺香薰</span></p> -->
+        </div>
+    </div>
+    <!-- 主体内容下边部分 -->
+    <div class="main_bottom">
+        <div class="big">
+            <div class="box1">
+                <!-- 盒子上边题目 -->
+                <!-- <div class="box_title">
+                    <img src="../image/temp/perfumeTit01.jpg" alt="">
+                </div> -->
+                <!-- 盒子图片容器 -->
+                <div class="pic">
+                    <!-- <div class="pic_top1"></div> -->
+
+                </div>
+            </div>
+            <div class="box2">
+                <!-- 盒子上边题目 -->
+                <div class="box_title">
+                    <!-- <img src="../image/temp/perfumeTit02.jpg" alt=""> -->
+                </div>
+                <!-- 盒子图片容器 -->
+                <div class="pic">
+                    <!-- <div class="pic_top2"></div> -->
+                    <div class="pic_bottom">
+                        <!-- 每一个商品  -->
+                        <a href="javascript:" class="product" dataId='10' onclick="addShopping(this)">
+                            <div class="img"><img src="../image/temp/xx201.jpg" alt=""></div>
+                            <p>新中式客厅山水装饰画墙壁挂画</p>
+                            <p><span>299.90</span></p>
+                        </a>
+                        <a href="javascript:" class="product" dataId='2' onclick="addShopping(this)">
+                            <div class="img"><img src="../image/temp/xx202.jpg" alt=""></div>
+                            <p>新中式客厅山水装饰画墙壁挂画</p>
+                            <p><span>299.90</span></p>
+                        </a>
+                        <a href="javascript:" class="product" dataId='3' onclick="addShopping(this)">
+                            <div class="img"><img src="../image/temp/xx203.jpg" alt=""></div>
+                            <p>新中式客厅山水装饰画墙壁挂画</p>
+                            <p><span>299.90</span></p>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="nav">
+        <div class="box">7无理由退货</div>
+        <div class="box">15天免费换货</div>
+        <div class="box">满599包邮</div>
+        <div class="box">手机特色服务</div>
+    </div>
+    <div class="declare">
+        <div class="box">
+            <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+            <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
+<script>
+
+    function addShopping(element) {
+        let html = ''
+        let dataId = element.getAttribute(`dataid`)
+        let existId = document.querySelector('.goods').querySelector(`[dataid='${dataId}']`)
+        let imgUrl = element.querySelector('img').src
+        let price = element.querySelector('p:last-child span').innerHTML
+        let productName = element.querySelector('p').innerHTML
+        if (existId === null) {
+            let parentElement = document.querySelector('.goods')
+            let settleHTML = document.querySelector('.settle').innerHTML
+            html += `<div class="goodsList" dataId = ${dataId}>
+                        <div class="item">
+                            <div class="check">
+                                <input type="checkbox">
+                            </div>
+                            <div class="picture">
+                                <a href="">
+                                    <img src=${imgUrl} alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h6>${productName}</h6>
+                            <p>颜色分类:</p>
+                            <p>白色瓷瓶+白色串枚</p>
+                        </div>
+                        <div class="item">
+                            <span class="price">¥${price}</span>
+                        </div>
+                        <div class="item">
+                            <div class="reduce">
+                                <button onclick="reduceNumber(this)" class="reduceBtn">-</button>
+                            </div>
+                            <div class="summary" id="amount1">1</div>
+                            <div class="add">
+                                <button onclick="addNumber(this)" class="addBtn">+</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <span class="total">¥${price}</span>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:">删除</a>
+                        </div>
+                    </div>`
+            parentElement.innerHTML += html
+        } else {
+            existId.querySelector('.summary').innerHTML++
+        }
+    }
+
+
+    // 全选
+    document.querySelector('.settle input[type="checkbox"]').onclick = function () {
+        let childElement = document.querySelectorAll('.goodsList input[type="checkbox"]')
+        for (let i = 0; i < childElement.length; i++) {
+            if (this.checked) {
+                childElement[i].setAttribute("checked", this.checked)
+            } else {
+                childElement[i].removeAttribute("checked")
+            }
+        }
+    }
+
+    // 加商品数量
+    function addNumber(element) {
+        element.parentElement.previousElementSibling.innerHTML++
+    }
+
+    // 减商品数量
+    function reduceNumber(element) {
+        let value = element.parentElement.nextElementSibling.innerHTML--
+        if (value <= 1) {
+            element.closest('.goods').removeChild(element.closest('.goodsList'))
+        }
+    }
+</script>

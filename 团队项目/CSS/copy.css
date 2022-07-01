@@ -1,0 +1,30 @@
+ .settle {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #E9E9E9;
+    display: flex;
+    margin-top: 111px;
+  }
+  
+   .settle .item {
+    width: 50%;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+  }
+  
+  .settle .item .min-item {
+    width: 50%;
+    height: 100%;
+    line-height: 50px;
+  }
+  
+   .settle .item:last-child .min-item:first-child {
+    width: 95%;
+  }
+  
+   .settle .item:last-child .min-item:last-child {
+    background-color: #8E8E8E;
+    text-align: center;
+  }
