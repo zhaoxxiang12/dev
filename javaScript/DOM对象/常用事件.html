@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    用户名:<input type="text" id="username" autocomplete="off"><span></span>
+    <br>
+    密码&nbsp;&nbsp;&nbsp;:<input type="password" id="password"> <img src="../../image/eye-close.jpg" style="width: 30px;" alt="" align="center" class="img">
+</body>
+</html>
+<script>
+    document.querySelector('#username').onfocus = function () {
+        this.nextElementSibling.innerHTML = '1233'
+        this.nextElementSibling.style.color = '#233'
+    }
+
+    document.querySelector('#username').onblur = function () {
+        let value = this.value;
+        if (value.length >= 6 && value.length <= 20) {
+            this.nextElementSibling.innerHTML = '可用'
+            this.nextElementSibling.style.color = 'green'
+        } else {
+            this.nextElementSibling.style.color = 'red'
+            this.nextElementSibling.innerHTML = '格式不正确'
+        }
+    }
+
+    document.querySelector('.img').onmousedown = function () {
+        this.src = '../../image/eye.jpg'
+        document.querySelector('#password').type = 'text'
+        window.onmouseup = function () {
+            document.querySelector('.img').src = '../../image/eye-close.jpg'
+            document.querySelector('#password').type = 'password'
+        }
+    }
+</script>
