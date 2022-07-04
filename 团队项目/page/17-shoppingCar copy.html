@@ -124,7 +124,7 @@
     <div class="goodsList" dataId="6">
         <div class="item">
             <div class="check">
-                <input type="checkbox">
+                <input type="checkbox" onclick="updateCheckStatus(this)">
             </div>
             <div class="picture">
                 <a href="">
@@ -153,7 +153,7 @@
             <span class="total">¥20:00</span>
         </div>
         <div class="item">
-            <a href="javascript:">删除</a>
+            <a href="javascript:" onclick="deleteGoods(this)">删除</a>
         </div>
     </div>
 </div>
@@ -265,7 +265,7 @@
             html += `<div class="goodsList" dataId = ${dataId}>
                         <div class="item">
                             <div class="check">
-                                <input type="checkbox">
+                                <input type="checkbox" onclick = "updateCheckStatus(this)">
                             </div>
                             <div class="picture">
                                 <a href="">
@@ -294,12 +294,15 @@
                             <span class="total">¥${price}</span>
                         </div>
                         <div class="item">
-                            <a href="javascript:">删除</a>
+                            <a href="javascript:" onclick = deleteGoods(this)>删除</a>
                         </div>
                     </div>`
-            parentElement.innerHTML += html
+            parentElement.innerHTML += html;
+            updateCheckAllStatus();
         } else {
-            existId.querySelector('.summary').innerHTML++
+            existId.querySelector('.summary').innerHTML++;
+            countGoods(existId.querySelector('.item'))
+            summary();
         }
     }
 
@@ -310,15 +313,39 @@
         for (let i = 0; i < childElement.length; i++) {
             if (this.checked) {
                 childElement[i].setAttribute("checked", this.checked)
+                childElement[i].checked = true
             } else {
                 childElement[i].removeAttribute("checked")
+                childElement[i].checked = false
             }
         }
+        summary();
+    }
+
+    // 单选
+    function updateCheckStatus(params) {
+        if (params.checked) {
+            params.setAttribute('checked', '');
+        } else {
+            params.removeAttribute('checked');
+        }
+        // 更新全选状态
+        updateCheckAllStatus();
+        summary();
+    }
+
+    function updateCheckAllStatus() {
+        let son = document.querySelectorAll('.goodsList input[type="checkbox"]').length
+        let checkedSon = document.querySelectorAll('.goodsList input[type="checkbox"]:checked').length
+        document.querySelector('.settle .item:first-child .min-item:first-child input[type="checkbox"]')
+            .checked = son != 0 && checkedSon == son;
     }
 
     // 加商品数量
     function addNumber(element) {
         element.parentElement.previousElementSibling.innerHTML++
+        countGoods(element)
+        summary()
     }
 
     // 减商品数量
@@ -326,6 +353,54 @@
         let value = element.parentElement.nextElementSibling.innerHTML--
         if (value <= 1) {
             element.closest('.goods').removeChild(element.closest('.goodsList'))
+            updateCheckAllStatus()
+            summary()
+        } else {
+            countGoods(element)
+            summary()
         }
     }
+
+    // 小计 
+    function countGoods(element) {
+        let price = parseInt(element.closest('.goodsList').querySelector('.price').innerHTML.split('¥')[1])
+        let number = parseInt(element.closest('.goodsList').querySelector('.summary').innerHTML)
+        element.closest('.goodsList').querySelector('.total').innerHTML = ('¥' + (price * number))
+    }
+
+    // 删除
+    function deleteGoods(params) {
+        let parentElement = params.closest('.goods')
+        let childElement = params.closest('.goodsList')
+        parentElement.removeChild(childElement)
+        updateCheckAllStatus()
+        summary()
+    }
+
+    function summary() {
+        let number = 0;
+        let summaryMoney = 0;
+        let checkedSon = document.querySelectorAll('.goodsList input[type="checkbox"]:checked')
+        for (let i = 0; i < checkedSon.length; i++) {
+            let checkedElement = checkedSon[i].closest('.goodsList');
+            number += parseInt(checkedElement.querySelector('.summary').innerHTML);
+            summaryMoney += parseInt(checkedElement.querySelector('.total').innerHTML.split('¥')[1])
+        }
+        document.querySelector('.settle .item:last-child .min-item:first-child span:first-child font')
+            .innerHTML = number;
+        document.querySelector('.settle .item:last-child .min-item:first-child span:last-child font')
+            .innerHTML = summaryMoney;
+    }
+
+    // 底部删除
+    document.querySelector('.settle .item:first-child .min-item:last-child').onclick = () => {
+        let queryElement = document.querySelectorAll('.goodsList input[type="checkbox"]:checked');
+        let parentElement = document.querySelector('.goods');
+        for (let i = queryElement.length - 1; i >= 0; i--) {
+            parentElement.removeChild(queryElement[i].closest('.goodsList'));
+        }
+        summary();
+        updateCheckAllStatus();
+    }
+
 </script>
