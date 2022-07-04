@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            width: 400px;
+            height: 80px;
+            background-color: green;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .block {
+            width: 80px;
+            height: 80px;
+            background-color: hotpink;
+            cursor: pointer;
+            border: 1px solid whitesmoke;
+            box-sizing: border-box;
+            position: absolute;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box">
+        <div class="block"></div>
+    </div>
 </body>
+
 </html>
 <script>
     // appendChild  removeChild parentElement
@@ -16,4 +46,23 @@
     // innerHTML
     // src value type  href className
     // getAttribute  setAttribute 设置自定义属性
+
+    // 在block按下鼠标时,给window绑定mouseup和mouse move事件
+    document.querySelector('.block').onmousedown = function () {
+        window.onmousemove = function () {
+            let x = window.event.pageX
+            x = x - 40
+            x = x > 322 ? 322 : x;
+            x = x < 0 ? 0 : x;
+            document.querySelector('.block').style.left = x + 'px'
+        }
+        window.onmouseup = function () {
+            let x = window.event.pageX
+            if (x < 322) {
+                document.querySelector('.block').style.left = 0 + 'px'
+            }
+            window.onmousemove = null;
+            window.onmouseup = null;
+        }
+    }
 </script>
