@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .min img {
+            width: 50px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div style="position: relative; float:left" class="outer">
+            <div class="small">
+                <img src="../../image/rose.jpg.avif" alt="" width="214" style="border: 1px solid gray;">
+                <div class="pink"
+                    style="display: none; width: 100px; height:100px; background-color:rgba(255, 105, 180, 0.5); position:absolute;left: 0; top: 0;">
+                </div>
+            </div>
+            <div class="min">
+                <img src="../../image/rose.jpg.avif" alt="" >
+                <img src="../../image/rose2.jpg.avif" alt="" >
+                <img src="../../image/郁金香.jpg.avif" alt="" >
+                <img src="../../image/ship.jpg.avif" alt="" >
+            </div>
+        </div>
+        <div class="big"
+            style="float: left; width: 400px;height: 400px; border:1px solid gray; background-image:url(../../image/rose.jpg.avif)">
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector('.small').onmouseenter = function () {
+        document.querySelector('.big').style.display = 'block';
+        document.querySelector('.pink').style.display = 'block';
+    }
+
+    document.querySelector('.small').onmouseleave = function () {
+        document.querySelector('.big').style.display = 'none'
+        document.querySelector('.pink').style.display = 'none';
+    }
+
+    document.querySelector('.small').onmousemove = function () {
+        let x = window.event.pageX - this.getBoundingClientRect().x;
+        let y = window.event.pageY - this.getBoundingClientRect().y;
+        // 改变右侧盒子背景位置
+        let left = -(x * 4 - 200);
+        let top = -(y * 4 - 200);
+        left = left >= 0 ? 0 : left;
+        top = top >= 0 ? 0 : top;
+        left = left <= -400 ? -400 : left;
+        top = top <= -400 ? -400 : top;
+        document.querySelector('.big').style.backgroundPosition = (left + 'px') + " " + (top + 'px')
+
+
+        let pinkX = x - 50
+        let pinkY = y - 50
+        pinkX = pinkX <= 0 ? 0 : pinkX
+        pinkY = pinkY <= 0 ? 0 : pinkY
+        pinkX = pinkX >= 115 ? 115 : pinkX
+        pinkY = pinkY >= 115 ? 115 : pinkY
+        document.querySelector('.pink').style.left = pinkX + "px";
+        document.querySelector('.pink').style.top = pinkY + "px"
+    }
+
+    let imgs = document.querySelectorAll('.min img')
+    for (let i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function () {
+            for (let i = 0; i < imgs.length; i++) {
+                imgs[i].style.border = ""
+            }
+            this.style.border = "2px solid red"
+            document.querySelector('.small img').src = this.src;     
+            document.querySelector('.big').style.backgroundImage = `url(${this.src})`;
+        }
+    }
+</script>

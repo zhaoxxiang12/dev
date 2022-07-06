@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="province">
+        <option value ='0'>---请选择市---</option>
+    </select>
+    <select id="city">
+        <option value='0'>---请选择市---</option>
+    </select>
+    <select id="area">
+        <option value='0'>---请选择区/县---</option>
+    </select>
+</body>
+
+</html>
+<script>
+    const china = [{
+            name: '重庆',
+            id: '50',
+            city: [{
+                    id: '500',
+                    name: '江北区',
+                    area: [{
+                        id: '500101',
+                        name: '观音桥'
+                    }, {
+                        id: '500102',
+                        name: '江北医院'
+                    }]
+                },
+                {
+                    id: '502',
+                    name: '渝北区',
+                    area: [{
+                            id: '502101',
+                            name: '红旗河沟'
+                        },
+                        {
+                            id: '502102',
+                            name: '李子坝'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            name: '四川',
+            id: '51',
+            city: [{
+                    id: '510',
+                    name: '成都市',
+                    area: [{
+                            id: '511001',
+                            name: '金牛区'
+                        },
+                        {
+                            id: '512002',
+                            name: '武侯区'
+                        },
+                        {
+                            id: '512003',
+                            name: '双流区'
+                        }
+                    ]
+                },
+                {
+                    id: '511',
+                    name: '绵阳市',
+                    area: [{
+                            id: '511001',
+                            name: '涪城区'
+                        },
+                        {
+                            id: '511001',
+                            name: '游仙区'
+                        },
+                        {
+                            id: '511001',
+                            name: '三台县'
+                        }
+                    ]
+                },
+                {
+                    id: '512',
+                    name: '南充市',
+                    area: [{
+                            id: '512001',
+                            name: '顺庆区'
+                        },
+                        {
+                            id: '512002',
+                            name: '高坪区'
+                        }, {
+                            id: '512003',
+                            name: '嘉陵区'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    china.forEach(city => {
+        let option = document.createElement('option');
+        option.innerHTML = city.name;
+        option.value = city.id;
+        document.querySelector('#province').appendChild(option)
+    })
+
+    // change事件
+    document.querySelector('#province').onchange = function () {
+        let id = this.value;
+        document.querySelector('#city').innerHTML = "<option value ='0'>---请选择市---</option>";
+        document.querySelector('#area').innerHTML = "<option value ='0'>---请选择区/县---</option>";
+        let arr = china.filter(item => item.id == id);
+        if (arr.length > 0) {
+            let city = arr[0].city;
+            city.forEach(value => {
+                let option = document.createElement('option');
+                option.innerHTML = value.name;
+                option.value = value.id;
+                document.querySelector('#city').appendChild(option);
+            })
+        }
+    }
+
+    // 选择区
+    document.querySelector('#city').onchange = function () {
+        let cityId = this.value;
+        document.querySelector('#area').innerHTML = "<option value ='0'>---请选择区/县---</option>";
+        let arr;
+        china.forEach((item) => {
+            item.city.forEach(city => {
+                if (city.id == cityId) {
+                    arr = city
+                }
+            });
+        })
+        if (arr.area.length) {
+            arr.area.forEach(area => {
+                let areaOption = document.createElement('option');
+                areaOption.innerHTML = area.name;
+                areaOption.value = area.id;
+                document.querySelector('#area').appendChild(areaOption)
+            })
+        }
+    }
+</script>

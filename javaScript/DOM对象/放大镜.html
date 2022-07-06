@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div style="display: flex;">
+        <div>
+            <img class="small" src="../../image/rose.jpg.avif" alt="" width="200" style="border: 1px solid gray;">
+        </div>
+        <div class="big" style="width: 400px; height:400px; border: 1px solid gray; background-image: url(../../image/rose.jpg.avif); display: none;" >
+    
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector('.small').onmouseenter = function () {
+        document.querySelector('.big').style.display = 'block'
+    }
+
+    document.querySelector('.small').onmouseleave = function () {
+        document.querySelector('.big').style.display = 'none' 
+    }
+
+    document.querySelector('.small').onmousemove = function () {
+        console.log(this.getBoundingClientRect());
+        let x = window.event.offsetX;
+        let y = window.event.offsetY;
+        // 改变右侧盒子背景位置
+        let left = -(x * 4 -200);
+        let top = -(y * 4 -200);
+        left = left >=0?0:left;
+        top = top >=0?0:top;
+        left = left <= -400?-400:left;
+        top = top <= -400?-400:top;
+        document.querySelector('.big').style.backgroundPosition = (left + 'px')+ " " + (top + 'px')
+    }
+</script>

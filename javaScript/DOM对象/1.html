@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const china = [{
+                name: '重庆',
+                id: '50',
+                city: [{
+                        id: '501',
+                        name: '江北区',
+                        area: [{
+                                id: '501001',
+                                name: '观音桥'
+                            },
+                            {
+                                id: '501002',
+                                name: '洪崖洞'
+                            },
+                            {
+                                id: '501003',
+                                name: '江北医院'
+                            }
+                        ]
+                    }
+
+                ]
+            },
+            {
+                name: '四川',
+                id: '51',
+                city: [{
+                        id: '510',
+                        name: '成都市',
+                        area: [{
+                                id: '511001',
+                                name: '金牛区'
+                            },
+                            {
+                                id: '512002',
+                                name: '武侯区'
+                            },
+                            {
+                                id: '512003',
+                                name: '双流区'
+                            }
+                        ]
+                    },
+                    {
+                        id: '512',
+                        name: '南充市',
+                        area: [{
+                                id: '512001',
+                                name: '顺庆区'
+                            },
+                            {
+                                id: '512002',
+                                name: '高坪区'
+                            }, {
+                                id: '512003',
+                                name: '嘉陵区'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: '云南',
+                id: '55',
+                city: [
+                    {
+                        id:'5501',
+                        name: '昆明',
+                        area: [{
+                            id:'550100',
+                            name: '船山区'
+                        }]
+                    }
+                ]
+            }
+        ]
+
+        let cityId = '5501'
+        let arr
+        china.forEach((item) => {
+
+            arr = (item.city.filter((cityName) => {
+                if (cityName.id == cityId) {
+                    return cityName
+                }
+            }));
+        })
+        console.log(arr);
+    </script>
+</body>
+
+</html>

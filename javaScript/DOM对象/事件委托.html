@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div {
+            display: flex;
+            border: 1px solid red;
+        }
+
+        #div div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <a href="javascript:">点我没用</a>
+    </div>
+    <div id="box"></div>
+    <input type="button" value="添加" id="btn">
+</body>
+
+</html>
+<script>
+    document.querySelector('#btn').onclick = function () {
+        let div = document.createElement('div')
+        document.querySelector('#div').appendChild(div)
+    }
+
+
+    // 定义函数实现委托
+    function on(selector, childSelector, eventName, callback) {
+        document.querySelector(selector).addEventListener(eventName, function () {
+            // 取出想要委托的所有标签
+            let elements = this.querySelectorAll(childSelector)
+            // 判断elements中是否有window.event.target标签
+            let flag = false
+            for (let i = 0; i < elements.length; i++) {
+                if (window.event.target == elements[i]) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                callback.call(window.event.target);// 改变this指向
+            }
+        })
+    }
+
+    on('#box', 'click', () => {
+        console.log(123);
+    })
+
+    on('#div', 'div', 'click', function (){
+        console.log(1);
+    })
+</script>
