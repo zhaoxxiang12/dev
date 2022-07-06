@@ -1,191 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选座</title>
-    <link rel="stylesheet" href="../css/seat-selection.css">
-    <link rel="stylesheet" href="../css/onlyBg.css">
-    <script src="../../../../config/config.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选座</title>
+  <link rel="stylesheet" href="../css/seat-selection.css">
+  <link rel="stylesheet" href="../css/onlyBg.css">
+  <script src="../../../../config/config.js"></script>
+  <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 </head>
+
 <body>
-    <header>
-        <div class="image">
-            <img src="../image/2.png" alt="">
-        </div>
-        <a  href="../html/Arrangement.html" class="arrow"></a>
-        <div class="login">
-            <span>选座</span>
-        </div>
-    </header>
-    <div class="bgImage">
-        <div class="image">
-            <img src="../image/屏幕.png" alt="">
-        </div>
-        <div class="text">
-            <span>屏幕</span>
-        </div>
+  <header>
+    <div class="image">
+      <img src="../image/2.png" alt="">
     </div>
-    <div class="seat">
-        <div class="content">
-            <div class="left position">
-                <div class="place">
-                    <span>A1</span>
-                </div>
-                <div class="place">
-                  <span>A2</span>
-                </div>
-                <div class="place">
-                  <span>A3</span>
-                </div>
-                <div class="place">
-                  <span>B1</span>
-                </div>
-                <div class="place">
-                  <span>B2</span>
-                </div>
-                <div class="place">
-                  <span>B3</span>
-                </div>
-                <div class="place">
-                  <span>C1</span>
-                </div>
-                <div class="place">
-                  <span>C2</span>
-                </div>
-                <div class="place">
-                  <span>C3</span>
-                </div>
-                <div class="place">
-                  <span>D1</span>
-                </div>
-                <div class="place">
-                  <span>D2</span>
-                </div>
-                <div class="place">
-                  <span>D3</span>
-                </div>
-                <div class="place">
-                  <span>E1</span>
-                </div>
-                <div class="place">
-                  <span>E2</span>
-                </div>
-                <div class="place">
-                  <span>E3</span>
-                </div>
-                <div class="place">
-                  <span>F1</span>
-                </div>
-                <div class="place">
-                  <span>F2</span>
-                </div>
-                <div class="place">
-                  <span>F3</span>
-                </div>
-            </div>
-            <div class="right position">
-              <div class="place">
-                  <span>A4</span>
-              </div>
-              <div class="place">
-                <span>A5</span>
-              </div>
-              <div class="place">
-                <span>A6</span>
-              </div>
-              <div class="place">
-                <span>B4</span>
-              </div>
-              <div class="place">
-                <span>B5</span>
-              </div>
-              <div class="place">
-                <span>B6</span>
-              </div>
-              <div class="place">
-                <span>C4</span>
-              </div>
-              <div class="place">
-                <span>C5</span>
-              </div>
-              <div class="place">
-                <span>C6</span>
-              </div>
-              <div class="place">
-                <span>D4</span>
-              </div>
-              <div class="place">
-                <span>D5</span>
-              </div>
-              <div class="place">
-                <span>D6</span>
-              </div>
-              <div class="place">
-                <span>E4</span>
-              </div>
-              <div class="place">
-                <span>E5</span>
-              </div>
-              <div class="place">
-                <span>E6</span>
-              </div>
-              <div class="place">
-                <span>F4</span>
-              </div>
-              <div class="place">
-                <span>F5</span>
-              </div>
-              <div class="place">
-                <span>F6</span>
-              </div>
-            </div>
-        </div>
-        <!-- 底部座位介绍 -->
-        <div class="introduce">
-           <div class="item">
-               <div class="icon"></div>
-               <div class="text">可选座位</div>
-           </div>
-           <div class="item">
-            <div class="icon"></div>
-            <div class="text">已选座位</div>
-           </div>
-           <div class="item">
-            <div class="icon"></div>
-            <div class="text">已售座位</div>
-           </div>
-        </div>
+    <a href="../html/Arrangement.html" class="arrow"></a>
+    <div class="login">
+      <span>选座</span>
     </div>
-    <!-- 选座详情 -->
-    <div class="details">
-        <div class="content">
-            <h6>哥斯拉大战金刚</h6>
-            <p>成都双楠电影城-2020-04-16星期一19:00
-            </p>
-            <div class="seatDetails">
-                <p>已选座位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;总价</p>
-                <div class="icon">
-                    <div class="item">
-                        <span>F4</span>
-                    </div>
-                    <div class="item">
-                        <span>F5</span>
-                    </div>
-                    <div class="item">
-                        <span>F6</span>
-                    </div>
-                    <div class="price">
-                        <span>$120.00</span>
-                    </div>
-                </div>
-            </div>
-            <button>
-              <a href="../html/cofirm-order.html">立即购票</a>
-            </button>
-        </div>
+  </header>
+  <div class="bgImage">
+    <div class="image">
+      <img src="../image/屏幕.png" alt="">
     </div>
+    <div class="text">
+      <span>屏幕</span>
+    </div>
+  </div>
+  <div class="seat">
+    <div class="content">
+      <div class="left position">
+        <div class="place">
+          <span>A1</span>
+        </div>
+        <div class="place">
+          <span>A2</span>
+        </div>
+        <div class="place">
+          <span>A3</span>
+        </div>
+        <div class="place">
+          <span>B1</span>
+        </div>
+        <div class="place">
+          <span>B2</span>
+        </div>
+        <div class="place">
+          <span>B3</span>
+        </div>
+        <div class="place">
+          <span>C1</span>
+        </div>
+        <div class="place">
+          <span>C2</span>
+        </div>
+        <div class="place">
+          <span>C3</span>
+        </div>
+        <div class="place">
+          <span>D1</span>
+        </div>
+        <div class="place">
+          <span>D2</span>
+        </div>
+        <div class="place">
+          <span>D3</span>
+        </div>
+        <div class="place">
+          <span>E1</span>
+        </div>
+        <div class="place">
+          <span>E2</span>
+        </div>
+        <div class="place">
+          <span>E3</span>
+        </div>
+        <div class="place">
+          <span>F1</span>
+        </div>
+        <div class="place">
+          <span>F2</span>
+        </div>
+        <div class="place">
+          <span>F3</span>
+        </div>
+      </div>
+      <div class="right position">
+        <div class="place">
+          <span>A4</span>
+        </div>
+        <div class="place">
+          <span>A5</span>
+        </div>
+        <div class="place">
+          <span>A6</span>
+        </div>
+        <div class="place">
+          <span>B4</span>
+        </div>
+        <div class="place">
+          <span>B5</span>
+        </div>
+        <div class="place">
+          <span>B6</span>
+        </div>
+        <div class="place">
+          <span>C4</span>
+        </div>
+        <div class="place">
+          <span>C5</span>
+        </div>
+        <div class="place">
+          <span>C6</span>
+        </div>
+        <div class="place">
+          <span>D4</span>
+        </div>
+        <div class="place">
+          <span>D5</span>
+        </div>
+        <div class="place">
+          <span>D6</span>
+        </div>
+        <div class="place">
+          <span>E4</span>
+        </div>
+        <div class="place">
+          <span>E5</span>
+        </div>
+        <div class="place">
+          <span>E6</span>
+        </div>
+        <div class="place">
+          <span>F4</span>
+        </div>
+        <div class="place">
+          <span>F5</span>
+        </div>
+        <div class="place">
+          <span>F6</span>
+        </div>
+      </div>
+    </div>
+    <!-- 底部座位介绍 -->
+    <div class="introduce">
+      <div class="item">
+        <div class="icon"></div>
+        <div class="text">可选座位</div>
+      </div>
+      <div class="item">
+        <div class="icon"></div>
+        <div class="text">已选座位</div>
+      </div>
+      <div class="item">
+        <div class="icon"></div>
+        <div class="text">已售座位</div>
+      </div>
+    </div>
+  </div>
+  <!-- 选座详情 -->
+  <div class="details">
+    <div class="content">
+      <h6>哥斯拉大战金刚</h6>
+      <p>成都双楠电影城-2020-04-16星期一19:00
+      </p>
+      <div class="seatDetails">
+        <p>
+          已选座位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;总价</p>
+        <div class="icon">
+          <div class="min-item">
+            <div class="item">
+              <span>F4</span>
+            </div>
+            <div class="item">
+              <span>F5</span>
+            </div>
+            <div class="item">
+              <span>F6</span>
+            </div>
+          </div>
+          <div class="price">
+            <span>$120.00</span>
+          </div>
+        </div>
+      </div>
+      <button>
+        <a href="../html/cofirm-order.html">立即购票</a>
+      </button>
+    </div>
+  </div>
 </body>
+
 </html>
+<script>
+  $('.seat .left .place, .seat .right .place').click(function () {
+    let color = $(this).css('backgroundColor');
+    // let count = 0
+    let checked = $('.seatDetails .icon .min-item .item')
+    // 已售不可选
+    if (color === 'rgb(255, 255, 255)') {
+      alert('该座位已售,请重新选择')
+      return
+    }
+
+    if (checked.length >= 4 && color !== 'rgb(64, 115, 255)') {
+      alert('对不起,单人最多购票四张')
+    } else {
+      if (color === 'rgb(64, 115, 255)') {
+        $(this).css('backgroundColor', 'rgba(0,0,0,0)')
+        $(`.seatDetails .icon .item:contains(${$(this)[0].innerText})`).remove()
+      } else {
+        $(this).css('backgroundColor', 'rgb(64,115,255)')
+        $('.seatDetails .icon .min-item').append(`<div class="item"><span>${$(this)[0].innerText}</span></div>`)
+      }
+    }
+  })
+</script>
