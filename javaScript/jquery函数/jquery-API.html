@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jQuery/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div id="div"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <!-- <div>
+        <img src="../../image/万花筒.png" alt="" width="50px">
+        <div>
+            <span>
+                <del style="color: gray">$99.99</del>
+            </span>
+            <span style="color: red;">$39.90</span>
+        </div>
+    </div> -->
+</body>
+
+</html>
+<script>
+    // $()
+    // 网页加载事件
+    // 查找标签
+    let el = $('#div');
+    el.html('js')
+    // 根据模版字符串创建字符串
+    let div = $(`  <div>
+        <img src="../../image/万花筒.png" alt="" width="50px">
+        <div>
+            <span>
+                <del style="color: gray">$99.99</del>
+            </span>
+            <span style="color: red;">$39.90</span>
+        </div>
+    </div>`)
+    document.body.appendChild(div[0])
+
+    // 将DOM标签对象进行封装转为Jquery标签对象
+    let div2 = document.getElementById('div')
+    let j = $(div2)
+    j.html('hello java')
+</script>
