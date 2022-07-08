@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="../../jQuery/jquery-3.5.1.js"></script>
+</head>
+<style>
+    th {
+        width: 80px;
+    }
+
+    input {
+        width: 100px;
+    }
+
+    tr {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <table border="1" cellpadding="0" align="center" cellspacing="0">
+        <thead>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot style="text-align: center">
+            <tr>
+                <td colspan="5">共<span>0</span>人</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div align="center" style="margin-top: 20px">
+        学号:<input type="text" class="studentNo">
+        姓名:<input type="text" class="studentName">
+        年龄:<input type="text" class="studentAge">
+        性别:<input type="text" class="studentGender">
+        <button>提交</button>
+    </div>
+</body>
+
+</html>
+<script>
+    $('div button').click(() => {
+        let studentNo = $('.studentNo').val()
+        let studentName = $('.studentName').val()
+        let studentAge = $('.studentAge').val()
+        let studentGender = $('.studentGender').val()
+        if (studentNo === null || studentNo === "" || studentName === null || studentName === "" ||
+            studentAge === null || studentAge === "" || studentGender === "") {
+            alert('学号、姓名、年龄、性别不能为空')
+        } else {
+            let data = `<tr>
+                        <td>${studentNo}</td>
+                        <td>${studentName}</td>
+                        <td>${studentAge}</td>
+                        <td>${studentGender}</td>
+                        <td><button class="del">删除</button></td>
+                      </tr>`
+            data = $(data)
+            $('tbody').append(data)
+            // 统计人数
+            let count = parseInt($('tfoot span').html())
+            count++
+            $('tfoot span').html(count)
+        }
+    })
+    // 使用委托
+    $('table').on("click", ".del", function () {
+        $(this).parents('tr').remove()
+        // 统计人数
+        let count = parseInt($('tfoot span').html())
+        count--
+        $('tfoot span').html(count)
+    })
+</script>

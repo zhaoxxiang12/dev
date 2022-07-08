@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 720px;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        .box ul {
+            width: 2880px;
+            height: 250px;
+            display: flex;
+            position: absolute;
+        }
+
+        .box ul li {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btns {
+            position: absolute;
+            width: 720px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.3);
+            bottom: 0;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .btns span {
+            display: inline-block;
+            width: 50px;
+            height: 15px;
+            background-color: #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../../jQuery/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="../../html基础/project/蜗牛家居/image/banner1.jpg" alt="">
+            </li>
+            <li>
+                <img src="../../html基础/project/蜗牛家居/image/banner2.jpg" alt="">
+            </li>
+            <li>
+                <img src="../../html基础/project/蜗牛家居/image/banner3.jpg" alt="">
+            </li>
+            <li>
+                <img src="../../html基础/project/蜗牛家居/image/banner1.jpg" alt="">
+            </li>
+        </ul>
+        <div class="btns">
+            <span style="background-color: #fff;" index="0"></span>
+            <span index="1"></span>
+            <span index="2"></span>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let index = 0;
+
+    function tab() {
+        index++;
+        let left = -index * 720 + 'px';
+        $(".btns span").css("backgroundColor", "#ccc")
+        if (index < 3) {
+            $(`.btns span:eq(${index})`).css("backgroundColor", "#fff")
+        } else {
+            $(`.btns span:eq(0)`).css("backgroundColor", "#fff")
+        }
+        $(".box ul").animate({
+            "left": left
+        }, 500, function () {
+            if (index === 3) {
+                index = 0;
+                $(".box ul").css("left", '0px')
+            }
+        })
+    }
+
+    let t = setInterval(tab, 3000)
+    $(".box").mouseenter(function () {
+        clearInterval(t)
+    })
+    $('.box').mouseleave(function () {
+        t = setInterval(tab, 3000)
+    })
+
+    $(".btns span").click(function () {
+        index = parseInt($(this).attr("index"))
+        let left = -index * 720 + 'px'
+        $(".box ul").animate({
+            "left": left
+        })
+        $(".btns span").css("backgroundColor", "#ccc")
+        $(this).css("backgroundColor", "#fff")
+    })
+</script>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="../CSS/common.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/shoppingCar.css">
+    <link rel="stylesheet" href="../CSS/12-candle.css">
+    <link rel="stylesheet" href="../CSS/copy.css">
+    <script src="../../jQuery/jquery-3.5.1.js"></script>
+    <style>
+        #menu {
+            width: 50px;
+            height: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 10px;
+            display: none;
+        }
+
+        #menu div {
+            border-bottom: 1px solid gray;
+            border-right: 1px solid gray;
+            border-left: 1px solid gray;
+            width: 100%;
+            cursor: pointer;
+            background-color: aquamarine;
+            z-index: 100;
+        }
+
+        #menu div:hover {
+            background-color: red;
+            color: white;
+        }
+
+        #menu div:first-child {
+            border-top: 1px solid gray;
+            width: 100%;
+        }
+    </style>
+    <!--    <script src="../JS/clickEvent.js"></script>-->
+</head>
+
+<body>
+<div style="position: relative;">
+    <!-- 头部 -->
+    <header>
+        <!-- 头部盒子 -->
+        <div class="head">
+            <!-- 左边logo -->
+            <div class="logo"></div>
+            <!-- 中间导航 -->
+            <div class="tab">
+                <ul>
+                    <li><a href="../page/05-index.html">首页</a></li>
+                    <li>
+                        <a href="../page/06-allProducts.html">所有商品</a>
+                        <!-- 二级列表 -->
+                        <div class="box1">
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav1.jpg" alt=""></a>
+                                <p>浓情欧式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav2.jpg" alt=""></a>
+                                <p>浪漫美式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav3.jpg" alt=""></a>
+                                <p>精致中式</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav4.jpg" alt=""></a>
+                                <p>简约现代</p>
+                            </div>
+                            <div>
+                                <a href="../page/06-allProducts.html"><img src="../image/nav5.jpg" alt=""></a>
+                                <p>创意装饰</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/07-decorate.html">装饰摆件</a>
+                        <!-- 二级列表 -->
+                        <div class="box2">
+                            <a href="../page/07-decorate.html">干花花艺</a>
+                            <a href="../page/08-vase.html">花瓶花器</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="../page/09-fabric.html">布艺软饰</a>
+                        <!-- 二级列表 -->
+                        <div class="box3">
+                            <a href="../page/10-tableCloth.html">桌布罩件</a>
+                            <a href="../page/09-fabric.html">抱枕靠垫</a>
+                        </div>
+                    </li>
+                    <li><a href="../page/11-wall.html">墙饰壁挂</a></li>
+                    <li><a href="../page/12-candle.html">蜡艺香薰</a></li>
+                    <li><a href="../page/13-furniture.html">创意家居</a></li>
+                </ul>
+            </div>
+            <!-- 右边链接 -->
+            <div class="link">
+                <p><a href="../page/01-login.html">登录</a><a href="../page/02-register.html">注册</a></p>
+                <div class="search"><input type="text" placeholder="热门搜索：干花花瓶"></div>
+                <div class="icon">
+                    <a href="../page/16-userIndex.html"></a>
+                    <a href=""></a>
+                    <a href="../page/17-shoppingCar.html"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="item shop">
+            <span>购物车</span>
+        </div>
+        <div class="item continueShop">
+            <a href="../page/05-index.html">继续购物&gt;</a>
+        </div>
+        <div class="center">
+            <div class="min-item">
+                <div class="title">
+                    <input type="radio" checked> 购物车
+                    <span>——————</span>
+                </div>
+                <div class="title">
+                    <input type="radio"> 订单确认
+                    <span>——————</span>
+                </div>
+                <div class="title">
+                    <input type="radio"> 完成订单
+                    <span>——————</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <ul>
+            <li>商品</li>
+            <li>单价</li>
+            <li>数量</li>
+            <li>小计</li>
+            <li>操作</li>
+        </ul>
+    </nav>
+
+    <div class="goods">
+        <div class="goodsList" dataId="6">
+            <div class="item">
+                <div class="check">
+                    <input type="checkbox">
+                </div>
+                <div class="picture">
+                    <a href="">
+                        <img src="../image/temp/sec102.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="item">
+                <h6>创意现代简约干花花瓶摆件</h6>
+                <p>颜色分类:</p>
+                <p>白色瓷瓶+白色串枚</p>
+            </div>
+            <div class="item">
+                <span class="price">¥20:00</span>
+            </div>
+            <div class="item">
+                <div class="reduce">
+                    <button class="reduceBtn">-</button>
+                </div>
+                <input class="summary" value="1">
+                <div class="add">
+                    <button class="addBtn">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <span class="total">¥20:00</span>
+            </div>
+            <div class="item">
+                <a href="javascript:">删除</a>
+            </div>
+        </div>
+    </div>
+    <div class="settle">
+        <div class="item">
+            <div class="min-item">
+                <input type="checkbox"> 全选
+            </div>
+            <div class="min-item">
+                删除
+            </div>
+        </div>
+        <div class="item">
+            <div class="min-item">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>共<font color="red">0</font>件商品 </span>
+
+                <span style="padding-left: 50px;">合计： <font color="red">¥0:00</font></span>
+            </div>
+            <div class="min-item">
+                <a href="./26-pay.html"><span id="jiesuan">结算</span></a>
+            </div>
+        </div>
+    </div>
+    <main>
+        <!-- 主体内容上边部分 -->
+        <div class="main_top">
+            <div></div>
+        </div>
+        <!-- 主体内容下边部分 -->
+        <div class="main_bottom">
+            <div class="big">
+                <div class="box1">
+
+                    <!-- 盒子图片容器 -->
+                    <div class="pic"></div>
+                </div>
+                <div class="box2">
+                    <!-- 盒子上边题目 -->
+                    <div class="box_title"></div>
+                    <!-- 盒子图片容器 -->
+                    <div class="pic">
+                        <div class="pic_bottom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="nav">
+            <div class="box">7无理由退货</div>
+            <div class="box">15天免费换货</div>
+            <div class="box">满599包邮</div>
+            <div class="box">手机特色服务</div>
+        </div>
+        <div class="declare">
+            <div class="box">
+                <p>蜗牛家居◎2019-2021公司版权所有京ICP备080100-xx号</p>
+                <p>违法和不良信息举报电话:400-800-8200，本网站所列数据。除特殊说明，所有数据均出自我司实验室测试</p>
+            </div>
+        </div>
+    </footer>
+    <div id="menu">
+        <div id="delMenu">删除改行</div>
+        <div id="add">增加数量</div>
+        <div id="reduce">减少数量</div>
+        <div id="cancel">取消</div>
+    </div>
+</div>
+
+</body>
+
+</html>
+<script>
+    const products = [{
+        id: 1,
+        name: '新中式客厅山水装饰画墙壁挂画',
+        price: '299',
+        image: '../image/temp/xx201.jpg'
+    },
+        {
+            id: 2,
+            name: '【便宜好看】欧式壁画',
+            image: '../image/temp/xx202.jpg',
+            price: '189',
+        },
+        {
+            id: 3,
+            price: '173',
+            name: '【最佳】屏风',
+            image: '../image/temp/xx203.jpg',
+        }
+    ]
+    products.forEach(item => {
+        let html = `
+            <a href="javascript:" class="product" dataId='${item.id}'">
+                <div class="img"><img src="${item.image}" alt=""></div>
+                <p>${item.name}</p>
+                <p><span>¥${item.price}</span></p>
+            </a>
+        `
+        $('.pic>.pic_bottom').append(html);
+    })
+
+    $('.pic .pic_bottom .product').click(function () {
+        let id = $(this).attr('dataId');
+        let productName = $($(this).find('p')[0]).html();
+        let imgUrl = $(this).find('img').attr("src");
+        let price = $(this).find('p:last-child').text()
+        let existId = $(`.goods .goodsList[dataid ="${id}"]`)
+        if (existId.length) { // 判断id是否在购物车存在
+            let result = existId.find('.summary').val();
+            result -= -1
+            existId.find('.summary').val(result);
+            count(existId)
+        } else { // 不存在就添加到购物车
+            let html = `<div class="goodsList" dataId = ${id}>
+                        <div class="item">
+                            <div class="check">
+                                <input type="checkbox">
+                            </div>
+                            <div class="picture">
+                                <a href="">
+                                    <img src=${imgUrl} alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h6>${productName}</h6>
+                            <p>颜色分类:</p>
+                            <p>白色瓷瓶+白色串枚</p>
+                        </div>
+                        <div class="item">
+                            <span class="price">${price}</span>
+                        </div>
+                        <div class="item">
+                            <div class="reduce">
+                                <button class="reduceBtn">-</button>
+                            </div>
+                            <input class="summary" value="1">
+                            <div class="add">
+                                <button  class="addBtn">+</button>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <span class="total">${price}</span>
+                        </div>
+                        <div class="item">
+                            <a href="javascript:">删除</a>
+                        </div>
+                    </div>`;
+            $('.goods').append(html);
+            updateCheckAllStatus();
+        }
+    })
+
+    // 全选
+    $('.settle').find('input[type="checkbox"]').click(function () {
+        $('.goods .goodsList').find('input[type="checkbox"]').prop('checked', $(this).prop("checked"));
+        summaryMoney();
+    })
+    // 单选
+    $('.goods').on("click", ".goodsList input[type='checkbox']", function () {
+        updateCheckAllStatus();
+        summaryMoney();
+    })
+
+    //更新全选状态
+    function updateCheckAllStatus() {
+        let checked = $('.goods .goodsList input[type="checkbox"]:checked').length;
+        let checkboxLength = $('.goods .goodsList input[type="checkbox"]').length;
+        checkboxLength > 0 && checked === checkboxLength ?
+            $('.settle input[type="checkbox"]').prop('checked', true) :
+            $('.settle input[type="checkbox"]').prop('checked', false);
+    }
+
+    // 商品增加点击事件
+    $('.goods').on('click', '.goodsList .addBtn', function () {
+        let value = $(this).parent().prev().val();
+        value -= -1;
+        $(this).parent().prev().val(value);
+        count($(this).closest('.goodsList'));
+        summaryMoney();
+    })
+
+    // 商品减少点击事件
+    $('.goods').on('click', '.goodsList .reduceBtn', function () {
+        let value = $(this).parent().next().val();
+        value--
+        if (value <= 0) {
+            $(this).closest('.goodsList').remove();
+            updateCheckAllStatus();
+            summaryMoney();
+        } else {
+            $(this).parent().next().val(value);
+            count($(this).closest('.goodsList'));
+            summaryMoney();
+        }
+    })
+
+    // 输入框事件
+    $('.goods').on('input propertyChange', '.summary', function () {
+        let parentElement = $(this).closest('.goodsList');
+        count(parentElement);
+        summaryMoney();
+    })
+
+    // 计算总价
+    function count(element) {
+        let price = parseInt(element.find('.price').html().substr(1))
+        let number = element.find('.summary').val();
+        element.find('.total').html('¥' + (price * number));
+    }
+
+    // 商品删除事件
+    $('.goods').on('click', '.goodsList .item:last-child a', function () {
+        $(this).closest('.goodsList').remove()
+        summaryMoney()
+        updateCheckAllStatus()
+    })
+
+    // 结算
+    function summaryMoney() {
+        let count = 0;
+        let money = 0;
+        let checkedElement = $('.goods .goodsList input[type="checkbox"]:checked');
+        for (let i = 0; i < checkedElement.length; i++) {
+            money += parseInt($(checkedElement[i]).closest('.goodsList').find('.total').html().split('¥')[1]);
+            count += parseInt($(checkedElement[i]).closest('.goodsList').find('.summary').val());
+        }
+        $('.settle .item:last-child .min-item:first-child span:first-child font').html(count)
+        $('.settle .item:last-child .min-item:first-child span:last-child font').html('¥' + money)
+    }
+
+    // 禁用浏览器默认菜单
+    window.oncontextmenu = function () {
+        return false
+    }
+
+    let thisProdunct = ''
+
+    $('.goods').on('mouseup', '.goodsList', function () {
+        let button = window.event.button
+        thisProdunct = this
+        if (button === 2) {
+            let left = window.event.pageX;
+            let top = window.event.pageY;
+            $('#menu').css({
+                "display": "block",
+                "top": top + "px",
+                "left": left + "px"
+            });
+        }
+
+        if (button === 0) { //鼠标点击任意位置关闭菜单
+            $("#menu").css("display", "none");
+        }
+    })
+
+    window.onkeyup = function () { //Esc关闭菜单
+        let keyCode = window.event.keyCode
+        if (keyCode === 27) {
+            $("#menu").css("display", "none");
+        }
+    }
+
+    $("#delMenu").click(function () { //菜单删除功能
+        $(thisProdunct).remove();
+        updateCheckAllStatus();
+        summaryMoney();
+        $("#menu").css("display", "none")
+    })
+
+    $('#cancel').click(function () { //菜单取消功能
+        $("#menu").css("display", "none");
+    })
+
+    $(" #menu #add").click(function () {
+        let number = $(thisProdunct).find('.summary').val();
+        number -= -1;
+        $(thisProdunct).find('.summary').val(number);
+        count($(thisProdunct));
+        summaryMoney();
+    })
+
+    $("#reduce").click(function () {
+        let getValue = $(thisProdunct).find('.summary').val();
+        getValue--;
+        if (getValue === 0) {
+            $(thisProdunct).remove()
+            $("#menu").css("display", "none")
+            summaryMoney();
+            updateCheckAllStatus();
+        } else {
+            $(thisProdunct).find('.summary').val(getValue);
+            count($(thisProdunct))
+            summaryMoney();
+        }
+    })
+</script>

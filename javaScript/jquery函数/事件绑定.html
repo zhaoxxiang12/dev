@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jQuery/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <input type="button" value="按键1" class="btn">
+    <input type="button" value="按键2" class="btn">
+    <img width="300px" style="border-radius: 50%;" src="../../image/天使彦7.jpg" alt="" srcset="">
+    <input type="file" id="file" style="display: none;">
+</body>
+</html>
+<script>
+    $('.btn').click(function () {
+        console.log(this);
+    })
+
+    $('img').click(function () {
+        $('#file').click()
+    })
+</script>
