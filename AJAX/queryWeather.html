@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jquery-3.5.1.js"></script>
+    <style>
+        .item {
+            display: flex;
+            width: 100px;
+        }
+
+        #box {
+            width: 100%;
+            position: relative;
+        }
+
+        .warnning {
+            position: absolute;
+            width: 100px;
+            left: 105px;
+            top: -30px;
+            font-size: 15px;
+            color: red;
+            display: none;
+        }
+
+        #box .item:nth-child(2) {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    城市名称：<input type="text" id="city">
+    <button id="search">查询</button>
+    <div id="box">
+        <div class="warnning">123</div>
+        <div class="item">
+            <div>城市：</div>
+            <div id="cityName"></div>
+        </div>
+        <div class="item">
+            <div>天气：</div>
+            <img src="" alt="" id="img">
+        </div>
+        <div class="item">
+            <div>温度：</div>
+            <div id="temp"></div>
+        </div>
+        <div class="item">
+            <div>湿度：</div>
+            <div id="humidity"></div>
+        </div>
+        <div class="item">
+            <div>体感温度：</div>
+            <div id="feel"></div>
+        </div>
+        <div class="item">
+            <div>风向：</div>
+            <div id="wind"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const key = 'd3d9380d6b8445c9b98ac86936bde055'
+    $("#search").click(() => {
+        let value = $("#city").val()
+        let searchCity = `https://geoapi.qweather.com/v2/city/lookup?location=${value}&key=${key}`
+        if (value === null || value.trim().length === 0) {
+            $(".warnning").css("display", "block").html("城市不能为空")
+
+        } else {
+            $.ajax({
+                url: searchCity,
+                type: 'get',
+                dataType: 'json',
+                success: (cityInfo) => {
+                    console.log(cityInfo);
+                    if (cityInfo.code == 404) {
+                        $(".warnning").css("display", "block").html("输入的城市有误")
+                    } else {
+                        let cityId = cityInfo.location[0].id;
+                        let searchWeather =
+                            `https://devapi.qweather.com/v7/weather/now?key=${key}&location=${cityId}`
+                        $.ajax({
+                            url: searchWeather,
+                            type: 'get',
+                            dataType: 'json',
+                            success: (res) => {
+                                $("#cityName").html(value)
+                                $("#img").prop("src",
+                                    `../../node_modules/qweather-icons/icons/${res.now.icon}.svg`
+                                )
+                                $("#temp").html(res.now.temp)
+                                $("#humidity").html(res.now.humidity)
+                                $("#feel").html(res.now.feelsLike)
+                                $("#wind").html(res.now.windDir)
+                            }
+                        })
+                    }
+
+                }
+            })
+        }
+    })
+
+    $("#city").keydown(function () {
+        $(".warnning").css("display", "none")
+    })
+</script>

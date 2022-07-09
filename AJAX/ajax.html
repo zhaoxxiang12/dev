@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1.创建XMLHttpRequest
+    let xml = new XMLHttpRequest();
+    // 2.确定请求地址
+    xml.open('get', 'https://devapi.qweather.com/v7/weather/now?key=d3d9380d6b8445c9b98ac86936bde055&location=101040100')
+    // 3.通过监听AJAX的请求状态
+    xml.onreadystatechange = function () {
+        if (xml.readyState == 4 && xml.status === 200) {
+            let text = xml.responseText
+            let result = JSON.parse(text)
+            console.log(result);
+        }
+    }
+    // 4.发送请求
+    xml.send()
+</script>
