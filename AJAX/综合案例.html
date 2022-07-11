@@ -314,6 +314,7 @@
 
     $(".cancel").click(function () {
         $(".menu").css("display", 'none')
+        location.reload()
     })
     $('.confirm').click(function () {
      dataOption({
@@ -325,7 +326,8 @@
        school:'.menu .item .studentSchool',
        education:'#view-education' 
      },'put', '#editForm')
-     $('.menu').css('display', 'none')  
+     $('.menu').css('display', 'none')
+     location.reload()  
     })
     function dataOption (element,requestMethod, formId) {
         let json
