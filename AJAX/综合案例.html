@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jquery-3.5.1.js"></script>
+    <script src="../jQuery/jquery.serializejson.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+
+        th {
+            border: 1px solid #ccc;
+        }
+
+        th:nth-child(n+1) {
+            border-left: none;
+        }
+
+        th:first-child {
+            border-left: 1px solid #ccc;
+        }
+
+        tbody tr td {
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+        }
+
+        tbody tr td:first-child {
+            border-left: 1px solid #ccc;
+        }
+
+        .menu {
+            border: 1px solid red;
+            width: 500px;
+            height: 200px;
+            position: absolute;
+            left: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            display: none;
+        }
+
+        .outer {
+            position: relative;
+        }
+        .menu .item {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .menu .item .min-item {
+            display: flex;
+            flex-wrap: nowrap;
+            box-sizing: border-box;
+        }
+
+        .menu .item:last-child {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+        }
+
+        .menu .item:last-child .min-item {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .menu .item:last-child .min-item button {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <table cellspacing="0" cellpadding="0">
+            <thead>
+                <th width="10%">学号</th>
+                <th width="10%">姓名</th>
+                <th width="10%">年龄</th>
+                <th width="10%">性别</th>
+                <th width="20%">毕业学校</th>
+                <th width="10%">学历</th>
+                <th width="15%">专业</th>
+                <th width="15%">操作</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="menu">
+           <form action="" id="editForm">
+            <div class="item">
+                <div class="min-item">
+                    <div>
+                        <span>学号：</span>
+                    </div>
+                    <div><input type="text" class="studentNo"></div>
+                </div>
+                <div class="min-item">
+                    <div>姓名：</div>
+                    <div><input type="text" class="studentName"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="min-item">
+                    <div>
+                        <span>年龄：</span>
+                    </div>
+                    <div><input type="text" class="studentAge"></div>
+                </div>
+                <div class="min-item">
+                    <div>性别：</div>
+                    <div>
+                        <input type="radio" value="1" name="gender">男
+                        <input type="radio" value="2" name="gender">女
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="min-item">
+                    <div>
+                        <span>毕业学校：</span>
+                    </div>
+                    <div><input type="text" class="studentSchool"></div>
+                </div>
+                <div class="min-item">
+                    <div>学历：</div>
+                    <div>
+                        <select name="education" id="view-education">
+                            <option value="0">肄业</option>
+                            <option value="1">专科</option>
+                            <option value="2">本科</option>
+                            <option value="3">硕士</option>
+                            <option value="4">博士</option>
+                        </select> 
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="min-item">
+                    <div>
+                        <span>专业：</span>
+                    </div>
+                    <div><input type="text" class="studentMajor"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="min-item">
+                    <button type="button" class="cancel">取消</button>
+                    <button type="button" class="confirm">确定</button>
+                </div>
+            </div>
+           </form>
+        </div>
+    </div>
+    <div>
+        <form action="" id="insert">
+            <input type="text" id="name" name="name" placeholder="输入姓名"><br>
+            <input type="text" id="age" name="age" placeholder="输入年龄"><br>
+            <input type="radio" name="gender" value="1" checked>男 <br>
+            <input type="radio" name="gender" value="2">女 <br>
+            <input type="text" id="school" name="school" placeholder="输入毕业院校"><br>
+            <input type="text" id="major" name="major" placeholder="专业名称"><br>
+            <select name="education" id="education">
+                <option value="0">肄业</option>
+                <option value="1">专科</option>
+                <option value="2">本科</option>
+                <option value="3">硕士</option>
+                <option value="4">博士</option>
+            </select>
+        </form>
+        <button id="submit">提交</button>
+    </div>
+</body>
+
+</html>
+<script>
+    // const ip = 'http://192.168.90.79:8080/';
+    const ip = 'http://106.12.134.246:8080/'
+
+    async function query() {
+        let responseData
+        await $.ajax({
+            url: ip + '/student',
+            type: "get",
+            contentType: "json",
+            success(response) {
+                responseData = response
+                if (response.list.length) {
+                    response.list.forEach(list => {
+                        let studentNo = list.id
+                        let age = list.age;
+                        let education = list.education;
+                        if (education === 1) {
+                            education = '专科'
+                        } else if (education === 2) {
+                            education = "本科"
+                        } else if (education === 3) {
+                            education = "研究生"
+                        } else if (education === 0) {
+                            education = "肄业"
+                        } else {
+                            education = '博士'
+                        }
+                        let gender = list.gender;
+                        gender == 1 ? gender = "男" : gender = "女";
+                        let school = list.school
+                        let major = list.major;
+                        let name = list.name;
+                        let table = `<tr>
+                                        <td>${studentNo}</td>
+                                        <td>${name}</td>
+                                        <td>${age}</td>
+                                        <td>${gender}</td>
+                                        <td>${school}</td>
+                                        <td>${education}</td>
+                                        <td>${major}</td>
+                                        <td>
+                                            <button class="preview">查看</button>
+                                            <button class="edit">修改</button>
+                                            <button class="delBtn">删除</button>
+                                        </td>
+                                    </tr>`
+                        $('tbody').append(table)
+                    });
+                } else {
+                    alert('暂无信息')
+                }
+            }
+        })
+        return responseData
+    }
+    query()
+
+    $('tbody').on('click', '.delBtn', function () {
+        let id = $($(this).closest('tr').find('td')[0]).html()
+        $(this).closest('tr').remove()
+        $.ajax({
+            url: ip + `/student/${id}`,
+            type: 'delete',
+            success(res) {
+                if (res.code == 200) {
+                    alert(res.message)
+                } else {
+                    alert('服务器异常')
+                }
+            }
+        })
+    })
+
+    $("#submit").click(() => {
+        dataOption({
+          name:'#name',
+          age:'#age',
+          gender:`input[name='gender']:checked`,
+          school:'#school',
+          major:'#major',
+          education:'#education'  
+        },'post', '#insert')
+    })
+
+    $("tbody").on('click', '.edit', function () {
+        fillData(this); 
+    })
+
+    $("tbody").on('click', '.preview', function () {
+        let gender = fillData(this)
+        $(".menu").css('display', 'block')
+        $('.menu .item .min-item .studentNo').attr('disabled', true)
+        $('.menu .item .min-item .studentName').attr('disabled', true)
+        $('.menu .item .min-item .studentAge').attr('disabled', true)
+        $(`.menu .item .min-item input[name="gender"]`).attr("disabled", true)
+        $('.menu .item .min-item .studentSchool').attr('disabled', true)
+        $('.menu .item .min-item #view-education').attr('disabled', true)
+        $('.menu .item .min-item .studentMajor').attr('disabled', true)
+    })
+
+    function fillData(element) {
+        let educationIndex = ['肄业','专科','本科','硕士','博士']
+        let studentNo = $($(element).closest('tr').find('td')[0]).html()
+        let studentName = $($(element).closest('tr').find('td')[1]).html()
+        let studentAge = $($(element).closest('tr').find('td')[2]).html()
+        let gender = $($(element).closest('tr').find('td')[3]).html()
+        gender == '男'? gender =1:gender=2
+        let studentSchool = $($(element).closest('tr').find('td')[4]).html()
+        let education = educationIndex.indexOf($($(element).closest('tr').find('td')[5]).html())
+        let major = $($(element).closest('tr').find('td')[6]).html()
+        $(".menu").css('display', 'block')
+        $('.menu .item .min-item .studentNo').val(studentNo)
+        $('.menu .item .min-item .studentName').val(studentName)
+        $('.menu .item .min-item .studentAge').val(studentAge)
+        $(`.menu .item .min-item input[name="gender"][value="${gender}"]`).attr("checked", true)
+        $('.menu .item .min-item .studentSchool').val(studentSchool)
+        $('.menu .item .min-item #view-education').val(education)
+        $('.menu .item .min-item .studentMajor').val(major)
+    }
+
+    $(".cancel").click(function () {
+        $(".menu").css("display", 'none')
+    })
+    $('.confirm').click(function () {
+     dataOption({
+        id:'#editForm .item .studentNo',
+       name:'.menu .item .studentName',
+       age:'.menu .item .studentAge',
+       gender:'.menu .item input[name="gender"]:checked',
+       major:'.menu .item .studentMajor',
+       school:'.menu .item .studentSchool',
+       education:'#view-education' 
+     },'put', '#editForm')
+     $('.menu').css('display', 'none')  
+    })
+    function dataOption (element,requestMethod, formId) {
+        let json
+        let studentName = $(element.name).val()
+        let studentAge = $(element.age).val()
+        let gender = $(element.gender).val()
+        let school = $(element.school).val()
+        let major = $(element.major).val()
+        let education = $(element.education).val()
+        if (studentName.length < 2 || studentName.length > 10 || studentName.trim().length == 0) {
+            alert('格式有误')
+            return
+        }
+
+        if (studentAge.trim().length == 0 || studentAge < 18 || studentAge > 30) {
+            alert('格式有误')
+            return
+        }
+
+        if (school.length < 2 || school.length > 20) {
+            alert('格式有误')
+            return
+        }
+
+        if (major.length < 2 || school.length > 20) {
+            alert('格式有误')
+            return
+        }
+
+        if (element.id) {
+            let id = $(element.id).val()
+            json = {
+                age: studentAge,
+                education: education,
+                gender: gender,
+                major:major,
+                school:school,
+                name:studentName,
+                id:id
+            }
+        } else {
+            json = $(formId).serializeJSON()
+        }
+        $.ajax({
+            url: ip + '/student',
+            data: JSON.stringify(json),
+            type: requestMethod,
+            contentType: "application/json",
+            success: (res) => {
+                if (res.code == 200) {
+                    $('.outer table tbody tr').remove()
+                    query()
+                }
+            }
+        })
+    }
+</script>
