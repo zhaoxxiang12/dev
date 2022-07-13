@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jquery-3.5.1.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        user-select: none;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .container {
+        height: 53px;
+        width: 100%;
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        background-image: url(../image/playbar.png);
+        position: fixed;
+        bottom: 0;
+        display: flex;
+    }
+
+    .left {
+        height: 100%;
+        width: 20%;
+        position: relative;
+    }
+
+    .center {
+        height: 100%;
+        width: 60%;
+    }
+
+    .right {
+        height: 100%;
+        width: 20%;
+    }
+
+    .left a {
+        display: inline-block;
+        background-image: url(../image/playbar.png);
+    }
+
+    .prev {
+        width: 28px;
+        height: 28px;
+        text-indent: -9999px;
+        background-position: 0 -130px;
+    }
+
+    .prev:hover {
+        background-position: -30px -130px
+    }
+
+    .next {
+        width: 28px;
+        height: 28px;
+        text-indent: -9999px;
+        background-position: -80px -130px;
+    }
+
+    .next:hover {
+        background-position: -110px -130px
+    }
+
+    .play {
+        width: 36px;
+        height: 36px;
+        margin-top: 0;
+        background-position: 0 -204px;
+    }
+
+    .play:hover {
+        background-position: -40px -204px;
+    }
+
+    .pause {
+        width: 36px;
+        height: 36px;
+        margin-top: 0;
+        background-position: -0px -165px;
+    }
+
+    .pause:hover {
+        background-position: -40px -165px;
+    }
+
+    .btns {
+        position: absolute;
+        right: 0;
+        top: 8px;
+    }
+
+    .top {
+        width: 100%;
+        height: 50%;
+        line-height: 50%;
+    }
+
+    .songName {
+        display: inline-block;
+        height: 100%;
+        line-height: 26.5px;
+        color: #E8E8E8;
+    }
+
+    .singer {
+        display: inline-block;
+        height: 100%;
+        line-height: 26.5px;
+        color: #9B9B9B;
+    }
+
+    .center {
+        padding-left: 20px;
+        width: 466px;
+    }
+
+    .progress-div {
+        height: 9px;
+        background-position: right 0;
+        background-image: url(../image/statbar.png);
+    }
+
+    .bottom {
+        padding-top: 5px;
+        position: relative;
+    }
+
+    .progress {
+        height: 9px;
+        width: 0%;
+        background-image: url(../image/statbar.png);
+        background-position: left -66px
+    }
+
+    .progress-bar {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        width: 22px;
+        height: 24px;
+        margin-left: -11px;
+        background-position: 0 -250px;
+        background-image: url(../image/iconall.png);
+    }
+
+    .right {
+        height: 100%;
+        line-height: 73px;
+        color: #FFF;
+        padding-left: 20px;
+    }
+</style>
+
+<body>
+    <ul class="music-list">
+    </ul>
+    <audio id="audio" src=""></audio>
+    <div class="container">
+        <div class="left">
+            <div class="btns">
+                <a class="prev"></a>
+                <a id="play" class="play" style="position: relative;top:4px"></a>
+                <a class="next"></a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="top">
+                <span class="songName"></span>
+                <span class="singer"></span>
+            </div>
+            <div class="bottom">
+                <div class="progress-div">
+                    <div class="progress"></div>
+                </div>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        <div class="right">
+            <span id="current"></span>/
+            <span id="duration"></span>
+        </div>
+        <select name="" id="rate">
+            <option value="0.5">0.5x</option>
+            <option value="1">1x</option>
+            <option value="1.5">1.5x</option>
+        </select>
+    </div>
+</body>
+
+</html>
+<script>
+    // 定义变量记录正在播放的歌曲
+    let musicIndex = 0
+    // 生成歌曲列表
+    let music = ['Jaymes Young - Infinity.mp3', 'T-ara - DAY BY DAY (Japanese Ver.).mp3']
+    music.forEach((musicName, musicIndex) => {
+        let li = `
+        <li>
+            <a index = ${musicIndex} href="javascript:" index="0" resource="../music/${musicName}">${musicName}
+            </a>
+        </li>
+        `
+        $(".music-list").append(li)
+    })
+    // 获取audio标签
+    let audio = document.getElementById('audio')
+    audio.src = `../music/${music[0]}`
+    // 点击播放 
+    $("#play").click(function () {
+        if ($(this).hasClass("play")) {
+            audio.play();
+            let index = audio.src.lastIndexOf('/')
+            let currentName = decodeURI(audio.src.substr(index + 1))
+            let musicName = currentName.split('-')[1]
+            let actor = currentName.split('-')[0]
+            //  设置歌手和歌名
+            $('.songName').html(musicName)
+            $('.singer').html(actor)
+            $(this).removeClass("play");
+            $(this).addClass("pause")
+        } else {
+            audio.pause();
+            $(this).removeClass("pause")
+            $(this).addClass("play")
+        }
+
+    })
+
+    $('.music-list').on('click', 'a', function () {
+        let source = $(this).attr('resource')
+        audio.src = source
+        audio.play()
+        update()
+    })
+
+    $('.next').click(function () {
+        if (musicIndex == music.length - 1) {
+            musicIndex = 0
+        } else {
+            musicIndex++
+        }
+        let name = music[musicIndex]
+        audio.src = '../music/' + decodeURI(name)
+        audio.play()
+        update()
+    })
+
+    $(".prev").click(function () {
+        if (musicIndex == 0) {
+            musicIndex = music.length - 1
+        } else {
+            musicIndex--
+        }
+        let name = music[musicIndex]
+        audio.src = '../music/' + name
+        audio.play()
+        update()
+    })
+
+    function update() {
+        let index = audio.src.lastIndexOf('/')
+        let currentName = decodeURI(audio.src.substr(index + 1))
+        let lastIndex = currentName.lastIndexOf('-')
+        let musicName = currentName.substring(lastIndex + 1)
+        let actor = currentName.substring(0, lastIndex)
+        let musicIndex = $(this).attr("index")
+        //  设置歌手和歌名
+        $('.songName').html(musicName)
+        $('.singer').html(actor)
+        $("#play").removeClass('play')
+        $("#play").addClass('pause')
+    }
+
+    // 倍数播放
+    $('#rate').change(function () {
+        audio.playbackRate = $(this).val()
+    })
+
+    // 进度条
+    audio.ontimeupdate = updateTime
+
+    function updateTime() {
+        let currentTime = this.currentTime;
+        let duration = this.duration;
+        let bfb = currentTime / duration * 100 + "%"
+        $(".progress").css("width", bfb)
+        $(".progress-bar").css("left", bfb)
+        currentTime = parseInt(currentTime)
+        duration = parseInt(duration)
+        if (duration) {
+            $('#current').html(parseInt(currentTime / 60) + ":" + (currentTime % 60 > 9 ? (currentTime % 60) : '0' + (
+                currentTime % 60)))
+            $("#duration").html(parseInt(duration / 60) + ":" + duration % 60)
+            if (currentTime == duration) {
+                if (musicIndex == music.length - 1) {
+                    musicIndex = 0
+                } else {
+                    musicIndex++
+                }
+                audio.src = '../music/' + music[musicIndex]
+                audio.play()
+                update()
+            }
+        }
+    }
+
+    let timePercent
+
+    $('.progress-bar').mousedown(function () {
+        window.onmousemove = function () {
+            audio.ontimeupdate = null
+            let totalWidth = $('.progress-div')[0].getBoundingClientRect().width;
+            let left = $('.progress-div')[0].getBoundingClientRect().left;
+            let x = window.event.pageX
+            let offset = x - left
+            offset = offset > 0 ? offset : 0
+            offset = offset < 466 ? offset : 466
+            timePercent = offset / totalWidth
+            let percent = offset / totalWidth * 100 + '%'
+            $('.progress').css('width', percent)
+            $('.progress-bar').css('left', percent)
+            let currentTime = parseInt(audio.duration * (offset / totalWidth))
+            $('#current').html(parseInt(currentTime / 60) + ":" + (currentTime % 60 > 9 ? currentTime % 60 :
+                '0' + (currentTime % 60)))
+        }
+        window.onmouseup = function () {
+            window.onmousemove = null;
+            window.onmouseup = null;
+            audio.ontimeupdate = updateTime
+            audio.currentTime = timePercent * audio.duration
+        }
+    })
+</script>
