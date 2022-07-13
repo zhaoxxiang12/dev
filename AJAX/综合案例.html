@@ -8,6 +8,7 @@
     <title>Document</title>
     <script src="../jQuery/jquery-3.5.1.js"></script>
     <script src="../jQuery/jquery.serializejson.js"></script>
+    <script src="../eCharts/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -57,6 +58,7 @@
         .outer {
             position: relative;
         }
+
         .menu .item {
             display: flex;
             justify-content: space-between;
@@ -105,69 +107,69 @@
             </tbody>
         </table>
         <div class="menu">
-           <form action="" id="editForm">
-            <div class="item">
-                <div class="min-item">
-                    <div>
-                        <span>学号：</span>
+            <form action="" id="editForm">
+                <div class="item">
+                    <div class="min-item">
+                        <div>
+                            <span>学号：</span>
+                        </div>
+                        <div><input type="text" class="studentNo"></div>
                     </div>
-                    <div><input type="text" class="studentNo"></div>
-                </div>
-                <div class="min-item">
-                    <div>姓名：</div>
-                    <div><input type="text" class="studentName"></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="min-item">
-                    <div>
-                        <span>年龄：</span>
-                    </div>
-                    <div><input type="text" class="studentAge"></div>
-                </div>
-                <div class="min-item">
-                    <div>性别：</div>
-                    <div>
-                        <input type="radio" value="1" name="gender">男
-                        <input type="radio" value="2" name="gender">女
+                    <div class="min-item">
+                        <div>姓名：</div>
+                        <div><input type="text" class="studentName"></div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="min-item">
-                    <div>
-                        <span>毕业学校：</span>
+                <div class="item">
+                    <div class="min-item">
+                        <div>
+                            <span>年龄：</span>
+                        </div>
+                        <div><input type="text" class="studentAge"></div>
                     </div>
-                    <div><input type="text" class="studentSchool"></div>
-                </div>
-                <div class="min-item">
-                    <div>学历：</div>
-                    <div>
-                        <select name="education" id="view-education">
-                            <option value="0">肄业</option>
-                            <option value="1">专科</option>
-                            <option value="2">本科</option>
-                            <option value="3">硕士</option>
-                            <option value="4">博士</option>
-                        </select> 
+                    <div class="min-item">
+                        <div>性别：</div>
+                        <div>
+                            <input type="radio" value="1" name="gender">男
+                            <input type="radio" value="2" name="gender">女
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="min-item">
-                    <div>
-                        <span>专业：</span>
+                <div class="item">
+                    <div class="min-item">
+                        <div>
+                            <span>毕业学校：</span>
+                        </div>
+                        <div><input type="text" class="studentSchool"></div>
                     </div>
-                    <div><input type="text" class="studentMajor"></div>
+                    <div class="min-item">
+                        <div>学历：</div>
+                        <div>
+                            <select name="education" id="view-education">
+                                <option value="0">肄业</option>
+                                <option value="1">专科</option>
+                                <option value="2">本科</option>
+                                <option value="3">硕士</option>
+                                <option value="4">博士</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="min-item">
-                    <button type="button" class="cancel">取消</button>
-                    <button type="button" class="confirm">确定</button>
+                <div class="item">
+                    <div class="min-item">
+                        <div>
+                            <span>专业：</span>
+                        </div>
+                        <div><input type="text" class="studentMajor"></div>
+                    </div>
                 </div>
-            </div>
-           </form>
+                <div class="item">
+                    <div class="min-item">
+                        <button type="button" class="cancel">取消</button>
+                        <button type="button" class="confirm">确定</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div>
@@ -188,6 +190,7 @@
         </form>
         <button id="submit">提交</button>
     </div>
+    <input type="button" value="截屏" id="screen">
 </body>
 
 </html>
@@ -267,17 +270,17 @@
 
     $("#submit").click(() => {
         dataOption({
-          name:'#name',
-          age:'#age',
-          gender:`input[name='gender']:checked`,
-          school:'#school',
-          major:'#major',
-          education:'#education'  
-        },'post', '#insert')
+            name: '#name',
+            age: '#age',
+            gender: `input[name='gender']:checked`,
+            school: '#school',
+            major: '#major',
+            education: '#education'
+        }, 'post', '#insert')
     })
 
     $("tbody").on('click', '.edit', function () {
-        fillData(this); 
+        fillData(this);
     })
 
     $("tbody").on('click', '.preview', function () {
@@ -293,12 +296,12 @@
     })
 
     function fillData(element) {
-        let educationIndex = ['肄业','专科','本科','硕士','博士']
+        let educationIndex = ['肄业', '专科', '本科', '硕士', '博士']
         let studentNo = $($(element).closest('tr').find('td')[0]).html()
         let studentName = $($(element).closest('tr').find('td')[1]).html()
         let studentAge = $($(element).closest('tr').find('td')[2]).html()
         let gender = $($(element).closest('tr').find('td')[3]).html()
-        gender == '男'? gender =1:gender=2
+        gender == '男' ? gender = 1 : gender = 2
         let studentSchool = $($(element).closest('tr').find('td')[4]).html()
         let education = educationIndex.indexOf($($(element).closest('tr').find('td')[5]).html())
         let major = $($(element).closest('tr').find('td')[6]).html()
@@ -317,19 +320,20 @@
         location.reload()
     })
     $('.confirm').click(function () {
-     dataOption({
-        id:'#editForm .item .studentNo',
-       name:'.menu .item .studentName',
-       age:'.menu .item .studentAge',
-       gender:'.menu .item input[name="gender"]:checked',
-       major:'.menu .item .studentMajor',
-       school:'.menu .item .studentSchool',
-       education:'#view-education' 
-     },'put', '#editForm')
-     $('.menu').css('display', 'none')
-     location.reload()  
+        dataOption({
+            id: '#editForm .item .studentNo',
+            name: '.menu .item .studentName',
+            age: '.menu .item .studentAge',
+            gender: '.menu .item input[name="gender"]:checked',
+            major: '.menu .item .studentMajor',
+            school: '.menu .item .studentSchool',
+            education: '#view-education'
+        }, 'put', '#editForm')
+        $('.menu').css('display', 'none')
+        location.reload()
     })
-    function dataOption (element,requestMethod, formId) {
+
+    function dataOption(element, requestMethod, formId) {
         let json
         let studentName = $(element.name).val()
         let studentAge = $(element.age).val()
@@ -363,10 +367,10 @@
                 age: studentAge,
                 education: education,
                 gender: gender,
-                major:major,
-                school:school,
-                name:studentName,
-                id:id
+                major: major,
+                school: school,
+                name: studentName,
+                id: id
             }
         } else {
             json = $(formId).serializeJSON()
@@ -384,4 +388,15 @@
             }
         })
     }
+
+    $("#screen").click(function () {
+        let btn = this;
+        let html2 = html2canvas($('.outer table'))
+        html2.then(function (canvas) {
+            // document.body.appendChild(canvas)
+            let href = canvas.toDataURL('image/png')
+            let a = `<a href="${href}" download>下载</a> `
+            $(btn).after(a)
+        })
+    })
 </script>

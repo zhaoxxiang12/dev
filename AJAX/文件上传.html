@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jquery-3.5.1.js"></script>
+    <style>
+        .file-list {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .progress-box {
+            width: 90%;
+            height: 40px;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" name="" id="file">
+    <input type="button" name="" id="upload" value="上传">
+    <table class="file-list">
+        <tr>
+            <td width="10%">文件名称</td>
+            <td width="20%">预览</td>
+            <td width="10%">文件大小</td>
+            <td width="10%">类型</td>
+            <td width="50%">进度</td>
+        </tr>
+        <!-- <tr>
+            <td></td>
+            <td><img src="" alt=""></td>
+            <td>2.4M</td>
+            <td>png</td>
+            <td>
+                <div class="progress-box">
+                    <div class="progress"></div>
+                </div>
+            </td>
+        </tr> -->
+    </table>
+</body>
+
+</html>
+<script>
+    // 
+    $('#file').change(function () {
+        $('.file-list tr:gt(0)').remove()
+        // 取出文件域中第一个文件
+        for (let i = 0; i < $('#file')[0].files.length; i++) {
+            let file = $('#file')[0].files[i]
+            let name = file.name
+            let size = (file.size / 1024 / 1024).toFixed(2) + 'M'
+            let type = file.type
+            // 读取文件内容
+            let read = new FileReader();
+            // 读取文件内容需要时间
+            read.onload = () => {
+                $(`img:eq(${i})`).prop('src', read.result)
+            }
+            let tr = `
+        <tr>
+            <td>${name}</td>
+            <td><img  alt="" height="100px"></td>
+            <td>${size}</td>
+            <td>${type}</td>
+            <td>
+                <div class="progress-box">
+                    <div class="progress"></div>
+                </div>
+            </td>
+        </tr>
+        `
+            $('.file-list').append(tr)
+            read.readAsDataURL(file)
+        }
+    })
+
+    $('#upload').click(function () {
+        let formData = new FormData();
+        let files = $('#file')[0].files;
+        formData.append('file', files[0])
+        $.ajax({
+            url: 'http://192.168.90.79:8080/student/upload',
+            type: 'post',
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function (data) {
+                alert(data.message)
+            },
+            xhr: function () {
+                let xhr = new XMLHttpRequest();
+                xhr.upload.onprogress = function () {
+                    let percent = (window.event.loaded) / (window.event.total) * 100 + '%'
+                    $('.progress').css('width', percent)
+                }
+                return xhr
+            }
+        })
+    })
+</script>
