@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../eCharts/echarts.js"></script>
+</head>
+<body>
+   <div style="width: 1000px; height:500px" id="box">
+  <canvas width="1000" height="500" id="cvs"></canvas>
+</div> 
+</body>
+</html>
+<script>
+    /** @type {HTMLCanvasElement}*/
+    let data = [87,89,75,60,67,86,80,90,92,85,95,100]
+    let cvs = document.getElementById('cvs')
+    let ctx = cvs.getContext("2d")
+    ctx.translate(0,500)
+    // 绘制x和y轴
+    ctx.beginPath();
+    ctx.moveTo(100,-500)
+    ctx.lineTo(100,-50)
+    ctx.lineTo(1000,-50)
+    ctx.strokeStyle = "#333"
+    ctx.stroke()
+    ctx.closePath();
+
+    // 绘制x轴上的线
+    for (let i = 1; i <= data.length; i++) {
+      ctx.beginPath();
+      let x = 100 + (850 / 12) * i
+      ctx.moveTo(x, -50);
+      ctx.lineTo(x,-500)
+      ctx.stroke();
+      // 绘制文字
+      ctx.font = '16px 隶书'
+      ctx.fillText(i+'月',x-10,-35)
+      ctx.closePath();
+    }
+
+    // y轴网格线
+    for (let i = 1; i <= 10; i++) {
+      ctx.beginPath();
+      let y = - (50+420/10*i);
+      ctx.moveTo(100,y)
+      ctx.lineTo(1000,y);
+      ctx.stroke();
+      ctx.fillText(i*10,100-25,y+5)
+      ctx.closePath();
+    }
+    ctx.strokeStyle = "#333"
+    ctx.lineWidth = 2
+
+    // 绘制点
+    for (let i = 0; i < data.length; i++) {
+      let x = 100 + 850/12*(i+1);
+      let y = -(data[i]/100 * 420 + 50)
+      ctx.beginPath();
+      let nextX = 100 + 850/12*(i+2)
+      let nextY = - (data[i+1]/100*420+50);
+      ctx.moveTo(x,y)
+      ctx.lineTo(nextX,nextY)
+      ctx.stroke()
+      ctx.closePath()
+      ctx.beginPath();
+      ctx.arc(x,y,4,0,2*Math.PI)
+      ctx.fillStyle = "red"
+      ctx.fill()
+      ctx.closePath()
+    }
+</script>

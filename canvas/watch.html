@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div style="margin: 0 auto; width: 800px;height: 800px;">
+            <canvas width="800" height="800" id="cvs"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    /** @type {HTMLCanvasElement}*/
+    let cvs = document.getElementById('cvs')
+    let ctx = cvs.getContext("2d")
+    ctx.translate(400, 400)
+
+    function drawClock() {
+        // 绘制表盘
+        ctx.beginPath();
+        ctx.arc(0, 0, 380, 0, 2 * Math.PI)
+        ctx.strokeStyle = "red"
+        ctx.lineWidth = 40
+        ctx.stroke()
+        ctx.fillStyle = "#eee"
+        ctx.fill()
+        ctx.closePath()
+
+        // 绘制分针刻度
+        for (let i = 0; i < 60; i++) {
+            ctx.rotate(6 / 180 * Math.PI)
+            ctx.beginPath();
+            ctx.moveTo(0, -350)
+            ctx.lineTo(0, -380)
+            ctx.lineWidth = 6
+            ctx.strokeStyle = "purple"
+            ctx.stroke()
+            ctx.closePath();
+        }
+
+        // 绘制时针刻度
+        for (let i = 0; i < 12; i++) {
+            ctx.rotate(30 / 180 * Math.PI)
+            ctx.beginPath();
+            ctx.moveTo(0, -330)
+            ctx.lineTo(0, -380)
+            ctx.lineWidth = 10
+            ctx.strokeStyle = "orange"
+            ctx.stroke()
+            ctx.closePath();
+        }
+
+        // 获取时间
+        let time = new Date();
+        let h = time.getHours();
+        let m = time.getMinutes();
+        let s = time.getSeconds();
+
+        // // 绘制时针要旋转的角度
+        let hAngel = (h * 30 + m / 60 * 30) / 180 * Math.PI;
+        ctx.rotate(hAngel)
+        ctx.beginPath();
+        ctx.moveTo(0, 0)
+        ctx.lineTo(0, -130)
+        ctx.lineWidth = 15
+        ctx.strokeStyle = "aqua"
+        ctx.stroke()
+        ctx.closePath()
+
+        // 绘制分针旋转角度
+        ctx.rotate(-hAngel)
+        let mAngel = (m * 6 + s / 60 * 6) / 180 * Math.PI;
+        ctx.rotate(mAngel)
+        ctx.beginPath();
+        ctx.moveTo(0, 0)
+        ctx.lineTo(0, -200)
+        ctx.lineWidth = 12
+        ctx.strokeStyle = "green"
+        ctx.stroke()
+        ctx.closePath()
+
+        // 绘制秒针旋转角度
+        ctx.rotate(-mAngel)
+        let sAngel = (s * 6) / 180 * Math.PI
+        ctx.rotate(sAngel)
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -250);
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+        ctx.rotate(-sAngel)
+
+        // 绘制表芯
+        ctx.beginPath();
+        ctx.moveTo(0, 0)
+        ctx.arc(0, 0, 10, 0, 2 * Math.PI)
+        ctx.strokeStyle = "indigo"
+        ctx.stroke();
+        ctx.fillStyle = "indigo"
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    setInterval(drawClock, 1000)
+</script>
