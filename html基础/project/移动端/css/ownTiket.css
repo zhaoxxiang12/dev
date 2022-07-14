@@ -6,13 +6,13 @@ header .ribbon {
   margin-top: 0.2rem;
 }
 
-header .ribbon .item:last-child {
+/* header .ribbon .item:last-child {
   background-color: white;
 }
 
 header .ribbon .item:last-child a {
   color: black;
-}
+} */
 
 .container {
   width: 100vw;
