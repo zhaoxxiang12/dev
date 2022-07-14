@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,10 @@
     <link rel="stylesheet" href="../css/commonHeader.css">
     <link rel="stylesheet" href="../css/cinema.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
 </head>
+
 <body>
     <header>
         <div class="image">
@@ -29,106 +33,7 @@
         </div>
     </nav>
     <div class="container">
-        <div class="content">
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="picture">
-                    <img src="../image/ӰԺ1.png" alt="">
-                </div>
-                <div class="info">
-                    <h6>UME影城(成都成化店)</h6>
-                    <div class="position">
-                        <div class="icon"></div>
-                        <div class="distance">
-                            <span>1.0km</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="content"></div>
     </div>
 
     <footer>
@@ -151,20 +56,47 @@
             </div>
             <div class="item">
                 <div class="icon film"></div>
-                   <div class="menuName menuName-film">
-                        <a href="../html/myTikect.html">
-                            <span>影片</span>
-                        </a>
-                    </div>
+                <div class="menuName menuName-film">
+                    <a href="../html/myTikect.html">
+                        <span>影片</span>
+                    </a>
+                </div>
             </div>
             <div class="item">
                 <div class="icon mine"></div>
-                 <div class="menuName menuName-mine">
+                <div class="menuName menuName-mine">
                     <a href="../html/mine.html">
                         <span>我的</span>
                     </a>
+                </div>
             </div>
-        </div>
     </footer>
 </body>
+
 </html>
+<script>
+    getCinema().then(data => {
+        // console.log(data);
+        if (data.operas.length) {
+            let div = data.operas.map(cinema => {
+                return `
+                    <div class="item" cinemaId="${cinema.id}">
+                        <div class="picture">
+                            <img src="${cinema.img_src}" alt="">
+                        </div>
+                        <div class="info">
+                            <h6>${cinema.name}</h6>
+                            <div class="position">
+                                <div class="icon"></div>
+                                <div class="distance">
+                                    <span>1.0km</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>       
+                `
+            }).join("")
+            $('.container .content').append(div)
+        }
+    })
+</script>

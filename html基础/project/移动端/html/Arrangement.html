@@ -51,67 +51,71 @@
     </div>
 <!-- 选择时间 -->
     <div class="content">
-        <div class="position">
-            <h6>成都双楠电影城</h6>
-            <div class="item">
-                <div class="area"></div>
-                <div class="distance">54km·四川省成都市温江区文化路1号人民商场门口至成华大道到二仙桥处</div>
-            </div>
-        </div>
-        <div class="selectTime">
-            <p>
-                英文2D·￥30.00
-            </p>
-            <div class="time">
-                <div class="chose">
-                    <span>11:00</span>
-                </div>
-                <div class="chose">
-                    <span>13:00</span>
-                </div>
-                <div class="chose">
-                    <span>15:00</span>
-                </div>
-                <div class="chose">
-                    <span>19:00</span>
-                </div>
-                <div class="chose">
-                    <span>20:00</span>
-                </div>
-                <div class="chose">
-                    <span>21:00</span>
+        <div>
+            <div class="position">
+                <h6>成都双楠电影城</h6>
+                <div class="item">
+                    <div class="area"></div>
+                    <div class="distance">54km·四川省成都市温江区文化路1号人民商场门口至成华大道到二仙桥处</div>
                 </div>
             </div>
-        </div>
-        <div class="position">
-            <h6>成都双楠电影城</h6>
-            <div class="item">
-                <div class="area"></div>
-                <div class="distance">54km·四川省成都市温江区文化路1号人民商场门口至成华大道到二仙桥处</div>
+            <div class="selectTime">
+                <p>
+                    英文2D·￥30.00
+                </p>
+                <div class="time">
+                    <div class="chose">
+                        <span>11:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>13:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>15:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>19:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>20:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>21:00</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="selectTime">
-            <p>
-                英文2D·￥30.00
-            </p>
-            <div class="time">
-                <div class="chose">
-                    <span>11:00</span>
+        <div>
+            <div class="position">
+                <h6>成都双楠电影城</h6>
+                <div class="item">
+                    <div class="area"></div>
+                    <div class="distance">54km·四川省成都市温江区文化路1号人民商场门口至成华大道到二仙桥处</div>
                 </div>
-                <div class="chose">
-                    <span>13:00</span>
-                </div>
-                <div class="chose">
-                    <span>15:00</span>
-                </div>
-                <div class="chose">
-                    <span>19:00</span>
-                </div>
-                <div class="chose">
-                    <span>20:00</span>
-                </div>
-                <div class="chose">
-                    <span>21:00</span>
+            </div>
+            <div class="selectTime">
+                <p>
+                    英文2D·￥30.00
+                </p>
+                <div class="time">
+                    <div class="chose">
+                        <span>11:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>13:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>15:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>19:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>20:00</span>
+                    </div>
+                    <div class="chose">
+                        <span>21:00</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -152,8 +156,14 @@
         $('.date').append(tr)   
     }
     updateTime()
-   let data = getMovies()
-    data.then(function(res) {
-        console.log(res);
+
+    $('.selectDay .date').on('click', '.item', function () {
+        $(this).closest('.date').find('.item').css('background-color','#FFFFFF').removeAttr("checked")
+        $(this).css('background-color', '#4073FF').attr("checked","checked")
+    })
+
+    $('.content').on('click','.selectTime .time .chose', function () {
+        $(this).closest('.content').find('.chose').css('background-color', '#FFFFFF').removeAttr('checked')
+        $(this).css('background-color','#4073FE').attr("checked", "checked")
     })
 </script>
