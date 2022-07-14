@@ -8,6 +8,7 @@
     <title>首页-无票</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/commonHeader.css">
+    <link rel="stylesheet" href="../css/front-page-havingTicket.css">
     <link rel="stylesheet" href="../css/front-page-noTicket.css">
     <script src="../js/common.js"></script>
     <script src="../../../../config/config.js"></script>
@@ -23,15 +24,20 @@
         </div>
         <div class="welcome">
             <div class="icon"></div>
-            <span>您好,李先生</span>
+            <div class="greet">
+                <span>您好,李先生</span>
+            </div>
         </div>
-        <footer>
-            <div class="icon position-icon"></div>
-            <span>成都</span>
-            <div class="icon arrow"></div>
-        </footer>
     </header>
+    <nav>
+        <div class="icon position-icon"></div>
+        <div class="icon drop"></div>
+        <div class="position">
+            <span>成都</span>
+        </div>
+    </nav>
     <!-- 热映部分 -->
+
     <div class="title">
         <div class="item">
             <div class="min-item">
@@ -104,8 +110,8 @@
 
 </html>
 <script>
-    // 正在热映
-    let movieList = getMovies()
+     // 正在热映
+     let movieList = getMovies()
     let cinema = getCinema()
     let moviesId = []
 
