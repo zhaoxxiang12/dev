@@ -120,8 +120,7 @@ nav .drop {
 }
 
 .container .movieList {
-  width: 10rem;
-  height: 4rem;
+  width: 100rem;
   margin: 0 auto;
   margin-left: 0.5rem;
   display: flex;
@@ -131,7 +130,6 @@ nav .drop {
   width: 2.5rem;
   margin-right: 0.2rem;
   box-sizing: border-box;
-  height: 100%;
 }
 
 .container .movieList .list .picture {
@@ -146,9 +144,9 @@ nav .drop {
 
 .container .movieList .list .movieName {
   text-align: center;
-  line-height: 0.8rem;
-  font-size: 0.25rem;
+  font-size: 0.1rem;
   font-weight: bold;
+  margin-top: 0.1rem;
 }
 
 footer {

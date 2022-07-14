@@ -8,6 +8,8 @@
     <!-- <link rel="stylesheet" href="../css/selectPosition.css"> -->
     <link rel="stylesheet" href="../css/Arrangement.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 <body>
     <header></header>
@@ -45,36 +47,7 @@
     </div>
     <!-- 选择日期 -->
     <div class="selectDay">
-        <div class="date">
-            <div class="item">
-                <h6>星期一</h6>
-                <h6>04-16</h6>
-            </div>
-            <div class="item">
-                <h6>星期二</h6>
-                <h6>04-17</h6>
-            </div>
-            <div class="item">
-                <h6>星期三</h6>
-                <h6>04-17</h6>
-            </div>
-            <div class="item">
-                <h6>星期四</h6>
-                <h6>04-19</h6>
-            </div>
-            <div class="item">
-                <h6>星期五</h6>
-                <h6>04-20</h6>
-            </div>
-            <div class="item">
-                <h6>星期六</h6>
-                <h6>04-21</h6>
-            </div>
-            <div class="item">
-                <h6>星期天</h6>
-                <h6>04-22</h6>
-            </div>
-        </div>
+        <div class="date"></div>
     </div>
 <!-- 选择时间 -->
     <div class="content">
@@ -148,3 +121,39 @@
     </div>
 </body>
 </html>
+<script>
+    function updateTime () {
+        let now = new Date();
+        let time = now.getTime();
+        let tr = ''
+        let weekDay
+        const week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        for (let i = 1; i <= 7; i++) {
+            time = time + 24 * 60 * 60 * 1000;
+            let futureTime = new Date(time);
+            let month = futureTime.getMonth();
+            month = month > 9 ? month : '0' + month
+            let date = futureTime.getDate();
+            date = date > 9? date : '0' + date
+            weekDay = futureTime.getDay()
+            week.forEach((week,index) => {
+                if (index == weekDay) {
+                    weekDay = week
+                }
+            })
+            let newDate = month + '-' + date
+            tr += `
+            <div class="item">
+                <h6>${weekDay}</h6>
+                <h6>${newDate}</h6>
+            </div>
+            `
+        }
+        $('.date').append(tr)   
+    }
+    updateTime()
+   let data = getMovies()
+    data.then(function(res) {
+        console.log(res);
+    })
+</script>

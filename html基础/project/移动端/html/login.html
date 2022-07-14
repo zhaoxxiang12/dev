@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的</title>
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="../css/login.css">
 </head>
+
 <body>
     <!--    头部 -->
     <header>
@@ -23,23 +26,25 @@
     <main>
         <form action="">
             <span>用户名</span>
-            <p>
+            <p class="user">
                 <input type="text" id="userName">
+                <br>
+                <span style="color: red; margin: 0; display: none; margin-top: 12px;" class="username-warnning"></span>
             </p>
             <span>密码</span>
             <span class="forget">
                 <a href="">忘记密码?</a>
             </span>
-            <div class="icon"></div>
             <p class="password">
                 <input type="password" id="password">
+                <div class="icon"></div>
+                <br>
+                <span style="color: red; margin: 0; display: none; margin-top: 10px;" class="password-warnning"></span>
             </p>
             <p>
-                    <button>
-                        <a href="../html/mine.html">立即登录</a>
-                    </button>
-               
-                
+                <a href="javascript:" id="login">
+                    <button type="button" style="color: white;">立即登录</button>
+                </a>
             </p>
         </form>
         <div class="regist">
@@ -49,4 +54,28 @@
         </div>
     </main>
 </body>
+
 </html>
+<script>
+    $("#login").click(function () {
+        let username = ($('#userName').val()).trim()
+        let password = ($('#password').val()).trim()
+        if (username.length == 0) {
+            $('.username-warnning').css("display", 'block').html("用户名不能为空")
+            return
+        }
+
+        if (password.length === 0) {
+            $('.password-warnning').css("display", 'block').html("密码不能为空")
+            return
+        }
+    })
+
+    $(".user").on("input propertyChange", '#userName', function () {
+        $('.username-warnning').css("display", 'none')
+    })
+
+    $(".password").on("input propertyChange", '#password', function () {
+        $('.password-warnning').css("display", 'none')
+    })
+</script>

@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页-无票</title>
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/commonHeader.css">
     <link rel="stylesheet" href="../css/front-page-noTicket.css">
+    <script src="../js/common.js"></script>
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 
 
 </head>
@@ -29,146 +32,45 @@
         </footer>
     </header>
     <!-- 热映部分 -->
-    <div class="hotName">
-        <div class="title">
-            <div class="item">
+    <div class="title">
+        <div class="item">
+            <div class="min-item">
                 <h6>正在热映</h6>
             </div>
-            <div class="item more">
-                <a href="../html/isShowing.html">查看更多</a>
+            <div class="min-item">
+                <a href="">查看更多</a>
             </div>
         </div>
     </div>
-    <div class="hotMovie">
-        <div class="moveList">
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                    <img src="../image/图层 10.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/指环王.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    指环王
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/八月未央.png" alt="">
-                    </a>         
-                </div>
-                <div class="moveName">
-                    八月未央
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/图层 10.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/图层 10.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
-            </div>
-        </div>
+
+    <div class="container isShowing">
+        <div class="movieList" style="font-size: 0.2rem;"></div>
     </div>
 
     <!--  即将上映 -->
-    <div class="hotName">
-        <div class="title">
-            <div class="item">
+    <div class="title">
+        <div class="item">
+            <div class="min-item">
                 <h6>即将上映</h6>
             </div>
-            <div class="item more">
-                <a href="../html/isShowing.html">查看更多</a>
-            </div>
-        </div>
-    </div>
-    <div class="hotMovie">
-        <div class="moveList">
-            <div class="item">
-                <div class="image">
-                   <a href="../html/filmInfo.html">
-                    <img src="../image/图层 10.png" alt="">
-                   </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/指环王.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    指环王
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/八月未央.png" alt="">
-                    </a>
-                    
-                </div>
-                <div class="moveName">
-                    八月未央
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/图层 10.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
-            </div>
-            <div class="item">
-                <div class="image">
-                    <a href="../html/filmInfo.html">
-                        <img src="../image/图层 10.png" alt="">
-                    </a>
-                </div>
-                <div class="moveName">
-                    哥斯拉大战金刚
-                </div>
+            <div class="min-item">
+                <a href="">查看更多</a>
             </div>
         </div>
     </div>
 
+    <div class="container willShow">
+        <div class="movieList" style="font-size: 0.2rem;"></div>
+    </div>
+
     <!-- 评分榜 -->
-    <div class="hotName">
-        <div class="title">
-            <div class="item">
+    <div class="title">
+        <div class="item">
+            <div class="min-item">
                 <h6>评分榜</h6>
             </div>
-            <div class="item more">
-                <a href="../html/isShowing.html">查看更多</a>
+            <div class="min-item">
+                <a href="">查看更多</a>
             </div>
         </div>
     </div>
@@ -201,3 +103,91 @@
 </body>
 
 </html>
+<script>
+    // 正在热映
+    let movieList = getMovies()
+    let cinema = getCinema()
+    let moviesId = []
+
+    // 获取正在上映的电影ID
+    async function getMoviesId() {
+        await cinema.then((data) => {
+            if (data.operas.length) {
+                data.operas.forEach(item => {
+                    if (item.movies.length) {
+                        item.movies.forEach(id => {
+                            if (moviesId.indexOf(id) === -1) {
+                                moviesId.push(id)
+                            }
+                        })
+                    }
+                })
+            }
+        })
+        return moviesId
+    }
+
+    // 正在上映
+    getMoviesId().then((data) => {
+        if (data.length) {
+            let isShowingMovie = []
+            movieList.then(movieData => {
+                if (movieData.movies.length) {
+                    movieData.movies.forEach(data => {
+                        if (moviesId.indexOf(data.id) !== -1) {
+                            isShowingMovie.push(data)
+                        }
+                    })
+                }
+                let div = isShowingMovie.map(item => {
+                    let movieName = item.title.split(" ")[0]
+                    let image = item.imgSrc
+                    return `
+                            <div class="list">
+                                <a class="picture" href="../html/filmInfo.html">
+                                    <img src="${image}" alt="">
+                                </a>
+                                <div class="movieName">
+                                    <span>${movieName}</span>
+                                </div>
+                            </div>
+                `
+                }).join("")
+                $(".isShowing .movieList").append(div)
+            })
+        } else {
+            $(".isShow .movieList").html("暂无数据")
+        }
+    })
+
+    // 即将上映
+    getMoviesId().then(data => {
+        let willShowMovies = []
+        if (data.length) {
+            movieList.then(movieData => {
+                if (movieData.movies.length) {
+                    movieData.movies.forEach(data => {
+                        if (moviesId.indexOf(data.id) === -1) {
+                            willShowMovies.push(data)
+                        }
+                    })
+                }
+                let div = willShowMovies.map(willShowMoviesData => {
+                    let movieName = willShowMoviesData.title.split(" ")[0]
+                    let image = willShowMoviesData.imgSrc
+                    return `
+                            <div class="list">
+                                <div class="picture">
+                                    <img src="${image}" alt="">
+                                </div>
+                                <div class="movieName">
+                                    <span>${movieName}</span>
+                                </div>
+                            </div>
+                    `
+                }).join("")
+                $(".willShow .movieList").append(div)
+            })
+        }
+    })
+</script>

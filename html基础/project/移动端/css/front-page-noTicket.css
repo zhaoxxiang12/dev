@@ -193,3 +193,15 @@ header .icon {
 .bottom .icon .text span a {
   color: #BABBC6;
 }
+
+.title:nth-child(n+2) {
+  width: 100%;
+}
+
+.title:nth-child(n+2) .item {
+  width: 100%;
+}
+
+.title:nth-child(n+2) .item .min-item:first-child {
+  margin-left: 0.5rem;
+}
