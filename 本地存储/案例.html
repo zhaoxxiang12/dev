@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div style="margin: 0 auto; width:1000px">
+        <input type="text" id="name">
+        <input type="text" id="age">
+        <input type="text" id="gender">
+        <input type="text" id="education">
+        <button type="button" id="btn">提交</button>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <table border="1" cellpadding="0" cellspacing="0" align="center">
+            <thead>
+                <tr style="text-align:center">
+                    <td width="60px">姓名</td>
+                    <td width="60px">年龄</td>
+                    <td width="60px">性别</td>
+                    <td width="60px">学历</td>
+                    <td width="60px">操作</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function queryStudents() {
+        let tr
+        let getStudents = localStorage.getItem("students")
+        getStudents = JSON.parse(getStudents)
+        if (getStudents != null && getStudents.length > 0) {
+             tr = getStudents.map((item) => {
+                return `
+            <tr style="text-align:center" data-id = "${item.id}">
+                <td>${item.name}</td>
+                <td>${item.age}</td>
+                <td>${item.gender}</td>
+                <td>${item.education}</td>
+                <td>
+                    <button type="button" class="delBtn">删除</button>
+                </td>
+            </tr>
+           `
+            }).join("")
+            $("tbody").append(tr)
+        } else {
+            tr = `
+        <tr style="text-align:center">
+            <td colspan = "5">暂无学生信息</td>
+        </tr>
+        `
+        }
+        $("tbody").children().remove()
+        $("tbody").append(tr)
+    }
+    queryStudents()
+
+
+    $("#btn").click(() => {
+        let name = $('#name').val()
+        let age = $('#age').val()
+        let gender = $('#gender').val()
+        let education = $('#education').val()
+        let id = parseInt(Math.random() * 100000)
+        let student = {
+            id: id,
+            name: name,
+            age: age,
+            gender: gender,
+            education: education
+        }
+
+        let students = localStorage.getItem("students")
+        if (students === null) {
+            students = []
+            students.push(student)
+            students = JSON.stringify(students)
+            localStorage.setItem("students", students)
+        } else {
+            students = JSON.parse(students)
+            students.push(student)
+            students = JSON.stringify(students)
+            localStorage.setItem("students", students)
+        }
+        queryStudents()
+    })
+
+    $('tbody').on("click", ".delBtn", function () {
+        let studentIndex
+        let id = $(this).closest('tr').data("id")
+        let students = localStorage.getItem("students")
+        students = JSON.parse(students)
+        students.forEach((item, index) => {
+            if (id == item.id) {
+                studentIndex = index
+            }
+        })
+        students.splice(studentIndex, 1)
+        students = JSON.stringify(students)
+        localStorage.setItem("students", students)
+        queryStudents()
+    })
+</script>
