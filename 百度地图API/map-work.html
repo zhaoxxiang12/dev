@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=0MILQfQkKg4jYQ2AKZUYNvRdnZGy4efa">
+    </script>
+</head>
+
+<body>
+    <div id="map" style="width: 100%; height: 800px;"></div>
+</body>
+
+</html>
+<script>
+    let start
+    let end
+    let map = new BMapGL.Map('map');
+    let geolocation = new BMapGL.Geolocation(); //创建定位对象
+
+    let Bcenter = new BMapGL.Point(116.404, 39.915);
+
+    map.centerAndZoom(Bcenter, 11);
+
+    let cityCtrl = new BMapGL.CityListControl(); // 添加城市列表控件
+    map.addControl(cityCtrl);
+    let locationControl = new BMapGL.LocationControl(); // 添加定位控件
+    map.addControl(locationControl);
+
+    //自定义控件
+
+    function staticControl() {
+
+        this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+
+        this.defaultOffset = new BMapGL.Size(10, 10);
+
+    }
+
+    //继承Control的API
+
+    staticControl.prototype = new BMapGL.Control();
+
+    //初始化控件
+
+    staticControl.prototype.initialize = function (map) {
+
+        let div = document.createElement('div');
+
+        let e1 = document.createElement('input');
+
+        e1.type = 'text';
+        e1.placeholder = "请输入地名......."
+        e1.style.marginLeft = '80px'
+        e1.classList.add("addressName")
+
+        // e1.onclick = function () {
+
+        //     // statics();
+
+        // }
+
+        div.appendChild(e1);
+
+        let e2 = document.createElement('input');
+
+        e2.type = 'button';
+
+        e2.value = '查询';
+
+        e2.onclick = function () {
+            let distance
+            let local = new BMapGL.LocalSearch(map, { // 智能搜索
+                onSearchComplete: myFun
+            })
+            let value = document.getElementsByClassName('addressName')[0].value
+            let searchLng, searchLat
+
+            function myFun() {
+                let pp = local.getResults().getPoi(0).point // 获取第一个智能搜索结果
+                searchLng = pp.lng
+                searchLat = pp.lat
+                let icon = new BMapGL.Icon(
+                    "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnewsimg.5054399.com%2Fuploads%2Fuserup%2F1504%2F2315322Q315.jpg&refer=http%3A%2F%2Fnewsimg.5054399.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1660373359&t=c719cc5f5f98654077fb37d5b75abff2",
+                    new BMapGL.Size(30, 30));
+                let pt = new BMapGL.Point(pp.lng, pp.lat);
+                let marker = new BMapGL.Marker(pt, {
+                    icon: icon
+                });
+                marker.addressName = value
+                map.clearOverlays();
+                // 将标注添加到地图
+                map.addOverlay(marker);
+
+                geolocation.getCurrentPosition(function (result) {
+                     distance = getDistance(result.point.lng, result.point.lat, searchLng, searchLat)
+                     console.log(distance);
+                })
+
+                // 点击事件
+                marker.addEventListener("click", function () {
+                    end = this.latLng;
+                    let opts = {
+                        width: 200, // 信息窗口宽度
+                        height: 150, // 信息窗口高度
+                        title: "地址信息" // 信息窗口标题
+                    }
+                    let div = `
+                                <div>
+                                    <h3>${this.addressName}</h3>
+                                    <h3>大约${(distance).toFixed(2)}千米</h3>
+                                    <input onclick="go()" id="go" type="button" value="到这去" style="width:100px; height:40px; outline:none;">
+                                </div>
+                            `;
+                    let infoWindow = new BMapGL.InfoWindow(div, opts); // 创建信息窗口对象
+                    map.openInfoWindow(infoWindow, this.latLng);
+                })
+            }
+            local.search(value)
+            // endStatics();
+        }
+
+        div.appendChild(e2);
+
+        //添加DOM元素到地图中
+
+        map.getContainer().appendChild(div);
+
+        //返回DOM
+
+        return div;
+
+    }
+
+    //创建控件实例
+
+    let staticsCtrl = new staticControl();
+
+    //添加到地图当中
+
+    map.addControl(staticsCtrl);
+
+    function statics() {
+
+        map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 11);
+
+    }
+
+    function endStatics() {
+
+        map.setZoom(map.getZoom() - 2);
+
+    }
+
+    function setStatics() {
+
+        map.setZoom(map.getZoom() + 2)
+
+    }
+
+    // 定位功能
+    geolocation.getCurrentPosition(function (result) {
+        console.log(result);
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            //浏览器定位成功
+            map.centerAndZoom(result.point, 15);
+            start = result.point;
+            let mk = new BMapGL.Marker(result.point); //创建标记,r是定位结果,r.point就是当前定位的地点
+            map.addOverlay(mk); //将标记对象添加到地图上
+        } else {
+            let myCity = new BMapGL.LocalCity();
+            myCity.get(function (result) {
+                //IP定位成功
+                map.centerAndZoom(result.center, 15);
+                let mk = new BMapGL.Marker(result.center); //创建标记,r是定位结果,r.point就是当前定位的地点
+                map.addOverlay(mk); //将标记对象添加到地图上
+            });
+        }
+    })
+
+
+    function getDistance(lng1, lat1, lng2, lat2) {
+        const R = 6371
+        const {
+            sin,
+            cos,
+            asin,
+            PI,
+            hypot
+        } = Math
+        /** 根据经纬度获取点的坐标 */
+        let getPoint = (e, n) => {
+            e *= PI / 180
+            n *= PI / 180
+            //这里 R* 被去掉, 相当于先求单位圆上两点的距, 最后会再将这个距离放大 R 倍
+            return {
+                x: cos(n) * cos(e),
+                y: cos(n) * sin(e),
+                z: sin(n)
+            }
+        }
+        let a = getPoint(lng1, lat1)
+        let b = getPoint(lng2, lat2)
+        let c = hypot(a.x - b.x, a.y - b.y, a.z - b.z)
+        let r = asin(c / 2) * 2 * R
+        return r
+    }
+    let driving = new BMapGL.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    });
+
+    function go() {
+        driving.search(start, end);
+    }
+</script>

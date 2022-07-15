@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=0MILQfQkKg4jYQ2AKZUYNvRdnZGy4efa">
+    </script>
+</head>
+
+<body>
+    <div id="map" style="width: 100%; height: 800px;"></div>
+</body>
+
+</html>
+<script>
+    var map = new BMapGL.Map('map');
+
+    var Bcenter = new BMapGL.Point(116.404, 39.915);
+
+    map.centerAndZoom(Bcenter, 11);
+
+    //自定义控件
+
+    function staticControl() {
+
+        this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+
+        this.defaultOffset = new BMapGL.Size(10, 10);
+
+    }
+
+    //继承Control的API
+
+    staticControl.prototype = new BMapGL.Control();
+
+    //初始化控件
+
+    staticControl.prototype.initialize = function (map) {
+
+        var div = document.createElement('div');
+
+        var e1 = document.createElement('input');
+
+        e1.type = 'button';
+
+        e1.value = '重置';
+
+        e1.onclick = function () {
+
+            statics();
+
+        }
+
+        div.appendChild(e1);
+
+        var e2 = document.createElement('input');
+
+        e2.type = 'button';
+
+        e2.value = '缩小';
+
+        e2.onclick = function () {
+
+            endStatics();
+
+        }
+
+        div.appendChild(e2);
+
+        var e3 = document.createElement("input");
+
+        e3.type = "button";
+
+        e3.value = "放大";
+
+        e3.onclick = function () {
+
+            setStatics();
+
+        }
+
+        div.appendChild(e3);
+
+        //添加DOM元素到地图中
+
+        map.getContainer().appendChild(div);
+
+        //返回DOM
+
+        return div;
+
+    }
+
+    //创建控件实例
+
+    var staticsCtrl = new staticControl();
+
+    //添加到地图当中
+
+    map.addControl(staticsCtrl);
+
+    function statics() {
+
+        map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 11);
+
+    }
+
+    function endStatics() {
+
+        map.setZoom(map.getZoom() - 2);
+
+    }
+
+    function setStatics() {
+
+        map.setZoom(map.getZoom() + 2)
+
+    }
+</script>
