@@ -100,7 +100,6 @@ header {
 
 .content {
   width: 100vw;
-  height: 7rem;
   position: relative;
 }
 
@@ -179,6 +178,20 @@ header {
 
 .content button {
   display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5em;
+  border: 0.02em solid #d0dffe;
+}
+
+.content button a {
+  color: white;
+  text-decoration: none;
+}
+
+.content #selectPosition {
+  display: block;
   margin: 0 auto;
   height: 3em;
   width: 85%;
@@ -191,7 +204,7 @@ header {
   left: 0.5rem;
 }
 
-.content button a {
+.content #selectPosition a {
   color: white;
   text-decoration: none;
 }

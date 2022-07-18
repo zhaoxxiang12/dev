@@ -67,18 +67,14 @@
   font-weight: 400;
 }
 
-.seat .content .left .place:nth-child(n+13) {
-  color: black;
-  background-color: #ffffff;
-}
-
-.seat .content .right .place:nth-child(13) {
-  color: black;
-  background-color: #ffffff;
-}
-
-.seat .content .right .place:nth-child(n+16) {
+.seat .content .position .place.checked {
   background-color: #4073ff;
+  color: #ffffff;
+}
+
+.seat .content .position .place.sold {
+  background-color: #ffffff;
+  color: black;
 }
 
 .seat .introduce {
@@ -127,7 +123,6 @@
 
 .details {
   width: 100vw;
-  height: 3.15rem;
 }
 
 .details .content {
@@ -166,6 +161,11 @@
   display: flex;
 }
 
+.details .content .seatDetails .icon .min-item {
+  display: flex;
+  width: 50%;
+}
+
 .details .content .seatDetails .icon .min-item .item {
   width: 0.3rem;
   height: 0.3rem;
@@ -179,17 +179,12 @@
   border-radius: 0.05rem;
 }
 
-.details .content .seatDetails .icon .min-item {
-  display: flex;
-  width: 50%;
-}
-
-.details .content .seatDetails .icon .item:first-child {
-  margin-left: 0.2rem;
+.details .content .seatDetails .icon .min-item .item:first-child {
+  margin-left: 0.1rem;
 }
 
 .details .content .seatDetails .icon .price {
-  flex-grow: 1;
+  width: 50%;
   height: 100%;
   color: #4073ff;
   font-size: 0.2rem;
@@ -205,6 +200,7 @@
   background-color: #4073ff;
   margin-top: 0.2rem;
   font-size: 0.3rem;
+  text-align: center;
 }
 
 .details .content button a {
