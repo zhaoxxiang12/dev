@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/onlyBg.css">
     <link rel="stylesheet" href="../css/paySuccess.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 </head>
 
 <body style="background-color: #0b193e;">
@@ -29,11 +31,11 @@
                 <div class="image">
                     <img src="../image/图层 10.png" alt="">
                 </div>
-                <div>
+                <!-- <div>
                     <p>订单号:721323</p>
                     <h6>哥斯拉大战金刚</h6>
                     <p>成都双楠电影城·英文2D</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -43,7 +45,7 @@
             <div class="radius cro-left-top"></div>
             <div class="radius cro-right-top"></div>
             <div class="detail left-info">
-                <div class="item">
+                <!-- <div class="item">
                     <p>观影时间</p>
                     <h6>2020-04-16&nbsp;星期一</h6>
                 </div>
@@ -60,16 +62,16 @@
                             <span>F6</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="detail right-info">
                 <div class="item">
                     <p>时间</p>
-                    <h6>19:00</h6>
+                    <h6 class="time">19:00</h6>
                 </div>
                 <div class="item">
                     <p>座位总数</p>
-                    <h6>3</h6>
+                    <h6 class="seatCount">3</h6>
                 </div>
             </div>
         </div>
@@ -86,11 +88,79 @@
             </div>
         </div>
     </div>
-    <div class="button">
+    <div class="button" id="backFrontPage">
         <button>
-            <a href="../html/front-page-noTicket.html">返回首页</a>
+            <a href="javascript:">返回首页</a>
         </button>
     </div>
 </body>
 
 </html>
+<script>
+    let info = location.search.split("?")[1].split("&");
+    let obj = {};
+    info.forEach(item => {
+        let data = item.split("=");
+        obj[data[0]] = decodeURI(data[1]);
+    })
+    let movies = localStorage.getItem("movies");
+    movies = JSON.parse(movies);
+    let cinemaName;
+    let cinema = localStorage.getItem("cityAddressInfo");
+    cinema = JSON.parse(cinema);
+    cinema.forEach(item => {
+        if (item.cinemaId == obj.cinemaId) {
+            cinemaName = item.cinemaName;
+        }
+    })
+    movies.movies.forEach(item => {
+        if (item.id == obj.filmId) {
+            let div = `
+                    <div>
+                        <p>订单号:${obj.orderNo}</p>
+                        <h6>${item.title.split(" ")[0]}</h6>
+                        <p>${cinemaName}·${item.language}</p> 
+                    </div>
+            `
+            $(".filmDetail .filmInfo .image img").prop("src", item.imgSrc);
+            $('.filmDetail .filmInfo .image').after(div);
+        }
+    })
+    let ticketInfo = localStorage.getItem("purchaseTicketInfo");
+    ticketInfo = JSON.parse(ticketInfo)[0];
+    $('.ticket p').html(ticketInfo.ticket[0].code);
+    let leftDiv = `
+            <div class="item">
+                    <p>观影时间</p>
+                    <h6>${obj.watchDate}</h6>
+                </div>
+                <div class="item">
+                    <p>座位</p>
+                    <div class="seat-code">
+                      
+                    </div>
+                </div>
+    `
+    $('.userInfo .content .left-info').append(leftDiv)
+
+    let seatDiv = ''
+    let seatCount
+    ticketInfo.ticket.forEach(item => {
+       if (item.filmId == obj.filmId) {
+        seatCount = item.seat.length
+        item.seat.forEach(seatCode => {
+            seatDiv +=`
+         <div class="icon">
+            <span>${seatCode}</span>
+        </div>
+         `
+        })
+       }
+    })
+    $('.userInfo .content .left-info .item .seat-code').append(seatDiv)
+    $('.userInfo .content .right-info .item .seatCount').html(seatCount)
+    $('.userInfo .content .right-info .item .time').html(ticketInfo.ticket.time)
+    $("#backFrontPage").click(() => {
+        location.href = "../html/front-page-havingTicket.html"
+    })
+</script>

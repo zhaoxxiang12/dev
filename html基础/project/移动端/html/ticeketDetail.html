@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,12 @@
     <link rel="stylesheet" href="../css/ticketDetail.css">
     <link rel="stylesheet" href="../css/login.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 </head>
+
 <body>
-     <!--    头部 -->
-     <header>
+    <!--    头部 -->
+    <header>
         <div class="image">
             <img src="../image/2.png" alt="">
         </div>
@@ -31,11 +34,11 @@
                 <img src="../image/图层 10.png" alt="">
             </div>
             <div class="details">
-                <h6>哥斯拉大战金刚</h6>
+                <!-- <h6>哥斯拉大战金刚</h6>
                 <p>成都双楠电影城</p>
-                <p>2020-04-16&nbsp;19:00</p>
+                <p>2020-04-16&nbsp;19:00</p> -->
                 <div class="seatInfo">
-                    <div class="seat">
+                    <!-- <div class="seat">
                         <span>F4</span>
                     </div>
                     <div class="seat">
@@ -43,7 +46,7 @@
                     </div>
                     <div class="seat">
                         <span>F6</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -60,4 +63,51 @@
         </div>
     </div>
 </body>
+
 </html>
+<script>
+    let filmId = location.search.split("?")[1].split("=")[1]
+    let ticketInfo = localStorage.getItem("purchaseTicketInfo")
+    let id = localStorage.getItem("token")
+    id = JSON.parse(id)[0].id
+    ticketInfo = JSON.parse(ticketInfo)
+    ticketInfo.forEach(element => {
+        if (element.id == id) {
+            element.ticket.forEach(item => {
+                if (item.filmId == filmId) {
+                    let title = `
+                        <h6>${item.name}</h6>
+                        <p>${item.cinema}</p>
+                        <p>${item.date}</p>
+                        `
+                    $('.ticketInfo .details .seatInfo').before(title)
+                    let code = ''
+                    for (let i = 0; i < item.code.toString().length; i++) {
+                        if ( i !== item.code.toString().length -1) {
+                            code += item.code.toString()[i] + " "
+                        } else {
+                            code += item.code.toString()[i]   
+                        }
+                    }
+                    $('.QRCode h5').html(code)
+                    let seat = item.seat.map (seatCode => {
+                        return `
+                        <div class="seat">
+                            <span>${seatCode}</span>
+                        </div> 
+                        `
+                    }).join("")
+                    $('.ticketInfo .details .seatInfo').append(seat)
+                }
+            })
+        }
+    });
+
+    let movies = localStorage.getItem("movies")
+    movies = JSON.parse(movies)
+    movies.movies.forEach(item => {
+        if (item.id == filmId) {
+            $('.ticketInfo .picture img').prop("src", item.imgSrc)
+        }
+    })
+</script>

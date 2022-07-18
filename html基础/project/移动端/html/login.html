@@ -8,7 +8,13 @@
     <title>我的</title>
     <script src="../../../../config/config.js"></script>
     <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../../../../jQuery/mock.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../../../../jQuery/jquery.serializejson.js"></script>
     <link rel="stylesheet" href="../css/login.css">
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=0MILQfQkKg4jYQ2AKZUYNvRdnZGy4efa">
+    </script>
 </head>
 
 <body>
@@ -22,6 +28,7 @@
             <span>登录</span>
         </div>
     </header>
+    <div id="map"></div>
     <!-- 内容 -->
     <main>
         <form action="">
@@ -69,6 +76,42 @@
             $('.password-warnning').css("display", 'block').html("密码不能为空")
             return
         }
+        let json = {
+            username,
+            password
+        }
+        json = JSON.stringify(json)
+        $.ajax({
+            url: "login",
+            type: "post",
+            data: json,
+            dataType: "json",
+            contentType: "application/json",
+            success(res) {
+                if (res.status) {
+                    alert(res.message)
+                    getInfo(res.usersId)
+                    let movies = getMovies()
+                    movies.then(data => {
+                        data = JSON.stringify(data)
+                        localStorage.setItem("movies", data)
+                    })
+                    let moviesType = getMoviesType()
+                    moviesType.then(data => {
+                        data = JSON.stringify(data)
+                        localStorage.setItem("moviesType", data)     
+                    })
+                    let usersInfo =localStorage.getItem("users")
+                    usersInfo = JSON.parse(usersInfo)
+                   let info = usersInfo.filter(item => item.id == res.usersId)
+                   info[0].loginStatus = 1
+                   info = JSON.stringify(info)
+                   localStorage.setItem("token", info)
+                } else {
+                    $('.username-warnning').css("display", 'block').html(res.message)
+                }
+            }
+        })
     })
 
     $(".user").on("input propertyChange", '#userName', function () {
@@ -77,5 +120,31 @@
 
     $(".password").on("input propertyChange", '#password', function () {
         $('.password-warnning').css("display", 'none')
+    })
+
+    Mock.mock('login', 'post', function (req) {
+        let data = req.body
+        data = JSON.parse(data)
+        let users = localStorage.getItem("users");
+        if (users == null) {
+            users = []
+        } else {
+            users = JSON.parse(users)
+        }
+        let flag = users.some(item => item.username == data.username && item.password == data.password)
+
+        if (flag) {
+            let queryData = users.filter(item => item.username == data.username)
+            return {
+                message: '登录成功',
+                status: 1,
+                usersId: queryData[0].id
+            }
+        } else {
+            return {
+                message: "用户名或密码错误",
+                status: 0
+            }
+        }
     })
 </script>

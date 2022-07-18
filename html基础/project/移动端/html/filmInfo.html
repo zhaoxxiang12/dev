@@ -1,45 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>影片详情</title>
+    <link rel="stylesheet" href="../css/Arrangement.css">
     <link rel="stylesheet" href="../css/filmInfo.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 </head>
+
 <body>
     <header></header>
-    <div class="filmInfo">
-        <div class="picture">
-            <img src="../image/图层 10.png" alt="">
-        </div>
-        <div class="info">
-            <h6>哥斯拉大战金刚</h6>
-            <p>
-                类型 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;动作,冒险,科幻
-            </p>
-            <p>
-                片长 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113分钟
-            </p>
-            <p>
-                评分 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.5
-            </p>
-        </div>
-    </div>
+    <div class="filmInfo"></div>
     <div class="menu">
-        <div class="item">
-            <a href="../html/Arrangement.html">Synopsis</a>
+        <div class="item" index="1">
+            <a href="javascript:">Synopsis</a>
         </div>
-        <div class="item">
-            <a href="../html/filmInfo.html">简介</a>
+        <div class="item" index="2">
+            <a href="javascript:">简介</a>
         </div>
     </div>
-    <div class="summary">
-        影片中,这两位宛如神祇一般强大的对手于一场壮观的战阵中相遇，彼时世界命运正悬一线。为了找到真正的家园
-        ，金刚与他的保护者们踏上了一次艰难的旅程。于他们一道前行的还有一个年轻的孤儿女孩————吉雅，这个女孩与金刚之间
-        存在着一种独特而强大的紧密联系。但意想不到的是，他们在前行的航道上与愤怒的哥斯拉狭路相逢，也由此
-        在全球引起了一系列破坏。一般无形的力量造成了这两只巨兽之间的巨大冲突，深藏在地心深处的奥秘也由此揭开。
-    </div>
+    <div class="summary"></div>
+    <div class="select"></div>
+    <div class="cinema"></div>
 </body>
+
 </html>
+<script>
+    let filmId = location.search.split('=')[1]
+    // 获取所有电影信息
+    let moviesData = localStorage.getItem("movies")
+    // 电影价格
+    let moviePrice
+    // 影片详情介绍
+    let movieDescript = ''
+    // 所有影片在各个电影院信息
+    let cinemaInfo = localStorage.getItem("cityAddressInfo")
+    cinemaInfo = JSON.parse(cinemaInfo)
+    moviesData = JSON.parse(moviesData)
+    if (moviesData.movies.length) {
+        moviesData.movies.forEach(item => {
+            if (item.id == filmId) {
+                moviePrice = item.price
+                $('header').css("background", `url(${item.posterSrc}) no-repeat center/cover`)
+                movieDescript = item.desc
+                let movieType = localStorage.getItem("moviesType")
+                movieType = JSON.parse(movieType)
+                let cnMovieTypeName = []
+                let currentMovieType = item.movieType
+                movieType.types.forEach(item => {
+                    if (currentMovieType.indexOf(item.id) !== -1) {
+                        cnMovieTypeName.push(item.name)
+                    }
+                })
+                let type = ''
+                cnMovieTypeName.forEach((types, index) => {
+                    if (index === cnMovieTypeName.length - 1) {
+                        type += types
+                    } else {
+                        type += types + ','
+                    }
+                })
+                let div = `
+        <div class="picture">
+                <img src="${item.imgSrc}" alt="">
+            </div>
+            <div class="info">
+                <h6>${item.title.split(" ")[0]}</h6>
+                <p>
+                    类型 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${type}
+                </p>
+                <p>
+                    片长 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${item.duration}
+                </p>
+                <p>
+                    评分 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${item.score}
+                </p>
+        </div> 
+                `
+                $('.filmInfo').append(div)
+                $('.summary').html(item.desc)
+            }
+        })
+    }
+
+    $('.menu .item').click(function () {
+        if ($(this).attr("index") == 1) {
+            $(this).css("border-bottom", '0.2em solid #005AFE')
+            $(this).next().css("border-bottom", '0.02em solid gray')
+            if ($('.selectDay').length === 0) {
+                let selectDayDiv = `
+                <div class="selectDay">
+                    <div class="date"></div>
+                </div>
+        `
+                $('.summary').remove()
+                $('.select').append(selectDayDiv)
+                updateTime()
+                // 电影院div
+                let contentDiv = `
+                <div class="content"></div>
+                `
+                $('.cinema').append(contentDiv)
+                // 播放该电影的所有影院
+                let info = []
+                cinemaInfo.forEach(cinema => {
+                    cinema.movies.forEach(item => {
+                        if (item == filmId) {
+                            info.push(cinema)
+                        }
+                    })
+                })
+
+                let cinemaDiv = info.map(item => {
+                    // 各个电影院信息div
+                    return `
+                    <div>
+                            <div class="position" data-id=${item.cinemaId}>
+                                <h6>${item.cinemaName}</h6>
+                                <div class="item">
+                                    <div class="area"></div>
+                                    <div class="distance">${item.distance}km·${item.cinemaAddress}</div>
+                                </div>
+                            </div>
+                            <div class="selectTime">
+                                <p>
+                                    英文2D·￥${moviePrice}
+                                </p>
+                                <div class="time">
+                                    <div class="chose">
+                                        <button>11:00</button>
+                                    </div>
+                                    <div class="chose">
+                                        <button>13:00</button>
+                                    </div>
+                                    <div class="chose">
+                                        <button>15:00</button>
+                                    </div>
+                                    <div class="chose">
+                                        <button>19:00</button>
+                                    </div>
+                                    <div class="chose">
+                                        <button>20:00</button>
+                                    </div>
+                                    <div class="chose">
+                                        <button>21:00</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                `
+                }).join("")
+                $(".content").append(cinemaDiv)
+                let button = `
+                <button id="selectPosition">
+                            <a href="javascript:">立即选座</a>
+                </button>
+                `
+                $('.content').append(button)
+                isOverTime()
+            }
+        } else {
+            $(this).css("border-bottom", '0.2em solid #005AFE')
+            $(this).prev().css("border-bottom", '0.02em solid gray')
+            let summaryDiv = `
+            <div class="summary">${movieDescript}</div>
+            `
+            $('.selectDay').remove()
+            $(".content").remove()
+            $(".menu").after(summaryDiv)
+        }
+    })
+
+    // 获取未来一周的时间
+    function updateTime() {
+        let now = new Date();
+        let time = now.getTime();
+        let tr = ''
+        let weekDay
+        const week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+        for (let i = 1; i <= 7; i++) {
+            time = time + 24 * 60 * 60 * 1000;
+            let futureTime = new Date(time);
+            let month = futureTime.getMonth() + 1;
+            month = month > 9 ? month : '0' + month
+            let date = futureTime.getDate();
+            date = date > 9 ? date : '0' + date
+            weekDay = futureTime.getDay()
+            week.forEach((week, index) => {
+                if (index == weekDay) {
+                    weekDay = week
+                }
+            })
+            let newDate = month + '-' + date
+            tr += `
+            <div class="item">
+                <h6>${weekDay}</h6>
+                <h6>${newDate}</h6>
+            </div>
+            `
+        }
+        $('.date').append(tr)
+    }
+
+    // 选择日期点击事件
+    $('.select').on('click', '.selectDay .date .item', function () {
+        $(this).closest('.date').find('.item').css('background-color', '#FFFFFF').removeClass("checked")
+        $(this).css('background-color', '#4073FF').addClass("checked")
+    })
+
+    // 选择电影时间点击事件
+    $('.cinema').on('click', '.content .selectTime .time .chose button', function () {
+        $(this).closest('.content').find('.chose button').css('background-color', '#FFFFFF').removeClass(
+            'checked')
+        $(this).css('background-color', '#4073FE').addClass("checked")
+    })
+
+    // 超过时间不能选择
+    function isOverTime() {
+        let now = new Date();
+        let hour = now.getHours()
+        let element = $('.content .selectTime .time .chose button')
+        for (let i = 0; i < element.length; i++) {
+            let childElement = element.eq(i)
+            let value = parseInt(element.eq(i).html());
+            if (value < hour) {
+                $(childElement).attr("disabled", true)
+            }
+
+        }
+    }
+
+    $(".cinema").on("click", "#selectPosition", function () {
+        let dateElement = $(".selectDay .date .item.checked")
+        let timeElement = $(".cinema .content .selectTime button.checked")
+        if (dateElement.length && timeElement.length) {
+            let week = $(dateElement).find("h6").eq(0).html()
+            let date = $(dateElement).find("h6").eq(1).html()
+            let time = $(timeElement).html()
+            let cinemaId = $(timeElement).closest(".selectTime").prev().data("id")
+            location.href =
+                `../html/seat-selection.html?week=${week}&date=${date}&time=${time}&filmId=${filmId}&cinema=${cinemaId}`
+        } else {
+            alert("请选择观影日期和观影时间")
+        }
+    })
+</script>

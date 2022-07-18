@@ -7,6 +7,7 @@
     <title>我的</title>
     <link rel="stylesheet" href="../css/mine.css">
     <link rel="stylesheet" href="../../../../config/config.js">
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
 </head>
 <body>
     <!-- 头部 -->
@@ -37,7 +38,7 @@
                 <div class="arrow"></div>
             </li>
             <li>
-                <a href="../html/updatePassword.html">修改密码</a>
+                <a href="javascript:">修改密码</a>
                 <div class="arrow"></div>
             </li>
             <li>
@@ -75,3 +76,9 @@
     </footer>
 </body>
 </html>
+<script>
+    $("main ul li").click(function () {
+        let id = location.search.split('=')[1]
+        location.href = "../html/updatePassword.html?userId=" +id
+    })
+</script>
