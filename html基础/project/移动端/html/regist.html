@@ -27,35 +27,46 @@
     <!-- 内容 -->
     <main>
         <form action="" id="form">
-            <span>用户名</span>
-            <p class="user">
-                <input type="text" id="userName">
-                <br>
-                <span style="color: red; margin: 0; display: none; margin-top: 12px;" class="username-warnning"></span>
-            </p>
-            <span>密码</span>
-            <p class="password">
-                <input type="password" id="password">
-                <br>
-                <span style="color: red; margin: 0; display: none; margin-top: 12px;" class="password-warnning"></span>
-            </p>
-            <span>确认密码</span>
-            <p class="rePassword">
-                <input type="password" id="rePassword">
-                <br>
-                <span style="color: red; margin: 0; display: none; margin-top: 12px;"
-                    class="repassword-warnning"></span>
-            </p>
-            <div class="icon"></div>
-            <div class="icon-rePassword"></div>
-            <div class="regist">
-                <span>
-                    <a href="javascript:" id="regist">立即注册</a>
-                </span>
-                </p>
+            <div class="user">
+                <div>
+                    <p>用户名<p>
+                </div>
+                <div>
+                    <input type="text" id="userName">
+                </div>
+                <div class="username-warnning"
+                    style="font-size:0.3rem;width:100%;height:0.5rem;line-height: 0.5rem;">
+                    <span style="color: red;"></span>
+                </div>
             </div>
-
+            <div class="password" style="margin-top: -0.25rem;">
+                <div>
+                    <p>密码<p>
+                </div>
+                <div>
+                    <input type="password" id="password">
+                </div>
+                <div class="password-warnning"
+                    style="font-size:0.3rem;width:100%;height:0.5rem;line-height: 0.5rem;">
+                    <span style="color: red;"></span>
+                </div>
+                <div class="icon"></div>
+            </div>
+            <div class="rePassword" style="margin-top: -0.25rem;">
+                <div>
+                    <p>确认密码<p>
+                </div>
+                <div>
+                    <input type="password" id="rePassword">
+                </div>
+                <div class="repassword-warnning"
+                    style="font-size:0.3rem;width:100%;height:0.5rem;line-height: 0.5rem;">
+                    <span style="color: red;"></span>
+                </div>
+                <div class="icon-rePassword"></div>
+            </div>
         </form>
+        <button type="button" id="regist">立即注册</button>
     </main>
 </body>
 
@@ -73,12 +84,12 @@
 
         let flag = users.some(item => item.username == data.username)
         if (flag) {
-           return {
-            message:"用户名已存在",
-            status: 0
-           }
+            return {
+                message: "用户名已存在",
+                status: 0
+            }
         } else {
-            let id = parseInt(Math.random()*1000000)
+            let id = parseInt(Math.random() * 1000000)
             data.id = id
             users.push(data);
             users = JSON.stringify(users)
@@ -91,24 +102,26 @@
     })
 
     $("#regist").click(function () {
+        console.log(1);
         let username = $('#userName').val().trim()
         let password = $('#password').val().trim()
         let rePassword = $("#rePassword").val().trim()
+        console.log(username,password,rePassword);
         if (username.length == 0) {
-            $('.username-warnning').css("display", 'block').html("用户名不能为空")
+            $('.username-warnning span').html("用户名不能为空")
             return
         }
         if (password.length == 0) {
-            $('.password-warnning').css("display", 'block').html("密码不能为空")
+            $('.password-warnning span').html("密码不能为空")
             return
         }
         if (rePassword.length == 0) {
-            $('.repassword-warnning').css("display", 'block').html("确认密码不能为空")
+            $('.repassword-warnning span').html("确认密码不能为空")
             return
         }
 
         if (password !== rePassword) {
-            $('.password-warnning').css("display", 'block').html("两次输入的密码不一致")
+            $('.password-warnning span').html("两次输入的密码不一致")
             return
         }
         let json = {
@@ -128,21 +141,21 @@
                     alert(msg.message);
                     location.href = "../html/login.html"
                 } else {
-                    $('.username-warnning').css("display", 'block').html(msg.message)      
+                    $('.username-warnning span').html(msg.message)
                 }
             }
         })
     })
 
     $('.user').on("input propertyChange", '#userName', function () {
-        $('.username-warnning').css("display", 'none')
+        $('.username-warnning span').html("")
     })
 
     $('.password').on("input propertyChange", '#password', function () {
-        $('.password-warnning').css("display", 'none')
+        $('.password-warnning span').html("")
     })
 
     $('.rePassword').on("input propertyChange", '#rePassword', function () {
-        $('.repassword-warnning').css("display", 'none')
+        $('.repassword-warnning span').html("")
     })
 </script>

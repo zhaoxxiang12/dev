@@ -55,14 +55,9 @@ main {
   margin: 0 auto;
 }
 
-main span {
-  display: inline-block;
-  font-size: .3rem;
+main p:first-child {
   margin-top: .5rem;
-}
-
-main p {
-  margin-top: .5rem;
+  font-size: 0.3rem;
 }
 
 main input {
@@ -70,7 +65,8 @@ main input {
   width: 100%;
   height: .8rem;
   border-radius: .1rem;
-  font-size: .4rem;
+  margin-top: 0.5rem;
+  font-size: 0.3rem;
 }
 
 main .forget a {
@@ -87,8 +83,10 @@ main button {
   border-radius: .1rem;
   text-align: center;
   background-color: #4073FF;
-  font-size: .3rem;
+  font-size: .25rem;
   color: white;
+  margin-top: 0.15rem;
+  border: none;
 }
 
 main .regist {
@@ -97,18 +95,18 @@ main .regist {
   text-align: center;
 }
 
-main .icon {
+main .password .icon {
   width: .5rem;
   height: .5rem;
   position: absolute;
   right: 0;
-  bottom: 3.5rem;
+  bottom: 3.75rem;
   background-image: url(../image/雪碧图.png);
   background-position: -6.3rem -0.92rem;
   background-size: 8rem 2.3rem;
 }
 
-main .icon-rePassword {
+main .rePassword .icon-rePassword {
   width: .5rem;
   height: .5rem;
   position: absolute;
