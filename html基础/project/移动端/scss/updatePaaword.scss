@@ -54,18 +54,20 @@ main {
     position: relative;
     margin: 0 auto;
     span {
-        display: inline-block;
-        font-size: .3rem;
-        margin-top: .5rem;
+        font-size: .25rem;
     }
     p {
-        margin-top: .5rem;
+        &:first-child {
+            margin-top: .5rem;
+            font-size: 0.25rem;
+        }
     }
     input {
        display: inline-block;
        width: 100%;
        height: .8rem;
        border-radius: .1rem;
+       font-size: 0.3rem;
     }
     .forget a{
         color: red;
@@ -82,41 +84,61 @@ main {
         background-color: #4073FF;
         font-size: .25rem;
         color: white;
+        border: none;
     }
     .regist {
         width: 100%;
         height: .8rem;
         text-align: center;
     }
-    .icon {
-        width: .5rem;
-        height: .5rem;
-        position: absolute;
-        right: 0;
-        bottom: 3.5rem;
-        background-image: url(../image/雪碧图.png);
-        background-position: -6.3rem -0.92rem;
-        background-size: 8rem 2.3rem;
+
+    .oldPassword {
+        .oldPasswordInput {
+            margin-top: 0.5rem;
+        }
+        .icon-oldPassword{
+            width: .5rem;
+            height: .5rem;
+            position: absolute;
+            right: 0;
+            top: 0.65rem;
+            background-image: url(../image/雪碧图.png);
+            background-position: -6.3rem -0.92rem;
+            background-size: 8rem 2.3rem;
+        }
     }
-    .icon-rePassword {
-        width: .5rem;
-        height: .5rem;
-        position: absolute;
-        right: 0;
-        bottom: 1.65rem;
-        background-image: url(../image/雪碧图.png);
-        background-position: -6.3rem -0.92rem;
-        background-size: 8rem 2.3rem;
+
+    .password {
+        margin-top: -0.35rem;
+        .newPasswordInput {
+            margin-top: 0.5rem;  
+        }
+        .icon {
+            width: .5rem;
+            height: .5rem;
+            position: absolute;
+            right: 0;
+            bottom: 3.85rem;
+            background-image: url(../image/雪碧图.png);
+            background-position: -6.3rem -0.92rem;
+            background-size: 8rem 2.3rem;
+        }
     }
-    .icon-oldPassword{
-        width: .5rem;
-        height: .5rem;
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: 1px solid red;
-        background-image: url(../image/雪碧图.png);
-        background-position: -6.3rem -0.92rem;
-        background-size: 8rem 2.3rem;
+
+    .repassword {
+        margin-top: -0.35rem;
+        .repasswordInput {
+            margin-top: 0.5rem;
+        }
+        .icon-rePassword {
+            width: .5rem;
+            height: .5rem;
+            position: absolute;
+            right: 0;
+            bottom: 1.85rem;
+            background-image: url(../image/雪碧图.png);
+            background-position: -6.3rem -0.92rem;
+            background-size: 8rem 2.3rem;
+        }
     }
 }

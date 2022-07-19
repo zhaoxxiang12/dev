@@ -56,13 +56,12 @@ main {
 }
 
 main span {
-  display: inline-block;
-  font-size: .3rem;
-  margin-top: .5rem;
+  font-size: .25rem;
 }
 
-main p {
+main p:first-child {
   margin-top: .5rem;
+  font-size: 0.25rem;
 }
 
 main input {
@@ -70,7 +69,7 @@ main input {
   width: 100%;
   height: .8rem;
   border-radius: .1rem;
-  font-size: 0.4rem;
+  font-size: 0.3rem;
 }
 
 main .forget a {
@@ -87,12 +86,9 @@ main button {
   border-radius: .1rem;
   text-align: center;
   background-color: #4073FF;
-  font-size: .3rem;
+  font-size: .25rem;
   color: white;
-}
-
-main button a {
-  color: white;
+  border: none;
 }
 
 main .regist {
@@ -101,34 +97,54 @@ main .regist {
   text-align: center;
 }
 
-main .icon {
+main .oldPassword .oldPasswordInput {
+  margin-top: 0.5rem;
+}
+
+main .oldPassword .icon-oldPassword {
   width: .5rem;
   height: .5rem;
   position: absolute;
   right: 0;
-  bottom: 3.5rem;
+  top: 0.65rem;
   background-image: url(../image/雪碧图.png);
   background-position: -6.3rem -0.92rem;
   background-size: 8rem 2.3rem;
 }
 
-main .icon-rePassword {
+main .password {
+  margin-top: -0.35rem;
+}
+
+main .password .newPasswordInput {
+  margin-top: 0.5rem;
+}
+
+main .password .icon {
   width: .5rem;
   height: .5rem;
   position: absolute;
   right: 0;
-  bottom: 1.65rem;
+  bottom: 3.85rem;
   background-image: url(../image/雪碧图.png);
   background-position: -6.3rem -0.92rem;
   background-size: 8rem 2.3rem;
 }
 
-main .icon-oldPassword {
+main .repassword {
+  margin-top: -0.35rem;
+}
+
+main .repassword .repasswordInput {
+  margin-top: 0.5rem;
+}
+
+main .repassword .icon-rePassword {
   width: .5rem;
   height: .5rem;
   position: absolute;
   right: 0;
-  top: 1.15rem;
+  bottom: 1.85rem;
   background-image: url(../image/雪碧图.png);
   background-position: -6.3rem -0.92rem;
   background-size: 8rem 2.3rem;
