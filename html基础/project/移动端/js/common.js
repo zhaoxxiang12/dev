@@ -57,7 +57,9 @@
      let map = new BMapGL.Map('map');
      let geolocation = new BMapGL.Geolocation(); //创建定位对象
      geolocation.getCurrentPosition(function (result) {
-         console.log(result);
+         let city
+         city = result.address.city
+         sessionStorage.setItem("currentPostion", city)
          let distance
          let cityAddressInfo = []
          getCinema().then(data => {
@@ -68,7 +70,7 @@
                  let searchLng, searchLat
                  let count = 0
                  data.operas.forEach((cinema, index) => {
-                    count++
+                     count++
                      let local = new BMapGL.LocalSearch(map, { // 智能搜索
                          onSearchComplete: myFun
                      })
@@ -163,23 +165,28 @@
  }
 
 
- function clickFooter (selector) {
-    $(selector).click(function () {
-        let index = $(this).attr("index")
-        if (index == 1) {
-         location.href = "../html/front-page-havingTicket.html"
-        } else if (index == 2) {
-         location.href = "../html/cinema.html"
-        } else if (index == 3) {
-         location.href = "../html/myTikect.html"
-        } else {
-         location.href = "../html/mine.html"
-        }
+ function clickFooter(selector) {
+     $(selector).click(function () {
+         let index = $(this).attr("index")
+         if (index == 1) {
+             location.href = "../html/front-page-havingTicket.html"
+         } else if (index == 2) {
+             location.href = "../html/cinema.html"
+         } else if (index == 3) {
+             location.href = "../html/myTikect.html"
+         } else {
+             location.href = "../html/mine.html"
+         }
      })
  }
 
- function welcome (selector) {
-   let users = localStorage.getItem("token")
-   users = JSON.parse(users)[0].username
-   $(selector).html(`您好,${users}先生`)
+ function welcome(selector) {
+     let users = localStorage.getItem("token")
+     users = JSON.parse(users)[0].username
+     $(selector).html(`您好,${users}先生`)
+ }
+
+ function getCurrentPosition () {
+    let currentCity = sessionStorage.getItem("currentPostion")
+    $('nav .position span').html(currentCity)
  }

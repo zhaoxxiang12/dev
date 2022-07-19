@@ -37,6 +37,8 @@
     let moviePrice
     // 影片详情介绍
     let movieDescript = ''
+    // 语言
+    let language
     // 所有影片在各个电影院信息
     let cinemaInfo = localStorage.getItem("cityAddressInfo")
     cinemaInfo = JSON.parse(cinemaInfo)
@@ -45,6 +47,7 @@
         moviesData.movies.forEach(item => {
             if (item.id == filmId) {
                 moviePrice = item.price
+                language = item.language
                 $('header').css("background", `url(${item.posterSrc}) no-repeat center/cover`)
                 movieDescript = item.desc
                 let movieType = localStorage.getItem("moviesType")
@@ -128,7 +131,7 @@
                             </div>
                             <div class="selectTime">
                                 <p>
-                                    英文2D·￥${moviePrice}
+                                    ${language}·￥${moviePrice}
                                 </p>
                                 <div class="time">
                                     <div class="chose">
