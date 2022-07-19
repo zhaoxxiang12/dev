@@ -57,7 +57,7 @@
      let map = new BMapGL.Map('map');
      let geolocation = new BMapGL.Geolocation(); //创建定位对象
      geolocation.getCurrentPosition(function (result) {
-        console.log(result);
+         console.log(result);
          let distance
          let cityAddressInfo = []
          getCinema().then(data => {
@@ -66,19 +66,19 @@
              data = JSON.parse(data)
              if (data.operas.length) {
                  let searchLng, searchLat
-                 let div = data.operas.map(cinema => {
+                 let count = 0
+                 data.operas.forEach((cinema, index) => {
+                    count++
                      let local = new BMapGL.LocalSearch(map, { // 智能搜索
                          onSearchComplete: myFun
                      })
 
                      function myFun() {
                          let pp = local.getResults().getPoi(0).point // 获取第一个智能搜索结果
-                         console.log(pp);
                          searchLng = pp.lng
                          searchLat = pp.lat
                          distance = getDistance(result.point.lng, result.point.lat, searchLng,
                              searchLat)
-                             console.log(distance);
                          let addressInfo = {
                              cinemaName: cinema.name,
                              cinemaAddress: cinema.address,
@@ -87,7 +87,6 @@
                              cinemaId: cinema.id,
                              movies: cinema.movies
                          }
-
                          if (cityAddressInfo.length) {
                              let getInfo = localStorage.getItem("cityAddressInfo")
                              getInfo = JSON.parse(getInfo)
@@ -120,9 +119,11 @@
                                  localStorage.setItem("cityAddressInfo", cityAddressInfo)
                                  cityAddressInfo = JSON.parse(cityAddressInfo)
                              }
+                             if (count == data.operas.length) {
+                                 location.href = '../html/mine.html?userId=' + id
+                             }
                          }
                      }
-                    //  location.href = '../html/mine.html?userId=' + id
                      local.search(cinema.address)
                  })
              }
@@ -157,6 +158,6 @@
      return r
  }
 
- function mathRan (min, max) {
-   return Math.floor(Math.random() * (max - min)) + min
+ function mathRan(min, max) {
+     return Math.floor(Math.random() * (max - min)) + min
  }
