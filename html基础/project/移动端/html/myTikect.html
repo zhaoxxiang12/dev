@@ -28,17 +28,17 @@
         </div>
         <div class="ribbon">
             <div class="item" index="1">
-                    <span>待使用</span>
+                <span>待使用</span>
             </div>
             <div class="item" index="2" style="color: white;">
-                    <span>我的订单</span>
+                <span>我的订单</span>
             </div>
         </div>
     </header>
 
     <div class="container">
         <div class="content orderList">
-            <div class="ticketList">
+            <!-- <div class="ticketList">
                 <div class="info">
                     <h6>哥斯拉大战金刚</h6>
                     <p>成都双楠电影城·2020-04-16&nbsp;19:00</p>
@@ -77,7 +77,7 @@
                         <a href="">查看详情&nbsp;&gt;</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -101,32 +101,41 @@
             </div>
             <div class="item">
                 <div class="icon film"></div>
-                   <div class="menuName menuName-film">
-                        <a href="../html/myTikect.html">
-                            <span>影片</span>
-                        </a>
-                    </div>
+                <div class="menuName menuName-film">
+                    <a href="../html/myTikect.html">
+                        <span>影片</span>
+                    </a>
+                </div>
             </div>
             <div class="item">
                 <div class="icon mine"></div>
-                 <div class="menuName menuName-mine">
+                <div class="menuName menuName-mine">
                     <a href="../html/mine.html">
                         <span>我的</span>
                     </a>
+                </div>
             </div>
-        </div>
     </footer>
 </body>
 
 </html>
 <script>
-    $('.ribbon .item').click(function () {
-        if ($(this).attr("index") == 1) {
-            let tr = `
-            <div class="ticketList">
+    let ticketInfo = JSON.parse(localStorage.getItem("purchaseTicketInfo"));
+    let userId = JSON.parse(localStorage.getItem("token"))[0].id;
+    let movies = JSON.parse(localStorage.getItem("movies"));
+    let arr
+    ticketInfo.forEach(element => {
+        if (element.id == userId) {
+            arr = element;
+        }
+    });
+    let div = ''
+    arr.ticket.forEach(item => {
+        div += `
+        <div class="ticketList" data-id="${item.filmId}">
                 <div class="info">
-                    <h6>哥斯拉大战金刚</h6>
-                    <p>成都双楠电影城·2020-04-16&nbsp;19:00</p>
+                    <h6>${item.name}</h6>
+                    <p>${item.cinema}·${item.date}</p>
                 </div>
                 <div class="QRCode">
                     <img src="../image/二维码.png" alt="">
@@ -136,48 +145,89 @@
                 </div>
                 <div class="ticketInfo">
                     <div class="item">
-                        <span>515334</span>
+                        <span>${item.code}</span>
                     </div>
                     <div class="item">
-                        <a href="">查看详情&nbsp;&gt;</a>
+                        <a href="javascipt:">查看详情&nbsp;&gt;</a>
                     </div>
                 </div>
             </div>
-            `
+        `
+        $('.container .content').append(div)
+    })
+    $('.ribbon .item').click(function () {
+        let tr = ''
+        // 待使用
+        if ($(this).attr("index") == 1) {
+            arr.ticket.forEach(item => {
+                tr += `
+                    <div class="ticketList" data-id="${item.filmId}">
+                        <div class="info">
+                            <h6>${item.name}</h6>
+                            <p>${item.cinema}·${item.date}</p>
+                        </div>
+                        <div class="QRCode">
+                            <img src="../image/二维码.png" alt="">
+                        </div>
+                        <div class="line">
+                            <img src="../image/线.png" alt="">
+                        </div>
+                        <div class="ticketInfo">
+                            <div class="item">
+                                <span>${item.code}</span>
+                            </div>
+                            <div class="item">
+                                <a href="javascipt:">查看详情&nbsp;&gt;</a>
+                            </div>
+                        </div>
+                    </div>
+        `
+                $('.container .content').append(div)
+            })
             $('.container .content').children().remove()
             $('.container .content').append(tr)
             $(this).next().css({
-                'background-color':'#233052',
-                "color":'white'
+                'background-color': '#233052',
+                "color": 'white'
             })
             $(this).css({
-                'background-color':'white',
-                "color":'black'     
+                'background-color': 'white',
+                "color": 'black'
             })
 
         } else {
-            let tr = `
-            <div class="list">
-                <div class="picture">
-                    <img src="../image/图层 10.png" alt="">
-                </div>
-                <div class="detail">
-                    <h6>哥斯拉大战金刚</h6>
-                    <p>成都双楠电影城</p>
-                    <p>2020-04-16&nbsp;19:00</p>
-                    <p>交易成功</p>
-                </div>
-            </div>
-            `
+            // 我的订单
+            arr.ticket.forEach(item => {
+                tr = `
+                        <div class="list">
+                            <div class="picture">
+                                <img src="" alt="">
+                            </div>
+                            <div class="detail">
+                                <h6>${item.name}</h6>
+                                <p>${item.cinema}</p>
+                                <p>${item.date}</p>
+                                <p>交易成功</p>
+                            </div>
+                        </div>
+                        ` 
+            })
             $('.container .orderList').children().remove()
             $('.container .orderList').append(tr)
+            arr.ticket.forEach(item => {
+                movies.movies.forEach(moviesInfo => {
+                    if (moviesInfo.id == item.filmId) {
+                        $(".container .orderList .list .picture img").prop("src", moviesInfo.imgSrc)
+                    }
+                })
+            })
             $(this).prev().css({
-                'background-color':'#233052',
-                "color":'white'
+                'background-color': '#233052',
+                "color": 'white'
             })
             $(this).css({
-                'background-color':'white',
-                "color":'black'     
+                'background-color': 'white',
+                "color": 'black'
             })
         }
     })

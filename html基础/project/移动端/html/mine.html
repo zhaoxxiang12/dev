@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="../css/mine.css">
     <link rel="stylesheet" href="../../../../config/config.js">
     <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
 </head>
+
 <body>
     <!-- 头部 -->
     <header>
@@ -24,11 +27,11 @@
             <div class="avatar">
                 <img src="../image/头像.png" alt="">
                 <div class="icon"></div>
-                    <span>
-                        GALA
-                    </span>       
+                <span>
+                    GALA
+                </span>
             </div>
-        </div>     
+        </div>
     </header>
     <!-- 主体 -->
     <main>
@@ -42,43 +45,56 @@
                 <div class="arrow"></div>
             </li>
             <li>
-                <a href="../html/login.html">退出登录</a>
+                <a href="javascript:">退出登录</a>
                 <div class="arrow"></div>
             </li>
         </ul>
     </main>
     <!-- 底部 -->
     <footer>
-        <div class="icon ">
+        <div class="icon" index="1">
             <div class="front-page image"></div>
-          <div class="text">
-              <a href="../html/front-page-noTicket.html">首页</a>
-          </div>
+            <div class="text">
+                <a href="javascript:">首页</a>
+            </div>
         </div>
-        <div class="icon">
+        <div class="icon" index="2">
             <div class="cinema image"></div>
             <div class="text">
-              <a href="../html/cinema.html">影城</a>
+                <a href="javascript:">影城</a>
             </div>
         </div>
-        <div class="icon">
+        <div class="icon" index="3">
             <div class="film image"></div>
             <div class="text">
-              <a href="../html/myTikect.html">影片</a>
+                <a href="javascript:">影片</a>
             </div>
         </div>
-        <div class="icon">
+        <div class="icon" index="4">
             <div class="mine image"></div>
             <div class="text">
-              <a href="../html/mine.html">我的</a>
+                <a href="javascript:">我的</a>
             </div>
         </div>
     </footer>
 </body>
+
 </html>
 <script>
-    $("main ul li").click(function () {
+    let token = localStorage.getItem("token")
+    token = JSON.parse(token)[0]
+    let username = token.username
+    // 修改密码
+    $(" header .userInfo .avatar span").html(username)
+    $("main ul li:nth-child(2)").click(function () {
         let id = location.search.split('=')[1]
-        location.href = "../html/updatePassword.html?userId=" +id
+        location.href = "../html/updatePassword.html?userId=" + id
     })
+    // 退出登录
+    $("main ul li:last-child").click(function () {
+        localStorage.removeItem("token")
+        location.href = "../html/login.html"
+    })
+    // 点击底部
+    clickFooter("footer .icon")
 </script>

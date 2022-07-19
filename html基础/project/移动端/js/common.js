@@ -161,3 +161,19 @@
  function mathRan(min, max) {
      return Math.floor(Math.random() * (max - min)) + min
  }
+
+
+ function clickFooter (selector) {
+    $(selector).click(function () {
+        let index = $(this).attr("index")
+        if (index == 1) {
+         location.href = "../html/front-page-havingTicket.html"
+        } else if (index == 2) {
+         location.href = "../html/cinema.html"
+        } else if (index == 3) {
+         location.href = "../html/myTikect.html"
+        } else {
+         location.href = "../html/mine.html"
+        }
+     })
+ }
