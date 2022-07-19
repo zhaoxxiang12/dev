@@ -226,10 +226,11 @@
         let havingTicket = localStorage.getItem("purchaseTicketInfo")
         havingTicket = JSON.parse(havingTicket);
         let userId = (JSON.parse(localStorage.getItem("token")))[0].id
-        if (havingTicket[0].id == userId && havingTicket[0].ticket.length) {
-            $('.isHaving').css("display", 'block')
-           let div = havingTicket[0].ticket.map(item => {
-                return `
+        if (havingTicket != null) {
+            if (havingTicket[0].id == userId && havingTicket[0].ticket.length) {
+                $('.isHaving').css("display", 'block')
+                let div = havingTicket[0].ticket.map(item => {
+                    return `
                 <div class="item" data-id="${item.filmId}">
                     <h4>${item.name}</h4>
                     <p>
@@ -248,15 +249,17 @@
                     </div>
                 </div> 
                 `
-            }).join("")
-            $('.isHaving .usingTicket .tickets').append(div)
+                }).join("")
+                $('.isHaving .usingTicket .tickets').append(div)
+            }
         }
+
     }
 
     // 影票查看详情点击事件
     $(".isHaving").on("click", '.usingTicket a', function () {
         let filmId = $(this).closest(".item").data("id")
-        location.href = "../html/ticeketDetail.html?filmId="+filmId
+        location.href = "../html/ticeketDetail.html?filmId=" + filmId
     })
 
     // 底部点击事件
@@ -269,22 +272,23 @@
     getCurrentPosition()
 
     // 界面跳转点击事件
-    $(".isShowing").on("click",".movieList .list",function () {
-       let filmId = $(this).data("id")
-      location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=true`
+    $(".isShowing").on("click", ".movieList .list", function () {
+        console.log(2);
+        let filmId = $(this).data("id")
+        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=true`
     })
 
     // 即将上映点击事件
     $(".willShow").on("click", ".movieList .list", function () {
         let filmId = $(this).data("id")
         let flag = $(this).attr("isshowing")
-        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}` 
+        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}`
     })
 
     // 评分榜点击事件
     $(".scoreBoard").on("click", ".movieList .list", function () {
         let filmId = $(this).data("id")
         let flag = $(this).attr("isshowing")
-        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}` 
+        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}`
     })
 </script>

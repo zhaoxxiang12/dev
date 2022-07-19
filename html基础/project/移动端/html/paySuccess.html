@@ -127,39 +127,44 @@
         }
     })
     let ticketInfo = localStorage.getItem("purchaseTicketInfo");
-    ticketInfo = JSON.parse(ticketInfo)[0];
-    $('.ticket p').html(ticketInfo.ticket[0].code);
-    let leftDiv = `
-            <div class="item">
-                    <p>观影时间</p>
-                    <h6>${obj.watchDate}</h6>
-                </div>
-                <div class="item">
-                    <p>座位</p>
-                    <div class="seat-code">
-                      
-                    </div>
-                </div>
-    `
-    $('.userInfo .content .left-info').append(leftDiv)
-
-    let seatDiv = ''
-    let seatCount
-    ticketInfo.ticket.forEach(item => {
-       if (item.filmId == obj.filmId) {
-        seatCount = item.seat.length
-        item.seat.forEach(seatCode => {
-            seatDiv +=`
-         <div class="icon">
-            <span>${seatCode}</span>
-        </div>
-         `
-        })
-       }
+    ticketInfo = JSON.parse(ticketInfo);
+    let userId = JSON.parse(localStorage.getItem("token"))[0].id
+    ticketInfo.forEach(item => {
+        if (item.id == userId) {
+            item.ticket.forEach(ticket => {
+                if (ticket.orderNo == obj.orderNo) {
+                    $('.ticket p').html(ticket.code);
+                    let leftDiv = `
+                            <div class="item">
+                                <p>观影时间</p>
+                                <h6>${obj.watchDate}</h6>
+                            </div>
+                            <div class="item">
+                                <p>座位</p>
+                                <div class="seat-code">
+                                
+                                </div>
+                            </div>
+                        `
+                    $('.userInfo .content .left-info').append(leftDiv)
+                    let seatDiv = ''
+                    let seatCount
+                    console.log(ticket);
+                    seatCount = ticket.seat.length
+                    ticket.seat.forEach(seatCode => {
+                        seatDiv += `
+                                    <div class="icon">
+                                        <span>${seatCode}</span>
+                                    </div>
+                                    `
+                    })
+                    $('.userInfo .content .left-info .item .seat-code').append(seatDiv)
+                    $('.userInfo .content .right-info .item .seatCount').html(seatCount)
+                    $('.userInfo .content .right-info .item .time').html(ticket.time)
+                }
+            })
+        }
     })
-    $('.userInfo .content .left-info .item .seat-code').append(seatDiv)
-    $('.userInfo .content .right-info .item .seatCount').html(seatCount)
-    $('.userInfo .content .right-info .item .time').html(ticketInfo.ticket.time)
     $("#backFrontPage").click(() => {
         location.href = "../html/front-page-havingTicket.html"
     })

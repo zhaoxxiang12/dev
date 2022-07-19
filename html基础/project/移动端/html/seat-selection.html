@@ -18,7 +18,7 @@
     <div class="image">
       <img src="../image/2.png" alt="">
     </div>
-    <a href="../html/Arrangement.html" class="arrow"></a>
+    <a href="javascript:" class="arrow"></a>
     <div class="login">
       <span>选座</span>
     </div>
@@ -256,7 +256,7 @@
         ticketPrice = item.price
         let div = `
         <h6>${item.title.split(" ")[0]}</h6>
-        <p>${cinemaName}-${year}-${obj.date}${obj.week}${obj.time}</p>`
+        <p>${cinemaName}-${year}-${obj.date}&nbsp;${obj.week}&nbsp;${obj.time}</p>`
         $('.details .content .seatDetails').before(div)
       }
     })
@@ -265,23 +265,89 @@
 
   // 立即购票
   $("#purchase").click(() => {
-    let havingTicket = $(".seatDetails .icon .min-item .item").length
-    if (havingTicket) {
-      // 观影日期
-      let watchDate = `${year}-${obj.date}${obj.week}`
-      // 观影时间
-      let watchTime = obj.time
-      // 座位号
-      let seatNo = []
-      for (let i = 0; i < $('.icon .min-item .item span').length; i++) {
-        seatNo.push($('.icon .min-item .item span').eq(i).html())
-      }
-      let price = $(".price span").html()
-      let orderNo = mathRan(10000000000, 100000000000)
-      location.href =
-        `../html/cofirm-order.html?seatNo=${seatNo}&orderNo=${orderNo}&watchTime=${watchTime}&watchDate=${watchDate}&filmId=${obj.filmId}&cinemaId=${obj.cinema}&totalPrice=${price}`
+
+    // 已选场次不能再次选择
+    let purchaseTicketInfo = localStorage.getItem("purchaseTicketInfo")
+    purchaseTicketInfo = JSON.parse(purchaseTicketInfo)
+    console.log(purchaseTicketInfo);
+    let token = localStorage.getItem("token")
+    token = JSON.parse(token)
+    if (purchaseTicketInfo != null) {
+      purchaseTicketInfo.forEach(item => {
+        if (item.id == token[0].id) {
+          item.ticket.forEach(ticket => {
+            let index = ticket.date.indexOf("星期")
+            let first = ticket.date.indexOf("-")
+            let date = (ticket.date.substring(first + 1, index)).trim()
+            if (ticket.time == obj.time && date == obj.date && ticket.filmId == obj.filmId) {
+              alert("已在该时间段选择了该电影,请在其他场次选择")
+            } else {
+              let havingTicket = $(".seatDetails .icon .min-item .item").length
+              if (havingTicket) {
+                // 观影日期
+                let watchDate = `${year}-${obj.date}${obj.week}`
+                // 观影时间
+                let watchTime = obj.time
+                // 座位号
+                let seatNo = []
+                for (let i = 0; i < $('.icon .min-item .item span').length; i++) {
+                  seatNo.push($('.icon .min-item .item span').eq(i).html())
+                }
+                let price = $(".price span").html()
+                let orderNo = mathRan(10000000000, 100000000000)
+                location.href =
+                  `../html/cofirm-order.html?seatNo=${seatNo}&orderNo=${orderNo}&watchTime=${watchTime}&watchDate=${watchDate}&filmId=${obj.filmId}&cinemaId=${obj.cinema}&totalPrice=${price}`
+              } else {
+                alert('请先选择座位号')
+              }
+            }
+          })
+        }
+      })
     } else {
-      alert('请先选择座位号')
+      let havingTicket = $(".seatDetails .icon .min-item .item").length
+      if (havingTicket) {
+        // 观影日期
+        let watchDate = `${year}-${obj.date}${obj.week}`
+        // 观影时间
+        let watchTime = obj.time
+        // 座位号
+        let seatNo = []
+        for (let i = 0; i < $('.icon .min-item .item span').length; i++) {
+          seatNo.push($('.icon .min-item .item span').eq(i).html())
+        }
+        let price = $(".price span").html()
+        let orderNo = mathRan(10000000000, 100000000000)
+        location.href =
+          `../html/cofirm-order.html?seatNo=${seatNo}&orderNo=${orderNo}&watchTime=${watchTime}&watchDate=${watchDate}&filmId=${obj.filmId}&cinemaId=${obj.cinema}&totalPrice=${price}`
+      }
     }
   })
+  back("header .arrow")
+
+  // 判断座位已购票位子不可选
+  let purchaseTicketInfo = localStorage.getItem("purchaseTicketInfo")
+  purchaseTicketInfo = JSON.parse(purchaseTicketInfo)
+  if (purchaseTicketInfo != null) {
+    if (purchaseTicketInfo.length) {
+      purchaseTicketInfo.forEach(item => {
+        item.ticket.forEach(ticket => {
+          let index = ticket.date.indexOf("星期")
+          let first = ticket.date.indexOf("-")
+          let date = (ticket.date.substring(first + 1, index)).trim()
+          if (ticket.id == obj.cinema && ticket.filmId == obj.filmId && date == obj.date && ticket.time == obj
+            .time) {
+            ticket.seat.forEach(seat => {
+              let element = $(".seat .content .place")
+              for (let i = 0; i < element.length; i++) {
+                if (element.eq(i).find("span").html() == seat) {
+                  element.eq(i).addClass("sold")
+                }
+              }
+            })
+          }
+        })
+      })
+    }
+  }
 </script>

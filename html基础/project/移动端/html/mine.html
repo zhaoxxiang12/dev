@@ -93,6 +93,7 @@
     // 退出登录
     $("main ul li:last-child").click(function () {
         localStorage.removeItem("token")
+        localStorage.removeItem("cityAddressInfo")
         location.href = "../html/login.html"
     })
     // 点击底部

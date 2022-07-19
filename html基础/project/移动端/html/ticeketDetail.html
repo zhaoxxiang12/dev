@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <script src="../../../../config/config.js"></script>
     <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
         </div>
         <div class="arrow"></div>
         <div class="login">
-            <span>登录</span>
+            <span>电影票详情</span>
         </div>
     </header>
 
@@ -34,20 +35,7 @@
                 <img src="../image/图层 10.png" alt="">
             </div>
             <div class="details">
-                <!-- <h6>哥斯拉大战金刚</h6>
-                <p>成都双楠电影城</p>
-                <p>2020-04-16&nbsp;19:00</p> -->
-                <div class="seatInfo">
-                    <!-- <div class="seat">
-                        <span>F4</span>
-                    </div>
-                    <div class="seat">
-                        <span>F5</span>
-                    </div>
-                    <div class="seat">
-                        <span>F6</span>
-                    </div> -->
-                </div>
+                <div class="seatInfo"></div>
             </div>
         </div>
         <div class="QRCode">
@@ -78,7 +66,7 @@
                     let title = `
                         <h6>${item.name}</h6>
                         <p>${item.cinema}</p>
-                        <p>${item.date}</p>
+                        <p>${item.date}&nbsp;${item.time}</p>
                         `
                     $('.ticketInfo .details .seatInfo').before(title)
                     let code = ''
@@ -110,4 +98,5 @@
             $('.ticketInfo .picture img').prop("src", item.imgSrc)
         }
     })
+    back("header .arrow")
 </script>

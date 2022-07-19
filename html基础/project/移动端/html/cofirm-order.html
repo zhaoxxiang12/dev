@@ -19,7 +19,7 @@
         <div class="image">
             <img src="../image/2.png" alt="">
         </div>
-        <a href="../html/seat-selection.html" class="arrow"></a>
+        <a href="javascript:" class="arrow"></a>
         <div class="login">
             <span>确认订单</span>
         </div>
@@ -88,9 +88,17 @@
     let obj = {}
     info.forEach(value => {
         let data = value.split("=")
-        obj[data[0]] = decodeURI(data[1])
+        if (data[0] == "watchDate") {
+            data[1] = decodeURI(data[1])
+            let index = data[1].indexOf("星期")
+            let time = data[1].substr(0, index)
+            let week = data[1].substr(10)
+            obj[data[0]] = time + " " + week
+        } else {
+            obj[data[0]] = decodeURI(data[1])
+        }
     })
-
+    console.log(obj);
     let movies = localStorage.getItem("movies")
     movies = JSON.parse(movies)
     let cinema = localStorage.getItem("cityAddressInfo")
@@ -183,7 +191,7 @@
                 user: userInfo[0].username,
                 id: userInfo[0].id,
                 ticket: [{
-                    id:obj.cinemaId,
+                    id: obj.cinemaId,
                     cinema: cinemaName,
                     date: obj.watchDate,
                     time: obj.watchTime,
@@ -193,10 +201,65 @@
                     filmId: obj.filmId
                 }]
             }];
-            purchaseTicketInfo = JSON.stringify(purchaseTicketInfo);
-            localStorage.setItem("purchaseTicketInfo", purchaseTicketInfo)
-            location.href =
-                `../html/paySuccess.html?seatNo=${obj.seatNo}&watchDate=${obj.watchDate}&watchTime=${obj.watchTime}&orderNo=${obj.orderNo}&filmId=${obj.filmId}&cinemaId=${obj.cinemaId}`
+            let purchasedTicket = localStorage.getItem("purchaseTicketInfo");
+            purchasedTicket = JSON.parse(purchasedTicket);
+            console.log(purchasedTicket);
+            let user = JSON.parse(localStorage.getItem("token"))[0].id
+            if (purchasedTicket != null) {
+                purchasedTicket.forEach((item, index) => {
+                    if (item.id == user) {
+                        let ticket = {
+                            id: obj.cinemaId,
+                            cinema: cinemaName,
+                            date: obj.watchDate,
+                            time: obj.watchTime,
+                            seat: obj.seatNo.split(","),
+                            code: mathRan(100000, 1000000),
+                            name: filmName,
+                            filmId: obj.filmId,
+                            orderNo: obj.orderNo
+                        };
+                        item.ticket.push(ticket);
+                        purchasedTicket[index] = item
+                        purchasedTicket = JSON.stringify(purchasedTicket)
+                        localStorage.setItem("purchaseTicketInfo", purchasedTicket)
+                        let ticketInfo = localStorage.getItem("purchaseTicketInfo");
+                        ticketInfo = JSON.parse(ticketInfo);
+                        location.href =
+                            `../html/paySuccess.html?seatNo=${obj.seatNo}&watchDate=${obj.watchDate}&watchTime=${obj.watchTime}&orderNo=${obj.orderNo}&filmId=${obj.filmId}&cinemaId=${obj.cinemaId}`
+                    }
+                    // else {
+                    //     purchaseTicketInfo = JSON.stringify(purchaseTicketInfo);
+                    //     localStorage.setItem("purchaseTicketInfo", purchaseTicketInfo)
+                    //     location.href =
+                    //         `../html/paySuccess.html?seatNo=${obj.seatNo}&watchDate=${obj.watchDate}&watchTime=${obj.watchTime}&orderNo=${obj.orderNo}&filmId=${obj.filmId}&cinemaId=${obj.cinemaId}`
+                    // }
+                })
+            } else {
+                let userInfo = localStorage.getItem("token")
+                userInfo = JSON.parse(userInfo)
+                let purchaseTicketInfo = [{
+                    user: userInfo[0].username,
+                    id: userInfo[0].id,
+                    ticket: [{
+                        id: obj.cinemaId,
+                        cinema: cinemaName,
+                        date: obj.watchDate,
+                        time: obj.watchTime,
+                        seat: obj.seatNo.split(","),
+                        code: mathRan(100000, 1000000),
+                        name: filmName,
+                        filmId: obj.filmId,
+                        orderNo: obj.orderNo
+                    }]
+                }];
+                purchaseTicketInfo = JSON.stringify(purchaseTicketInfo)
+                localStorage.setItem("purchaseTicketInfo", purchaseTicketInfo)
+                let ticketInfo = localStorage.getItem("purchaseTicketInfo");
+                ticketInfo = JSON.parse(ticketInfo);
+                location.href =
+                    `../html/paySuccess.html?seatNo=${obj.seatNo}&watchDate=${obj.watchDate}&watchTime=${obj.watchTime}&orderNo=${obj.orderNo}&filmId=${obj.filmId}&cinemaId=${obj.cinemaId}`
+            }
         }
     })
 
@@ -207,4 +270,6 @@
         $("#detailsId").css("background-color", "white");
         $("#payBtn a").html("去支付");
     })
+
+    back("header .arrow")
 </script>

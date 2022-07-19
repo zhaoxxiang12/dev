@@ -70,7 +70,6 @@
                  let searchLng, searchLat
                  let count = 0
                  data.operas.forEach((cinema, index) => {
-                     count++
                      let local = new BMapGL.LocalSearch(map, { // 智能搜索
                          onSearchComplete: myFun
                      })
@@ -90,6 +89,8 @@
                              movies: cinema.movies
                          }
                          if (cityAddressInfo.length) {
+                            count++
+                            console.log(count);
                              let getInfo = localStorage.getItem("cityAddressInfo")
                              getInfo = JSON.parse(getInfo)
                              if (getInfo !== null) {
@@ -101,9 +102,13 @@
                                      localStorage.setItem("cityAddressInfo", cityAddressInfo)
                                      cityAddressInfo = JSON.parse(cityAddressInfo)
                                  }
+                                 if (count == data.operas.length) {
+                                     location.href = '../html/mine.html?userId=' + id
+                                }
                              }
 
                          } else {
+                            count++
                              let getInfo = localStorage.getItem("cityAddressInfo")
                              getInfo = JSON.parse(getInfo)
                              if (getInfo !== null) {
@@ -114,15 +119,17 @@
                                      cityAddressInfo = JSON.stringify(cityAddressInfo)
                                      localStorage.setItem("cityAddressInfo", cityAddressInfo)
                                      cityAddressInfo = JSON.parse(cityAddressInfo)
+                                 } else {
+                                    console.log(2);
                                  }
+                                 if (count == data.operas.length) {
+                                     location.href = '../html/mine.html?userId=' + id
+                                }
                              } else {
                                  cityAddressInfo.push(addressInfo)
                                  cityAddressInfo = JSON.stringify(cityAddressInfo)
                                  localStorage.setItem("cityAddressInfo", cityAddressInfo)
                                  cityAddressInfo = JSON.parse(cityAddressInfo)
-                             }
-                             if (count == data.operas.length) {
-                                 location.href = '../html/mine.html?userId=' + id
                              }
                          }
                      }
@@ -186,13 +193,13 @@
      $(selector).html(`您好,${users}先生`)
  }
 
- function getCurrentPosition () {
-    let currentCity = sessionStorage.getItem("currentPostion")
-    $('nav .position span').html(currentCity)
+ function getCurrentPosition() {
+     let currentCity = sessionStorage.getItem("currentPostion")
+     $('nav .position span').html(currentCity)
  }
 
- function back (selector) {
-    $(selector).click(function () {
-        history.back()
-    })
+ function back(selector) {
+     $(selector).click(function () {
+         history.back()
+     })
  }
