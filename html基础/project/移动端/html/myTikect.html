@@ -38,48 +38,7 @@
     </header>
 
     <div class="container">
-        <div class="content orderList">
-            <!-- <div class="ticketList">
-                <div class="info">
-                    <h6>哥斯拉大战金刚</h6>
-                    <p>成都双楠电影城·2020-04-16&nbsp;19:00</p>
-                </div>
-                <div class="QRCode">
-                    <img src="../image/二维码.png" alt="">
-                </div>
-                <div class="line">
-                    <img src="../image/线.png" alt="">
-                </div>
-                <div class="ticketInfo">
-                    <div class="item">
-                        <span>515334</span>
-                    </div>
-                    <div class="item">
-                        <a href="">查看详情&nbsp;&gt;</a>
-                    </div>
-                </div>
-            </div>
-            <div class="ticketList">
-                <div class="info">
-                    <h6>指环王:护戒使者</h6>
-                    <p>成都双楠电影城·2020-04-16&nbsp;19:00</p>
-                </div>
-                <div class="QRCode">
-                    <img src="../image/二维码.png" alt="">
-                </div>
-                <div class="line">
-                    <img src="../image/线.png" alt="">
-                </div>
-                <div class="ticketInfo">
-                    <div class="item">
-                        <span>515334</span>
-                    </div>
-                    <div class="item">
-                        <a href="">查看详情&nbsp;&gt;</a>
-                    </div>
-                </div>
-            </div> -->
-        </div>
+        <div class="content orderList"></div>
     </div>
 
     <footer>
@@ -149,7 +108,7 @@
                         <span>${item.code}</span>
                     </div>
                     <div class="item">
-                        <a href="javascipt:">查看详情&nbsp;&gt;</a>
+                        <a href="javascript:">查看详情&nbsp;&gt;</a>
                     </div>
                 </div>
             </div>
@@ -237,4 +196,10 @@
     clickFooter("footer .menu .item")
     // header 欢迎
     welcome('header .greet span')
+
+    // 查看详情点击事件
+    $(".container").on("click",".content .ticketInfo .item a", function () {
+       let id = $(this).closest(".ticketList").data("id")
+       location.href = `../html/ticeketDetail.html?filmId=${id}`
+    })
 </script>
