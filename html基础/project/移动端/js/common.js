@@ -177,3 +177,9 @@
         }
      })
  }
+
+ function welcome (selector) {
+   let users = localStorage.getItem("token")
+   users = JSON.parse(users)[0].username
+   $(selector).html(`您好,${users}先生`)
+ }
