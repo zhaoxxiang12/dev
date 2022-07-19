@@ -158,7 +158,7 @@
             let movieName = item.title.split(" ")[0]
             let image = item.imgSrc
             return `
-                            <div class="list">
+                            <div class="list" data-id="${item.id}">
                                 <div class="picture">
                                     <img src="${image}" alt="">
                                 </div>
@@ -186,7 +186,7 @@
             let movieName = movies.title.split(" ")[0]
             let image = movies.imgSrc
             return `
-                            <div class="list">
+                            <div class="list" data-id="${movies.id}" isShowing="false">
                                 <div class="picture">
                                     <img src="${image}" alt="">
                                 </div>
@@ -209,7 +209,7 @@
             let movieName = item.title.split(" ")[0]
             let image = item.imgSrc
             return `
-                    <div class="list">
+                    <div class="list" data-id="${item.id}">
                         <div class="picture">
                             <img src="${image}" alt="">
                         </div>
@@ -267,4 +267,24 @@
 
     // 定位城市
     getCurrentPosition()
+
+    // 界面跳转点击事件
+    $(".isShowing").on("click",".movieList .list",function () {
+       let filmId = $(this).data("id")
+      location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=true`
+    })
+
+    // 即将上映点击事件
+    $(".willShow").on("click", ".movieList .list", function () {
+        let filmId = $(this).data("id")
+        let flag = $(this).attr("isshowing")
+        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}` 
+    })
+
+    // 评分榜点击事件
+    $(".scoreBoard").on("click", ".movieList .list", function () {
+        let filmId = $(this).data("id")
+        let flag = $(this).attr("isshowing")
+        location.href = `../html/filmInfo.html?filmId=${filmId}&isshowing=${flag}` 
+    })
 </script>

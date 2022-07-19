@@ -125,6 +125,6 @@
 
     $('.container').on('click', '.movieList', function () {
         let id = $(this).data('id')
-        location.href = "../html/filmInfo.html?filmId="+id
+        location.href = `../html/filmInfo.html?filmId=${id}&ishowing=true`
     })
 </script>

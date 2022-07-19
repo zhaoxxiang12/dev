@@ -16,12 +16,12 @@
     <header></header>
     <div class="filmInfo"></div>
     <div class="menu">
-        <div class="item" index="1">
+        <button class="item" index="1">
             <a href="javascript:">Synopsis</a>
-        </div>
-        <div class="item" index="2">
+        </button>
+        <button class="item" index="2">
             <a href="javascript:">简介</a>
-        </div>
+        </button>
     </div>
     <div class="summary"></div>
     <div class="select"></div>
@@ -30,7 +30,9 @@
 
 </html>
 <script>
-    let filmId = location.search.split('=')[1]
+    let filmId = location.search.split('?')[1].split("&")[0].split("=")[1]
+    let flag = location.search.split('?')[1].split("&")[1].split("=")[1]
+    flag.toString()
     // 获取所有电影信息
     let moviesData = localStorage.getItem("movies")
     // 电影价格
@@ -118,9 +120,11 @@
                     })
                 })
 
-                let cinemaDiv = info.map(item => {
-                    // 各个电影院信息div
-                    return `
+                console.log(info);
+                if (info.length) {
+                    let cinemaDiv = info.map(item => {
+                        // 各个电影院信息div
+                        return `
                     <div>
                             <div class="position" data-id=${item.cinemaId}>
                                 <h6>${item.cinemaName}</h6>
@@ -156,15 +160,26 @@
                             </div>
                         </div>
                 `
-                }).join("")
-                $(".content").append(cinemaDiv)
-                let button = `
+                    }).join("")
+                    $(".content").append(cinemaDiv)
+                    let button = `
                 <button id="selectPosition">
                             <a href="javascript:">立即选座</a>
                 </button>
                 `
-                $('.content').append(button)
-                isOverTime()
+                    $('.content').append(button)
+                    isOverTime()
+                } else {
+                    let warnningDiv = `
+                    <div>
+                        <div class="position" style="font-size:0.3rem;text-align:center;color:red">
+                            暂无查询到该影片可播放的影城   
+                        </div>    
+                    </div>
+                    `
+                    $('.content').append(warnningDiv)
+                }
+
             }
         } else {
             $(this).css("border-bottom", '0.2em solid #005AFE')
@@ -251,4 +266,10 @@
             alert("请选择观影日期和观影时间")
         }
     })
+
+    if (flag == "false") {
+        console.log(1);
+        console.log($('.menu .item:first-child'));
+        $('.menu .item:first-child').prop("disabled", true)
+    }
 </script>

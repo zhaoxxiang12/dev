@@ -190,3 +190,9 @@
     let currentCity = sessionStorage.getItem("currentPostion")
     $('nav .position span').html(currentCity)
  }
+
+ function back (selector) {
+    $(selector).click(function () {
+        history.back()
+    })
+ }
