@@ -169,14 +169,17 @@
                                 <p class="success">交易成功</p>
                             </div>
                         </div>
-                        ` 
+                        `
             })
             $('.container .orderList').children().remove()
             $('.container .orderList').append(tr)
+            let index = 0
             arr.ticket.forEach(item => {
                 movies.movies.forEach(moviesInfo => {
                     if (moviesInfo.id == item.filmId) {
-                        $(".container .orderList .list .picture img").prop("src", moviesInfo.imgSrc)
+                        $(".container .orderList .list .picture img").eq(index).prop("src",
+                            moviesInfo.imgSrc)
+                            index++
                     }
                 })
             })
@@ -197,8 +200,8 @@
     welcome('header .greet span')
 
     // 查看详情点击事件
-    $(".container").on("click",".content .ticketInfo .item a", function () {
-       let id = $(this).closest(".ticketList").data("id")
-       location.href = `../html/ticeketDetail.html?filmId=${id}`
+    $(".container").on("click", ".content .ticketInfo .item a", function () {
+        let id = $(this).closest(".ticketList").data("id")
+        location.href = `../html/ticeketDetail.html?filmId=${id}`
     })
 </script>
