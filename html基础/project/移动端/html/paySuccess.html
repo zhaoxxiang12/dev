@@ -128,6 +128,7 @@
     })
     let ticketInfo = localStorage.getItem("purchaseTicketInfo");
     ticketInfo = JSON.parse(ticketInfo);
+    console.log(ticketInfo);
     let userId = JSON.parse(localStorage.getItem("token"))[0].id
     ticketInfo.forEach(item => {
         if (item.id == userId) {
@@ -149,7 +150,6 @@
                     $('.userInfo .content .left-info').append(leftDiv)
                     let seatDiv = ''
                     let seatCount
-                    console.log(ticket);
                     seatCount = ticket.seat.length
                     ticket.seat.forEach(seatCode => {
                         seatDiv += `
