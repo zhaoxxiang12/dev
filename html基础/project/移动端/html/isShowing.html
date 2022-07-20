@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="../css/isShowing.css">
     <link rel="stylesheet" href="../css/commonShowing.css">
     <script src="../../../../config/config.js"></script>
+    <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,112 +29,241 @@
             <span>特色电影</span>
         </div>
         <div class="ribbon">
-            <div class="item">
-                <a href="../html/isShowing.html">
+            <div class="item" index="1">
+                <a href="javascript:">
                     <span>正在上映</span>
                 </a>
             </div>
-            <div class="item">
-                <a href="../html/willShow.html">
+            <div class="item" index="2">
+                <a href="javascript:">
                     <span>即将上映</span>
-                </a>     
+                </a>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <div class="movieList">
-            <div class="list">
+        <div class="movieList"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 正在热映
+    let movieList = localStorage.getItem("movies")
+    movieList = JSON.parse(movieList)
+    let cinema = localStorage.getItem("cityAddressInfo")
+    cinema = JSON.parse(cinema)
+    let moviesId = []
+    let movieType = JSON.parse(localStorage.getItem("moviesType"))
+    // 获取正在上映的电影ID
+    cinema.forEach(item => {
+        if (item.movies.length) {
+            item.movies.forEach(movieId => {
+                if (moviesId.indexOf(movieId) === -1) {
+                    moviesId.push(movieId)
+                }
+            })
+        }
+    })
+    let isShowingMovie = []
+    let willShowMovie = []
+    if (movieList.movies.length) {
+        movieList.movies.forEach(item => {
+            if (moviesId.indexOf(item.id) !== -1) {
+                isShowingMovie.push(item)
+            } else {
+                willShowMovie.push(item)
+            }
+        })
+        let div = isShowingMovie.map(item => {
+            let movieName = item.title.split(" ")[0]
+            let image = item.imgSrc
+            let currentMovieType = []
+            let type = ''
+            movieType.types.forEach(types => {
+                if (item.movieType.indexOf(types.id) !== -1) {
+                    currentMovieType.push(types.name)
+                }
+            })
+            currentMovieType.forEach((current, index) => {
+                if (index !== currentMovieType.length - 1) {
+                    type += current + ","
+                } else {
+                    type += current
+                }
+            })
+            return `
+            <div class="list" data-id="${item.id}">
                 <div class="picture">
-                    <img src="../image/八月未央.png" alt="">
+                    <img src="${image}" alt="">
                 </div>
                 <div class="filmInfo">
                     <div class="details">
-                        <h6>八月未央</h6>
+                        <h6>${movieName}</h6>
                         <p>
                             <span class="head">类型</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>动作,冒险,科幻</span>
+                            <span>${type}</span>
                         </p>
                         <p>
                             <span class="head">片长</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>113分钟</span>
+                            <span>${item.duration}</span>
                         </p>
                         <p>
                             <span class="head">评分</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>8.5</span>
+                            <span>${item.score}</span>
                         </p>
 
                         <p>
-                            <a href="../html/seat-selection.html">
+                            <a href="javascript:">
                                 <button>立即购票</button>
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="list">
+            `
+        }).join("")
+        $('.container .movieList').append(div)
+    }
+
+    $('.ribbon .item').click(function () {
+        let index = $(this).attr("index")
+        if (index == 1) { // 正在热映
+            let div = isShowingMovie.map(item => {
+                let movieName = item.title.split(" ")[0]
+                let image = item.imgSrc
+                let currentMovieType = []
+                let type = ''
+                movieType.types.forEach(types => {
+                    if (item.movieType.indexOf(types.id) !== -1) {
+                        currentMovieType.push(types.name)
+                    }
+                })
+                currentMovieType.forEach((current, index) => {
+                    if (index !== currentMovieType.length - 1) {
+                        type += current + ","
+                    } else {
+                        type += current
+                    }
+                })
+                return `
+            <div class="list" data-id="${item.id}">
                 <div class="picture">
-                    <img src="../image/指环王.png" alt="">
+                    <img src="${image}" alt="">
                 </div>
                 <div class="filmInfo">
                     <div class="details">
-                        <h6>指环王:护戒行者</h6>
+                        <h6>${movieName}</h6>
                         <p>
                             <span class="head">类型</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>动作,冒险,科幻</span>
+                            <span>${type}</span>
                         </p>
                         <p>
                             <span class="head">片长</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>113分钟</span>
+                            <span>${item.duration}</span>
                         </p>
                         <p>
                             <span class="head">评分</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>8.5</span>
+                            <span>${item.score}</span>
                         </p>
 
                         <p>
-                            <button>立即购票</button>
+                            <a href="javascript:">
+                                <button>立即购票</button>
+                            </a>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="list">
+            `
+            }).join("")
+            $('.container .movieList').children().remove()
+            $('.container .movieList').append(div)
+            $(this).next().css({
+                'background-color': '#233052',
+            }).find("span").css( "color",'white')
+            $(this).css({
+                'background-color': 'white',
+            }).find("span").css( "color",'black')
+        } else { //即将上映
+            let div = willShowMovie.map(item => {
+                let movieName = item.title.split(" ")[0]
+                let image = item.imgSrc
+                let currentMovieType = []
+                let type = ''
+                movieType.types.forEach(types => {
+                    if (item.movieType.indexOf(types.id) !== -1) {
+                        currentMovieType.push(types.name)
+                    }
+                })
+                currentMovieType.forEach((current, index) => {
+                    if (index !== currentMovieType.length - 1) {
+                        type += current + ","
+                    } else {
+                        type += current
+                    }
+                })
+                return `
+            <div class="list" data-id="${item.id}">
                 <div class="picture">
-                    <img src="../image/八月未央.png" alt="">
+                    <img src="${image}" alt="">
                 </div>
                 <div class="filmInfo">
                     <div class="details">
-                        <h6>八月未央</h6>
+                        <h6>${movieName}</h6>
                         <p>
                             <span class="head">类型</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>动作,冒险,科幻</span>
+                            <span>${type}</span>
                         </p>
                         <p>
                             <span class="head">片长</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>113分钟</span>
+                            <span>${item.duration}</span>
                         </p>
                         <p>
                             <span class="head">评分</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>8.5</span>
+                            <span>${item.score}</span>
                         </p>
 
                         <p>
-                            <button>立即购票</button>
+                            <a href="javascript:">
+                                <button class="willShow">立即购票</button>
+                            </a>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
+            `
+            }).join("")
+            $('.container .movieList').children().remove()
+            $('.container .movieList').append(div)
+            $(this).prev().css({
+                'background-color': '#233052',
+            }).find("span").css( "color",'white')
+            $(this).css({
+                'background-color': 'white',
+            }).find("span").css("color", "black")
+        }
+    })
 
-</html>
+    // 正在热映点击事件
+    $(".container").on("click", ".movieList .list button", function () {
+        let id = $(this).closest(".list").data("id")
+        let flag
+        if ($(this).hasClass("willShow")) {
+            flag = false
+        } else {
+            flag = true
+        }
+        location.href = `../html/filmInfo.html?filmId=${id}&isshowing=${flag}`
+    })
+</script>
