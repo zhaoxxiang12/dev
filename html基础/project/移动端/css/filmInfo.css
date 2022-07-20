@@ -10,6 +10,17 @@ header {
   background: url(../image/哥斯拉.png) no-repeat center/cover;
 }
 
+header .arrow {
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.8rem;
+  background-image: url(../image/雪碧图.png);
+  background-position: -4.8rem -0.25rem;
+  background-size: 8rem 2.3rem;
+}
+
 .filmInfo {
   width: 85vw;
   margin: 0 auto;

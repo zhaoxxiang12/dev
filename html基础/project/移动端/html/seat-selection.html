@@ -273,7 +273,7 @@
     let token = localStorage.getItem("token")
     token = JSON.parse(token)
     if (purchaseTicketInfo != null) {
-      purchaseTicketInfo.forEach(item => {
+      purchaseTicketInfo.forEach(item => { // 判断当前用户是否已买票
         if (item.id == token[0].id) {
           item.ticket.forEach(ticket => {
             let index = ticket.date.indexOf("星期")
@@ -302,6 +302,25 @@
               }
             }
           })
+        } else {
+          let havingTicket = $(".seatDetails .icon .min-item .item").length
+          if (havingTicket) { // 判断是否已选座位
+            // 观影日期
+            let watchDate = `${year}-${obj.date}${obj.week}`
+            // 观影时间
+            let watchTime = obj.time
+            // 座位号
+            let seatNo = []
+            for (let i = 0; i < $('.icon .min-item .item span').length; i++) {
+              seatNo.push($('.icon .min-item .item span').eq(i).html())
+            }
+            let price = $(".price span").html()
+            let orderNo = mathRan(10000000000, 100000000000)
+            location.href =
+              `../html/cofirm-order.html?seatNo=${seatNo}&orderNo=${orderNo}&watchTime=${watchTime}&watchDate=${watchDate}&filmId=${obj.filmId}&cinemaId=${obj.cinema}&totalPrice=${price}`
+          } else {
+            alert('请先选择座位号')
+          }
         }
       })
     } else {

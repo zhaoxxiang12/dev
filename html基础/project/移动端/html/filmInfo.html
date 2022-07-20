@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="../css/filmInfo.css">
     <script src="../../../../config/config.js"></script>
     <script src="../../../../jQuery/jquery-3.5.1.js"></script>
+    <script src="../js/common.js"></script>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <a href="javascript:" class="arrow"></a>
+    </header>
     <div class="filmInfo"></div>
     <div class="menu">
         <button class="item" index="1">
@@ -310,4 +313,6 @@
     if (flag == "false") {
         $('.menu .item:first-child').prop("disabled", true)
     }
+
+    back("header .arrow")
 </script>
