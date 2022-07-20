@@ -226,9 +226,11 @@
         let havingTicket = localStorage.getItem("purchaseTicketInfo")
         havingTicket = JSON.parse(havingTicket);
         let userId = (JSON.parse(localStorage.getItem("token")))[0].id
+        let itemsCount
         if (havingTicket != null) {
             havingTicket.forEach(item => {
                 if (item.id == userId && item.ticket.length) {
+                    itemsCount = item.ticket.length
                     $('.isHaving').css("display", 'block')
                     let div = item.ticket.map(ticket => {
                         return `
@@ -252,6 +254,8 @@
                         `
                     }).join("")
                     $('.isHaving .usingTicket .tickets').append(div)
+                    let parentLength = (5 + 0.4) * itemsCount + "rem"
+                    $(".usingTicket .tickets").css("width", parentLength)
                 }
             })
         }
