@@ -227,31 +227,33 @@
         havingTicket = JSON.parse(havingTicket);
         let userId = (JSON.parse(localStorage.getItem("token")))[0].id
         if (havingTicket != null) {
-            if (havingTicket[0].id == userId && havingTicket[0].ticket.length) {
-                $('.isHaving').css("display", 'block')
-                let div = havingTicket[0].ticket.map(item => {
-                    return `
-                <div class="item" data-id="${item.filmId}">
-                    <h4>${item.name}</h4>
-                    <p>
-                        ${item.cinema}·${item.date}
-                    </p>
-                    <div class="line">
-                        <img src="../image/线.png" alt="">
-                    </div>
-                    <div class="ticketInfo">
-                        <div class="min-item">
-                            <span>${item.code}</span>
-                        </div>
-                        <div class="min-item">
-                            <a href="javascript:">查看详情&nbsp;&gt</a>
-                        </div>
-                    </div>
-                </div> 
-                `
-                }).join("")
-                $('.isHaving .usingTicket .tickets').append(div)
-            }
+            havingTicket.forEach(item => {
+                if (item.id == userId && item.ticket.length) {
+                    $('.isHaving').css("display", 'block')
+                    let div = item.ticket.map(ticket => {
+                        return `
+                        <div class="item" data-id="${ticket.filmId}">
+                            <h4>${ticket.name}</h4>
+                            <p>
+                                ${ticket.cinema}·${ticket.date}
+                            </p>
+                            <div class="line">
+                                <img src="../image/线.png" alt="">
+                            </div>
+                            <div class="ticketInfo">
+                                <div class="min-item">
+                                    <span>${ticket.code}</span>
+                                </div>
+                                <div class="min-item">
+                                    <a href="javascript:">查看详情&nbsp;&gt</a>
+                                </div>
+                            </div>
+                        </div>  
+                        `
+                    }).join("")
+                    $('.isHaving .usingTicket .tickets').append(div)
+                }
+            })
         }
 
     }
@@ -293,6 +295,6 @@
     })
 
     $('.title a').click(function () {
-       location.href = "../html/isShowing.html"
+        location.href = "../html/isShowing.html"
     })
 </script>
