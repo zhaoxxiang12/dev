@@ -207,7 +207,7 @@
             let user = JSON.parse(localStorage.getItem("token"))[0].id
             if (purchasedTicket != null) {
                 purchasedTicket.forEach((item, index) => {
-                    if (item.id == user) {
+                    if (item.id == user) { // 判断登录用户
                         let ticket = {
                             id: obj.cinemaId,
                             cinema: cinemaName,

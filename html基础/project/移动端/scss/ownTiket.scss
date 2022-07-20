@@ -6,9 +6,9 @@ header {
         margin-top: 0.2rem;
 
         .item {
-            &:last-child {
-                background-color: white;
-            }
+            // &:last-child {
+            //     background-color: white;
+            // }
 
             &:last-child a {
                 color: black;
@@ -41,11 +41,9 @@ header {
               
                 .detail {
                     
-                    p {
-                        &:last-child {
-                            color: red;
-                        }
-                    }
+                   .success {
+                    color: #6cd6d1;
+                   }
                 }
             }
 
