@@ -68,6 +68,11 @@
   border: none;
 }
 
+.container .movieList .list .filmInfo .details p:last-child .willShow {
+  background-color: #F0F2FD;
+  color: #4678FF;
+}
+
 header .ribbon .item:first-child {
   background-color: white;
 }
