@@ -85,12 +85,10 @@
     let userId = JSON.parse(localStorage.getItem("token"))[0].id;
     let movies = JSON.parse(localStorage.getItem("movies"));
     let div = ''
-    ticketInfo.forEach(element => {
-        if (element.id == userId) {
-            arr = element;
-        }
-    });
-    let info = ticketInfo.filter(item => item.id == userId)
+    let info = []
+     if (ticketInfo !== null) {
+        info = ticketInfo.filter(item => item.id == userId)
+     }
 
     // 默认展示待使用
     if (info.length) {
