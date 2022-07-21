@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer" />
     <title>首页-有票</title>
     <link rel="stylesheet" href="../css/commonHeader.css">
     <link rel="stylesheet" href="../css/front-page-havingTicket.css">
@@ -133,6 +134,7 @@
     let cinema = localStorage.getItem("cityAddressInfo")
     cinema = JSON.parse(cinema)
     let moviesId = []
+    let userId = (JSON.parse(localStorage.getItem("token")))[0].id
 
     // 获取正在上映的电影ID
     cinema.forEach(item => {
@@ -225,7 +227,6 @@
         // 判断是否已购票
         let havingTicket = localStorage.getItem("purchaseTicketInfo")
         havingTicket = JSON.parse(havingTicket);
-        let userId = (JSON.parse(localStorage.getItem("token")))[0].id
         let itemsCount
         if (havingTicket != null) {
             havingTicket.forEach(item => {
@@ -269,7 +270,7 @@
     })
 
     // 底部点击事件
-    clickFooter("footer .menu .item")
+    clickFooter("footer .menu .item", userId)
 
     // header欢迎
     welcome('header .greet span')

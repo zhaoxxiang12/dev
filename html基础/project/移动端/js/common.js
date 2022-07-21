@@ -172,7 +172,7 @@
  }
 
 
- function clickFooter(selector) {
+ function clickFooter(selector,id) {
      $(selector).click(function () {
          let index = $(this).attr("index")
          if (index == 1) {
@@ -182,7 +182,7 @@
          } else if (index == 3) {
              location.href = "../html/myTikect.html"
          } else {
-             location.href = "../html/mine.html"
+            location.href = '../html/mine.html?userId=' + id
          }
      })
  }
