@@ -84,15 +84,18 @@
     let ticketInfo = JSON.parse(localStorage.getItem("purchaseTicketInfo"));
     let userId = JSON.parse(localStorage.getItem("token"))[0].id;
     let movies = JSON.parse(localStorage.getItem("movies"));
-    let arr
+    let div = ''
     ticketInfo.forEach(element => {
         if (element.id == userId) {
             arr = element;
         }
     });
-    let div = ''
-    arr.ticket.forEach(item => {
-        div += `
+    let info = ticketInfo.filter(item => item.id == userId)
+
+    // 默认展示待使用
+    if (info.length) {
+        info[0].ticket.forEach(item => {
+            div += `
         <div class="ticketList" data-id="${item.filmId}">
                 <div class="info">
                     <h6>${item.name}</h6>
@@ -114,38 +117,26 @@
                 </div>
             </div>
         `
+        })
+        $('.container .content').append(div)
+    }
+
+    // 底部点击事件
+    clickFooter("footer .menu .item")
+    // header 欢迎
+    welcome('header .greet span')
+
+    // 查看详情点击事件
+    $(".container").on("click", ".content .ticketInfo .item a", function () {
+        let id = $(this).closest(".ticketList").data("id")
+        location.href = `../html/ticeketDetail.html?filmId=${id}`
     })
-    $('.container .content').append(div)
-    $('.ribbon .item').click(function () {
-        let tr = ''
-        // 待使用
-        if ($(this).attr("index") == 1) {
-            arr.ticket.forEach(item => {
-                tr += `
-                    <div class="ticketList" data-id="${item.filmId}">
-                        <div class="info">
-                            <h6>${item.name}</h6>
-                            <p>${item.cinema}·${item.date}</p>
-                        </div>
-                        <div class="QRCode">
-                            <img src="../image/二维码.png" alt="">
-                        </div>
-                        <div class="line">
-                            <img src="../image/线.png" alt="">
-                        </div>
-                        <div class="ticketInfo">
-                            <div class="item">
-                                <span>${item.code}</span>
-                            </div>
-                            <div class="item">
-                                <a href="javascipt:">查看详情&nbsp;&gt;</a>
-                            </div>
-                        </div>
-                    </div>
-        `
-            })
-            $('.container .content').children().remove()
-            $('.container .content').append(tr)
+
+    // 导航点击事件
+    $('.ribbon .item').click(function () { // 待使用
+        let div = ""
+        let index = $(this).attr("index")
+        if (index == 1) {
             $(this).next().css({
                 'background-color': '#233052',
                 "color": 'white'
@@ -154,11 +145,48 @@
                 'background-color': 'white',
                 "color": 'black'
             })
+            if (info.length) {
+                info[0].ticket.forEach(item => {
+                    div += `
+        <div class="ticketList" data-id="${item.filmId}">
+                <div class="info">
+                    <h6>${item.name}</h6>
+                    <p>${item.cinema}·${item.date}</p>
+                </div>
+                <div class="QRCode">
+                    <img src="../image/二维码.png" alt="">
+                </div>
+                <div class="line">
+                    <img src="../image/线.png" alt="">
+                </div>
+                <div class="ticketInfo">
+                    <div class="item">
+                        <span>${item.code}</span>
+                    </div>
+                    <div class="item">
+                        <a href="javascript:">查看详情&nbsp;&gt;</a>
+                    </div>
+                </div>
+            </div>
+        `
+                })
+                $('.container .content').children().remove()
+                $('.container .content').append(div)
+            }
 
-        } else {
-            // 我的订单
-            arr.ticket.forEach(item => {
-                tr += `
+        } else { // 我的订单
+            $(this).prev().css({
+                'background-color': '#233052',
+                "color": 'white'
+            })
+            $(this).css({
+                'background-color': 'white',
+                "color": 'black'
+            })
+
+            if (info.length) {
+                info[0].ticket.forEach(item => {
+                    div += `
                         <div class="list">
                             <div class="picture">
                                 <img src="" alt="">
@@ -171,38 +199,20 @@
                             </div>
                         </div>
                         `
-            })
-            $('.container .orderList').children().remove()
-            $('.container .orderList').append(tr)
-            let index = 0
-            arr.ticket.forEach(item => {
-                movies.movies.forEach(moviesInfo => {
-                    if (moviesInfo.id == item.filmId) {
-                        $(".container .orderList .list .picture img").eq(index).prop("src",
-                            moviesInfo.imgSrc)
-                            index++
-                    }
                 })
-            })
-            $(this).prev().css({
-                'background-color': '#233052',
-                "color": 'white'
-            })
-            $(this).css({
-                'background-color': 'white',
-                "color": 'black'
-            })
+                $('.container .orderList').children().remove()
+                $('.container .orderList').append(div)
+                let index = 0
+                info[0].ticket.forEach(item => {
+                    movies.movies.forEach(moviesInfo => {
+                        if (moviesInfo.id == item.filmId) {
+                            $(".container .orderList .list .picture img").eq(index).prop("src",
+                                moviesInfo.imgSrc)
+                            index++
+                        }
+                    })
+                })
+            }
         }
-    })
-
-    // 底部点击事件
-    clickFooter("footer .menu .item")
-    // header 欢迎
-    welcome('header .greet span')
-
-    // 查看详情点击事件
-    $(".container").on("click", ".content .ticketInfo .item a", function () {
-        let id = $(this).closest(".ticketList").data("id")
-        location.href = `../html/ticeketDetail.html?filmId=${id}`
     })
 </script>
