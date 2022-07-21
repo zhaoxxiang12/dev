@@ -155,7 +155,7 @@
                 isShowingMovie.push(item)
             }
         })
-
+        let movieListLength = (2.5 + 0.2) * isShowingMovie.length + "rem"
         let div = isShowingMovie.map(item => {
             let movieName = item.title.split(" ")[0]
             let image = item.imgSrc
@@ -170,7 +170,7 @@
                             </div>
                 `
         }).join("")
-        $(".isShowing .movieList").append(div)
+        $(".isShowing .movieList").css("width", movieListLength).append(div)
 
     } else {
         $(".isShow .movieList").html("暂无数据")
@@ -184,6 +184,7 @@
                 willShowMovies.push(item)
             }
         })
+        let movieListLength = (2.5 + 0.2) * willShowMovies.length + "rem"
         let div = willShowMovies.map(movies => {
             let movieName = movies.title.split(" ")[0]
             let image = movies.imgSrc
@@ -197,7 +198,7 @@
                                 </div>
                             </div> `
         }).join("")
-        $(".willShow .movieList").append(div)
+        $(".willShow .movieList").css("width", movieListLength).append(div)
     } else {
         $(".isShow .movieList").html("暂无数据")
     }
@@ -207,6 +208,7 @@
         let result = movieList.movies.sort((x, y) => {
             return y.score - x.score
         })
+        let movieListLength = (2.5 + 0.2) * result.length + "rem"
         let div = result.map(item => {
             let movieName = item.title.split(" ")[0]
             let image = item.imgSrc
@@ -221,7 +223,7 @@
                     </div>
                 `
         }).join("")
-        $('.scoreBoard .movieList').append(div)
+        $('.scoreBoard .movieList').css("width", movieListLength).append(div)
 
 
         // 判断是否已购票
