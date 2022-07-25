@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    student = {
+        name: "张三",
+        age: 22,
+        score: [98, 100, 98],
+        friends: [{
+            name: "李四",
+            age: 24,
+            money: [1222.3221]
+        }],
+        run: function () {
+            console.log(222);
+        }
+    }
+
+    // // 循环student每一个属性
+    // let copyObj = {}
+    // for (let attr in student) {
+    //     copyObj[attr] = student[attr]
+    // }
+
+    // 定义函数用于将对象进行深度拷贝
+    function copyObject(object) {
+        let newObject = {};
+        // 拷贝对象属性
+        for (let attr in object) {
+            if (object[attr] instanceof Array) {
+                // 调用copyArray将object中attr
+                newObject[attr] = copyArray(object[attr]);
+            } else if (object[attr] instanceof Object && !(object[attr] instanceof Function)) {
+                // 将student 中的对象属性拷贝为一个新的对象,再将新对象存储到新对象中
+                let o = copyObject(object[attr]);
+                newObject[attr] = o;
+            } else {
+                newObject[attr] = object[attr];
+            }
+        }
+        return newObject;
+    }
+    // 定义函数用于将数组进行深度拷贝
+    function copyArray(array) {
+        let newArray = [];
+        for (let value of array) {
+            if (value instanceof Array) {
+                newArray.push(copyArray(value));
+            } else if (value instanceof Object && !(value instanceof Function)) {
+                newArray.push(copyObject(value));
+            } else {
+                newArray.push(value);
+            }
+        }
+        return newArray;
+    }
+
+    // 遍历多维数组
+    function duo(arr) {
+        arr.forEach(value => {
+            if (value instanceof Array) {
+                duo(value)
+            } else {
+                console.log(value);
+            }
+        })
+    }
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Plane {
+        constructor (type, speed, model) {
+            this.type = type;
+            this.speed = speed;
+            this.model = model;
+        }
+        takeOff () {
+            console.log("起飞");
+        }
+        land () {
+            console.log("降落");
+        }
+    }
+    class Fighter extends Plane {
+        constructor (type, speed, model,bulletNo) {
+            super(type, speed, model);
+            this.bulletNo = bulletNo;
+        }
+        attack () {
+            console.log("攻击");
+        }
+    }
+
+    class Helicopter extends Plane {
+        constructor (type, speed, model,propellerNo) {
+            super(type, speed, model);
+            this.propellerNo = propellerNo;
+        }
+    }
+
+    let fighter = new Fighter("黑鹰战机", "30马赫", "7750", "1000")
+    console.log(fighter);
+    fighter.attack()
+    fighter.takeOff()
+    fighter.land()
+</script>
