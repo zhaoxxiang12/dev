@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jQuery/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <p>
+        姓名 <input type="text" id="name">
+    </p>
+    <p>
+        年龄 <input type="text" id="age">
+    </p>
+    <p>
+        性别 
+        男 <input type="radio" name="gender" value="1">
+        女 <input type="radio" name="gender" value="0">
+    </p>
+    <p>
+        爱好 
+        吃饭 <input type="checkbox" name="hobby" value="吃饭">
+        睡觉 <input type="checkbox" name="hobby" value="睡觉">
+        打豆豆 <input type="checkbox" name="hobby" value="打豆豆">
+    </p>
+    <p>
+        <button id="add">添加</button>
+    </p>
+    <a href="./stu_list.html">跳转列表</a>
+</body>
+</html>
+<script>
+    $("#add").click(function () {
+        let id = localStorage.id
+        if (id) {
+            id = id - 0
+            id++
+        } else {
+            id = 1
+        }
+
+        let hobbyList = []
+        $("input[name='hobby']:checked").each((index,item) => {
+            hobbyList.push($(item).val())
+        })
+        let students = {
+            id:id,
+            name:$("#name").val(),
+            age:$("#age").val(),
+            gender:$("input[name='gender']:checked").val(),
+            hobby:hobbyList
+        }
+        let localStudents = localStorage.student
+        if (localStudents !== null) {
+            localStudents = JSON.parse(localStudents)
+        } else {
+            localStudents = []
+        }
+        localStudents.push(students)
+        localStudents = JSON.stringify(localStudents)
+        localStorage.setItem("student", localStudents)
+        localStorage.setItem("id", id)
+    })
+</script>

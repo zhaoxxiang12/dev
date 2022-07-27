@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 1 定义一个函数， 接收一个对象， 如果有sex属性就返回sex属性， 否则返回 未知
+    let info = {
+        sex: "男",
+        name: "子龙"
+    }
+
+    function returnSex({sex="未知"}) {
+        return sex
+    }
+    // console.log(returnSex(info));
+    // //     2 已知：
+    let students = [
+        ['pyy', 12, '男'], //姓名 年龄  性别 
+        ['wyz', 23, '男'],
+        ['wemz', 33, '女']
+    ];
+
+    // // 请分别使用map和 解构的方式转为以下数组
+    //  [
+    //      { name: 'pyy', age: 12, 'sex': '男'},
+    //      { name: 'pyy', age: 12, 'sex': '男'},
+    //      { name: 'pyy', age: 12, 'sex': '男'},
+    //  ];
+    // let studentsArray = students.map(item => {
+    //     return {
+    //         name: item[0],
+    //         age: item[1],
+    //         sex: item[2]
+    //     }
+    // })
+    // console.log(studentsArray);
+    // let newStudents = []
+    // students.forEach(item => {
+    //     newStudents.push({
+    //         name,
+    //         age,
+    //         sex
+    //     } = {
+    //         name: item[0],
+    //         age: item[1],
+    //         sex: item[2]
+    //     })
+
+    // })
+
+
+    students.forEach((item,index) => {
+        let [name,age,sex] = item
+        students[index] = {name,age,sex}
+    })
+    console.log(students);
+
+
+    // 3
+    let arr1 = [{
+            name: 'pyy1',
+            age: 19,
+            sex: 'man'
+        },
+        {
+            name: 'pyy2',
+            age: 44,
+            sex: 'woman'
+        },
+        {
+            name: 'pyy3',
+            age: 16
+        },
+    ];
+    let arr2 = [{
+            name: 'pyy4',
+            age: 16,
+            sex: 'man'
+        },
+        {
+            name: 'pyy5',
+            age: 25,
+            sex: 'woman'
+        },
+        {
+            name: 'pyy6',
+            age: 27
+        },
+    ];
+
+    // 	1. 使用扩展运算符  把arr1和arr2合并  得到数组arr
+    arr = [...arr1, ...arr2]
+    // 	2. 在arr中去找，age大于20岁的，如果有性别就输出性别  否则输出性别为 未知(必须使用完成解构来完成)
+    // for (let k of arr) {
+    //     if (k.age > 20) {
+    //         let {
+    //             sex
+    //         } = k
+    //         let a = query({
+    //             sex
+    //         } = k)
+    //         console.log(a);
+    //     }
+    // }
+
+    // function query({
+    //     sex = "未知"
+    // }) {
+    //     return sex
+    // }
+    arr.filter(item => item.age > 20).forEach(item => {
+        let {sex = "未知"} = item;
+        console.log(sex);
+    })
+
+    // 4
+    let result = {
+        code: 1,
+        msg: 'suc',
+        data: [{
+                name: 'pyy',
+                age: 27,
+                id: 1
+            },
+            {
+                name: 'wyz',
+                age: 18,
+                id: 2
+            },
+            {
+                name: 'gtl',
+                age: 19,
+                id: 3
+            },
+            {
+                name: 'cgx',
+                age: 24,
+                id: 4
+            },
+        ]
+    }
+
+    //  使用解构赋值， 拿取到data的数据（ 使用变量data1来保存）,并且打印data1
+    let {
+        data: data1
+    } = result
+
+
+
+    // 5
+    // 定义一个函数，传入多个数据，完成字符串拼接并返回(请使用rest参数)
+    // 比如 传入 'a','b','c'三个参数  ,则返回 abc
+
+    function splicing(...rest) {
+        return rest.join("")
+    }
+    //  splicing('a','b','c')
+
+
+    // 6
+    let obj = {
+        num1: 10,
+        num2: 11,
+        num3: 15
+    }
+    // 1 让用户输入属性，获得对应的属性值
+    function getValue(data) {
+        for (let k in obj) {
+            if (data == k) {
+                return obj[k]
+            }
+        }
+    }
+    //    console.log(getValue("num2")); 
+    // 2 obj中所有属性值全部+10（分别使用Object.keys和for...in 两种方式）
+
+    // let keys = Object.keys(obj)
+    // keys.forEach(key => {
+    //     obj[key] += 10
+    // })
+    for (let key in obj) {
+        obj[key] += 10
+    }
+
+    // 3  给obj添加xx方法，输出任意内容，然后执行该方法
+    obj.show = function () {
+        console.log(this.num3);
+    }
+    obj.show()
+
+
+    let student = [
+        ['pyy', 12, '男'], //姓名 年龄  性别 
+        ['wyz', 23, '男'],
+        ['wemz', 33, '女']
+    ];
+
+     // 转为 [
+    //      {  'pyy',  12,  '男'},
+    //      { 'pyy',  12,  '男'},
+    //      {  'pyy',  12,  '男'},
+    //  ];
+
+   let newArray = student.map(item => {
+        return {
+            ...item
+        }
+    })
+
+    console.log(newArray);
+</script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jQuery/jquery-3.5.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+
+        th {
+            border: 1px solid #ccc;
+        }
+
+        th:nth-child(n+1) {
+            border-left: none;
+        }
+
+        th:first-child {
+            border-left: 1px solid #ccc;
+        }
+
+        tbody tr td {
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+        }
+
+        tbody tr td:first-child {
+            border-left: 1px solid #ccc;
+        }
+
+        a {
+            margin-left: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <table cellspacing="0" cellpadding="0">
+            <thead>
+                <th width="10%">学号</th>
+                <th width="10%">姓名</th>
+                <th width="10%">年龄</th>
+                <th width="10%">性别</th>
+                <th width="20%">爱好</th>
+                <th width="15%">操作</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <a href="./stu_add.html">跳转添加界面</a>
+    </div>
+</body>
+
+</html>
+<script>
+    function show() {
+        let data = localStorage.getItem("student")
+        data = JSON.parse(data)
+        if (data !== null && data.length !== 0) {
+            let table = data.map(item => {
+                return `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.age}</td>
+                <td>${item.gender==1?gender="男":"女"}</td>
+                <td>${item.hobby}</td>
+                <td>
+                    <button type="button" class="edit">修改</button>
+                    <button type="button" class="del">删除</button>
+                </td>
+            </tr>   
+            `
+            })
+            $(".outer table tbody").empty()
+            $(".outer table tbody").append(table)
+        } else {
+            let tr = `
+        <tr>
+                <td colspan="6">暂无数据</td>
+            </tr> 
+        `
+            $(".outer table tbody").empty()
+            $(".outer table tbody").append(tr)
+        }
+    }
+    show()
+
+    $(".outer table tbody").on("click", ".del", function () {
+        let id = $(this).closest("tr").find("td:first-child").html()
+        let student = JSON.parse(localStorage.student)
+        let filterStudent = JSON.stringify(student.filter(item => item.id != id))
+        localStorage.setItem("student", filterStudent)
+        show()
+    })
+
+    $(".outer table tbody").on("click", ".edit", function () {
+        let id = $(this).closest("tr").find("td:first-child").html()
+        location.href = './stu_update.html?id='+id
+    })
+</script>

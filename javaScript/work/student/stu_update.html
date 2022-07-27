@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../jQuery/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <p>
+        姓名 <input type="text" id="name">
+    </p>
+    <p>
+        年龄 <input type="text" id="age">
+    </p>
+    <p>
+        性别
+        男 <input type="radio" name="gender" value="1">
+        女 <input type="radio" name="gender" value="0">
+    </p>
+    <p>
+        爱好
+        吃饭 <input type="checkbox" name="hobby" value="吃饭">
+        睡觉 <input type="checkbox" name="hobby" value="睡觉">
+        打豆豆 <input type="checkbox" name="hobby" value="打豆豆">
+    </p>
+    <p>
+        <button id="upd">修改</button>
+    </p>
+    <a href="./stu_list.html">跳转列表</a>
+</body>
+
+</html>
+<script>
+    let id = location.search.split("=")[1]
+    let students = JSON.parse(localStorage.student);
+    let filterData = students.filter(item => item.id == id)[0]
+    $("#name").val(filterData.name)
+    $("#age").val(filterData.age)
+    $("input[name='gender']").val([filterData.gender])
+    $("input[name='hobby']").val(filterData.hobby)
+    $("#upd").click(function () {
+      filterData.name = $("#name").val()
+      filterData.age = $("#age").val()
+      let hobby = []
+      $("input[name=hobby]:checked").each((index,item) => {
+        hobby.push($(item).val())
+      })
+      filterData.gender = $("input[name='gender']:checked").val()
+      filterData.hobby = hobby
+      console.log(filterData);
+      localStorage.student = JSON.stringify(students)
+    })
+</script>
